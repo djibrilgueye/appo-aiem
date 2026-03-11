@@ -1,0 +1,20 @@
+﻿# AIEM — Fiche de collecte : INSTITUTS DE FORMATION / TRAINING INSTITUTES
+# Source de référence : APPO Forum of Directors of Oil & Gas Training Institutes
+# Instructions :
+#   - center_id : identifiant unique (format TRNxxx, ex. TRN001)
+#   - name : nom complet de l'institut (acronyme — nom complet — ville)
+#       ex. PTI — Petroleum Training Institute (Effurun)
+#   - code : code ISO du pays
+#   - lat / lon : coordonnées GPS de l'institut (décimales)
+#   - type : exactement l'une des valeurs :
+#       Technical | Academic | Corporate | Research/Training
+#   - year : année de création (optionnel, laisser vide si inconnu)
+#
+center_id,name,code,lat,lon,type,year
+TRN001,PTI — Petroleum Training Institute (Effurun),NGA,5.56,5.79,Technical,1973
+TRN002,IAP — Algerian Petroleum Institute (Boumerdès),DZA,36.76,3.47,Academic,1965
+TRN003,MIOG — Morendat Institute of Oil & Gas (Nakuru),KEN,-0.30,36.07,Technical,2013
+TRN004,ESTP — School of Geology & Mining (Brazzaville),COG,-4.27,15.29,Academic,1996
+TRN005,ENSPM — National School of Petroleum (Hassi Messaoud),DZA,31.68,6.07,Technical,1964
+# Ajouter les instituts manquants ci-dessous :
+# TRNxxx,Nom complet (Ville),CODE,lat,lon,type,annee

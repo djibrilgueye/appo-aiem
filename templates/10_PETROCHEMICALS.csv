@@ -1,0 +1,21 @@
+﻿# AIEM — Fiche de collecte : COMPLEXES PÉTROCHIMIQUES / PETROCHEMICAL PLANTS
+# Source de référence : GlobalData / Offshore Technology — publications des opérateurs (Dangote, SASOL, Sonatrach, ECHEM…)
+# Instructions :
+#   - plant_id : identifiant unique (format PETxxx, ex. PET001)
+#   - name : nom officiel du complexe
+#   - code : code ISO du pays
+#   - lat / lon : coordonnées GPS (décimales)
+#   - products : produits fabriqués, séparés par "|"
+#       ex. Polyethylene|Polypropylene|Fertilizer
+#   - capacity : capacité de production avec unité
+#       ex. "350 kt/yr" | "1 300 kt/yr" | "2 100 kt/yr"
+#
+plant_id,name,code,lat,lon,products,capacity
+PET001,Indorama Eleme Petrochemicals,NGA,4.79,7.09,Polyethylene|Polypropylene,350 kt/yr
+PET002,Dangote Petrochemicals Complex,NGA,6.43,3.54,Polyethylene|Polypropylene|Fertilizer,900 kt/yr
+PET003,Skikda Petrochemical Complex,DZA,36.87,6.91,Ethylene|Polyethylene|Methanol,600 kt/yr
+PET004,MOPCO Fertilizer Plant (Damietta),EGY,31.42,31.81,Urea|Ammonia,1300 kt/yr
+PET005,SASOL Secunda Complex,ZAF,-26.55,29.17,Ethylene|Propylene|Polymers|Waxes,2100 kt/yr
+PET006,PetroRabigh (Arzew),DZA,35.83,-0.27,Fertilizer|Methanol|Ammonia,450 kt/yr
+# Ajouter les complexes manquants ci-dessous :
+# PETxxx,Nom officiel,CODE,lat,lon,produit1|produit2|produit3,capacite

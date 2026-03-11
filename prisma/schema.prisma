@@ -16,6 +16,7 @@ model User {
   password      String?
   image         String?
   role          String    @default("user") // admin, editor, user
+  active        Boolean   @default(true)
   accounts      Account[]
   sessions      Session[]
   createdAt     DateTime  @default(now())
@@ -56,7 +57,61 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// IHMA Data Models
+model OtpToken {
+  id          String   @id @default(cuid())
+  identifier  String
+  hashedOtp   String
+  expires     DateTime
+  attempts    Int      @default(0)
+  invalidated Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([identifier])
+}
+
+model OtpRateLimit {
+  id          String   @id @default(cuid())
+  identifier  String
+  windowStart DateTime
+  count       Int      @default(1)
+
+  @@unique([identifier, windowStart])
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  userName    String?
+  userEmail   String?
+  userRole    String?
+  action      String   // CREATE UPDATE DELETE LOGIN LOGOUT ACCESS EXPORT IMPORT
+  entity      String   // User Country Basin Refinery Pipeline Reserve Production AllowedEmail System
+  entityId    String?
+  description String
+  changes     String?  // JSON: { field: { old, new } }
+  metadata    String?  // JSON
+  ipAddress   String?
+  status      String   @default("success") // success failure error
+  timestamp   DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([entity])
+  @@index([timestamp])
+  @@index([status])
+}
+
+model AllowedEmail {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  active    Boolean  @default(true)
+  notes     String?
+  addedBy   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// AIEM Data Models
 model Country {
   id          String   @id @default(cuid())
   code        String   @unique
@@ -65,6 +120,7 @@ model Country {
   lat         Float
   lon         Float
   appoMember  Boolean  @default(false)
+  active      Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -128,6 +184,7 @@ model Pipeline {
   coords     String   // JSON array of coordinates
   status     String   // operational, under construction, proposed
   lengthKm   Int?
+  diametre   String?
   capacity   String?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
@@ -230,4 +287,15 @@ model TradeExport {
   updatedAt        DateTime @updatedAt
 
   @@unique([countryId, year])
+}
+
+// Editable content blocks (theme descriptions, sources, etc.)
+model ContentBlock {
+  id        String   @id @default(cuid())
+  key       String   // e.g. "themes", "sources"
+  lang      String   // "fr" | "en" | "pt"
+  value     String   // JSON-encoded content
+  updatedAt DateTime @updatedAt
+
+  @@unique([key, lang])
 }

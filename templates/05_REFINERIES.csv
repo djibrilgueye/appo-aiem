@@ -1,0 +1,21 @@
+﻿# AIEM — Fiche de collecte : RAFFINERIES / REFINERIES
+# Source de référence : Oil & Gas Journal Worldwide Refining Survey — ARDA (African Refiners & Distributors Association)
+# Instructions :
+#   - refinery_id : identifiant unique (format REFxxx, ex. REF001)
+#   - name : nom officiel de la raffinerie
+#   - code : code ISO du pays
+#   - lat / lon : coordonnées GPS de la raffinerie (décimales)
+#   - capacity_kbd : capacité nominale de traitement en kilobarils/jour (kb/d)
+#   - status : exactement l'une des valeurs :
+#       operational | under construction | proposed | idle | decommissioned
+#   - year : année de mise en service (optionnel, laisser vide si inconnu)
+#
+refinery_id,name,code,lat,lon,capacity_kbd,status,year
+REF001,Dangote Refinery,NGA,6.42,3.53,650,operational,2023
+REF002,Port Harcourt Refinery,NGA,4.78,7.01,210,operational,1989
+REF005,Skikda Refinery,DZA,36.88,6.9,335,operational,1980
+REF011,Zawia Refinery,LBY,32.76,12.73,120,operational,1976
+REF014,El-Nasr (MIDOR) Refinery,EGY,31.13,29.78,160,operational,2001
+REF008,Luanda Refinery,AGO,-8.82,13.24,65,operational,1958
+# Ajouter les raffineries manquantes ci-dessous :
+# REFxxx,Nom de la raffinerie,CODE,lat,lon,capacite_kbd,statut,annee

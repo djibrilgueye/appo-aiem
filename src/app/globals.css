@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* ── APPO Brand Colors ── */
+  --appo-blue:        #1B4F72;
+  --appo-blue-dark:   #0D2840;
+  --appo-blue-light:  #5B8FB9;
+  --appo-blue-pastel: #A3C4DC;
+  --appo-gold:        #F4B942;
+  --appo-gold-light:  #F7D078;
+  --appo-grey:        #6C757D;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* ── Light theme semantics ── */
+  --bg:       #F4F7FB;
+  --surface:  #FFFFFF;
+  --panel:    #EBF3FB;
+  --border:   #D0E4F0;
+  --muted:    #5B8FB9;
+  --text:     #0D2840;
+  --text-sub: #5B8FB9;
+  --accent:   #F4B942;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ── Leaflet Popup ── */
+.leaflet-popup-content-wrapper {
+  background: #ffffff;
+  color: var(--appo-blue-dark);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(27, 79, 114, 0.18);
+  border: 1px solid var(--border);
+}
+
+.leaflet-popup-tip {
+  background: #ffffff;
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.leaflet-popup-content strong {
+  color: var(--appo-blue);
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #EBF3FB; }
+::-webkit-scrollbar-thumb { background: var(--appo-blue-pastel); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--appo-gold); }
+
+/* ── Ping animation (map markers) ── */
+@keyframes ping {
+  0%   { transform: scale(1); opacity: 0.8; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
 }

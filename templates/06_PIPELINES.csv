@@ -1,0 +1,25 @@
+﻿# AIEM — Fiche de collecte : PIPELINES / PIPELINES
+# Source de référence : Global Energy Monitor — Gas & Oil Infrastructure Trackers
+# Instructions :
+#   - pipeline_id : identifiant unique (format PIPxxx, ex. PIP001)
+#   - name : nom officiel du pipeline
+#   - countries : codes ISO des pays traversés, séparés par "|" (ex. NGA|BEN|TGO|GHA)
+#   - coords : liste de points GPS définissant le tracé, format lat,lon séparés par "|"
+#       ex. 6.43,3.38|6.36,2.39|4.91,-1.75   (du départ à l'arrivée)
+#   - status : exactement l'une des valeurs :
+#       operational | under construction | proposed | offline | concept
+#   - length_km : longueur totale en km (optionnel)
+#   - capacity : capacité de transport (ex. "5 bcm/yr", "90 kb/d") — optionnel
+#
+pipeline_id,name,countries,status,length_km,capacity,coords
+PIP001,West African Gas Pipeline (WAGP),NGA|BEN|TGO|GHA,operational,678,5 bcm/yr,6.43,3.38|6.36,2.39|6.13,1.22|4.91,-1.75
+PIP002,Niger–Benin Export Pipeline,NER|BEN,operational,1950,90 kb/d,16.0,14.5|13.0,2.0|6.37,2.62
+PIP003,TransMed (Enrico Mattei),DZA|TUN,operational,2475,32.5 bcm/yr,32.75,3.25|35.3,8.1|36.85,10.33
+PIP004,Maghreb–Europe Gas Pipeline (African section),DZA|MAR,offline,1620,12 bcm/yr,31.7,-2.8|33.7,-2.0|34.9,-5.5
+PIP005,Greenstream (African section),LBY,operational,540,11 bcm/yr,32.62,12.49|33.0,12.0|33.9,12.6
+PIP006,ROMPCO — Mozambique–South Africa Gas Pipeline,MOZ|ZAF,operational,865,4.6 bcm/yr,-21.23,35.0|-25.43,31.96|-26.52,29.17
+PIP007,EACOP — East African Crude Oil Pipeline,UGA|TZA,under construction,1443,216 kb/d,1.37,32.29|-1.95,33.48|-5.07,39.1
+PIP008,Trans-Saharan Gas Pipeline (TSGP),NGA|NER|DZA,proposed,4128,30 bcm/yr,6.44,3.39|11.99,8.52|17.6,8.1|27.2,2.6
+PIP009,Nigeria–Morocco Gas Pipeline (NMGP),NGA|BEN|TGO|GHA|CIV|SEN|MAR,proposed,5660,40 bcm/yr,6.44,3.39|6.36,2.39|5.55,-0.2|5.32,-4.02|9.64,-13.58|14.69,-17.44|33.6,-7.6
+PIP010,Central African Regional Pipeline (concept),COG|GAB|CMR,concept,1500,,-4.27,15.28|0.39,9.45|4.06,9.71
+# Ajouter les pipelines manquants ci-dessous :

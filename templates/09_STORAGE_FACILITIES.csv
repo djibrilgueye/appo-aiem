@@ -1,0 +1,20 @@
+﻿# AIEM — Fiche de collecte : INSTALLATIONS DE STOCKAGE / STORAGE FACILITIES
+# Source de référence : GIIGNL Annual Report — Global Energy Monitor Gas Infrastructure Tracker
+# Instructions :
+#   - storage_id : identifiant unique (format STRxxx, ex. STR001)
+#   - name : nom officiel du terminal ou site de stockage
+#   - code : code ISO du pays
+#   - lat / lon : coordonnées GPS (décimales)
+#   - type : exactement l'une des valeurs :
+#       Crude Oil | LNG | Products | LPG | Strategic Reserve
+#   - capacity_mb : capacité en millions de barils (Mb) — utiliser point "." comme décimale
+#
+storage_id,name,code,lat,lon,type,capacity_mb
+STR001,Saldanha Bay Tank Farm,ZAF,-33.01,17.93,Crude Oil,45
+STR002,Bonny Island LNG Terminal,NGA,4.42,7.16,LNG,22
+STR003,Arzew LNG Terminal,DZA,35.82,-0.26,LNG,30
+STR004,Soyo LNG Terminal,AGO,-6.13,12.37,LNG,5.2
+STR005,Suez Oil Terminal,EGY,29.97,32.55,Crude Oil,15
+STR006,Malabo Storage,GNQ,3.75,8.78,LNG,3.4
+# Ajouter les installations manquantes ci-dessous :
+# STRxxx,Nom officiel,CODE,lat,lon,type,capacite_mb

@@ -1,0 +1,22 @@
+﻿# AIEM — Fiche de collecte : PRODUCTION DE PÉTROLE & GAZ / OIL & GAS PRODUCTION
+# Source de référence : IEA World Energy Balances (WBES) — OPEC Monthly Oil Market Report
+# Instructions :
+#   - Une ligne par pays ET par année
+#   - code : ISO 3166-1 alpha-3
+#   - year : année de référence
+#   - oil_kbd : production de pétrole brut en kilobarils/jour (kb/d) — mettre 0 si aucune donnée
+#   - gas_mm3yr : production de gaz naturel en millions de m³/an (M m³/yr) — mettre 0 si aucune donnée
+#   - Valeur inconnue : laisser la cellule vide
+#
+code,year,oil_kbd,gas_mm3yr
+NGA,2024,1250,45000
+DZA,2024,907,103966
+AGO,2024,1100,8500
+LBY,2024,1200,12500
+EGY,2024,560,67000
+COG,2024,270,2000
+GAB,2024,181,400
+GNQ,2024,85,6300
+GHA,2024,145,300
+TCD,2024,125,0
+# Ajouter les années précédentes et les pays manquants ci-dessous :

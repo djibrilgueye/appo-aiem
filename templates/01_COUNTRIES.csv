@@ -1,0 +1,37 @@
+﻿# AIEM — Fiche de collecte : PAYS / COUNTRIES
+# Instructions :
+#   - Ne pas modifier les en-têtes (ligne commençant par code, name…)
+#   - code : code ISO 3166-1 alpha-3 (ex. NGA, DZA, ZAF)
+#   - region : exactement l'une des valeurs suivantes :
+#       North Africa | West Africa | Central Africa | East Africa | Southern Africa
+#   - lat / lon : coordonnées du centroïde du pays (décimales, point "." comme séparateur)
+#   - appo_member : TRUE ou FALSE
+#
+code,name,region,lat,lon,appo_member
+DZA,Algeria,North Africa,28.0,2.6,TRUE
+EGY,Egypt,North Africa,26.0,30.0,TRUE
+LBY,Libya,North Africa,27.0,17.0,TRUE
+TUN,Tunisia,North Africa,34.0,9.0,FALSE
+MAR,Morocco,North Africa,32.0,-6.0,FALSE
+NGA,Nigeria,West Africa,9.0,8.0,TRUE
+GHA,Ghana,West Africa,7.5,-1.0,FALSE
+CIV,Ivory Coast,West Africa,7.5,-5.5,TRUE
+SEN,Senegal,West Africa,14.5,-14.5,TRUE
+NER,Niger,West Africa,17.6,8.1,TRUE
+BEN,Benin,West Africa,9.3,2.3,TRUE
+TGO,Togo,West Africa,8.6,0.8,TRUE
+AGO,Angola,Central Africa,-12.5,18.5,TRUE
+COG,Congo,Central Africa,-1.0,15.0,TRUE
+COD,Dem. Rep. of the Congo,Central Africa,-4.0,22.0,TRUE
+GAB,Gabon,Central Africa,-0.8,11.8,TRUE
+GNQ,Equatorial Guinea,Central Africa,1.5,10.0,TRUE
+TCD,Chad,Central Africa,15.0,19.0,TRUE
+CMR,Cameroon,Central Africa,6.0,12.0,TRUE
+SDN,Sudan,East Africa,15.5,32.5,TRUE
+SSD,South Sudan,East Africa,7.0,30.0,TRUE
+KEN,Kenya,East Africa,-1.0,38.0,FALSE
+TZA,Tanzania,East Africa,-6.0,35.0,FALSE
+UGA,Uganda,East Africa,1.4,32.3,FALSE
+MOZ,Mozambique,East Africa,-18.0,35.0,FALSE
+ZAF,South Africa,Southern Africa,-29.0,24.0,TRUE
+NAM,Namibia,Southern Africa,-22.0,17.0,FALSE

@@ -1,0 +1,20 @@
+﻿# AIEM — Fiche de collecte : BASSINS SÉDIMENTAIRES & CHAMPS / BASINS & FIELDS
+# Source de référence : USGS World Petroleum Assessment — AAPG/CGG Robertson Tellus Sedimentary Basins
+# Instructions :
+#   - basin_id : identifiant unique (format BASxxx, ex. BAS001)
+#   - name : nom officiel du bassin ou champ
+#   - code : code ISO du pays où est localisé le centroïde
+#   - type : exactement l'une des valeurs : Oil | Gas | Oil & Gas
+#   - lat / lon : coordonnées du centroïde du bassin (décimales)
+#   - area_km2 : superficie approximative en km² (optionnel, laisser vide si inconnu)
+#
+basin_id,name,code,type,lat,lon,area_km2
+BAS001,Niger Delta Basin,NGA,Oil & Gas,4.9,6.3,75000
+BAS002,Anambra Basin,NGA,Oil & Gas,6.2,7.0,30000
+BAS005,Hassi Messaoud,DZA,Oil,31.7,6.0,350
+BAS006,Hassi R'Mel,DZA,Gas,32.9,3.3,3500
+BAS008,Sirte Basin,LBY,Oil & Gas,29.0,18.0,600000
+BAS011,Nile Delta Basin,EGY,Gas,31.0,31.0,60000
+BAS014,Lower Congo Basin,AGO,Oil & Gas,-6.5,12.0,50000
+BAS022,Rovuma Basin,MOZ,Gas,-11.0,40.5,180000
+# Ajouter les bassins manquants ci-dessous :

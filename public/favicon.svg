@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Outer droplet border (dark blue) -->
+  <path fill="#164E7A" d="M100,10 C100,10 20,80 20,145 C20,190 55,225 100,225 C145,225 180,190 180,145 C180,80 100,10 100,10 Z"/>
+
+  <!-- Middle white border -->
+  <path fill="#FFFFFF" d="M100,18 C100,18 28,82 28,142 C28,184 58,215 100,215 C142,215 172,184 172,142 C172,82 100,18 100,18 Z"/>
+
+  <!-- Inner droplet (blue APPO) -->
+  <path fill="#0D5C8C" d="M100,25 C100,25 35,85 35,140 C35,178 62,208 100,208 C138,208 165,178 165,140 C165,85 100,25 100,25 Z"/>
+
+  <!-- Africa map (gold/yellow) -->
+  <g transform="translate(100, 85) scale(1.2)">
+    <path fill="#FFD700" d="M-15,-25 L-12,-28 L-8,-26 L-5,-28 L-2,-26 L2,-24 L6,-26 L10,-23 L12,-20 L10,-15 L12,-10 L10,-5 L6,0 L8,5 L10,10 L8,15 L5,20 L2,25 L0,28 L-5,30 L-10,32 L-15,30 L-18,27 L-20,23 L-22,18 L-24,13 L-25,8 L-26,3 L-25,-2 L-23,-7 L-20,-12 L-17,-17 L-15,-22 Z"/>
+  </g>
+
+  <!-- APPO text (yellow/lime) -->
+  <text x="100" y="130" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="900" fill="#FFED4E" text-anchor="middle" letter-spacing="2">APPO</text>
+
+  <!-- Bottom border circles -->
+  <circle cx="35" cy="220" r="8" fill="#164E7A" stroke="#FF6B35" stroke-width="2"/>
+  <circle cx="165" cy="220" r="8" fill="#164E7A" stroke="#FF6B35" stroke-width="2"/>
+
+  <!-- UPIP text (orange, curved) -->
+  <path id="textPath" d="M 45,218 Q 100,225 155,218" fill="none"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900" fill="#FF6B35" letter-spacing="6">
+    <textPath href="#textPath" startOffset="50%" text-anchor="middle">
+      UPIP
+    </textPath>
+  </text>
+</svg>

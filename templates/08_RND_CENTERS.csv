@@ -1,0 +1,19 @@
+﻿# AIEM — Fiche de collecte : CENTRES R&D / R&D CENTERS
+# Source de référence : Publications officielles des compagnies nationales (NNPC, Sonatrach, EPRI, SASOL…)
+# Instructions :
+#   - center_id : identifiant unique (format RNDxxx, ex. RND001)
+#   - name : nom complet du centre (et ville entre parenthèses)
+#       ex. NNPC R&D (Port Harcourt)
+#   - code : code ISO du pays
+#   - lat / lon : coordonnées GPS du centre (décimales)
+#   - focus : domaine de recherche principal
+#       ex. Upstream & Downstream R&D | Exploration & production technologies | Refining & petrochemicals | Energy & materials research
+#   - year : année de création (optionnel, laisser vide si inconnu)
+#
+center_id,name,code,lat,lon,focus,year
+RND001,NNPC R&D (Port Harcourt),NGA,4.81,7.01,Upstream & Downstream R&D,1991
+RND002,Sonatrach R&D Center (Boumerdès),DZA,36.76,3.48,Exploration & production technologies,1985
+RND003,Egyptian Petroleum Research Institute (Cairo),EGY,30.08,31.28,Refining & petrochemicals,1973
+RND004,iThemba LABS (Cape Town),ZAF,-33.94,18.71,Energy & materials research,2004
+# Ajouter les centres R&D manquants ci-dessous :
+# RNDxxx,Nom complet (Ville),CODE,lat,lon,domaine_de_recherche,annee
