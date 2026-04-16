@@ -27,6 +27,7 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
   const [storage, setStorage]       = useState<any[]>([])
   const [petrochem, setPetrochem]   = useState<any[]>([])
   const [showExport, setShowExport] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   // Drag state
   const panelRef  = useRef<HTMLDivElement>(null)
@@ -54,6 +55,7 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
       setPipelines(Array.isArray(pip) ? pip : [])
       setStorage(Array.isArray(sto) ? sto : [])
       setPetrochem(Array.isArray(pet) ? pet : [])
+      setLoading(false)
     })
   }, [selectedYear])
 
@@ -218,7 +220,7 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
     zIndex: 1450,
   }
 
-  if (selected.length === 0) {
+  if (loading || selected.length === 0) {
     return (
       <div ref={panelRef} style={panelStyle} className="w-[360px] bg-white text-[#0b2e59] rounded-xl border border-[#D0E4F0] shadow-xl">
         <header
@@ -226,12 +228,14 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
           className="flex items-center gap-2 px-3 py-2 border-b border-[#D0E4F0] font-bold cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl"
         >
           <GripHorizontal size={14} className="opacity-60 shrink-0" />
-          <span className="flex-1 text-sm">Country comparison</span>
+          <span className="flex-1 text-sm">Comparaison des pays</span>
           <button onClick={onClose} title="Close" className="hover:opacity-70 transition ml-1">
             <X size={15} />
           </button>
         </header>
-        <div className="p-3 text-gray-500 text-sm">Select at least one country from the list.</div>
+        <div className="p-3 text-[#5B8FB9] text-sm">
+          {loading ? "Chargement…" : "Sélectionnez au moins un pays dans la liste."}
+        </div>
       </div>
     )
   }

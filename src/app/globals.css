@@ -29,6 +29,11 @@ body {
   color: var(--text);
 }
 
+/* ── Leaflet map background (ocean color) ── */
+.leaflet-container {
+  background: #B8D0E8 !important;
+}
+
 /* ── Leaflet Popup ── */
 .leaflet-popup-content-wrapper {
   background: #ffffff;
@@ -57,6 +62,12 @@ body {
 ::-webkit-scrollbar-track { background: #EBF3FB; }
 ::-webkit-scrollbar-thumb { background: var(--appo-blue-pastel); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--appo-gold); }
+
+/* ── Float animation (APPO-IA robot) ── */
+@keyframes appoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
 
 /* ── Ping animation (map markers) ── */
 @keyframes ping {

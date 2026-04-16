@@ -10,9 +10,11 @@ const basinUpdateSchema = z.object({
   name: z.string().min(2).optional(),
   countryId: z.string().optional(),
   type: z.string().optional(),
+  location: z.string().optional(),
   lat: z.number().optional(),
   lon: z.number().optional(),
   areaKm2: z.number().optional().nullable(),
+  description: z.string().optional().nullable(),
 })
 
 export async function GET(

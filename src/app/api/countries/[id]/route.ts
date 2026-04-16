@@ -13,6 +13,14 @@ const countryUpdateSchema = z.object({
   lon: z.number().optional(),
   appoMember: z.boolean().optional(),
   active: z.boolean().optional(),
+  // Profile fields (TdR §1)
+  capital: z.string().optional().nullable(),
+  currency: z.string().optional().nullable(),
+  independence: z.string().optional().nullable(),
+  population: z.number().int().optional().nullable(),
+  gdpBnUsd: z.number().optional().nullable(),
+  economyDesc: z.string().optional().nullable(),
+  flagEmoji: z.string().optional().nullable(),
 })
 
 export async function GET(

@@ -10,6 +10,7 @@ const productionSchema = z.object({
   year: z.number(),
   oil: z.number(),
   gas: z.number(),
+  condensat: z.number().optional(),
 })
 
 export async function GET(req: Request) {
@@ -17,8 +18,29 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url)
     const countryId = searchParams.get("countryId")
     const year = searchParams.get("year")
-
     const all = searchParams.get("all") === "1"
+
+    // When year is provided (map view), return the most recent data ≤ year per country (last-known)
+    if (year && !countryId) {
+      const yearInt = parseInt(year)
+      const all_records = await prisma.production.findMany({
+        where: {
+          year: { lte: yearInt },
+          ...(all ? {} : { country: { active: true } }),
+        },
+        include: { country: { select: { name: true, code: true } } },
+        orderBy: [{ year: "desc" }],
+      })
+      // Keep only the most recent record per country
+      const seen = new Set<string>()
+      const latest = all_records.filter(r => {
+        if (seen.has(r.countryId)) return false
+        seen.add(r.countryId)
+        return true
+      })
+      return NextResponse.json(latest)
+    }
+
     const productions = await prisma.production.findMany({
       where: {
         ...(countryId && { countryId }),
@@ -51,7 +73,7 @@ export async function POST(req: Request) {
           year: data.year,
         }
       },
-      update: { oil: data.oil, gas: data.gas },
+      update: { oil: data.oil, gas: data.gas, condensat: data.condensat },
       create: data,
       include: { country: { select: { name: true, code: true } } },
     })

@@ -63,10 +63,41 @@
       "Bash(xargs sed -i '' 's/bg-\\\\[#1B4F72\\\\] hover:bg-\\\\[#154060\\\\] \\\\\\(disabled:[^ ]* \\\\\\)\\\\?text-\\\\[#0D2840\\\\]/bg-[#1B4F72] hover:bg-[#154060] \\\\1text-white/g')",
       "Bash(grep -l \"ISO3\\\\|ISO2\\\\|toLocaleString\\\\|divIcon\\\\|marker\" /Users/macbookpro/IHMA/ihma-app/src/app/admin/**/*.tsx)",
       "Bash(git add -A)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npx prisma db seed)",
+      "Bash(npx ts-node -e \" const { PrismaClient } = require\\(''@prisma/client''\\) const p = new PrismaClient\\(\\) async function main\\(\\) { const all = await p.basin.findMany\\({ include: { country: { select: { name: true, active: true } } } }\\) console.log\\(''Total basins:'', all.length\\) all.forEach\\(b => console.log\\(b.id, b.name, ''| country:'', b.country?.name, ''active:'', b.country?.active\\)\\) } main\\(\\).then\\(\\(\\) => p.$disconnect\\(\\)\\) \")",
+      "Bash(grep -v \"^$\")",
+      "Bash(python3 -c \":*)",
+      "Bash(SSH_OPTS=\"-p 2222 -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o IdentityFile=/dev/null -o PubkeyAuthentication=no\")",
+      "Bash(__NEW_LINE_d52a6ed151a4462d__ sshpass -p 'Tg8mK4zR9nL2' ssh -p 2222 -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o PubkeyAuthentication=no ubuntu@51.255.204.141 \":*)",
+      "Bash(pip3 install openpyxl python-docx -q)",
+      "Bash(pip3 install openpyxl python-docx -q --break-system-packages)",
+      "Read(//Users/macbookpro/IHMA/ihma-app/**)",
+      "Bash(python3 -:*)",
+      "Bash(node /tmp/import-trade.mjs)",
+      "Bash(npx ts-node:*)",
+      "Bash(npx tsx:*)",
+      "Bash(sshpass -p 'Tg8mK4zR9nL2' ssh -p 2222 -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o IdentityFile=/dev/null -o PubkeyAuthentication=no ubuntu@51.255.204.141 \":*)",
+      "Bash(find /Users/macbookpro -name *rd-platform* -type d)",
+      "WebSearch",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.offshore-technology.com)",
+      "WebFetch(domain:www.gem.wiki)",
+      "WebFetch(domain:www.eia.gov)",
+      "WebFetch(domain:eir.news)",
+      "Bash(textutil -convert txt -stdout \"/Users/macbookpro/Downloads/Fr_Note_Conceptuelle_Fr_Mars_2026_Posted.doc\")",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(git remote:*)"
     ],
     "additionalDirectories": [
-      "/tmp"
+      "/tmp",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/api/blocks",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/api/basin-documents",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/admin/countries/[id]/edit",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/admin/countries/[id]",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/api/storage",
+      "/Users/macbookpro/IHMA/ihma-app/src/app/admin/storage/[id]"
     ]
   }
 }

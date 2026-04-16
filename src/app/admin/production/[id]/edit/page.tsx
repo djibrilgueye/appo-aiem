@@ -15,7 +15,7 @@ export default function EditProductionPage() {
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
   const [error, setError] = useState("")
-  const [form, setForm] = useState({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0 })
+  const [form, setForm] = useState<{ countryId: string; year: number; oil: number; gas: number; condensat: number | "" }>({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0, condensat: "" })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
 
@@ -28,7 +28,7 @@ export default function EditProductionPage() {
     fetch(`/api/production/${id}`)
       .then(r => r.json())
       .then(d => {
-        setForm({ countryId: d.countryId || "", year: d.year || new Date().getFullYear(), oil: d.oil || 0, gas: d.gas || 0 })
+        setForm({ countryId: d.countryId || "", year: d.year || new Date().getFullYear(), oil: d.oil || 0, gas: d.gas || 0, condensat: d.condensat ?? "" })
         setFetching(false)
       })
       .catch(() => { setError("Failed to load production record"); setFetching(false) })
@@ -63,7 +63,7 @@ export default function EditProductionPage() {
             <label className="block text-[#1B4F72] text-sm mb-1">Year</label>
             <input type="number" min="2000" max="2030" value={form.year} onChange={e => setForm({...form, year: parseInt(e.target.value)||2024})} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-[#1B4F72] text-sm mb-1">Oil production (kb/d)</label>
               <input type="number" step="0.1" value={form.oil} onChange={e => setForm({...form, oil: parseFloat(e.target.value)||0})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
@@ -71,6 +71,10 @@ export default function EditProductionPage() {
             <div>
               <label className="block text-[#1B4F72] text-sm mb-1">Gas production (M m³/yr)</label>
               <input type="number" step="1" value={form.gas} onChange={e => setForm({...form, gas: parseFloat(e.target.value)||0})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
+            </div>
+            <div>
+              <label className="block text-[#1B4F72] text-sm mb-1">Condensate production (kb/d) <span className="text-[#A3C4DC]">optional</span></label>
+              <input type="number" step="0.1" min="0" value={form.condensat} onChange={e => setForm({...form, condensat: e.target.value === "" ? "" : parseFloat(e.target.value)})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
           </div>
           <div className="flex gap-3 pt-2">

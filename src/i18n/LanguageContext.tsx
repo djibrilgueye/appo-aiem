@@ -16,21 +16,22 @@ const LanguageContext = createContext<LanguageContextValue>({
 })
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === "undefined") return "fr"
+  const [lang, setLangState] = useState<Lang>("fr")
+
+  useEffect(() => {
     const stored =
       (localStorage.getItem("aiem_lang") as Lang | null) ??
       (localStorage.getItem("ihma_lang") as Lang | null)
-    return stored && ["fr", "en", "pt"].includes(stored) ? stored : "fr"
-  })
-
-  useEffect(() => {
-    const legacy = localStorage.getItem("ihma_lang") as Lang | null
-    const current = localStorage.getItem("aiem_lang") as Lang | null
-    if (!current && legacy && ["fr", "en", "pt"].includes(legacy)) {
-      localStorage.setItem("aiem_lang", legacy)
+    if (stored && ["fr", "en", "pt", "es", "ar"].includes(stored)) {
+      setLangState(stored)
+      localStorage.setItem("aiem_lang", stored)
     }
   }, [])
+
+  useEffect(() => {
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"
+    document.documentElement.lang = lang
+  }, [lang])
 
   const setLang = (l: Lang) => {
     setLangState(l)

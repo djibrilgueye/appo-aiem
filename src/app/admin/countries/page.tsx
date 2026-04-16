@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Plus, Edit, Trash2 } from "lucide-react"
+import { Plus, Edit, Trash2, FolderOpen, User, BarChart3 } from "lucide-react"
 
 interface Country {
   id: string
@@ -146,6 +146,27 @@ export default function CountriesPage() {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex items-center justify-end gap-2">
+                      <Link
+                        href={`/admin/countries/${country.id}/profile`}
+                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+                        title="Profil pays & SNH"
+                      >
+                        <User size={16} />
+                      </Link>
+                      <Link
+                        href={`/admin/countries/${country.id}/economics`}
+                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+                        title="Données économiques"
+                      >
+                        <BarChart3 size={16} />
+                      </Link>
+                      <Link
+                        href={`/admin/countries/${country.id}/documents`}
+                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+                        title="Documents & Photos"
+                      >
+                        <FolderOpen size={16} />
+                      </Link>
                       <Link
                         href={`/admin/countries/${country.id}/edit`}
                         className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"

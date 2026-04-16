@@ -10,6 +10,7 @@ const reserveUpdateSchema = z.object({
   year: z.number().optional(),
   oil: z.number().optional(),
   gas: z.number().optional(),
+  condensat: z.number().nullable().optional(),
 })
 
 export async function GET(

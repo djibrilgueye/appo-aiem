@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Database, MapPin, Factory, GitBranch, BarChart3, Users, Plus, RefreshCw, Upload, Shield, Mail, FileText } from "lucide-react"
+import { Database, MapPin, Factory, GitBranch, BarChart3, Users, Plus, RefreshCw, Upload, Shield, Mail, FileText, Warehouse, FlaskConical, GraduationCap, Microscope, ArrowLeftRight } from "lucide-react"
 
 interface Stats {
   countries: number
@@ -14,6 +14,12 @@ interface Stats {
   reserves: number
   productions: number
   users: number
+  storage: number
+  petrochem: number
+  training: number
+  rnd: number
+  tradeImports: number
+  tradeExports: number
 }
 
 export default function AdminPage() {
@@ -37,7 +43,7 @@ export default function AdminPage() {
 
   const fetchStats = async () => {
     try {
-      const [countries, basins, refineries, pipelines, reserves, productions, users] = await Promise.all([
+      const [countries, basins, refineries, pipelines, reserves, productions, users, storage, petrochem, training, rnd, tradeImports, tradeExports] = await Promise.all([
         fetch("/api/countries?all=1").then(r => r.json()),
         fetch("/api/basins?all=1").then(r => r.json()),
         fetch("/api/refineries?all=1").then(r => r.json()),
@@ -45,16 +51,28 @@ export default function AdminPage() {
         fetch("/api/reserves?all=1").then(r => r.json()),
         fetch("/api/production?all=1").then(r => r.json()),
         fetch("/api/admin/users").then(r => r.ok ? r.json() : []),
+        fetch("/api/storage").then(r => r.ok ? r.json() : []),
+        fetch("/api/petrochem").then(r => r.ok ? r.json() : []),
+        fetch("/api/training").then(r => r.ok ? r.json() : []),
+        fetch("/api/rnd").then(r => r.ok ? r.json() : []),
+        fetch("/api/trade/imports").then(r => r.ok ? r.json() : []),
+        fetch("/api/trade/exports").then(r => r.ok ? r.json() : []),
       ])
 
       setStats({
-        countries:   Array.isArray(countries)   ? countries.length   : 0,
-        basins:      Array.isArray(basins)       ? basins.length      : 0,
-        refineries:  Array.isArray(refineries)   ? refineries.length  : 0,
-        pipelines:   Array.isArray(pipelines)    ? pipelines.length   : 0,
-        reserves:    Array.isArray(reserves)     ? reserves.length    : 0,
-        productions: Array.isArray(productions)  ? productions.length : 0,
-        users:       Array.isArray(users)        ? users.length       : 0,
+        countries:    Array.isArray(countries)    ? countries.length    : 0,
+        basins:       Array.isArray(basins)        ? basins.length       : 0,
+        refineries:   Array.isArray(refineries)    ? refineries.length   : 0,
+        pipelines:    Array.isArray(pipelines)     ? pipelines.length    : 0,
+        reserves:     Array.isArray(reserves)      ? reserves.length     : 0,
+        productions:  Array.isArray(productions)   ? productions.length  : 0,
+        users:        Array.isArray(users)         ? users.length        : 0,
+        storage:      Array.isArray(storage)       ? storage.length      : 0,
+        petrochem:    Array.isArray(petrochem)     ? petrochem.length    : 0,
+        training:     Array.isArray(training)      ? training.length     : 0,
+        rnd:          Array.isArray(rnd)           ? rnd.length          : 0,
+        tradeImports: Array.isArray(tradeImports)  ? tradeImports.length : 0,
+        tradeExports: Array.isArray(tradeExports)  ? tradeExports.length : 0,
       })
     } catch (error) {
       console.error("Failed to fetch stats:", error)
@@ -97,16 +115,23 @@ export default function AdminPage() {
   }
 
   const statCards = [
-    { label: "Countries",      value: stats?.countries   ?? 0, icon: MapPin,   href: "/admin/countries",      color: "bg-blue-500" },
-    { label: "Basins",         value: stats?.basins      ?? 0, icon: Database,  href: "/admin/basins",         color: "bg-amber-500" },
-    { label: "Refineries",     value: stats?.refineries  ?? 0, icon: Factory,   href: "/admin/refineries",     color: "bg-purple-500" },
-    { label: "Pipelines",      value: stats?.pipelines   ?? 0, icon: GitBranch, href: "/admin/pipelines",      color: "bg-orange-500" },
-    { label: "Reserves Data",  value: stats?.reserves    ?? 0, icon: BarChart3, href: "/admin/reserves",       color: "bg-green-500" },
-    { label: "Production Data",value: stats?.productions ?? 0, icon: BarChart3, href: "/admin/production",     color: "bg-red-500" },
-    { label: "Users",          value: stats?.users       ?? 0, icon: Users,     href: "/admin/users",          color: "bg-teal-500" },
-    { label: "Audit Logs",     value: null,                    icon: Shield,    href: "/admin/audit-logs",     color: "bg-violet-500" },
-    { label: "Allowed Emails", value: null,                    icon: Mail,      href: "/admin/allowed-emails", color: "bg-pink-500" },
-    { label: "Content",        value: null,                    icon: FileText,  href: "/admin/content",        color: "bg-cyan-500" },
+    { label: "Countries",        value: stats?.countries    ?? 0, icon: MapPin,          href: "/admin/countries",   color: "bg-blue-500" },
+    { label: "Basins",           value: stats?.basins       ?? 0, icon: Database,        href: "/admin/basins",      color: "bg-amber-500" },
+    { label: "Refineries",       value: stats?.refineries   ?? 0, icon: Factory,         href: "/admin/refineries",  color: "bg-purple-500" },
+    { label: "Pipelines",        value: stats?.pipelines    ?? 0, icon: GitBranch,       href: "/admin/pipelines",   color: "bg-orange-500" },
+    { label: "Reserves Data",    value: stats?.reserves     ?? 0, icon: BarChart3,       href: "/admin/reserves",    color: "bg-green-500" },
+    { label: "Production Data",  value: stats?.productions  ?? 0, icon: BarChart3,       href: "/admin/production",  color: "bg-red-500" },
+    { label: "Stockage & Dépôts",value: stats?.storage      ?? 0, icon: Warehouse,       href: "/admin/storage",     color: "bg-sky-500" },
+    { label: "Pétrochimie",      value: stats?.petrochem    ?? 0, icon: FlaskConical,    href: "/admin/petrochem",   color: "bg-rose-500" },
+    { label: "Centres Formation",value: stats?.training     ?? 0, icon: GraduationCap,   href: "/admin/training",    color: "bg-emerald-500" },
+    { label: "Centres R&D",      value: stats?.rnd          ?? 0, icon: Microscope,      href: "/admin/rnd",         color: "bg-lime-500" },
+    { label: "Commerce Import",  value: stats?.tradeImports ?? 0, icon: ArrowLeftRight,  href: "/admin/trade",       color: "bg-fuchsia-500" },
+    { label: "Commerce Export",  value: stats?.tradeExports ?? 0, icon: ArrowLeftRight,  href: "/admin/trade",       color: "bg-yellow-500" },
+    { label: "Users",            value: stats?.users        ?? 0, icon: Users,           href: "/admin/users",       color: "bg-teal-500" },
+    { label: "Audit Logs",       value: null,                     icon: Shield,          href: "/admin/audit-logs",  color: "bg-violet-500" },
+    { label: "Allowed Emails",   value: null,                     icon: Mail,            href: "/admin/allowed-emails", color: "bg-pink-500" },
+    { label: "Content",          value: null,                     icon: FileText,        href: "/admin/content",     color: "bg-cyan-500" },
+    { label: "Opérateurs",       value: null,                     icon: Users,           href: "/admin/operators",   color: "bg-indigo-500" },
   ]
 
   return (
@@ -228,6 +253,48 @@ export default function AdminPage() {
             >
               <Plus size={18} />
               Add Pipeline
+            </Link>
+            <Link
+              href="/admin/operators"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouvel opérateur
+            </Link>
+            <Link
+              href="/admin/storage/new"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouveau stockage
+            </Link>
+            <Link
+              href="/admin/petrochem/new"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouvelle usine pétrochimique
+            </Link>
+            <Link
+              href="/admin/training/new"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouveau centre formation
+            </Link>
+            <Link
+              href="/admin/rnd/new"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouveau centre R&D
+            </Link>
+            <Link
+              href="/admin/trade/new"
+              className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-3 rounded-lg transition"
+            >
+              <Plus size={18} />
+              Nouvel enregistrement commerce
             </Link>
           </div>
         </div>

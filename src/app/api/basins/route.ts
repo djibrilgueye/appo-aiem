@@ -5,14 +5,18 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
+const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
+
 const basinSchema = z.object({
   basinId: z.string(),
   name: z.string().min(2),
   countryId: z.string(),
   type: z.string(),
+  location: z.enum(["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]).default("Onshore"),
   lat: z.number(),
   lon: z.number(),
   areaKm2: z.number().optional(),
+  description: z.string().optional(),
 })
 
 export async function GET(req: Request) {

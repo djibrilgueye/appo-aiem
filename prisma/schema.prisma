@@ -113,65 +113,187 @@ model AllowedEmail {
 
 // AIEM Data Models
 model Country {
+  id               String   @id @default(cuid())
+  code             String   @unique  // ISO3
+  name             String
+  region           String
+  lat              Float
+  lon              Float
+  appoMember       Boolean  @default(false)
+  active           Boolean  @default(true)
+  // Additional country profile (from TdR)
+  capital          String?
+  currency         String?
+  independence     String?  // Date of independence (year or full date as string)
+  population       Int?     // Latest population estimate
+  gdpBnUsd         Float?   // GDP in billion USD
+  economyDesc      String?  // Short economy description (multilingual JSON or plain text)
+  flagEmoji        String?  // e.g. "🇩🇿"
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  basins            Basin[]
+  blocks            Block[]
+  hydrocarbonFields HydrocarbonField[]
+  reserves          Reserve[]
+  productions       Production[]
+  refineries        Refinery[]
+  trainings         Training[]
+  rndCenters        RnDCenter[]
+  storages          Storage[]
+  petrochemicals    Petrochemical[]
+  tradeImports      TradeImport[]
+  tradeExports      TradeExport[]
+  nationalCompanies NationalCompany[]
+  documents         CountryDocument[]
+}
+
+// National Hydrocarbon Companies (Société Nationale des Hydrocarbures)
+model NationalCompany {
   id          String   @id @default(cuid())
-  code        String   @unique
+  companyId   String   @unique
   name        String
-  region      String
-  lat         Float
-  lon         Float
-  appoMember  Boolean  @default(false)
-  active      Boolean  @default(true)
+  acronym     String?
+  countryId   String
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  founded     Int?
+  website     String?
+  description String?  // Brief description
+  contact     String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-  basins        Basin[]
-  reserves      Reserve[]
-  productions   Production[]
-  refineries    Refinery[]
-  trainings     Training[]
-  rndCenters    RnDCenter[]
-  storages      Storage[]
-  petrochemicals Petrochemical[]
-  tradeImports  TradeImport[]
-  tradeExports  TradeExport[]
 }
 
 model Basin {
-  id        String   @id @default(cuid())
-  basinId   String   @unique
-  name      String
-  countryId String
-  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  type      String   // Oil, Gas, Oil & Gas
-  lat       Float
-  lon       Float
-  areaKm2   Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String   @id @default(cuid())
+  basinId      String   @unique
+  name         String
+  countryId    String
+  country      Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  type         String   // Oil, Gas, Oil & Gas
+  // location: Onshore | Offshore | Deep Offshore | Ultra Deep Offshore | Onshore & Offshore
+  location     String   @default("Onshore")
+  lat          Float
+  lon          Float
+  areaKm2      Int?
+  description  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  blocks       Block[]
+  fields       HydrocarbonField[]
+  documents    BasinDocument[]
+}
+
+// Blocs pétroliers et gaziers (TdR §1a)
+model Block {
+  id          String   @id @default(cuid())
+  blockId     String   @unique   // e.g. "BLK001"
+  name        String
+  basinId     String
+  basin       Basin    @relation(fields: [basinId], references: [id], onDelete: Cascade)
+  countryId   String
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  // status: Attribué | Exploration | Production | Libre | Abandonné
+  status      String   @default("Libre")
+  type        String   @default("Oil & Gas")  // Oil | Gas | Oil & Gas
+  // operator: principal opérateur du bloc
+  operator    String?
+  operatorContact String? // contact/website de l'opérateur
+  // partners: JSON array of {name, share}
+  partners    String?  // JSON: [{name:"...", share:25.0}]
+  awardDate   Int?     // année d'attribution
+  expiryDate  Int?     // année d'expiration du permis
+  areaKm2     Int?
+  // coords: GeoJSON polygon ou array of [lat,lon]
+  coords      String?  // JSON array of [lat, lon] pairs (polygon boundary)
+  lat         Float?   // centroid
+  lon         Float?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([basinId])
+  @@index([countryId])
+  @@index([status])
+}
+
+// Champs pétroliers et gaziers (TdR §1a)
+model HydrocarbonField {
+  id            String   @id @default(cuid())
+  fieldId       String   @unique   // e.g. "FLD001"
+  name          String
+  basinId       String
+  basin         Basin    @relation(fields: [basinId], references: [id], onDelete: Cascade)
+  countryId     String
+  country       Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  type          String   @default("Oil & Gas")  // Oil | Gas | Oil & Gas | Condensate
+  // status: En production | En développement | Découverte | Abandonné
+  status        String   @default("Découverte")
+  operator      String?
+  partners      String?  // JSON: [{name, share}]
+  discoveryYear Int?
+  productionStart Int?   // année début production
+  // Production peak (optional)
+  peakOilKbd    Float?   // kb/d peak oil production
+  peakGasMmcmd  Float?   // MMcm/d peak gas production
+  // Reserves/resources
+  oilMmb        Float?   // Million barrels (oil in place or recoverable)
+  gasBcf        Float?   // BCF gas
+  lat           Float
+  lon           Float
+  description   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([basinId])
+  @@index([countryId])
+  @@index([status])
+}
+
+// Documents/photos liés aux bassins
+model BasinDocument {
+  id          String   @id @default(cuid())
+  basinId     String
+  basin       Basin    @relation(fields: [basinId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  type        String   @default("document")  // photo | pdf | report | map | document
+  fileName    String
+  filePath    String   // relative to /public/uploads/
+  fileSize    Int?
+  mimeType    String?
+  addedBy     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([basinId])
 }
 
 model Reserve {
-  id        String   @id @default(cuid())
-  countryId String
-  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  year      Int
-  oil       Float    // Gbbl
-  gas       Float    // Tcf
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  countryId   String
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  year        Int
+  oil         Float    // Gbbl proved crude oil
+  gas         Float    // Tcf proved natural gas
+  condensat   Float?   // Gbbl proved condensate
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@unique([countryId, year])
 }
 
 model Production {
-  id        String   @id @default(cuid())
-  countryId String
-  country   Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  year      Int
-  oil       Float    // kb/d
-  gas       Float    // million m³/yr
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(cuid())
+  countryId   String
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  year        Int
+  oil         Float    // kb/d crude oil
+  gas         Float    // million m³/yr natural gas
+  condensat   Float?   // kb/d condensate
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@unique([countryId, year])
 }
@@ -191,18 +313,24 @@ model Pipeline {
 }
 
 model Refinery {
-  id          String   @id @default(cuid())
-  refineryId  String   @unique
-  name        String
-  countryId   String
-  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  lat         Float
-  lon         Float
-  capacityKbd Int
-  status      String   // operational, under construction, proposed, idle
-  year        Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id               String   @id @default(cuid())
+  refineryId       String   @unique
+  name             String
+  countryId        String
+  country          Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  lat              Float
+  lon              Float
+  capacityKbd      Int      // Topping capacity kb/d
+  status           String   // operational, under construction, planned, idle, closed
+  year             Int?
+  // Additional fields from TdR
+  nelsonIndex      Float?   // Nelson Complexity Index
+  storageOilMb     Float?   // Crude oil storage capacity (Mb)
+  storageProductsMb Float?  // Refined products storage capacity (Mb)
+  // Process units available (JSON array of strings)
+  processUnits     String?  // JSON: ["CDU","FCC","DHT","Reformer","Coking","Hydrocracker"]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 model Training {
@@ -234,17 +362,23 @@ model RnDCenter {
 }
 
 model Storage {
-  id         String   @id @default(cuid())
-  storageId  String   @unique
-  name       String
-  countryId  String
-  country    Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  lat        Float
-  lon        Float
-  type       String   // Crude Oil, LNG, Products
-  capacityMb Float
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id             String   @id @default(cuid())
+  storageId      String   @unique
+  name           String
+  countryId      String
+  country        Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  lat            Float
+  lon            Float
+  // type: Crude Oil | LNG Import Terminal (FSRU) | LNG Export Terminal | Products Depot | LNG
+  type           String
+  // lngSubtype: Import (regasification) | Export (liquefaction) — only for LNG
+  lngSubtype     String?
+  capacityMb     Float    // Mb for crude/products, or thousand m³ for LNG tanks
+  regasCapacity  Float?   // bcm/yr — for LNG import terminals
+  liquefCapacity Float?   // mtpa — for LNG export terminals
+  status         String   @default("operational") // operational, under construction, planned, closed
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Petrochemical {
@@ -262,29 +396,49 @@ model Petrochemical {
 }
 
 model TradeImport {
-  id          String   @id @default(cuid())
-  countryId   String
-  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  year        Int
-  oilKbD      Float
-  gasBcm      Float
-  mainSources String   // JSON array
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String   @id @default(cuid())
+  countryId       String
+  country         Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  year            Int
+  // Intra-African imports
+  oilIntraKbD     Float    @default(0)  // kb/d crude oil intra-Africa
+  gasIntraBcm     Float    @default(0)  // bcm natural gas intra-Africa
+  // Extra-African imports (from outside Africa)
+  oilExtraKbD     Float    @default(0)  // kb/d crude oil from outside Africa
+  gasExtraBcm     Float    @default(0)  // bcm natural gas from outside Africa
+  // Refined products (combined intra+extra for simplicity)
+  essenceM3       Float?   // m³ gasoline
+  gasoilM3        Float?   // m³ diesel
+  gplTM           Float?   // tonnes LPG
+  jetFuelTM       Float?   // tonnes jet fuel
+  mainSources     String   @default("[]")  // JSON array of source countries
+  partnersDetail  String   @default("[]")  // JSON: [{partner, hydro, qty, unit}]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   @@unique([countryId, year])
 }
 
 model TradeExport {
-  id               String   @id @default(cuid())
-  countryId        String
-  country          Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  year             Int
-  oilKbD           Float
-  gasBcm           Float
-  mainDestinations String   // JSON array
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id                   String   @id @default(cuid())
+  countryId            String
+  country              Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  year                 Int
+  // Intra-African exports
+  oilIntraKbD          Float    @default(0)  // kb/d crude oil to Africa
+  gasIntraBcm          Float    @default(0)  // bcm natural gas to Africa
+  // Extra-African exports (to outside Africa)
+  oilExtraKbD          Float    @default(0)  // kb/d crude oil to outside Africa
+  gasExtraBcm          Float    @default(0)  // bcm natural gas to outside Africa
+  // Refined products (combined)
+  essenceM3            Float?   // m³ gasoline
+  gasoilM3             Float?   // m³ diesel
+  gplTM                Float?   // tonnes LPG
+  jetFuelTM            Float?   // tonnes jet fuel
+  mainDestinations     String   @default("[]")  // JSON array of destination countries
+  partnersDetail       String   @default("[]")  // JSON: [{partner, hydro, qty, unit}]
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 
   @@unique([countryId, year])
 }
@@ -298,4 +452,24 @@ model ContentBlock {
   updatedAt DateTime @updatedAt
 
   @@unique([key, lang])
+}
+
+// Documents and photos linked to countries (visible on map hover)
+model CountryDocument {
+  id          String   @id @default(cuid())
+  countryId   String
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  // type: photo | pdf | doc | report | map
+  type        String   @default("document")
+  fileName    String   // original filename
+  filePath    String   // storage path relative to /public/uploads/
+  fileSize    Int?     // bytes
+  mimeType    String?
+  addedBy     String?  // user email
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([countryId])
 }

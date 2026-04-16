@@ -12,7 +12,7 @@ export default function NewReservePage() {
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [form, setForm] = useState({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0 })
+  const [form, setForm] = useState<{ countryId: string; year: number; oil: number; gas: number; condensat: number | "" }>({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0, condensat: "" })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
   useEffect(() => { fetch("/api/countries?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) }) }, [])
@@ -44,7 +44,7 @@ export default function NewReservePage() {
             <label className="block text-[#1B4F72] text-sm mb-1">Year</label>
             <input type="number" min="2000" max="2030" value={form.year} onChange={e => setForm({...form, year: parseInt(e.target.value)||2024})} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-[#1B4F72] text-sm mb-1">Oil reserves (Gbbl)</label>
               <input type="number" step="0.001" value={form.oil} onChange={e => setForm({...form, oil: parseFloat(e.target.value)||0})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
@@ -52,6 +52,10 @@ export default function NewReservePage() {
             <div>
               <label className="block text-[#1B4F72] text-sm mb-1">Gas reserves (Tcf)</label>
               <input type="number" step="0.001" value={form.gas} onChange={e => setForm({...form, gas: parseFloat(e.target.value)||0})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
+            </div>
+            <div>
+              <label className="block text-[#1B4F72] text-sm mb-1">Condensate reserves (Gbbl) <span className="text-[#A3C4DC]">optional</span></label>
+              <input type="number" step="0.001" min="0" value={form.condensat} onChange={e => setForm({...form, condensat: e.target.value === "" ? "" : parseFloat(e.target.value)})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
           </div>
           <div className="flex gap-3 pt-2">

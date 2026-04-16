@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Providers } from "@/components/Providers"
 import { LanguageProvider } from "@/i18n/LanguageContext"
+import { AIProvider } from "@/components/AIProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <Providers>
           <LanguageProvider>
-            {children}
+            <AIProvider>
+              {children}
+            </AIProvider>
           </LanguageProvider>
         </Providers>
       </body>

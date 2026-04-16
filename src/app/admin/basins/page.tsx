@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Plus, Edit, Trash2 } from "lucide-react"
+import { Plus, Edit, Trash2, Layers } from "lucide-react"
 
 interface Basin {
   id: string
@@ -73,6 +73,7 @@ export default function BasinsPage() {
                   <td className="px-4 py-3 text-[#5B8FB9] text-sm">{b.lat.toFixed(2)}, {b.lon.toFixed(2)}</td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex items-center justify-end gap-2">
+                      <Link href={`/admin/basins/${b.id}`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition" title="Blocs, champs & docs"><Layers size={16} /></Link>
                       <Link href={`/admin/basins/${b.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
                       {session?.user.role === "admin" && (
                         <button onClick={() => handleDelete(b.id, b.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>

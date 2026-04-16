@@ -27,7 +27,7 @@ export async function GET(req: Request) {
       where: {
         ...(countryId && { countryId }),
         ...(status && { status }),
-        ...(all ? {} : { country: { active: true } }),
+        ...(all ? {} : { country: { active: true, appoMember: true } }),
       },
       include: { country: { select: { name: true, code: true } } },
       orderBy: { capacityKbd: "desc" },

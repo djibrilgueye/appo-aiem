@@ -92,7 +92,7 @@ export default function EditCountryPage() {
     <div>
         <div className="flex items-center gap-4 mb-6">
           <Link href="/admin/countries" className="text-[#5B8FB9] hover:text-[#1B4F72]">
-
+            ←
           </Link>
           <div>
             <h1 className="text-2xl font-bold text-[#0D2840]">Edit Country</h1>

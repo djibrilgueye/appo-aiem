@@ -232,6 +232,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
                 <th className={TH} style={thStyle}>{t.table.countries}</th>
                 <th className={TH} style={thStyle}>{t.table.status}</th>
                 <th className={`${TH} text-right`} style={thStyle}>{t.table.length}</th>
+                <th className={TH} style={thStyle}>{t.table.diameter}</th>
                 <th className={TH} style={thStyle}>{t.table.capacity}</th>
               </tr>
             </thead>
@@ -242,6 +243,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
                   <td className={TD} style={{ color: "#5B8FB9" }}>{p.countries?.join(", ")}</td>
                   <td className={TD}>{statusBadge(p.status, PIPELINE_STATUS_COLORS)}</td>
                   <td className={`${TD} text-right font-mono`} style={{ color: "#1B4F72" }}>{p.lengthKm?.toLocaleString() || "—"}</td>
+                  <td className={TD} style={{ color: "#5B8FB9" }}>{p.diametre || "—"}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{p.capacity || "—"}</td>
                 </tr>
               ))}

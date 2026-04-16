@@ -505,16 +505,14 @@ async function importTradeData(
               }
             },
             update: {
-              oilKbD: data.oilExport,
-              gasBcm: data.gasExport,
-              mainDestinations: "[]"
+              oilExtraKbD: data.oilExport,
+              gasExtraBcm: data.gasExport,
             },
             create: {
               countryId,
               year: data.year,
-              oilKbD: data.oilExport,
-              gasBcm: data.gasExport,
-              mainDestinations: "[]"
+              oilExtraKbD: data.oilExport,
+              gasExtraBcm: data.gasExport,
             }
           })
           stats.tradeExportRecords++
@@ -539,16 +537,14 @@ async function importTradeData(
               }
             },
             update: {
-              oilKbD: data.oilImport,
-              gasBcm: data.gasImport,
-              mainSources: "[]"
+              oilExtraKbD: data.oilImport,
+              gasExtraBcm: data.gasImport,
             },
             create: {
               countryId,
               year: data.year,
-              oilKbD: data.oilImport,
-              gasBcm: data.gasImport,
-              mainSources: "[]"
+              oilExtraKbD: data.oilImport,
+              gasExtraBcm: data.gasImport,
             }
           })
           stats.tradeImportRecords++
