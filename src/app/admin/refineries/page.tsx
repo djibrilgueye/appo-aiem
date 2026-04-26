@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface Refinery {
   id: string
@@ -44,6 +45,65 @@ export default function RefineriesPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'refineryId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Name',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'country',
+      label: 'Country',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string }) => country?.name,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'capacityKbd',
+      label: 'Capacity (kb/d)',
+      sortable: true,
+      render: (capacity: number) => capacity.toLocaleString(),
+      className: 'text-[#0D2840] text-right font-mono'
+    },
+    {
+      key: 'status',
+      label: 'Status',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => (
+        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
+          {status}
+        </span>
+      )
+    },
+    {
+      key: 'year',
+      label: 'Year',
+      sortable: true,
+      render: (year: number | null) => year ?? "—",
+      className: 'text-[#5B8FB9] text-right'
+    }
+  ]
+
+  const actions = (r: Refinery) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/refineries/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
         <div className="flex items-center justify-between mb-6">
@@ -58,41 +118,14 @@ export default function RefineriesPage() {
             <Plus size={18} /> Add Refinery
           </Link>
         </div>
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-[#F4F7FB]">
-              <tr>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Name</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Country</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Capacity (kb/d)</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Status</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Year</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {refineries.map(r => (
-                <tr key={r.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                  <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{r.refineryId}</td>
-                  <td className="px-4 py-3 text-[#0D2840]">{r.name}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9]">{r.country?.name}</td>
-                  <td className="px-4 py-3 text-[#0D2840] text-right font-mono">{r.capacityKbd.toLocaleString()}</td>
-                  <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[r.status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>{r.status}</span></td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-right">{r.year ?? "—"}</td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link href={`/admin/refineries/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                      {session?.user.role === "admin" && (
-                        <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
+        <AdminTable
+          data={refineries}
+          columns={columns}
+          searchFields={['refineryId', 'name', 'country.name', 'status']}
+          actions={actions}
+          loading={loading}
+        />
     </div>
   )
 }

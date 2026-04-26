@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface RnDRecord {
   id: string
@@ -39,6 +40,54 @@ export default function RnDPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'centerId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Nom',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'country',
+      label: 'Pays',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string }) => country?.name,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'focus',
+      label: 'Domaine (focus)',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#5B8FB9] text-sm max-w-xs truncate'
+    },
+    {
+      key: 'year',
+      label: 'Année',
+      sortable: true,
+      render: (year: number | null) => year ?? "—",
+      className: 'text-[#5B8FB9] text-right'
+    }
+  ]
+
+  const actions = (r: RnDRecord) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/rnd/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -53,45 +102,14 @@ export default function RnDPage() {
           <Plus size={18} /> Nouveau centre
         </Link>
       </div>
-      <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-[#F4F7FB]">
-            <tr>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Nom</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Pays</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Domaine (focus)</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Année</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && (
-              <tr><td colSpan={6} className="px-4 py-8 text-center text-[#5B8FB9]">Chargement...</td></tr>
-            )}
-            {!loading && records.length === 0 && (
-              <tr><td colSpan={6} className="px-4 py-8 text-center text-[#5B8FB9]">Aucun centre R&D enregistré.</td></tr>
-            )}
-            {records.map(r => (
-              <tr key={r.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{r.centerId}</td>
-                <td className="px-4 py-3 text-[#0D2840]">{r.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9]">{r.country?.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9] text-sm max-w-xs truncate">{r.focus}</td>
-                <td className="px-4 py-3 text-[#5B8FB9] text-right">{r.year ?? "—"}</td>
-                <td className="px-4 py-3 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <Link href={`/admin/rnd/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                    {session?.user.role === "admin" && (
-                      <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      <AdminTable
+        data={records}
+        columns={columns}
+        searchFields={['centerId', 'name', 'country.name', 'focus']}
+        actions={actions}
+        loading={loading}
+      />
     </div>
   )
 }

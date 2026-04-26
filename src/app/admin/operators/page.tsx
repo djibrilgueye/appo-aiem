@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, ExternalLink, Building2, X, Check } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface NationalCompany {
   id: string; companyId: string; name: string; acronym: string | null
@@ -37,6 +38,8 @@ export default function OperatorsPage() {
   const [saving, setSaving] = useState(false)
   const [formError, setFormError] = useState("")
 
+  const countryName = (id: string) => countries.find(c => c.id === id)?.name || "—"
+
   useEffect(() => {
     if (status === "unauthenticated") router.push("/login")
   }, [status, router])
@@ -44,6 +47,110 @@ export default function OperatorsPage() {
   useEffect(() => {
     if (session) fetchAll()
   }, [session]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (status === "loading" || loading) return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840]">Accès refusé.</div>
+  }
+
+  const companiesColumns = [
+    {
+      key: 'country',
+      label: 'Pays',
+      sortable: true,
+      searchable: true,
+      render: (_: any, co: NationalCompany) => countryName(co.countryId)
+    },
+    {
+      key: 'name',
+      label: 'Nom',
+      sortable: true,
+      searchable: true,
+      render: (name: string) => name
+    },
+    {
+      key: 'acronym',
+      label: 'Sigle',
+      sortable: true,
+      searchable: true,
+      render: (acronym: string | null) => acronym || "—"
+    },
+    {
+      key: 'founded',
+      label: 'Fondée',
+      sortable: true,
+      render: (founded: number | null) => founded || "—"
+    },
+    {
+      key: 'contact',
+      label: 'Contact',
+      sortable: false,
+      searchable: true,
+      render: (contact: string | null) => contact || "—"
+    },
+    {
+      key: 'website',
+      label: 'Site web',
+      sortable: false,
+      searchable: true,
+      render: (website: string | null, co: NationalCompany) => website ? (
+        <a href={website.startsWith("http") ? website : `https://${website}`} target="_blank" rel="noopener noreferrer" className="text-[#1B4F72] hover:underline flex items-center gap-1">
+          <ExternalLink size={11} />{website}
+        </a>
+      ) : <span className="text-[#A3C4DC]">—</span>
+    }
+  ]
+
+  const companiesActions = (co: NationalCompany) => (
+    <div className="flex items-center gap-2">
+      <button onClick={() => startEdit(co)} className="text-[#5B8FB9] hover:text-[#1B4F72]"><Edit size={14} /></button>
+      {session.user.role === "admin" && (
+        <button onClick={() => deleteCompany(co.id)} className="text-red-400 hover:text-red-600"><Trash2 size={14} /></button>
+      )}
+    </div>
+  )
+
+  const blockOpsColumns = [
+    {
+      key: 'operator',
+      label: 'Opérateur',
+      sortable: true,
+      searchable: true,
+      render: (operator: string) => operator
+    },
+    {
+      key: 'countries',
+      label: 'Pays',
+      sortable: false,
+      searchable: true,
+      render: (_: any, op: BlockOp) => op.countries.join(", ") || "—"
+    },
+    {
+      key: 'basins',
+      label: 'Bassins',
+      sortable: false,
+      searchable: true,
+      render: (_: any, op: BlockOp) => op.basins.join(", ") || "—"
+    },
+    {
+      key: 'blocks',
+      label: 'Blocs opérés',
+      sortable: false,
+      searchable: true,
+      render: (_: any, op: BlockOp) => op.blocks.join(", ")
+    },
+    {
+      key: 'contact',
+      label: 'Contact',
+      sortable: false,
+      searchable: true,
+      render: (contact: string | null) => contact ? (
+        <a href={contact.startsWith("http") ? contact : `https://${contact}`} target="_blank" rel="noopener noreferrer" className="text-[#1B4F72] hover:underline flex items-center gap-1">
+          <ExternalLink size={11} />{contact}
+        </a>
+      ) : <span className="text-[#A3C4DC]">—</span>
+    }
+  ]
 
   const fetchAll = async () => {
     setLoading(true)
@@ -82,8 +189,6 @@ export default function OperatorsPage() {
       setLoading(false)
     }
   }
-
-  const countryName = (id: string) => countries.find(c => c.id === id)?.name ?? "—"
 
   const saveCompany = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -146,11 +251,6 @@ export default function OperatorsPage() {
   }
 
   const cancelForm = () => { setEditing(null); setAdding(false); setForm(emptyForm); setFormError("") }
-
-  if (status === "loading" || loading) return null
-  if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840]">Accès refusé.</div>
-  }
 
   return (
     <div>
@@ -235,45 +335,13 @@ export default function OperatorsPage() {
           {companies.length === 0 ? (
             <p className="text-center text-[#5B8FB9] text-sm py-8">Aucune société nationale enregistrée.</p>
           ) : (
-            <table className="w-full text-sm">
-              <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
-                <tr>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Pays</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Nom</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Sigle</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Fondée</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Contact</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Site web</th>
-                  <th className="px-4 py-3"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {companies.map(co => (
-                  <tr key={co.id} className="border-b border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                    <td className="px-4 py-3 text-[#5B8FB9] text-sm">{countryName(co.countryId)}</td>
-                    <td className="px-4 py-3 font-medium text-[#0D2840]">{co.name}</td>
-                    <td className="px-4 py-3 font-mono text-xs text-[#1B4F72]">{co.acronym || "—"}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9]">{co.founded || "—"}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-xs">{co.contact || "—"}</td>
-                    <td className="px-4 py-3 text-xs">
-                      {co.website ? (
-                        <a href={co.website.startsWith("http") ? co.website : `https://${co.website}`} target="_blank" rel="noopener noreferrer" className="text-[#1B4F72] hover:underline flex items-center gap-1">
-                          <ExternalLink size={11} />{co.website}
-                        </a>
-                      ) : <span className="text-[#A3C4DC]">—</span>}
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex items-center gap-2">
-                        <button onClick={() => startEdit(co)} className="text-[#5B8FB9] hover:text-[#1B4F72]"><Edit size={14} /></button>
-                        {session.user.role === "admin" && (
-                          <button onClick={() => deleteCompany(co.id)} className="text-red-400 hover:text-red-600"><Trash2 size={14} /></button>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <AdminTable
+              data={companies}
+              columns={companiesColumns}
+              searchFields={['countryId', 'name', 'acronym', 'contact', 'website']}
+              actions={companiesActions}
+              loading={false}
+            />
           )}
         </div>
       </section>
@@ -288,34 +356,13 @@ export default function OperatorsPage() {
           {blockOps.length === 0 ? (
             <p className="text-center text-[#5B8FB9] text-sm py-8">Aucun opérateur renseigné dans les blocs.</p>
           ) : (
-            <table className="w-full text-sm">
-              <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
-                <tr>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Opérateur</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Pays</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Bassins</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Blocs opérés</th>
-                  <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {blockOps.map(op => (
-                  <tr key={op.operator} className="border-b border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                    <td className="px-4 py-3 font-medium text-[#0D2840]">{op.operator}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-xs">{op.countries.join(", ") || "—"}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-xs">{op.basins.join(", ") || "—"}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-xs">{op.blocks.join(", ")}</td>
-                    <td className="px-4 py-3 text-xs">
-                      {op.contact ? (
-                        <a href={op.contact.startsWith("http") ? op.contact : `https://${op.contact}`} target="_blank" rel="noopener noreferrer" className="text-[#1B4F72] hover:underline flex items-center gap-1">
-                          <ExternalLink size={11} />{op.contact}
-                        </a>
-                      ) : <span className="text-[#A3C4DC]">—</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <AdminTable
+              data={blockOps}
+              columns={blockOpsColumns}
+              searchFields={['operator', 'countries', 'basins', 'blocks', 'contact']}
+              actions={null}
+              loading={false}
+            />
           )}
         </div>
       </section>

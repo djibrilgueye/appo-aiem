@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface StorageRecord {
   id: string
@@ -48,63 +49,88 @@ export default function StoragePage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'storageId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Nom',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'country',
+      label: 'Pays',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string }) => country?.name,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'type',
+      label: 'Type',
+      sortable: true,
+      searchable: true,
+      render: (_: any, r: StorageRecord) => `${r.type}${r.lngSubtype ? ` — ${r.lngSubtype}` : ""}`,
+      className: 'text-[#5B8FB9] text-sm'
+    },
+    {
+      key: 'capacityMb',
+      label: 'Capacité (Mb)',
+      sortable: true,
+      render: (capacity: number) => capacity.toLocaleString(),
+      className: 'text-[#0D2840] text-right font-mono'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => (
+        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
+          {status}
+        </span>
+      )
+    }
+  ]
+
+  const actions = (r: StorageRecord) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/storage/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
           <Link href="/admin" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
           <div>
-            <h1 className="text-2xl font-bold text-[#0D2840]">Stockage & Dépôts</h1>
-            <p className="text-[#5B8FB9]">{records.length} enregistrement{records.length !== 1 ? "s" : ""}</p>
+            <h1 className="text-2xl font-bold text-[#0D2840]">Stockage</h1>
+            <p className="text-[#5B8FB9]">{records.length} dépôt{records.length !== 1 ? "s" : ""}</p>
           </div>
         </div>
         <Link href="/admin/storage/new" className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] text-white px-4 py-2 rounded-lg transition">
           <Plus size={18} /> Nouveau
         </Link>
       </div>
-      <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-[#F4F7FB]">
-            <tr>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Nom</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Pays</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Type</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Capacité (Mb)</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Statut</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && (
-              <tr><td colSpan={7} className="px-4 py-8 text-center text-[#5B8FB9]">Chargement...</td></tr>
-            )}
-            {!loading && records.length === 0 && (
-              <tr><td colSpan={7} className="px-4 py-8 text-center text-[#5B8FB9]">Aucun dépôt/stockage enregistré.</td></tr>
-            )}
-            {records.map(r => (
-              <tr key={r.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{r.storageId}</td>
-                <td className="px-4 py-3 text-[#0D2840]">{r.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9]">{r.country?.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9] text-sm">{r.type}{r.lngSubtype ? ` — ${r.lngSubtype}` : ""}</td>
-                <td className="px-4 py-3 text-[#0D2840] text-right font-mono">{r.capacityMb.toLocaleString()}</td>
-                <td className="px-4 py-3">
-                  <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[r.status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>{r.status}</span>
-                </td>
-                <td className="px-4 py-3 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <Link href={`/admin/storage/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                    {session?.user.role === "admin" && (
-                      <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      <AdminTable
+        data={records}
+        columns={columns}
+        searchFields={['storageId', 'name', 'country.name', 'type', 'lngSubtype', 'status']}
+        actions={actions}
+        loading={loading}
+      />
     </div>
   )
 }

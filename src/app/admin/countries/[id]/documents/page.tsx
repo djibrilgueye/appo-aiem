@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import { Upload, Trash2, FileText, Image, File, ExternalLink } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface CountryDoc {
   id: string
@@ -159,64 +160,86 @@ export default function CountryDocumentsPage() {
       </form>
 
       {/* Documents list */}
-      <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-        {loading ? (
-          <div className="p-8 text-center text-[#5B8FB9] text-sm">Loading...</div>
-        ) : docs.length === 0 ? (
-          <div className="p-8 text-center text-[#5B8FB9] text-sm">No documents yet. Upload one above.</div>
-        ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Type</th>
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Title</th>
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">File</th>
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Size</th>
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Added by</th>
-                <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Date</th>
-                <th className="px-4 py-3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {docs.map(doc => (
-                <tr key={doc.id} className="border-b border-[#EBF3FB] hover:bg-[#F4F7FB] transition">
-                  <td className="px-4 py-3">
-                    <span className="flex items-center gap-1.5">{fileIcon(doc.type)}<span className="text-[#5B8FB9] capitalize">{doc.type}</span></span>
-                  </td>
-                  <td className="px-4 py-3 font-medium text-[#0D2840]">
-                    {doc.title}
-                    {doc.description && <div className="text-[#5B8FB9] text-xs mt-0.5">{doc.description}</div>}
-                  </td>
-                  <td className="px-4 py-3 text-[#5B8FB9] font-mono text-xs">{doc.fileName}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9]">{formatSize(doc.fileSize)}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-xs">{doc.addedBy || "—"}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-xs">{new Date(doc.createdAt).toLocaleDateString()}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={`/uploads/${doc.filePath}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#5B8FB9] hover:text-[#1B4F72]"
-                        title="Open"
-                      >
-                        <ExternalLink size={15} />
-                      </a>
-                      <button
-                        onClick={() => handleDelete(doc.id)}
-                        className="text-red-400 hover:text-red-600"
-                        title="Delete"
-                      >
-                        <Trash2 size={15} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <AdminTable
+        data={docs}
+        columns={[
+          {
+            key: 'type',
+            label: 'Type',
+            sortable: true,
+            searchable: true,
+            render: (type: string) => (
+              <span className="flex items-center gap-1.5">
+                {fileIcon(type)}
+                <span className="text-[#5B8FB9] capitalize">{type}</span>
+              </span>
+            )
+          },
+          {
+            key: 'title',
+            label: 'Title',
+            sortable: true,
+            searchable: true,
+            render: (_: any, doc: CountryDoc) => (
+              <div className="font-medium text-[#0D2840]">
+                {doc.title}
+                {doc.description && <div className="text-[#5B8FB9] text-xs mt-0.5">{doc.description}</div>}
+              </div>
+            )
+          },
+          {
+            key: 'fileName',
+            label: 'File',
+            sortable: true,
+            searchable: true,
+            className: 'text-[#5B8FB9] font-mono text-xs'
+          },
+          {
+            key: 'fileSize',
+            label: 'Size',
+            sortable: true,
+            render: (fileSize: number | null) => formatSize(fileSize),
+            className: 'text-[#5B8FB9]'
+          },
+          {
+            key: 'addedBy',
+            label: 'Added by',
+            sortable: true,
+            searchable: true,
+            render: (addedBy: string | null) => addedBy || "—",
+            className: 'text-[#5B8FB9] text-xs'
+          },
+          {
+            key: 'createdAt',
+            label: 'Date',
+            sortable: true,
+            render: (createdAt: string) => new Date(createdAt).toLocaleDateString(),
+            className: 'text-[#5B8FB9] text-xs'
+          }
+        ]}
+        searchFields={['type', 'title', 'fileName', 'addedBy']}
+        actions={(doc: CountryDoc) => (
+          <div className="flex items-center gap-2">
+            <a
+              href={`/uploads/${doc.filePath}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#5B8FB9] hover:text-[#1B4F72]"
+              title="Open"
+            >
+              <ExternalLink size={15} />
+            </a>
+            <button
+              onClick={() => handleDelete(doc.id)}
+              className="text-red-400 hover:text-red-600"
+              title="Delete"
+            >
+              <Trash2 size={15} />
+            </button>
+          </div>
         )}
-      </div>
+        loading={loading}
+      />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, Layers } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface Basin {
   id: string
@@ -35,6 +36,62 @@ export default function BasinsPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'basinId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Name',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'country.name',
+      label: 'Country',
+      sortable: true,
+      searchable: true,
+      render: (name: string) => name,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'type',
+      label: 'Type',
+      sortable: true,
+      searchable: true,
+      render: (type: string) => <span className="bg-amber-50 text-amber-700 px-2 py-0.5 rounded text-xs">{type}</span>
+    },
+    {
+      key: 'areaKm2',
+      label: 'Area (km²)',
+      sortable: true,
+      render: (area: number | null) => area?.toLocaleString() ?? "—",
+      className: 'text-[#5B8FB9] text-right'
+    },
+    {
+      key: 'coordinates',
+      label: 'Coordinates',
+      sortable: false,
+      render: (_: any, basin: Basin) => `${basin.lat.toFixed(2)}, ${basin.lon.toFixed(2)}`,
+      className: 'text-[#5B8FB9] text-sm'
+    }
+  ]
+
+  const actions = (basin: Basin) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/basins/${basin.id}`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition" title="Blocs, champs & docs"><Layers size={16} /></Link>
+      <Link href={`/admin/basins/${basin.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(basin.id, basin.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
         <div className="flex items-center justify-between mb-6">
@@ -49,42 +106,14 @@ export default function BasinsPage() {
             <Plus size={18} /> Add Basin
           </Link>
         </div>
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-[#F4F7FB]">
-              <tr>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Name</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Country</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Type</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Area (km²)</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Coordinates</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {basins.map(b => (
-                <tr key={b.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                  <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{b.basinId}</td>
-                  <td className="px-4 py-3 text-[#0D2840]">{b.name}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9]">{b.country?.name}</td>
-                  <td className="px-4 py-3"><span className="bg-amber-50 text-amber-700 px-2 py-0.5 rounded text-xs">{b.type}</span></td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-right">{b.areaKm2?.toLocaleString() ?? "—"}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-sm">{b.lat.toFixed(2)}, {b.lon.toFixed(2)}</td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link href={`/admin/basins/${b.id}`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition" title="Blocs, champs & docs"><Layers size={16} /></Link>
-                      <Link href={`/admin/basins/${b.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                      {session?.user.role === "admin" && (
-                        <button onClick={() => handleDelete(b.id, b.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
+        <AdminTable
+          data={basins}
+          columns={columns}
+          searchFields={['basinId', 'name', 'country.name', 'type']}
+          actions={actions}
+          loading={loading}
+        />
     </div>
   )
 }

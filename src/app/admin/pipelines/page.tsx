@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface Pipeline {
   id: string
@@ -44,6 +45,68 @@ export default function PipelinesPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'pipelineId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Name',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840] max-w-[200px] truncate'
+    },
+    {
+      key: 'countries',
+      label: 'Countries',
+      sortable: false,
+      searchable: true,
+      render: (countries: string) => {
+        const parsed = Array.isArray(countries) ? countries : JSON.parse(countries || "[]")
+        return parsed.join(", ")
+      },
+      className: 'text-[#5B8FB9] text-sm'
+    },
+    {
+      key: 'status',
+      label: 'Status',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => (
+        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
+          {status}
+        </span>
+      )
+    },
+    {
+      key: 'lengthKm',
+      label: 'Length (km)',
+      sortable: true,
+      render: (length: number | null) => length?.toLocaleString() ?? "—",
+      className: 'text-[#5B8FB9] text-right'
+    },
+    {
+      key: 'capacity',
+      label: 'Capacity',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#5B8FB9] text-sm'
+    }
+  ]
+
+  const actions = (p: Pipeline) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/pipelines/${p.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(p.id, p.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
         <div className="flex items-center justify-between mb-6">
@@ -58,44 +121,14 @@ export default function PipelinesPage() {
             <Plus size={18} /> Add Pipeline
           </Link>
         </div>
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-[#F4F7FB]">
-              <tr>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Name</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Countries</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Status</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Length (km)</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Capacity</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pipelines.map(p => {
-                const countries = Array.isArray(p.countries) ? p.countries : JSON.parse(p.countries || "[]")
-                return (
-                  <tr key={p.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                    <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{p.pipelineId}</td>
-                    <td className="px-4 py-3 text-[#0D2840] max-w-[200px] truncate">{p.name}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-sm">{countries.join(", ")}</td>
-                    <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[p.status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>{p.status}</span></td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-right">{p.lengthKm?.toLocaleString() ?? "—"}</td>
-                    <td className="px-4 py-3 text-[#5B8FB9] text-sm">{p.capacity ?? "—"}</td>
-                    <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link href={`/admin/pipelines/${p.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                        {session?.user.role === "admin" && (
-                          <button onClick={() => handleDelete(p.id, p.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+
+        <AdminTable
+          data={pipelines}
+          columns={columns}
+          searchFields={['pipelineId', 'name', 'countries', 'status', 'capacity']}
+          actions={actions}
+          loading={loading}
+        />
     </div>
   )
 }

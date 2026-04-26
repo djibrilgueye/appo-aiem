@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface TradeRecord {
   id: string
@@ -51,6 +52,72 @@ export default function TradePage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'country',
+      label: 'Pays',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string }) => country?.name,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'year',
+      label: 'Année',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#5B8FB9] text-right font-mono'
+    },
+    {
+      key: 'direction',
+      label: 'Direction',
+      sortable: true,
+      searchable: true,
+      render: (direction: string) => (
+        <span className={`px-2 py-0.5 rounded text-xs font-medium ${direction === "Import" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
+          {direction}
+        </span>
+      )
+    },
+    {
+      key: 'oilIntraKbD',
+      label: 'Pétrole intra (kb/d)',
+      sortable: true,
+      render: (value: number) => value > 0 ? value.toFixed(1) : "—",
+      className: 'text-[#0D2840] text-right font-mono text-sm'
+    },
+    {
+      key: 'oilExtraKbD',
+      label: 'Pétrole extra (kb/d)',
+      sortable: true,
+      render: (value: number) => value > 0 ? value.toFixed(1) : "—",
+      className: 'text-[#0D2840] text-right font-mono text-sm'
+    },
+    {
+      key: 'gasIntraBcm',
+      label: 'Gaz intra (bcm)',
+      sortable: true,
+      render: (value: number) => value > 0 ? value.toFixed(2) : "—",
+      className: 'text-[#0D2840] text-right font-mono text-sm'
+    },
+    {
+      key: 'gasExtraBcm',
+      label: 'Gaz extra (bcm)',
+      sortable: true,
+      render: (value: number) => value > 0 ? value.toFixed(2) : "—",
+      className: 'text-[#0D2840] text-right font-mono text-sm'
+    }
+  ]
+
+  const actions = (r: TradeRecord) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/trade/${r.id}/edit?dir=${r.direction.toLowerCase()}`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id, r.direction)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -65,53 +132,14 @@ export default function TradePage() {
           <Plus size={18} /> Nouvel enregistrement
         </Link>
       </div>
-      <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-[#F4F7FB]">
-            <tr>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Pays</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Année</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Direction</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Pétrole intra (kb/d)</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Pétrole extra (kb/d)</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Gaz intra (bcm)</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Gaz extra (bcm)</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && (
-              <tr><td colSpan={8} className="px-4 py-8 text-center text-[#5B8FB9]">Chargement...</td></tr>
-            )}
-            {!loading && records.length === 0 && (
-              <tr><td colSpan={8} className="px-4 py-8 text-center text-[#5B8FB9]">Aucun enregistrement de commerce.</td></tr>
-            )}
-            {records.map(r => (
-              <tr key={`${r.direction}-${r.id}`} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                <td className="px-4 py-3 text-[#0D2840]">{r.country?.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9] text-right font-mono">{r.year}</td>
-                <td className="px-4 py-3">
-                  <span className={`px-2 py-0.5 rounded text-xs font-medium ${r.direction === "Import" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
-                    {r.direction}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-[#0D2840] text-right font-mono text-sm">{r.oilIntraKbD > 0 ? r.oilIntraKbD.toFixed(1) : "—"}</td>
-                <td className="px-4 py-3 text-[#0D2840] text-right font-mono text-sm">{r.oilExtraKbD > 0 ? r.oilExtraKbD.toFixed(1) : "—"}</td>
-                <td className="px-4 py-3 text-[#0D2840] text-right font-mono text-sm">{r.gasIntraBcm > 0 ? r.gasIntraBcm.toFixed(2) : "—"}</td>
-                <td className="px-4 py-3 text-[#0D2840] text-right font-mono text-sm">{r.gasExtraBcm > 0 ? r.gasExtraBcm.toFixed(2) : "—"}</td>
-                <td className="px-4 py-3 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <Link href={`/admin/trade/${r.id}/edit?dir=${r.direction.toLowerCase()}`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                    {session?.user.role === "admin" && (
-                      <button onClick={() => handleDelete(r.id, r.direction)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      <AdminTable
+        data={records}
+        columns={columns}
+        searchFields={['country.name', 'year', 'direction']}
+        actions={actions}
+        loading={loading}
+      />
     </div>
   )
 }

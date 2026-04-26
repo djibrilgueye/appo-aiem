@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface Reserve {
   id: string
@@ -32,6 +33,51 @@ export default function ReservesPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'country',
+      label: 'Country',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string; code: string }) => (
+        <span>
+          {country?.name} <span className="text-[#A3C4DC] text-xs ml-1">{country?.code}</span>
+        </span>
+      ),
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'year',
+      label: 'Year',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] text-right font-mono'
+    },
+    {
+      key: 'oil',
+      label: 'Oil (Gbbl)',
+      sortable: true,
+      render: (oil: number) => oil > 0 ? oil.toLocaleString() : "—",
+      className: 'text-green-700 text-right font-mono'
+    },
+    {
+      key: 'gas',
+      label: 'Gas (Tcf)',
+      sortable: true,
+      render: (gas: number) => gas > 0 ? gas.toLocaleString() : "—",
+      className: 'text-blue-400 text-right font-mono'
+    }
+  ]
+
+  const actions = (r: Reserve) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/reserves/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
         <div className="flex items-center justify-between mb-6">
@@ -46,37 +92,14 @@ export default function ReservesPage() {
             <Plus size={18} /> Add Record
           </Link>
         </div>
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-[#F4F7FB]">
-              <tr>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Country</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Year</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Oil (Gbbl)</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Gas (Tcf)</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reserves.map(r => (
-                <tr key={r.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                  <td className="px-4 py-3 text-[#0D2840]">{r.country?.name} <span className="text-[#A3C4DC] text-xs ml-1">{r.country?.code}</span></td>
-                  <td className="px-4 py-3 text-[#1B4F72] text-right font-mono">{r.year}</td>
-                  <td className="px-4 py-3 text-green-700 text-right font-mono">{r.oil > 0 ? r.oil.toLocaleString() : "—"}</td>
-                  <td className="px-4 py-3 text-blue-400 text-right font-mono">{r.gas > 0 ? r.gas.toLocaleString() : "—"}</td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link href={`/admin/reserves/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                      {session?.user.role === "admin" && (
-                        <button onClick={() => handleDelete(r.id)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
+        <AdminTable
+          data={reserves}
+          columns={columns}
+          searchFields={['country.name', 'country.code', 'year']}
+          actions={actions}
+          loading={loading}
+        />
     </div>
   )
 }

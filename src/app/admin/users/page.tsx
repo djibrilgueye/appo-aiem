@@ -3,7 +3,9 @@
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Users, Trash2, RefreshCw } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface AdminUser {
   id: string
@@ -96,96 +98,107 @@ export default function UsersPage() {
   if (status === "loading") return <div className="pt-2 flex items-center justify-center text-[#0D2840]">Loading...</div>
   if (!session || !["admin", "editor"].includes(session.user.role as string)) return null
 
+  const columns = [
+    {
+      key: 'user',
+      label: 'User',
+      sortable: false,
+      searchable: true,
+      render: (_: any, user: AdminUser) => (
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-full bg-[#EBF3FB] text-[#1B4F72] flex items-center justify-center font-bold text-sm shrink-0">
+            {initials(user.name, user.email)}
+          </div>
+          <div>
+            <p className="text-[#0D2840] font-medium">{user.name ?? "—"}</p>
+            <p className="text-[#5B8FB9] text-xs">{user.email}</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      key: 'role',
+      label: 'Role',
+      sortable: true,
+      searchable: true,
+      render: (_: any, user: AdminUser) => (
+        user.id === session.user.id ? (
+          <span className={`px-2 py-1 rounded text-xs ${ROLE_COLORS[user.role]}`}>{user.role}</span>
+        ) : (
+          <select
+            value={user.role}
+            onChange={e => handleRoleChange(user, e.target.value)}
+            className="bg-white border border-[#D0E4F0] text-[#0D2840] rounded-lg px-2 py-1 text-xs focus:outline-none focus:border-[#1B4F72]"
+          >
+            <option value="admin">admin</option>
+            <option value="editor">editor</option>
+            <option value="user">user</option>
+          </select>
+        )
+      )
+    },
+    {
+      key: 'active',
+      label: 'Active',
+      sortable: true,
+      render: (_: any, user: AdminUser) => (
+        user.id === session.user.id ? (
+          <span className="text-green-700 text-xs">active</span>
+        ) : (
+          <button
+            onClick={() => handleToggleActive(user)}
+            className={`relative w-11 h-6 rounded-full transition ${user.active ? "bg-green-500" : "bg-gray-600"}`}
+          >
+            <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all ${user.active ? "left-5" : "left-0.5"}`} />
+          </button>
+        )
+      )
+    },
+    {
+      key: 'createdAt',
+      label: 'Created',
+      sortable: true,
+      render: (createdAt: string) => new Date(createdAt).toLocaleDateString(),
+      className: 'text-[#5B8FB9] text-xs'
+    }
+  ]
+
+  const actions = (user: AdminUser) => (
+    user.id !== session.user.id && (
+      <button onClick={() => setDeleteTarget(user)} className="text-red-600 hover:text-red-300 transition">
+        <Trash2 size={16} />
+      </button>
+    )
+  )
+
   return (
     <div>
-
-        <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-4">
+          <Link href="/admin" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
           <div>
-            <h1 className="text-2xl font-bold text-[#0D2840] flex items-center gap-2">
-              <Users size={24} className="text-teal-400" /> User Management
-            </h1>
-            <p className="text-[#5B8FB9] text-sm mt-1">{users.length} registered user(s)</p>
-          </div>
-          <button onClick={fetchUsers} className="flex items-center gap-2 bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-3 py-2 rounded-lg text-sm transition">
-            <RefreshCw size={15} /> Refresh
-          </button>
-        </div>
-
-        {message && (
-          <div className={`mb-4 p-3 rounded-lg text-sm ${message.startsWith("Error") ? "bg-red-50 text-red-600" : "bg-green-50 text-green-700"}`}>
-            {message}
-          </div>
-        )}
-
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#D0E4F0] text-[#5B8FB9] text-xs uppercase">
-                  <th className="text-left p-4">User</th>
-                  <th className="text-left p-4">Role</th>
-                  <th className="text-left p-4">Active</th>
-                  <th className="text-left p-4">Created</th>
-                  <th className="text-left p-4"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {loading ? (
-                  <tr><td colSpan={5} className="text-center text-[#5B8FB9] p-8">Loading…</td></tr>
-                ) : users.map(user => (
-                  <tr key={user.id} className="border-b border-[#EBF3FB] hover:bg-[#F4F7FB] transition">
-                    <td className="p-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-[#EBF3FB] text-[#1B4F72] flex items-center justify-center font-bold text-sm shrink-0">
-                          {initials(user.name, user.email)}
-                        </div>
-                        <div>
-                          <p className="text-[#0D2840] font-medium">{user.name ?? "—"}</p>
-                          <p className="text-[#5B8FB9] text-xs">{user.email}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      {user.id === session.user.id ? (
-                        <span className={`px-2 py-1 rounded text-xs ${ROLE_COLORS[user.role]}`}>{user.role}</span>
-                      ) : (
-                        <select
-                          value={user.role}
-                          onChange={e => handleRoleChange(user, e.target.value)}
-                          className="bg-white border border-[#D0E4F0] text-[#0D2840] rounded-lg px-2 py-1 text-xs focus:outline-none focus:border-[#1B4F72]"
-                        >
-                          <option value="admin">admin</option>
-                          <option value="editor">editor</option>
-                          <option value="user">user</option>
-                        </select>
-                      )}
-                    </td>
-                    <td className="p-4">
-                      {user.id === session.user.id ? (
-                        <span className="text-green-700 text-xs">active</span>
-                      ) : (
-                        <button
-                          onClick={() => handleToggleActive(user)}
-                          className={`relative w-11 h-6 rounded-full transition ${user.active ? "bg-green-500" : "bg-gray-600"}`}
-                        >
-                          <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all ${user.active ? "left-5" : "left-0.5"}`} />
-                        </button>
-                      )}
-                    </td>
-                    <td className="p-4 text-[#5B8FB9] text-xs">{new Date(user.createdAt).toLocaleDateString()}</td>
-                    <td className="p-4">
-                      {user.id !== session.user.id && (
-                        <button onClick={() => setDeleteTarget(user)} className="text-red-600 hover:text-red-300 transition">
-                          <Trash2 size={16} />
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <h1 className="text-2xl font-bold text-[#0D2840]">Users</h1>
+            <p className="text-[#5B8FB9]">{users.length} users</p>
           </div>
         </div>
+        <button onClick={fetchUsers} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] text-white px-4 py-2 rounded-lg transition">
+          <RefreshCw size={18} /> Refresh
+        </button>
+      </div>
+
+      {message && (
+        <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 rounded-lg">
+          {message}
+        </div>
+      )}
+
+      <AdminTable
+        data={users}
+        columns={columns}
+        searchFields={['name', 'email', 'role']}
+        actions={actions}
+        loading={loading}
+      />
 
       {/* Delete confirmation modal */}
       {deleteTarget && (

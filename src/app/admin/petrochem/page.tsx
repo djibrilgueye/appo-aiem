@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface PetrochemRecord {
   id: string
@@ -44,6 +45,55 @@ export default function PetrochemPage() {
 
   if (status === "loading") return null
 
+  const columns = [
+    {
+      key: 'plantId',
+      label: 'ID',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono text-sm'
+    },
+    {
+      key: 'name',
+      label: 'Nom',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'country',
+      label: 'Pays',
+      sortable: true,
+      searchable: true,
+      render: (country: { name: string }) => country?.name,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'products',
+      label: 'Produits',
+      sortable: false,
+      searchable: true,
+      render: (products: string[] | string) => getProducts(products),
+      className: 'text-[#5B8FB9] text-sm max-w-xs truncate'
+    },
+    {
+      key: 'capacity',
+      label: 'Capacité',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840] text-sm'
+    }
+  ]
+
+  const actions = (r: PetrochemRecord) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/petrochem/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
+      {session?.user.role === "admin" && (
+        <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
+      )}
+    </div>
+  )
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -58,45 +108,14 @@ export default function PetrochemPage() {
           <Plus size={18} /> Nouvelle usine
         </Link>
       </div>
-      <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-[#F4F7FB]">
-            <tr>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">ID</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Nom</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Pays</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Produits</th>
-              <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Capacité</th>
-              <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && (
-              <tr><td colSpan={6} className="px-4 py-8 text-center text-[#5B8FB9]">Chargement...</td></tr>
-            )}
-            {!loading && records.length === 0 && (
-              <tr><td colSpan={6} className="px-4 py-8 text-center text-[#5B8FB9]">Aucune usine pétrochimique enregistrée.</td></tr>
-            )}
-            {records.map(r => (
-              <tr key={r.id} className="border-t border-[#EBF3FB] hover:bg-[#F4F7FB]">
-                <td className="px-4 py-3 text-[#1B4F72] font-mono text-sm">{r.plantId}</td>
-                <td className="px-4 py-3 text-[#0D2840]">{r.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9]">{r.country?.name}</td>
-                <td className="px-4 py-3 text-[#5B8FB9] text-sm max-w-xs truncate">{getProducts(r.products)}</td>
-                <td className="px-4 py-3 text-[#0D2840] text-sm">{r.capacity}</td>
-                <td className="px-4 py-3 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <Link href={`/admin/petrochem/${r.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"><Edit size={16} /></Link>
-                    {session?.user.role === "admin" && (
-                      <button onClick={() => handleDelete(r.id, r.name)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition"><Trash2 size={16} /></button>
-                    )}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      <AdminTable
+        data={records}
+        columns={columns}
+        searchFields={['plantId', 'name', 'country.name', 'products', 'capacity']}
+        actions={actions}
+        loading={loading}
+      />
     </div>
   )
 }

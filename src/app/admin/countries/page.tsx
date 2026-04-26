@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, FolderOpen, User, BarChart3 } from "lucide-react"
+import { AdminTable } from "@/components/AdminTable"
 
 interface Country {
   id: string
@@ -81,6 +82,108 @@ export default function CountriesPage() {
 
   if (status === "loading" || loading) return null
 
+  const columns = [
+    {
+      key: 'code',
+      label: 'Code',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#1B4F72] font-mono'
+    },
+    {
+      key: 'name',
+      label: 'Name',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#0D2840]'
+    },
+    {
+      key: 'region',
+      label: 'Region',
+      sortable: true,
+      searchable: true,
+      className: 'text-[#5B8FB9]'
+    },
+    {
+      key: 'coordinates',
+      label: 'Coordinates',
+      sortable: false,
+      render: (_: any, country: Country) => `${country.lat.toFixed(2)}, ${country.lon.toFixed(2)}`,
+      className: 'text-[#5B8FB9] text-sm'
+    },
+    {
+      key: 'appoMember',
+      label: 'APPO',
+      sortable: true,
+      render: (appoMember: boolean) => appoMember ? (
+        <span className="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">Yes</span>
+      ) : (
+        <span className="bg-gray-500/20 text-[#5B8FB9] px-2 py-1 rounded text-xs">No</span>
+      )
+    },
+    {
+      key: 'active',
+      label: 'Active',
+      sortable: true,
+      render: (active: boolean, country: Country) => (
+        <div className="text-center">
+          <button
+            onClick={() => toggleActive(country.id, active)}
+            title={active ? "Désactiver" : "Activer"}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+              active ? "bg-[#1B4F72]" : "bg-[#EBF3FB]"
+            }`}
+          >
+            <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+              active ? "translate-x-6" : "translate-x-1"
+            }`} />
+          </button>
+        </div>
+      ),
+      className: 'text-center'
+    }
+  ]
+
+  const actions = (country: Country) => (
+    <div className="flex items-center justify-end gap-2">
+      <Link
+        href={`/admin/countries/${country.id}/profile`}
+        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+        title="Profil pays & SNH"
+      >
+        <User size={16} />
+      </Link>
+      <Link
+        href={`/admin/countries/${country.id}/economics`}
+        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+        title="Données économiques"
+      >
+        <BarChart3 size={16} />
+      </Link>
+      <Link
+        href={`/admin/countries/${country.id}/documents`}
+        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+        title="Documents & Photos"
+      >
+        <FolderOpen size={16} />
+      </Link>
+      <Link
+        href={`/admin/countries/${country.id}/edit`}
+        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
+      >
+        <Edit size={16} />
+      </Link>
+      {session?.user.role === "admin" && (
+        <button
+          onClick={() => handleDelete(country.id, country.name)}
+          className="p-2 text-[#5B8FB9] hover:text-red-600 transition"
+        >
+          <Trash2 size={16} />
+        </button>
+      )}
+    </div>
+  )
+
   return (
     <div>
         <div className="flex items-center justify-between mb-6">
@@ -102,92 +205,13 @@ export default function CountriesPage() {
           </Link>
         </div>
 
-        <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-[#F4F7FB]">
-              <tr>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Code</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Name</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Region</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">Coordinates</th>
-                <th className="text-left text-[#1B4F72] px-4 py-3 text-sm font-medium">APPO</th>
-                <th className="text-center text-[#1B4F72] px-4 py-3 text-sm font-medium">Active</th>
-                <th className="text-right text-[#1B4F72] px-4 py-3 text-sm font-medium">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {countries.map(country => (
-                <tr key={country.id} className={`border-t border-[#EBF3FB] hover:bg-[#F4F7FB] ${!country.active ? "opacity-40" : ""}`}>
-                  <td className="px-4 py-3 text-[#1B4F72] font-mono">{country.code}</td>
-                  <td className="px-4 py-3 text-[#0D2840]">{country.name}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9]">{country.region}</td>
-                  <td className="px-4 py-3 text-[#5B8FB9] text-sm">
-                    {country.lat.toFixed(2)}, {country.lon.toFixed(2)}
-                  </td>
-                  <td className="px-4 py-3">
-                    {country.appoMember ? (
-                      <span className="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">Yes</span>
-                    ) : (
-                      <span className="bg-gray-500/20 text-[#5B8FB9] px-2 py-1 rounded text-xs">No</span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-center">
-                    <button
-                      onClick={() => toggleActive(country.id, country.active)}
-                      title={country.active ? "Désactiver" : "Activer"}
-                      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
-                        country.active ? "bg-[#1B4F72]" : "bg-[#EBF3FB]"
-                      }`}
-                    >
-                      <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
-                        country.active ? "translate-x-6" : "translate-x-1"
-                      }`} />
-                    </button>
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link
-                        href={`/admin/countries/${country.id}/profile`}
-                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
-                        title="Profil pays & SNH"
-                      >
-                        <User size={16} />
-                      </Link>
-                      <Link
-                        href={`/admin/countries/${country.id}/economics`}
-                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
-                        title="Données économiques"
-                      >
-                        <BarChart3 size={16} />
-                      </Link>
-                      <Link
-                        href={`/admin/countries/${country.id}/documents`}
-                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
-                        title="Documents & Photos"
-                      >
-                        <FolderOpen size={16} />
-                      </Link>
-                      <Link
-                        href={`/admin/countries/${country.id}/edit`}
-                        className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
-                      >
-                        <Edit size={16} />
-                      </Link>
-                      {session?.user.role === "admin" && (
-                        <button
-                          onClick={() => handleDelete(country.id, country.name)}
-                          className="p-2 text-[#5B8FB9] hover:text-red-600 transition"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <AdminTable
+          data={countries}
+          columns={columns}
+          searchFields={['code', 'name', 'region']}
+          actions={actions}
+          loading={loading}
+        />
     </div>
   )
 }
