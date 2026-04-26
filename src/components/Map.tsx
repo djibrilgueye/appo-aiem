@@ -977,6 +977,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
   const selectedCodesRef  = useRef<Set<string>>(new Set())  // ISO2 codes of selected countries
   const geoCentroidsRef   = useRef<Map<string, [number, number]>>(new Map())
   const countriesRef      = useRef<Country[]>([])
+  const yearRef           = useRef<number>(selectedYear)     // mirror of selectedYear, readable inside Leaflet closures
   const tradeHighlightRef = useRef<Set<L.Path>>(new Set())   // layers highlighted for trade partners
   const tradeLabelsRef    = useRef<L.Marker[]>([])           // temp labels for non-member partners
 
@@ -1000,6 +1001,18 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
   const [oilFields,   setOilFields]   = useState<OilField[]>([])
   const [tradeImports, setTradeImports] = useState<TradeRow[]>([])
   const [tradeExports, setTradeExports] = useState<TradeRow[]>([])
+
+  // Keep yearRef in sync so Leaflet click handlers (closures) read the current year,
+  // and refetch the open country profile when the user changes the year slider.
+  useEffect(() => {
+    yearRef.current = selectedYear
+    if (countryProfile?.id) {
+      fetch(`/api/countries/${countryProfile.id}/profile?year=${selectedYear}`)
+        .then(r => r.json())
+        .then(setCountryProfile)
+        .catch(console.error)
+    }
+  }, [selectedYear]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Fetch data ────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -1217,7 +1230,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 const iso3 = ISO2_TO_ISO3[iso2]
                 const found = countriesRef.current.find((c: Country) => c.code === iso3)
                 if (found) {
-                  fetch(`/api/countries/${found.id}/profile`)
+                  fetch(`/api/countries/${found.id}/profile?year=${yearRef.current}`)
                     .then(r => r.json())
                     .then(setCountryProfile)
                     .catch(console.error)
