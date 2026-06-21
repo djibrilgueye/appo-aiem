@@ -1716,7 +1716,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       })
     }
 
-  }, [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems, oilBlocks, oilFields, tradeImports, tradeExports, selectedCountries, selectedYear, activeThemes, showLabels, showPipelineLabels, showTip, highlightPartners, clearTradeHighlight, t, geoReady])
+  }, [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems, oilBlocks, oilFields, tradeImports, tradeExports, selectedCountries, selectedYear, activeThemes, activeStatuses, showLabels, showPipelineLabels, showTip, highlightPartners, clearTradeHighlight, t, geoReady])
 
   return (
     <div className="relative w-full h-full overflow-hidden">

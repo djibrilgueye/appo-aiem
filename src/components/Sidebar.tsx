@@ -442,23 +442,21 @@ export function Sidebar({
           counter={`${activeStatuses.size}/${OPERATIONAL_STATUSES.length}`}
           section={section}
           sectionTitle={sectionTitle}
-          headerExtra={
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                if (activeStatuses.size === OPERATIONAL_STATUSES.length) {
-                  setActiveStatuses(new Set())
-                } else {
-                  setActiveStatuses(new Set(OPERATIONAL_STATUSES))
-                }
-              }}
-              title={activeStatuses.size === OPERATIONAL_STATUSES.length ? "Tout décocher" : "Tout cocher"}
-              style={{ background: "transparent", color: "#b8c7db", border: "none", cursor: "pointer", fontSize: "10px", padding: "0 4px" }}
-            >
-              {activeStatuses.size === OPERATIONAL_STATUSES.length ? "−" : "+"}
-            </button>
-          }
         >
+          <div className="flex gap-1 mb-1">
+            <button
+              onClick={() => setActiveStatuses(new Set(OPERATIONAL_STATUSES))}
+              style={smallBtn}
+            >
+              {t.sidebar.allThemes}
+            </button>
+            <button
+              onClick={() => setActiveStatuses(new Set())}
+              style={smallBtn}
+            >
+              {t.sidebar.clear}
+            </button>
+          </div>
           {OPERATIONAL_STATUSES.map(s => (
             <label key={s} className="flex items-center gap-2 cursor-pointer" style={{ fontSize: "12px", color: "#b8c7db" }}>
               <input
