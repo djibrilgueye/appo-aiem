@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 const STORAGE_TYPES = ["Crude Oil", "LNG Import Terminal (FSRU)", "LNG Export Terminal", "Products Depot", "LNG"]
 const LNG_SUBTYPES = ["Import (regasification)", "Export (liquefaction)"]
-const STATUSES = ["operational", "under construction", "planned", "closed"]
 
 export default function NewStoragePage() {
   const { status } = useSession()
@@ -110,10 +110,8 @@ export default function NewStoragePage() {
             <input type="number" step="0.001" value={form.capacityMb} onChange={e => setForm({ ...form, capacityMb: parseFloat(e.target.value) || 0 })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut</label>
-            <select value={form.status} onChange={e => setForm({ ...form, status: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
-            </select>
+            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
         </div>
         {isLng && (

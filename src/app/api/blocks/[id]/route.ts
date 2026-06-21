@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const updateSchema = z.object({
@@ -10,7 +11,7 @@ const updateSchema = z.object({
   name: z.string().optional(),
   basinId: z.string().optional(),
   countryId: z.string().optional(),
-  status: z.string().optional(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).optional(),
   type: z.string().optional(),
   operator: z.string().optional().nullable(),
   operatorContact: z.string().optional().nullable(),

@@ -5,8 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
-
-const STATUSES = ["operational", "under construction", "proposed", "idle", "decommissioned"]
+import { StatusSelect } from "@/components/StatusSelect"
 
 export default function EditRefineryPage() {
   const { status } = useSession()
@@ -83,10 +82,8 @@ export default function EditRefineryPage() {
               </select>
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Status</label>
-              <select value={form.status} onChange={e => setForm({...form, status: e.target.value})} className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-                {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
-              </select>
+              <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+              <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">

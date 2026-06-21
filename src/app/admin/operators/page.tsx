@@ -6,11 +6,13 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, ExternalLink, Building2, X, Check } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
+import { StatusSelect } from "@/components/StatusSelect"
 
 interface NationalCompany {
   id: string; companyId: string; name: string; acronym: string | null
   founded: number | null; website: string | null; description: string | null
-  contact: string | null; countryId: string
+  contact: string | null; countryId: string; status: string
 }
 interface Country { id: string; code: string; name: string }
 interface BlockOp {
@@ -21,7 +23,7 @@ interface BlockOp {
   contact: string | null
 }
 
-const emptyForm = { name: "", acronym: "", founded: "", website: "", description: "", contact: "", countryId: "" }
+const emptyForm = { name: "", acronym: "", founded: "", website: "", description: "", contact: "", countryId: "", status: "operational" }
 
 export default function OperatorsPage() {
   const { data: session, status } = useSession()
@@ -98,6 +100,13 @@ export default function OperatorsPage() {
           <ExternalLink size={11} />{website}
         </a>
       ) : <span className="text-[#A3C4DC]">—</span>
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -205,6 +214,7 @@ export default function OperatorsPage() {
             website: form.website || null,
             description: form.description || null,
             contact: form.contact || null,
+            status: form.status,
           }),
         })
         if (res.ok) {
@@ -226,6 +236,7 @@ export default function OperatorsPage() {
             website: form.website || null,
             description: form.description || null,
             contact: form.contact || null,
+            status: form.status,
           }),
         })
         if (res.ok) {
@@ -247,7 +258,7 @@ export default function OperatorsPage() {
   const startEdit = (co: NationalCompany) => {
     setEditing(co)
     setAdding(false)
-    setForm({ name: co.name, acronym: co.acronym || "", founded: co.founded ? String(co.founded) : "", website: co.website || "", description: co.description || "", contact: co.contact || "", countryId: co.countryId })
+    setForm({ name: co.name, acronym: co.acronym || "", founded: co.founded ? String(co.founded) : "", website: co.website || "", description: co.description || "", contact: co.contact || "", countryId: co.countryId, status: co.status ?? "operational" })
   }
 
   const cancelForm = () => { setEditing(null); setAdding(false); setForm(emptyForm); setFormError("") }
@@ -321,6 +332,15 @@ export default function OperatorsPage() {
                 <label className="block text-[#1B4F72] text-xs mb-1">Description</label>
                 <input value={form.description} onChange={e => setForm({...form, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
+              <div>
+                <label className="block text-[#1B4F72] text-xs mb-1">Statut opérationnel</label>
+                <StatusSelect
+                  value={form.status}
+                  onChange={status => setForm({ ...form, status })}
+                  required
+                  className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]"
+                />
+              </div>
             </div>
             <div className="flex gap-2">
               <button type="submit" disabled={saving} className="flex items-center gap-1.5 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
@@ -338,7 +358,7 @@ export default function OperatorsPage() {
             <AdminTable
               data={companies}
               columns={companiesColumns}
-              searchFields={['countryId', 'name', 'acronym', 'contact', 'website']}
+              searchFields={['countryId', 'name', 'acronym', 'contact', 'website', 'status']}
               actions={companiesActions}
               loading={false}
             />

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
@@ -17,6 +18,7 @@ const basinSchema = z.object({
   lon: z.number(),
   areaKm2: z.number().optional(),
   description: z.string().optional(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
 export async function GET(req: Request) {

@@ -6,12 +6,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, Layers } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface Basin {
   id: string
   basinId: string
   name: string
   type: string
+  status: string
   areaKm2: number | null
   lat: number
   lon: number
@@ -79,6 +81,13 @@ export default function BasinsPage() {
       sortable: false,
       render: (_: any, basin: Basin) => `${basin.lat.toFixed(2)}, ${basin.lon.toFixed(2)}`,
       className: 'text-[#5B8FB9] text-sm'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -110,7 +119,7 @@ export default function BasinsPage() {
         <AdminTable
           data={basins}
           columns={columns}
-          searchFields={['basinId', 'name', 'country.name', 'type']}
+          searchFields={['basinId', 'name', 'country.name', 'type', 'status']}
           actions={actions}
           loading={loading}
         />

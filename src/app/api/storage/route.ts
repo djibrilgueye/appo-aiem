@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const storageSchema = z.object({
@@ -16,7 +17,7 @@ const storageSchema = z.object({
   capacityMb: z.number(),
   regasCapacity: z.number().optional().nullable(),
   liquefCapacity: z.number().optional().nullable(),
-  status: z.string().default("operational"),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
 export async function GET() {

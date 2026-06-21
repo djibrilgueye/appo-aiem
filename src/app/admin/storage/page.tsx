@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface StorageRecord {
   id: string
@@ -18,13 +19,6 @@ interface StorageRecord {
   lat: number
   lon: number
   country: { name: string; code: string }
-}
-
-const STATUS_COLORS: Record<string, string> = {
-  operational: "bg-green-50 text-green-700",
-  "under construction": "bg-blue-500/20 text-blue-600",
-  planned: "bg-amber-500/20 text-amber-700",
-  closed: "bg-red-50 text-red-600",
 }
 
 export default function StoragePage() {
@@ -92,11 +86,7 @@ export default function StoragePage() {
       label: 'Statut',
       sortable: true,
       searchable: true,
-      render: (status: string) => (
-        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
-          {status}
-        </span>
-      )
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 

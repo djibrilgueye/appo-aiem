@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface TradeRecord {
   id: string
@@ -16,6 +17,7 @@ interface TradeRecord {
   oilExtraKbD: number
   gasIntraBcm: number
   gasExtraBcm: number
+  status: string
   country: { name: string; code: string }
 }
 
@@ -106,6 +108,13 @@ export default function TradePage() {
       sortable: true,
       render: (value: number) => value > 0 ? value.toFixed(2) : "—",
       className: 'text-[#0D2840] text-right font-mono text-sm'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -136,7 +145,7 @@ export default function TradePage() {
       <AdminTable
         data={records}
         columns={columns}
-        searchFields={['country.name', 'year', 'direction']}
+        searchFields={['country.name', 'year', 'direction', 'status']}
         actions={actions}
         loading={loading}
       />

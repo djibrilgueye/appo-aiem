@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const fieldSchema = z.object({
@@ -11,7 +12,7 @@ const fieldSchema = z.object({
   basinId: z.string(),
   countryId: z.string(),
   type: z.string().default("Oil & Gas"),
-  status: z.enum(["En production", "En développement", "Découverte", "Abandonné"]).default("Découverte"),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
   operator: z.string().optional(),
   partners: z.string().optional(),
   discoveryYear: z.number().int().optional(),

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 export default function NewRnDPage() {
   const { status } = useSession()
@@ -20,6 +21,7 @@ export default function NewRnDPage() {
     lon: 0,
     focus: "",
     year: "",
+    status: "operational",
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
@@ -83,6 +85,10 @@ export default function NewRnDPage() {
         <div>
           <label className="block text-[#1B4F72] text-sm mb-1">Année de création <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
           <input type="number" value={form.year} onChange={e => setForm({ ...form, year: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="ex: 2005" />
+        </div>
+        <div>
+          <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+          <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
         </div>
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">

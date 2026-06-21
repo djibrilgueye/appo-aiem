@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface PetrochemRecord {
   id: string
@@ -13,6 +14,7 @@ interface PetrochemRecord {
   name: string
   products: string[] | string
   capacity: string
+  status: string
   lat: number
   lon: number
   country: { name: string; code: string }
@@ -82,6 +84,13 @@ export default function PetrochemPage() {
       sortable: true,
       searchable: true,
       className: 'text-[#0D2840] text-sm'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -112,7 +121,7 @@ export default function PetrochemPage() {
       <AdminTable
         data={records}
         columns={columns}
-        searchFields={['plantId', 'name', 'country.name', 'products', 'capacity']}
+        searchFields={['plantId', 'name', 'country.name', 'products', 'capacity', 'status']}
         actions={actions}
         loading={loading}
       />

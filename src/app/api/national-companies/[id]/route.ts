@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 
 const schema = z.object({
   companyId: z.string().min(1).optional(),
@@ -12,6 +13,7 @@ const schema = z.object({
   website: z.string().optional().nullable(),
   description: z.string().optional().nullable(),
   contact: z.string().optional().nullable(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).optional(),
 })
 
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {

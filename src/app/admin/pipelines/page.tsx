@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface Pipeline {
   id: string
@@ -15,14 +16,6 @@ interface Pipeline {
   status: string
   lengthKm: number | null
   capacity: string | null
-}
-
-const STATUS_COLORS: Record<string, string> = {
-  operational: "bg-green-50 text-green-700",
-  "under construction": "bg-yellow-500/20 text-yellow-400",
-  proposed: "bg-blue-500/20 text-blue-400",
-  offline: "bg-gray-500/20 text-[#5B8FB9]",
-  concept: "bg-purple-500/20 text-purple-400",
 }
 
 export default function PipelinesPage() {
@@ -73,14 +66,10 @@ export default function PipelinesPage() {
     },
     {
       key: 'status',
-      label: 'Status',
+      label: 'Statut',
       sortable: true,
       searchable: true,
-      render: (status: string) => (
-        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
-          {status}
-        </span>
-      )
+      render: (status: string) => <StatusBadge status={status} />,
     },
     {
       key: 'lengthKm',

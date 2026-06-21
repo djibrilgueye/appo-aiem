@@ -168,3 +168,133 @@ function buildOtpHtml(otp: string, userName?: string | null): string {
 </body>
 </html>`
 }
+
+// ─── Invitation email (admin creates user) ───────────────────────────────────
+
+/** Build the HTML body for the invitation email. */
+function buildInvitationHtml(userName: string, loginUrl: string, otp: string): string {
+  const spaced = otp.split("").join("  ")
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
+<body style="margin:0;padding:0;background-color:#F4F7FB;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F4F7FB;padding:40px 20px;">
+    <tr><td align="center">
+      <table width="520" cellpadding="0" cellspacing="0"
+        style="background:#fff;border-radius:12px;overflow:hidden;
+               box-shadow:0 4px 20px rgba(27,79,114,.12);border:1px solid #D0E4F0;">
+        <tr>
+          <td style="background:#1B4F72;padding:24px 32px;">
+            <div style="color:#F4B942;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">APPO</div>
+            <div style="color:#fff;font-size:20px;font-weight:bold;">AIEM</div>
+            <div style="color:#A3C4DC;font-size:12px;">Africa Interactive Energy Map</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 32px;">
+            <p style="margin:0 0 16px;color:#0D2840;font-size:16px;"><strong>Bonjour ${userName},</strong></p>
+            <p style="margin:0 0 20px;color:#5B8FB9;font-size:14px;line-height:1.6;">
+              Un compte vient d'être créé pour vous sur la plateforme AIEM (Africa Interactive Energy Map).<br/>
+              Pour vous connecter pour la première fois, utilisez le code ci-dessous.
+            </p>
+            <div style="background:#EBF3FB;border:2px solid #1B4F72;border-radius:10px;text-align:center;padding:24px 20px;margin-bottom:24px;">
+              <div style="font-size:32px;font-weight:bold;letter-spacing:10px;color:#1B4F72;font-family:'Courier New',monospace;">${spaced}</div>
+              <div style="color:#5B8FB9;font-size:12px;margin-top:8px;">Code valide 24 heures</div>
+            </div>
+            <p style="margin:0 0 20px;color:#5B8FB9;font-size:14px;line-height:1.6;">
+              Connectez-vous à : <a href="${loginUrl}" style="color:#1B4F72;font-weight:bold;">${loginUrl}</a>
+            </p>
+            <div style="background:#FFF8EC;border-left:3px solid #F4B942;padding:12px 16px;border-radius:0 6px 6px 0;margin-bottom:24px;">
+              <p style="margin:0;color:#7A5C00;font-size:13px;line-height:1.5;">
+                <strong>À noter :</strong> si vous n'attendiez pas cette invitation, vous pouvez ignorer ce message.
+              </p>
+            </div>
+            <p style="margin:0;color:#A3C4DC;font-size:12px;">Message automatique — merci de ne pas répondre.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#EBF3FB;padding:16px 32px;border-top:1px solid #D0E4F0;">
+            <p style="margin:0;color:#5B8FB9;font-size:11px;text-align:center;">APPO &copy; 2026 &mdash; African Petroleum Producers&apos; Organization</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`
+}
+
+/**
+ * Send an invitation email to a newly-created user.
+ * Uses the generic /send endpoint of the Python email service (subject is custom).
+ * Falls back to nodemailer if the service is unavailable.
+ * Logs to the console in dev mode when no SMTP is configured.
+ */
+export async function sendInvitationEmail(
+  email: string,
+  userName: string,
+  otp: string,
+  loginUrl: string,
+): Promise<{ success: boolean; dev: boolean }> {
+  const subject = "Invitation à AIEM — Africa Interactive Energy Map"
+  const html = buildInvitationHtml(userName, loginUrl, otp)
+  const text =
+    `Bonjour ${userName},\n\n` +
+    `Un compte AIEM vient d'être créé pour vous.\n` +
+    `Code de connexion : ${otp} (valide 24 heures)\n` +
+    `URL : ${loginUrl}\n`
+
+  // Dev console fallback
+  if (!process.env.SMTP_HOST) {
+    console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    console.log(`  [AIEM INVITE] To:    ${email}`)
+    console.log(`  [AIEM INVITE] Name:  ${userName}`)
+    console.log(`  [AIEM INVITE] Code:  ${otp}`)
+    console.log(`  [AIEM INVITE] URL:   ${loginUrl}`)
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
+    return { success: true, dev: true }
+  }
+
+  // 1. Try Python /send
+  try {
+    const res = await fetch(`${EMAIL_SERVICE_URL}/send`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-API-Key": EMAIL_SERVICE_API_KEY },
+      body: JSON.stringify({ to: email, subject, html, text }),
+      signal: AbortSignal.timeout(15000),
+    })
+    const data = await res.json()
+    if (res.ok && data.success) {
+      console.log(`[Email Service] Invitation sent to ${email}`)
+      return { success: true, dev: false }
+    }
+    console.error("[Email Service] Invite error:", data.error)
+  } catch (err) {
+    console.error("[Email Service] Invite connection error:", err)
+  }
+
+  // 2. Fallback to nodemailer
+  try {
+    const nodemailer = await import("nodemailer")
+    const transporter = nodemailer.default.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT ?? 587),
+      secure: false,
+      requireTLS: true,
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      tls: { rejectUnauthorized: false },
+    })
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM ?? `"AIEM - APPO" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject,
+      html,
+      text,
+    })
+    console.log(`[Nodemailer] Invitation sent to ${email}`)
+    return { success: true, dev: false }
+  } catch (err) {
+    console.error("[Nodemailer] Invite send error:", err)
+    return { success: false, dev: false }
+  }
+}

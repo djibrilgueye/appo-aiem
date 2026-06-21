@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const blockSchema = z.object({
@@ -10,7 +11,7 @@ const blockSchema = z.object({
   name: z.string().min(1),
   basinId: z.string(),
   countryId: z.string(),
-  status: z.enum(["Libre", "Attribué", "Exploration", "Production", "Abandonné"]).default("Libre"),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
   type: z.string().default("Oil & Gas"),
   operator: z.string().optional(),
   operatorContact: z.string().optional(),

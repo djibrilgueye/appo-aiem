@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const rndSchema = z.object({
@@ -13,6 +14,7 @@ const rndSchema = z.object({
   lon: z.number(),
   focus: z.string(),
   year: z.number().optional().nullable(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
 export async function GET() {

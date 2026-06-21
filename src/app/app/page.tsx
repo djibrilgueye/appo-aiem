@@ -10,6 +10,7 @@ import { DataTable } from "@/components/DataTable"
 import { ComparePanel } from "@/components/ComparePanel"
 import { Overview } from "@/components/Overview"
 import { AIAssistant } from "@/components/ai/AIAssistant"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 
 // Dynamic import for Leaflet (SSR disabled)
 const AIEMMap = dynamic(() => import("@/components/Map").then(mod => mod.AIEMMap), {
@@ -28,6 +29,7 @@ function HomeContent() {
   const [selectedYear, setSelectedYear] = useState(2024)
   const [selectedRegion, setSelectedRegion] = useState("All")
   const [activeThemes, setActiveThemes] = useState<Set<string>>(new Set())
+  const [activeStatuses, setActiveStatuses] = useState<Set<string>>(new Set(OPERATIONAL_STATUSES))
   const [showLabels, setShowLabels] = useState(true)
   const [showPipelineLabels, setShowPipelineLabels] = useState(false)
   const [viewMode, setViewMode] = useState<"overview" | "map" | "table">("overview")
@@ -60,6 +62,8 @@ function HomeContent() {
             setSelectedRegion={setSelectedRegion}
             activeThemes={activeThemes}
             setActiveThemes={setActiveThemes}
+            activeStatuses={activeStatuses}
+            setActiveStatuses={setActiveStatuses}
             showLabels={showLabels}
             setShowLabels={setShowLabels}
             showPipelineLabels={showPipelineLabels}
@@ -79,6 +83,7 @@ function HomeContent() {
                 selectedYear={selectedYear}
                 selectedRegion={selectedRegion}
                 activeThemes={activeThemes}
+                activeStatuses={activeStatuses}
                 showLabels={showLabels}
                 showPipelineLabels={showPipelineLabels}
               />

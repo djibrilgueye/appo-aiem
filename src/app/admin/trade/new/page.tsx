@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 export default function NewTradePage() {
   const { status } = useSession()
@@ -25,6 +26,7 @@ export default function NewTradePage() {
     gplTM: "",
     jetFuelTM: "",
     partiesInput: "", // mainSources or mainDestinations, comma-separated
+    status: "operational",
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
@@ -47,6 +49,7 @@ export default function NewTradePage() {
       gasoilM3: parseNum(form.gasoilM3),
       gplTM: parseNum(form.gplTM),
       jetFuelTM: parseNum(form.jetFuelTM),
+      status: form.status,
       ...(isImport ? { mainSources: parties } : { mainDestinations: parties }),
     }
     const endpoint = isImport ? "/api/trade/imports" : "/api/trade/exports"
@@ -134,6 +137,11 @@ export default function NewTradePage() {
             {form.direction === "Import" ? "Principales sources" : "Principales destinations"} <span className="text-[#A3C4DC] text-xs">codes pays séparés par des virgules, ex: DZA, NGA</span>
           </label>
           <input value={form.partiesInput} onChange={e => setForm({ ...form, partiesInput: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="DZA, NGA, LBY" />
+        </div>
+
+        <div>
+          <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+          <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
         </div>
 
         <div className="flex gap-3 pt-2">

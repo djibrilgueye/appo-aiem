@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface Refinery {
   id: string
@@ -17,14 +18,6 @@ interface Refinery {
   lat: number
   lon: number
   country: { name: string; code: string }
-}
-
-const STATUS_COLORS: Record<string, string> = {
-  operational: "bg-green-50 text-green-700",
-  "under construction": "bg-yellow-500/20 text-yellow-400",
-  proposed: "bg-blue-500/20 text-blue-400",
-  idle: "bg-gray-500/20 text-[#5B8FB9]",
-  decommissioned: "bg-red-50 text-red-600",
 }
 
 export default function RefineriesPage() {
@@ -77,14 +70,10 @@ export default function RefineriesPage() {
     },
     {
       key: 'status',
-      label: 'Status',
+      label: 'Statut',
       sortable: true,
       searchable: true,
-      render: (status: string) => (
-        <span className={`px-2 py-0.5 rounded text-xs capitalize ${STATUS_COLORS[status] || "bg-gray-500/20 text-[#5B8FB9]"}`}>
-          {status}
-        </span>
-      )
+      render: (status: string) => <StatusBadge status={status} />,
     },
     {
       key: 'year',

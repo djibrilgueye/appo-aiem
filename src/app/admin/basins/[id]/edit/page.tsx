@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 const TYPES = ["Oil", "Gas", "Oil & Gas"]
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
@@ -18,7 +19,7 @@ export default function EditBasinPage() {
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
   const [error, setError] = useState("")
-  const [form, setForm] = useState({ basinId: "", name: "", countryId: "", type: "Oil & Gas", location: "Onshore", lat: 0, lon: 0, areaKm2: "", description: "" })
+  const [form, setForm] = useState({ basinId: "", name: "", countryId: "", type: "Oil & Gas", location: "Onshore", lat: 0, lon: 0, areaKm2: "", description: "", status: "operational" })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
   useEffect(() => { fetch("/api/countries?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) }) }, [])
@@ -38,6 +39,7 @@ export default function EditBasinPage() {
           lon: d.lon || 0,
           areaKm2: d.areaKm2 != null ? String(d.areaKm2) : "",
           description: d.description || "",
+          status: d.status ?? "operational",
         })
         setFetching(false)
       })
@@ -113,6 +115,10 @@ export default function EditBasinPage() {
               <label className="block text-[#1B4F72] text-sm mb-1">Area (km²) <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
               <input type="number" value={form.areaKm2} onChange={e => setForm({...form, areaKm2: e.target.value})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
+          </div>
+          <div>
+            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div>
             <label className="block text-[#1B4F72] text-sm mb-1">Description <span className="text-[#A3C4DC] text-xs">optionnel</span></label>

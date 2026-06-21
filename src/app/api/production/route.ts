@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const productionSchema = z.object({
@@ -11,6 +12,7 @@ const productionSchema = z.object({
   oil: z.number(),
   gas: z.number(),
   condensat: z.number().optional(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
 export async function GET(req: Request) {

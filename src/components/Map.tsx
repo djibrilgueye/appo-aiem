@@ -5,6 +5,7 @@ import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import { X, MapPin, FileText, Image, File, ExternalLink, FolderOpen } from "lucide-react"
 import { useLanguage } from "@/i18n/LanguageContext"
+import { normalizeStatus, STATUS_COLORS, statusLabel } from "@/lib/operationalStatus"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -28,7 +29,7 @@ interface CountryProfile {
   basins: { id: string; name: string; type: string }[]
 }
 interface Basin {
-  id: string; name: string; type: string; lat: number; lon: number; areaKm2?: number; description?: string | null; country: { name: string; code: string }
+  id: string; name: string; type: string; lat: number; lon: number; areaKm2?: number; description?: string | null; status?: string; country: { name: string; code: string }
 }
 interface Refinery {
   id: string; name: string; lat: number; lon: number; capacityKbd: number; status: string; country: { name: string; code: string }
@@ -43,16 +44,16 @@ interface Production {
   id: string; oil: number; gas: number; year: number; country: { name: string; code: string; lat: number; lon: number }
 }
 interface TrainingInstitute {
-  id: string; name: string; lat: number; lon: number; type: string; year?: number; country: { name: string; code: string }
+  id: string; name: string; lat: number; lon: number; type: string; year?: number; status?: string; country: { name: string; code: string }
 }
 interface RnDCenter {
-  id: string; name: string; lat: number; lon: number; focus: string; year?: number; country: { name: string; code: string }
+  id: string; name: string; lat: number; lon: number; focus: string; year?: number; status?: string; country: { name: string; code: string }
 }
 interface StorageFacility {
-  id: string; name: string; lat: number; lon: number; type: string; capacityMb: number; country: { name: string; code: string }
+  id: string; name: string; lat: number; lon: number; type: string; capacityMb: number; status?: string; country: { name: string; code: string }
 }
 interface PetrochemPlant {
-  id: string; name: string; lat: number; lon: number; products: string[]; capacity: string; country: { name: string; code: string }
+  id: string; name: string; lat: number; lon: number; products: string[]; capacity: string; status?: string; country: { name: string; code: string }
 }
 interface OilBlock {
   id: string; name: string; blockId: string; status: string; type: string
@@ -81,6 +82,7 @@ interface MapProps {
   selectedYear: number
   selectedRegion?: string
   activeThemes: Set<string>
+  activeStatuses?: Set<string>
   showLabels: boolean
   showPipelineLabels?: boolean
 }
@@ -961,8 +963,16 @@ function emojiMarker(emoji: string, size = 22) {
 
 // ─── Main Map Component ────────────────────────────────────────────────────────
 
-export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All", activeThemes, showLabels, showPipelineLabels = false }: MapProps) {
+export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All", activeThemes, activeStatuses, showLabels, showPipelineLabels = false }: MapProps) {
   const { t } = useLanguage()
+
+  // If activeStatuses is undefined or empty, treat as "all statuses allowed".
+  // Otherwise an asset's normalized status must be in the set to be rendered.
+  const passesStatus = (raw: string | null | undefined): boolean => {
+    if (!activeStatuses || activeStatuses.size === 0) return true
+    return activeStatuses.has(normalizeStatus(raw))
+  }
+
   const mapRef       = useRef<HTMLDivElement>(null)
   const leafletMap   = useRef<L.Map | null>(null)
   const geoLayer     = useRef<L.GeoJSON | null>(null)
@@ -1318,7 +1328,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     // Basins / Blocks / Fields (merged under a single "basins" theme)
     if (activeThemes.has("basins")) {
       // Basin markers
-      basins.filter(b => filteredCodes.size === 0 || filteredCodes.has(b.country.code)).forEach(basin => {
+      basins.filter(b => (filteredCodes.size === 0 || filteredCodes.has(b.country.code)) && passesStatus(b.status)).forEach(basin => {
         const rows = [
           { label: t.map.type, value: basin.type },
           ...(basin.areaKm2 ? [{ label: t.map.area, value: `${basin.areaKm2.toLocaleString()} km²` }] : []),
@@ -1343,11 +1353,11 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
         "Abandonné": "#EF4444",
       }
       oilBlocks
-        .filter(b => b.lat && b.lon && (filteredCodes.size === 0 || filteredCodes.has(b.country.code)))
+        .filter(b => b.lat && b.lon && (filteredCodes.size === 0 || filteredCodes.has(b.country.code)) && passesStatus(b.status))
         .forEach(blk => {
-          const color = BLOCK_COLORS[blk.status] ?? "#9CA3AF"
+          const color = STATUS_COLORS[normalizeStatus(blk.status)]
           const rows = [
-            { label: "Statut",    value: blk.status },
+            { label: "Statut",    value: statusLabel(blk.status) },
             { label: t.map.type,  value: blk.type },
             ...(blk.operator ? [{ label: "Opérateur", value: blk.operator }] : []),
             ...(blk.awardDate ? [{ label: "Attribution", value: `${blk.awardDate}` }] : []),
@@ -1371,11 +1381,11 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
         "Abandonné": "#EF4444",
       }
       oilFields
-        .filter(f => filteredCodes.size === 0 || filteredCodes.has(f.country.code))
+        .filter(f => (filteredCodes.size === 0 || filteredCodes.has(f.country.code)) && passesStatus(f.status))
         .forEach(fld => {
-          const color = FIELD_COLORS[fld.status] ?? "#8B5CF6"
+          const color = STATUS_COLORS[normalizeStatus(fld.status)]
           const rows = [
-            { label: "Statut",    value: fld.status },
+            { label: "Statut",    value: statusLabel(fld.status) },
             { label: t.map.type,  value: fld.type },
             ...(fld.operator ? [{ label: "Opérateur", value: fld.operator }] : []),
             ...(fld.discoveryYear ? [{ label: "Découverte", value: `${fld.discoveryYear}` }] : []),
@@ -1396,7 +1406,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // Refineries
     if (activeThemes.has("refineries")) {
-      refineries.filter(r => filteredCodes.size === 0 || filteredCodes.has(r.country.code)).forEach(ref => {
+      refineries.filter(r => (filteredCodes.size === 0 || filteredCodes.has(r.country.code)) && passesStatus(r.status)).forEach(ref => {
         const rows = [
           { label: t.map.capacity, value: `${ref.capacityKbd.toLocaleString()} kb/d` },
           { label: t.map.status,   value: ref.status },
@@ -1514,7 +1524,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // Pipelines
     if (activeThemes.has("pipelines")) {
-      pipelines.filter(p => filteredCodes.size === 0 || p.countries.some(c => filteredCodes.has(c))).forEach(pipe => {
+      pipelines.filter(p => (filteredCodes.size === 0 || p.countries.some(c => filteredCodes.has(c))) && passesStatus(p.status)).forEach(pipe => {
         const { color, dash } = pipelineStyle(pipe.status)
         const routeStr = pipe.countries.join(" → ")
         const rows = [
@@ -1550,7 +1560,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // Training
     if (activeThemes.has("training")) {
-      training.filter(inst => filteredCodes.size === 0 || filteredCodes.has(inst.country.code)).forEach(inst => {
+      training.filter(inst => (filteredCodes.size === 0 || filteredCodes.has(inst.country.code)) && passesStatus(inst.status)).forEach(inst => {
         const rows = [
           { label: t.map.type, value: inst.type },
           ...(inst.year ? [{ label: t.map.year, value: `${inst.year}` }] : []),
@@ -1563,7 +1573,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // R&D
     if (activeThemes.has("rnd")) {
-      rndCenters.filter(r => filteredCodes.size === 0 || filteredCodes.has(r.country.code)).forEach(center => {
+      rndCenters.filter(r => (filteredCodes.size === 0 || filteredCodes.has(r.country.code)) && passesStatus(r.status)).forEach(center => {
         const rows = [
           { label: "Focus", value: center.focus },
           ...(center.year ? [{ label: t.map.year, value: `${center.year}` }] : []),
@@ -1576,7 +1586,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // Storage
     if (activeThemes.has("storage")) {
-      storages.filter(s => filteredCodes.size === 0 || filteredCodes.has(s.country.code)).forEach(st => {
+      storages.filter(s => (filteredCodes.size === 0 || filteredCodes.has(s.country.code)) && passesStatus(s.status)).forEach(st => {
         const rows = [
           { label: t.map.type,     value: st.type },
           { label: t.map.capacity, value: `${st.capacityMb.toLocaleString()} Mb` },
@@ -1589,7 +1599,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
     // Petrochem
     if (activeThemes.has("petrochem")) {
-      petrochems.filter(p => filteredCodes.size === 0 || filteredCodes.has(p.country.code)).forEach(pc => {
+      petrochems.filter(p => (filteredCodes.size === 0 || filteredCodes.has(p.country.code)) && passesStatus(p.status)).forEach(pc => {
         const rows = [
           { label: t.map.type,     value: pc.products.slice(0, 2).join(", ") },
           { label: t.map.capacity, value: pc.capacity },

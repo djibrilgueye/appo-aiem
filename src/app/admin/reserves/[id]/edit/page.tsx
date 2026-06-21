@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 export default function EditReservePage() {
   const { status } = useSession()
@@ -15,7 +16,7 @@ export default function EditReservePage() {
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
   const [error, setError] = useState("")
-  const [form, setForm] = useState<{ countryId: string; year: number; oil: number; gas: number; condensat: number | "" }>({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0, condensat: "" })
+  const [form, setForm] = useState<{ countryId: string; year: number; oil: number; gas: number; condensat: number | ""; status: string }>({ countryId: "", year: new Date().getFullYear(), oil: 0, gas: 0, condensat: "", status: "operational" })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
 
@@ -28,7 +29,7 @@ export default function EditReservePage() {
     fetch(`/api/reserves/${id}`)
       .then(r => r.json())
       .then(d => {
-        setForm({ countryId: d.countryId || "", year: d.year || new Date().getFullYear(), oil: d.oil || 0, gas: d.gas || 0, condensat: d.condensat ?? "" })
+        setForm({ countryId: d.countryId || "", year: d.year || new Date().getFullYear(), oil: d.oil || 0, gas: d.gas || 0, condensat: d.condensat ?? "", status: d.status ?? "operational" })
         setFetching(false)
       })
       .catch(() => { setError("Failed to load reserve"); setFetching(false) })
@@ -76,6 +77,10 @@ export default function EditReservePage() {
               <label className="block text-[#1B4F72] text-sm mb-1">Condensate reserves (Gbbl) <span className="text-[#A3C4DC]">optional</span></label>
               <input type="number" step="0.001" min="0" value={form.condensat} onChange={e => setForm({...form, condensat: e.target.value === "" ? "" : parseFloat(e.target.value)})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
+          </div>
+          <div>
+            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div className="flex gap-3 pt-2">
             <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">

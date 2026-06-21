@@ -160,6 +160,8 @@ model NationalCompany {
   website     String?
   description String?  // Brief description
   contact     String?
+  // Operational status — canonical 6-value vocabulary (see src/lib/operationalStatus.ts)
+  status      String   @default("operational")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -177,6 +179,8 @@ model Basin {
   lon          Float
   areaKm2      Int?
   description  String?
+  // Operational status — canonical 6-value vocabulary
+  status       String   @default("operational")
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -194,8 +198,8 @@ model Block {
   basin       Basin    @relation(fields: [basinId], references: [id], onDelete: Cascade)
   countryId   String
   country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
-  // status: Attribué | Exploration | Production | Libre | Abandonné
-  status      String   @default("Libre")
+  // Operational status — canonical 6-value vocabulary (see src/lib/operationalStatus.ts)
+  status      String   @default("proposed")
   type        String   @default("Oil & Gas")  // Oil | Gas | Oil & Gas
   // operator: principal opérateur du bloc
   operator    String?
@@ -228,8 +232,8 @@ model HydrocarbonField {
   countryId     String
   country       Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
   type          String   @default("Oil & Gas")  // Oil | Gas | Oil & Gas | Condensate
-  // status: En production | En développement | Découverte | Abandonné
-  status        String   @default("Découverte")
+  // Operational status — canonical 6-value vocabulary (see src/lib/operationalStatus.ts)
+  status        String   @default("concept")
   operator      String?
   partners      String?  // JSON: [{name, share}]
   discoveryYear Int?
@@ -278,6 +282,7 @@ model Reserve {
   oil         Float    // Gbbl proved crude oil
   gas         Float    // Tcf proved natural gas
   condensat   Float?   // Gbbl proved condensate
+  status      String   @default("operational")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -292,6 +297,7 @@ model Production {
   oil         Float    // kb/d crude oil
   gas         Float    // million m³/yr natural gas
   condensat   Float?   // kb/d condensate
+  status      String   @default("operational")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -304,7 +310,8 @@ model Pipeline {
   name       String
   countries  String   // JSON array of country codes
   coords     String   // JSON array of coordinates
-  status     String   // operational, under construction, proposed
+  // Operational status — canonical 6-value vocabulary
+  status     String   @default("operational")
   lengthKm   Int?
   diametre   String?
   capacity   String?
@@ -321,7 +328,8 @@ model Refinery {
   lat              Float
   lon              Float
   capacityKbd      Int      // Topping capacity kb/d
-  status           String   // operational, under construction, planned, idle, closed
+  // Operational status — canonical 6-value vocabulary
+  status           String   @default("operational")
   year             Int?
   // Additional fields from TdR
   nelsonIndex      Float?   // Nelson Complexity Index
@@ -343,6 +351,7 @@ model Training {
   lon       Float
   type      String   // Technical, Academic, Corporate, Research/Training
   year      Int?
+  status    String   @default("operational")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -357,6 +366,7 @@ model RnDCenter {
   lon       Float
   focus     String
   year      Int?
+  status    String   @default("operational")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -376,7 +386,8 @@ model Storage {
   capacityMb     Float    // Mb for crude/products, or thousand m³ for LNG tanks
   regasCapacity  Float?   // bcm/yr — for LNG import terminals
   liquefCapacity Float?   // mtpa — for LNG export terminals
-  status         String   @default("operational") // operational, under construction, planned, closed
+  // Operational status — canonical 6-value vocabulary
+  status         String   @default("operational")
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
@@ -391,6 +402,7 @@ model Petrochemical {
   lon       Float
   products  String   // JSON array
   capacity  String
+  status    String   @default("operational")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -413,6 +425,7 @@ model TradeImport {
   jetFuelTM       Float?   // tonnes jet fuel
   mainSources     String   @default("[]")  // JSON array of source countries
   partnersDetail  String   @default("[]")  // JSON: [{partner, hydro, qty, unit}]
+  status          String   @default("operational")
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
@@ -437,6 +450,7 @@ model TradeExport {
   jetFuelTM            Float?   // tonnes jet fuel
   mainDestinations     String   @default("[]")  // JSON array of destination countries
   partnersDetail       String   @default("[]")  // JSON: [{partner, hydro, qty, unit}]
+  status               String   @default("operational")
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 

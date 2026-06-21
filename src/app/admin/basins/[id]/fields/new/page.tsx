@@ -5,8 +5,8 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
-const STATUSES = ["Découverte", "En développement", "En production", "Abandonné"]
 const TYPES = ["Oil", "Gas", "Oil & Gas", "Condensate"]
 
 export default function NewFieldPage() {
@@ -20,7 +20,7 @@ export default function NewFieldPage() {
   const [basinName, setBasinName] = useState("")
   const [countryId, setCountryId] = useState("")
   const [form, setForm] = useState({
-    fieldId: "", name: "", status: "Découverte", type: "Oil & Gas",
+    fieldId: "", name: "", status: "operational", type: "Oil & Gas",
     operator: "", partners: "",
     discoveryYear: "", productionStart: "",
     peakOilKbd: "", peakGasMmcmd: "",
@@ -90,10 +90,8 @@ export default function NewFieldPage() {
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut</label>
-            <select {...f("status")} className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              {STATUSES.map(s => <option key={s}>{s}</option>)}
-            </select>
+            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div>
             <label className="block text-[#1B4F72] text-sm mb-1">Type</label>

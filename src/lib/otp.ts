@@ -43,11 +43,16 @@ export async function checkRateLimit(
   return { allowed: true, remaining: OTP_RATE_LIMIT_MAX - existing.count - 1 }
 }
 
-/** Invalidate existing tokens for email, then create and return a new plaintext OTP */
-export async function createOtpToken(email: string): Promise<string> {
+/** Invalidate existing tokens for email, then create and return a new plaintext OTP.
+ *  expiresMs defaults to the standard 5-minute window; pass a custom value for
+ *  longer-lived tokens (e.g. invitation OTPs valid 24h). */
+export async function createOtpToken(
+  email: string,
+  expiresMs: number = OTP_EXPIRES_MINUTES * 60 * 1000,
+): Promise<string> {
   const otp = generateOtp()
   const hashedOtp = await bcrypt.hash(otp, 10)
-  const expires = new Date(Date.now() + OTP_EXPIRES_MINUTES * 60 * 1000)
+  const expires = new Date(Date.now() + expiresMs)
 
   // Atomically invalidate all previous tokens for this email
   await prisma.otpToken.updateMany({

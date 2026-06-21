@@ -6,12 +6,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface TrainingRecord {
   id: string
   centerId: string
   name: string
   type: string
+  status: string
   year: number | null
   lat: number
   lon: number
@@ -76,6 +78,13 @@ export default function TrainingPage() {
       sortable: true,
       render: (year: number | null) => year ?? "—",
       className: 'text-[#5B8FB9] text-right'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -106,7 +115,7 @@ export default function TrainingPage() {
       <AdminTable
         data={records}
         columns={columns}
-        searchFields={['centerId', 'name', 'country.name', 'type']}
+        searchFields={['centerId', 'name', 'country.name', 'type', 'status']}
         actions={actions}
         loading={loading}
       />

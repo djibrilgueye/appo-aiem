@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/i18n/LanguageContext"
+import {
+  OPERATIONAL_STATUSES,
+  STATUS_LABELS_FR,
+  STATUS_COLORS,
+} from "@/lib/operationalStatus"
 
 interface Country {
   id: string; code: string; name: string; region: string; appoMember: boolean
@@ -16,6 +21,8 @@ interface SidebarProps {
   setSelectedRegion: (region: string) => void
   activeThemes: Set<string>
   setActiveThemes: (themes: Set<string>) => void
+  activeStatuses: Set<string>
+  setActiveStatuses: (statuses: Set<string>) => void
   showLabels: boolean
   setShowLabels: (show: boolean) => void
   showPipelineLabels: boolean
@@ -203,12 +210,58 @@ function ThemeNodeRow({
   )
 }
 
+// ─── Reusable accordion section ──────────────────────────────────────────────
+function AccordionSection({
+  title,
+  counter,
+  section,
+  sectionTitle,
+  headerExtra,
+  children,
+}: {
+  title: string
+  counter?: string
+  section: React.CSSProperties
+  sectionTitle: React.CSSProperties
+  headerExtra?: React.ReactNode
+  children: React.ReactNode
+}) {
+  const [open, setOpen] = useState(true)
+  return (
+    <div style={{ ...section, marginBottom: 0 }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+          background: "transparent",
+          border: "none",
+          padding: 0,
+          marginBottom: open ? "8px" : 0,
+          cursor: "pointer",
+        }}
+      >
+        <span style={{ ...sectionTitle, marginBottom: 0, display: "flex", alignItems: "center", gap: 4 }}>
+          <span style={{ fontSize: "9px" }}>{open ? "▾" : "▸"}</span>
+          <span>{title}</span>
+          {counter && <span style={{ color: "#7a9cbf", fontWeight: "normal" }}>({counter})</span>}
+        </span>
+        {headerExtra}
+      </button>
+      {open && <div className="flex flex-col gap-1.5">{children}</div>}
+    </div>
+  )
+}
+
 // ─── Sidebar ──────────────────────────────────────────────────────────────────
 export function Sidebar({
   selectedCountries, setSelectedCountries,
   selectedYear, setSelectedYear,
   selectedRegion, setSelectedRegion,
   activeThemes, setActiveThemes,
+  activeStatuses, setActiveStatuses,
   showLabels, setShowLabels,
   showPipelineLabels, setShowPipelineLabels,
   viewMode, setViewMode,
@@ -365,20 +418,64 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* Display options */}
-      <div style={section}>
-        <div style={sectionTitle}>{t.sidebar.display}</div>
-        <div className="flex flex-col gap-1.5">
+      {/* Display + Status — side-by-side accordions to keep the sidebar compact */}
+      <div className="grid grid-cols-2 gap-2 mb-2">
+        <AccordionSection
+          title={t.sidebar.display}
+          counter={`${[showLabels, showPipelineLabels].filter(Boolean).length}/2`}
+          section={section}
+          sectionTitle={sectionTitle}
+        >
           {[
             { label: t.sidebar.countryLabels,  val: showLabels,         set: setShowLabels },
             { label: t.sidebar.pipelineLabels, val: showPipelineLabels, set: setShowPipelineLabels },
           ].map(({ label, val, set }) => (
             <label key={label} className="flex items-center gap-2 cursor-pointer" style={{ fontSize: "12px", color: "#b8c7db" }}>
               <input type="checkbox" checked={val} onChange={e => set(e.target.checked)} style={{ accentColor: "#4cc9f0" }} />
-              {label}
+              <span className="truncate">{label}</span>
             </label>
           ))}
-        </div>
+        </AccordionSection>
+
+        <AccordionSection
+          title={t.sidebar.operationalStatus ?? "Statut"}
+          counter={`${activeStatuses.size}/${OPERATIONAL_STATUSES.length}`}
+          section={section}
+          sectionTitle={sectionTitle}
+          headerExtra={
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                if (activeStatuses.size === OPERATIONAL_STATUSES.length) {
+                  setActiveStatuses(new Set())
+                } else {
+                  setActiveStatuses(new Set(OPERATIONAL_STATUSES))
+                }
+              }}
+              title={activeStatuses.size === OPERATIONAL_STATUSES.length ? "Tout décocher" : "Tout cocher"}
+              style={{ background: "transparent", color: "#b8c7db", border: "none", cursor: "pointer", fontSize: "10px", padding: "0 4px" }}
+            >
+              {activeStatuses.size === OPERATIONAL_STATUSES.length ? "−" : "+"}
+            </button>
+          }
+        >
+          {OPERATIONAL_STATUSES.map(s => (
+            <label key={s} className="flex items-center gap-2 cursor-pointer" style={{ fontSize: "12px", color: "#b8c7db" }}>
+              <input
+                type="checkbox"
+                checked={activeStatuses.has(s)}
+                onChange={e => {
+                  const next = new Set(activeStatuses)
+                  if (e.target.checked) next.add(s); else next.delete(s)
+                  setActiveStatuses(next)
+                }}
+                style={{ accentColor: "#4cc9f0" }}
+              />
+              <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: STATUS_COLORS[s], flexShrink: 0 }} />
+              <span className="truncate">{STATUS_LABELS_FR[s]}</span>
+            </label>
+          ))}
+        </AccordionSection>
       </div>
 
       {/* Themes — arbre hiérarchique */}

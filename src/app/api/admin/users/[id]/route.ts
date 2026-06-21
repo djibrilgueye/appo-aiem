@@ -6,6 +6,8 @@ import { createAuditLog, getAuditContext, calculateChanges } from "@/lib/audit"
 import { z } from "zod"
 
 const patchSchema = z.object({
+  name:   z.string().min(1).max(100).optional(),
+  email:  z.string().email().toLowerCase().optional(),
   role:   z.enum(["admin", "editor", "user"]).optional(),
   active: z.boolean().optional(),
 })
@@ -29,6 +31,14 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   // Prevent admin from deactivating or demoting themselves
   if (id === session.user.id && (data.active === false || (data.role && data.role !== "admin"))) {
     return NextResponse.json({ error: "Cannot modify your own account" }, { status: 400 })
+  }
+
+  // If email is being changed, ensure it stays unique
+  if (data.email && data.email !== before.email) {
+    const clash = await prisma.user.findUnique({ where: { email: data.email } })
+    if (clash) {
+      return NextResponse.json({ error: "Un utilisateur avec cet email existe déjà" }, { status: 409 })
+    }
   }
 
   const updated = await prisma.user.update({

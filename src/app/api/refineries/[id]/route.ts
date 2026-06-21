@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const refineryUpdateSchema = z.object({
@@ -12,7 +13,7 @@ const refineryUpdateSchema = z.object({
   lat: z.number().optional(),
   lon: z.number().optional(),
   capacityKbd: z.number().optional(),
-  status: z.enum(["operational", "under construction", "proposed", "idle", "decommissioned"]).optional(),
+  status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).optional(),
   year: z.number().optional().nullable(),
 })
 

@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Users, Trash2, RefreshCw } from "lucide-react"
+import { Users, Trash2, RefreshCw, Plus, Edit } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 
 interface AdminUser {
@@ -164,11 +164,16 @@ export default function UsersPage() {
   ]
 
   const actions = (user: AdminUser) => (
-    user.id !== session.user.id && (
-      <button onClick={() => setDeleteTarget(user)} className="text-red-600 hover:text-red-300 transition">
-        <Trash2 size={16} />
-      </button>
-    )
+    <div className="flex items-center justify-end gap-2">
+      <Link href={`/admin/users/${user.id}/edit`} className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition" title="Modifier">
+        <Edit size={16} />
+      </Link>
+      {user.id !== session.user.id && (
+        <button onClick={() => setDeleteTarget(user)} className="p-2 text-[#5B8FB9] hover:text-red-600 transition" title="Supprimer">
+          <Trash2 size={16} />
+        </button>
+      )}
+    </div>
   )
 
   return (
@@ -181,9 +186,14 @@ export default function UsersPage() {
             <p className="text-[#5B8FB9]">{users.length} users</p>
           </div>
         </div>
-        <button onClick={fetchUsers} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] text-white px-4 py-2 rounded-lg transition">
-          <RefreshCw size={18} /> Refresh
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={fetchUsers} className="flex items-center gap-2 bg-[#EBF3FB] hover:bg-[#D0E4F0] text-[#1B4F72] px-4 py-2 rounded-lg transition">
+            <RefreshCw size={18} /> Refresh
+          </button>
+          <Link href="/admin/users/new" className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] text-white px-4 py-2 rounded-lg transition">
+            <Plus size={18} /> Ajouter
+          </Link>
+        </div>
       </div>
 
       {message && (

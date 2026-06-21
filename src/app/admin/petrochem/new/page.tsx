@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { StatusSelect } from "@/components/StatusSelect"
 
 export default function NewPetrochemPage() {
   const { status } = useSession()
@@ -20,6 +21,7 @@ export default function NewPetrochemPage() {
     lon: 0,
     productsInput: "", // comma-separated, will be JSON-stringified
     capacity: "",
+    status: "operational",
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
@@ -36,6 +38,7 @@ export default function NewPetrochemPage() {
       lon: parseFloat(String(form.lon)),
       products,
       capacity: form.capacity,
+      status: form.status,
     }
     const res = await fetch("/api/petrochem", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
     if (res.ok) router.push("/admin/petrochem")
@@ -87,6 +90,10 @@ export default function NewPetrochemPage() {
         <div>
           <label className="block text-[#1B4F72] text-sm mb-1">Produits <span className="text-[#A3C4DC] text-xs">séparés par des virgules (ex: Éthylène, Propylène, PVC)</span></label>
           <input value={form.productsInput} onChange={e => setForm({ ...form, productsInput: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="Éthylène, Propylène, PVC" />
+        </div>
+        <div>
+          <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+          <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
         </div>
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">

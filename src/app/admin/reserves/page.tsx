@@ -6,12 +6,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { StatusBadge } from "@/components/StatusBadge"
 
 interface Reserve {
   id: string
   year: number
   oil: number
   gas: number
+  status: string
   country: { name: string; code: string }
 }
 
@@ -66,6 +68,13 @@ export default function ReservesPage() {
       sortable: true,
       render: (gas: number) => gas > 0 ? gas.toLocaleString() : "—",
       className: 'text-blue-400 text-right font-mono'
+    },
+    {
+      key: 'status',
+      label: 'Statut',
+      sortable: true,
+      searchable: true,
+      render: (status: string) => <StatusBadge status={status} />,
     }
   ]
 
@@ -96,7 +105,7 @@ export default function ReservesPage() {
         <AdminTable
           data={reserves}
           columns={columns}
-          searchFields={['country.name', 'country.code', 'year']}
+          searchFields={['country.name', 'country.code', 'year', 'status']}
           actions={actions}
           loading={loading}
         />
