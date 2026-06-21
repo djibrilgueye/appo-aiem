@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth"
 import { z } from "zod"
 import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
-import { createOtpToken } from "@/lib/otp"
 import { sendInvitationEmail } from "@/lib/email"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
 
@@ -67,14 +66,11 @@ export async function POST(req: Request) {
     select: { id: true, name: true, email: true, role: true, active: true, createdAt: true },
   })
 
-  // Generate a 24h-valid OTP for the invitation
-  const otp = await createOtpToken(body.email, 24 * 60 * 60 * 1000)
-
-  // Send invitation email (failure is non-fatal — the admin still sees the user
-  // created and can resend later or share the OTP manually)
+  // Send invitation email (notification only — no OTP embedded).
+  // Failure is non-fatal: the admin still sees the user created.
   const origin = req.headers.get("origin") ?? process.env.NEXTAUTH_URL ?? ""
   const loginUrl = origin ? `${origin}/login` : "/login"
-  const sendResult = await sendInvitationEmail(body.email, body.name, otp, loginUrl).catch(err => {
+  const sendResult = await sendInvitationEmail(body.email, body.name, loginUrl).catch(err => {
     console.error("[admin/users POST] invitation send threw:", err)
     return { success: false, dev: false }
   })
@@ -89,7 +85,7 @@ export async function POST(req: Request) {
   }).catch(console.error)
 
   return NextResponse.json(
-    { ...user, invitationSent: sendResult.success, devOtp: sendResult.dev ? otp : undefined },
+    { ...user, invitationSent: sendResult.success },
     { status: 201 },
   )
 }

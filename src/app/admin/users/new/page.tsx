@@ -11,7 +11,6 @@ export default function NewUserPage() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [notice, setNotice] = useState("")
   const [form, setForm] = useState({ name: "", email: "", role: "user" })
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export default function NewUserPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true); setError(""); setNotice("")
+    setLoading(true); setError("")
     const res = await fetch("/api/admin/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -37,13 +36,7 @@ export default function NewUserPage() {
       setLoading(false)
       return
     }
-    if (data.devOtp) {
-      // Dev mode: no SMTP configured, show the OTP so the admin can share it
-      setNotice(`Utilisateur créé. Code d'invitation (dev): ${data.devOtp}`)
-      setTimeout(() => router.push("/admin/users"), 4000)
-    } else {
-      router.push("/admin/users")
-    }
+    router.push("/admin/users")
   }
 
   return (
@@ -54,7 +47,6 @@ export default function NewUserPage() {
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4 max-w-2xl">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded">{error}</div>}
-        {notice && <div className="bg-amber-50 border border-amber-300 text-amber-800 px-4 py-2 rounded">{notice}</div>}
 
         <div>
           <label className="block text-[#1B4F72] text-sm mb-1">Nom complet</label>
@@ -94,8 +86,9 @@ export default function NewUserPage() {
         <div className="bg-[#EBF3FB] border-l-4 border-[#1B4F72] px-4 py-3 rounded text-sm text-[#0D2840] flex gap-3 items-start">
           <Mail size={16} className="text-[#1B4F72] mt-0.5 shrink-0" />
           <div>
-            Un email d'invitation contenant un code OTP (valide 24h) sera envoyé à l'utilisateur.
-            Il pourra se connecter via la page de login avec ce code.
+            Un email de notification (bilingue FR / EN) sera envoyé à l'utilisateur.
+            Il se connectera depuis la page de login en saisissant son email — un code OTP à usage unique
+            lui sera alors envoyé.
           </div>
         </div>
 
@@ -106,7 +99,7 @@ export default function NewUserPage() {
             className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-4 py-2 rounded-lg font-semibold transition"
           >
             <Save size={16} />
-            {loading ? "Création..." : "Créer & envoyer l'invitation"}
+            {loading ? "Création..." : "Créer & envoyer la notification"}
           </button>
           <Link
             href="/admin/users"
