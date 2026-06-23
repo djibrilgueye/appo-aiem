@@ -1,7 +1,11 @@
 import nodemailer from "nodemailer"
 
-const EMAIL_SERVICE_URL = process.env.EMAIL_SERVICE_URL ?? "http://localhost:5001"
-const EMAIL_SERVICE_API_KEY = process.env.EMAIL_SERVICE_API_KEY ?? "aiem-email-service-key-2026"
+const EMAIL_SERVICE_URL = process.env.EMAIL_SERVICE_URL ?? "http://localhost:5003"
+const EMAIL_SERVICE_API_KEY = process.env.EMAIL_SERVICE_API_KEY ?? "appo-email-service-key-2026"
+
+// Sender display name (overrides the shared email-service's default FROM_NAME).
+// Plumbed per request via the `fromName` body field on /send and /send-otp.
+const FROM_NAME = "APPO AIEM Platform"
 
 /** Check if the Python email service is reachable */
 async function isPythonServiceAvailable(): Promise<boolean> {
@@ -29,7 +33,7 @@ async function sendViaService(
         "Content-Type": "application/json",
         "X-API-Key": EMAIL_SERVICE_API_KEY,
       },
-      body: JSON.stringify({ to, code, userName: userName ?? "User" }),
+      body: JSON.stringify({ to, code, userName: userName ?? "User", fromName: FROM_NAME }),
       signal: AbortSignal.timeout(15000),
     })
     const data = await res.json()
@@ -65,7 +69,7 @@ async function sendViaNodemailer(
     })
 
     await transporter.sendMail({
-      from: process.env.SMTP_FROM ?? `"AIEM - APPO" <${process.env.SMTP_USER}>`,
+      from: process.env.SMTP_FROM ?? `"${FROM_NAME}" <${process.env.SMTP_USER}>`,
       to,
       subject: "Your AIEM Login Code",
       html: buildOtpHtml(code, userName),
@@ -290,7 +294,7 @@ export async function sendInvitationEmail(
     const res = await fetch(`${EMAIL_SERVICE_URL}/send`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-API-Key": EMAIL_SERVICE_API_KEY },
-      body: JSON.stringify({ to: email, subject, html, text }),
+      body: JSON.stringify({ to: email, subject, html, text, fromName: FROM_NAME }),
       signal: AbortSignal.timeout(15000),
     })
     const data = await res.json()
@@ -315,7 +319,7 @@ export async function sendInvitationEmail(
       tls: { rejectUnauthorized: false },
     })
     await transporter.sendMail({
-      from: process.env.SMTP_FROM ?? `"AIEM - APPO" <${process.env.SMTP_USER}>`,
+      from: process.env.SMTP_FROM ?? `"${FROM_NAME}" <${process.env.SMTP_USER}>`,
       to: email,
       subject,
       html,
