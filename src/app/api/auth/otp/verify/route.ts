@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 import { z } from "zod"
 import { SignJWT } from "jose"
 import { verifyOtpToken } from "@/lib/otp"
+import { prisma } from "@/lib/prisma"
+import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const schema = z.object({
   email: z.string().email(),
@@ -27,13 +29,46 @@ export async function POST(req: Request) {
 
     const result = await verifyOtpToken(email, otp)
 
+    // Look up user to enrich audit log with id / name / role
+    const user = await prisma.user.findUnique({
+      where: { email },
+      select: { id: true, name: true, email: true, role: true },
+    })
+
     if (!result.ok) {
+      createAuditLog({
+        ...getAuditContext(null, req),
+        userId:      user?.id,
+        userName:    user?.name ?? undefined,
+        userEmail:   email,
+        userRole:    user?.role,
+        action:      "LOGIN",
+        entity:      "User",
+        entityId:    user?.id,
+        description: `Failed login for ${email}: ${result.reason}`,
+        status:      "failure",
+      }).catch(console.error)
+
       const status = result.reason === "wrong_code" ? 401 : 400
       return NextResponse.json(
         { error: ERROR_MESSAGES[result.reason] ?? "Verification failed" },
         { status }
       )
     }
+
+    // Successful OTP verification → log LOGIN
+    createAuditLog({
+      ...getAuditContext(null, req),
+      userId:      user?.id,
+      userName:    user?.name ?? undefined,
+      userEmail:   email,
+      userRole:    user?.role,
+      action:      "LOGIN",
+      entity:      "User",
+      entityId:    user?.id,
+      description: `Successful login for ${email}`,
+      status:      "success",
+    }).catch(console.error)
 
     // Issue a short-lived signed JWT as proof of successful OTP verification
     // NextAuth authorize() will verify this before granting a session

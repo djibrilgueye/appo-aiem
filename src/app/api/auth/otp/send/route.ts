@@ -3,7 +3,7 @@ import { z } from "zod"
 import { prisma } from "@/lib/prisma"
 import { checkRateLimit, createOtpToken } from "@/lib/otp"
 import { sendOtpEmail } from "@/lib/email"
-import { createAuditLog } from "@/lib/audit"
+import { createAuditLog, getAuditContext } from "@/lib/audit"
 
 const schema = z.object({
   email: z.string().email(),
@@ -33,8 +33,9 @@ export async function POST(req: Request) {
       })
       if (!allowed?.active) {
         createAuditLog({
+          ...getAuditContext(null, req),
           userId: user.id, userName: user.name ?? undefined, userEmail: user.email, userRole: user.role,
-          action: "ACCESS", entity: "System",
+          action: "LOGIN", entity: "User", entityId: user.id,
           description: `Login denied: ${email} not in allowed email whitelist`,
           status: "failure",
         }).catch(console.error)
@@ -54,6 +55,19 @@ export async function POST(req: Request) {
     // --- Generate, store and send OTP ---
     const otp = await createOtpToken(email)
     await sendOtpEmail(email, otp, user.name)
+
+    createAuditLog({
+      ...getAuditContext(null, req),
+      userId:      user.id,
+      userName:    user.name ?? undefined,
+      userEmail:   user.email,
+      userRole:    user.role,
+      action:      "ACCESS",
+      entity:      "User",
+      entityId:    user.id,
+      description: `Login code sent to ${email}`,
+      status:      "success",
+    }).catch(console.error)
 
     return NextResponse.json({
       success: true,
