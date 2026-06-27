@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434"
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "mistral"
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001"
 
 function detectLang(text: string): "fr" | "en" | "other" {
   const t = text.toLowerCase()
@@ -36,20 +36,28 @@ export async function POST(req: NextRequest) {
   const targetLabel = targetLang === "fr" ? "French" : "English"
   const prompt = `Translate the following text into ${targetLabel}. Return ONLY the translation, no explanation, no preamble, no quotes.\n\nText:\n${text}`
 
+  if (!ANTHROPIC_API_KEY) {
+    return NextResponse.json({ error: "Service de traduction non configuré" }, { status: 503 })
+  }
+
   try {
-    const res = await fetch(`${OLLAMA_URL}/api/chat`, {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        model: OLLAMA_MODEL,
+        model: ANTHROPIC_MODEL,
+        max_tokens: 800,
+        temperature: 0.2,
         messages: [{ role: "user", content: prompt }],
-        stream: false,
-        options: { num_predict: 800, temperature: 0.2 },
       }),
     })
     if (!res.ok) return NextResponse.json({ error: "Service de traduction indisponible" }, { status: 503 })
     const data = await res.json()
-    const translation = data.message?.content?.trim() || ""
+    const translation = (data.content?.[0]?.text ?? "").trim()
     return NextResponse.json({ translation, sourceLang, targetLang })
   } catch {
     return NextResponse.json({ error: "Erreur de traduction" }, { status: 503 })

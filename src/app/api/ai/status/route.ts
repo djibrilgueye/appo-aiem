@@ -1,19 +1,10 @@
 import { NextResponse } from "next/server"
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434"
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "mistral"
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 
+// The AI assistant runs on Claude (hosted API). No need to probe a local model:
+// reporting "available" iff the API key is configured is what the UI needs to
+// show its green/red status dot.
 export async function GET() {
-  try {
-    const ctrl = new AbortController()
-    const tid = setTimeout(() => ctrl.abort(), 5000)
-    const res = await fetch(`${OLLAMA_URL}/api/tags`, { signal: ctrl.signal }).finally(() => clearTimeout(tid))
-    if (!res.ok) return NextResponse.json({ available: false })
-    const data = await res.json()
-    const models: Array<{ name: string }> = data.models ?? []
-    const available = models.some((m) => m.name.startsWith(OLLAMA_MODEL))
-    return NextResponse.json({ available })
-  } catch {
-    return NextResponse.json({ available: false })
-  }
+  return NextResponse.json({ available: Boolean(ANTHROPIC_API_KEY) })
 }

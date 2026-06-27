@@ -3,30 +3,9 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434"
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "mistral"
-
-// ─── Préchauffage du modèle au démarrage ─────────────────────────────────────
-
-async function warmupModel() {
-  try {
-    await fetch(`${OLLAMA_URL}/api/chat`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        messages: [{ role: "user", content: "hi" }],
-        stream: false,
-        options: { num_predict: 1 },
-      }),
-    })
-    console.log(`[AI] Modèle ${OLLAMA_MODEL} préchauffé.`)
-  } catch {
-    console.warn(`[AI] Préchauffage ${OLLAMA_MODEL} échoué.`)
-  }
-}
-
-warmupModel()
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001"
+// No warmup needed: Claude is a hosted API (no cold start to amortize).
 
 // ─── Cache prompt (TTL 5 min) — évite de requêter la DB à chaque message ─────
 
@@ -270,58 +249,70 @@ export async function POST(request: NextRequest) {
     const { messages } = body
     const localeMatch = cookieHeader.match(/(?:^|;\s*)locale=([^;]+)/)
     const locale = localeMatch?.[1] === "en" ? "en" : "fr"
+
+    if (!ANTHROPIC_API_KEY) {
+      return NextResponse.json(
+        { error: locale === "en" ? "AI assistant not configured." : "Assistant IA non configuré." },
+        { status: 503 }
+      )
+    }
+
     const systemPrompt = await buildSystemPrompt(locale)
 
-    const ollamaController = new AbortController()
-    const timeoutId = setTimeout(() => ollamaController.abort(), 60000)
-
-    const ollamaRes = await fetch(`${OLLAMA_URL}/api/chat`, {
+    const anthropicRes = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        messages: [
-          { role: "system", content: systemPrompt },
-          ...messages.slice(-10),
-        ],
+        model: ANTHROPIC_MODEL,
+        max_tokens: 1500,
+        system: systemPrompt,
         stream: true,
-        options: { temperature: 0.2, num_predict: 512 },
+        messages: messages.slice(-10),
       }),
-      signal: ollamaController.signal,
-    }).finally(() => clearTimeout(timeoutId))
+    })
 
-    if (!ollamaRes.ok) {
-      const err = await ollamaRes.text()
-      console.error("Ollama error:", err)
-      if (ollamaRes.status === 404) {
-        return NextResponse.json(
-          { error: locale === "en"
-            ? `Model "${OLLAMA_MODEL}" not found. Run: ollama pull ${OLLAMA_MODEL}`
-            : `Modèle "${OLLAMA_MODEL}" non trouvé. Lancez : ollama pull ${OLLAMA_MODEL}` },
-          { status: 503 }
-        )
-      }
+    if (!anthropicRes.ok) {
+      const err = await anthropicRes.json().catch(() => ({}))
+      console.error("[Claude API]", anthropicRes.status, err)
       return NextResponse.json(
         { error: locale === "en" ? "AI assistant unavailable." : "L'assistant IA n'est pas disponible." },
         { status: 503 }
       )
     }
 
+    // Translate Anthropic SSE stream into a plain-text stream so the existing
+    // client (which reads response.body as raw text chunks) keeps working.
     const encoder = new TextEncoder()
     const readable = new ReadableStream({
       async start(controller) {
-        const reader = ollamaRes.body?.getReader()
+        const reader = anthropicRes.body?.getReader()
         if (!reader) { controller.close(); return }
+        const decoder = new TextDecoder()
+        let buffer = ""
         try {
           while (true) {
             const { done, value } = await reader.read()
             if (done) break
-            const chunk = new TextDecoder().decode(value)
-            for (const line of chunk.split("\n").filter(Boolean)) {
+            buffer += decoder.decode(value, { stream: true })
+            const lines = buffer.split("\n")
+            buffer = lines.pop() ?? ""
+            for (const line of lines) {
+              if (!line.startsWith("data: ")) continue
+              const data = line.slice(6).trim()
+              if (data === "[DONE]") { controller.close(); return }
               try {
-                const json = JSON.parse(line)
-                if (json.message?.content) controller.enqueue(encoder.encode(json.message.content))
-                if (json.done) { controller.close(); return }
+                const json = JSON.parse(data)
+                if (json.type === "content_block_delta" && json.delta?.type === "text_delta") {
+                  controller.enqueue(encoder.encode(json.delta.text))
+                }
+                if (json.type === "message_stop") {
+                  controller.close()
+                  return
+                }
               } catch { /* ignore partial chunks */ }
             }
           }
