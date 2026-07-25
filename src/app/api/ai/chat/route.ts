@@ -19,7 +19,7 @@ async function buildSystemPrompt(locale: "fr" | "en" = "fr"): Promise<string> {
   if (cached && Date.now() - cached.at < PROMPT_TTL) return cached.text
 
   try {
-    const [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems] =
+    const [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems, tradeImports, tradeExports] =
       await Promise.all([
         prisma.country.findMany({
           where: { appoMember: true },
@@ -71,6 +71,27 @@ async function buildSystemPrompt(locale: "fr" | "en" = "fr"): Promise<string> {
           select: { name: true, capacity: true, country: { select: { name: true } } },
           orderBy: { name: "asc" },
         }),
+        // Trade imports — latest year per country (refined products: gasoil, essence, GPL, jet fuel, plus crude/gas intra/extra)
+        prisma.tradeImport.findMany({
+          where: { country: { appoMember: true } },
+          select: {
+            year: true, oilIntraKbD: true, gasIntraBcm: true, oilExtraKbD: true, gasExtraBcm: true,
+            essenceM3: true, gasoilM3: true, gplTM: true, jetFuelTM: true,
+            country: { select: { name: true } },
+          },
+          orderBy: [{ country: { name: "asc" } }, { year: "desc" }],
+          distinct: ["countryId"],
+        }),
+        prisma.tradeExport.findMany({
+          where: { country: { appoMember: true } },
+          select: {
+            year: true, oilIntraKbD: true, gasIntraBcm: true, oilExtraKbD: true, gasExtraBcm: true,
+            essenceM3: true, gasoilM3: true, gplTM: true, jetFuelTM: true,
+            country: { select: { name: true } },
+          },
+          orderBy: [{ country: { name: "asc" } }, { year: "desc" }],
+          distinct: ["countryId"],
+        }),
       ])
 
     // Bassins regroupés par pays
@@ -110,6 +131,36 @@ async function buildSystemPrompt(locale: "fr" | "en" = "fr"): Promise<string> {
       petrochem: petrochems.length
         ? petrochems.map(p => `  ${p.name} (${p.country.name}) — capacité: ${p.capacity}`).join("\n")
         : "  Aucune usine enregistrée.",
+      tradeImports: tradeImports.length
+        ? tradeImports.map(t => {
+            const parts = [
+              t.oilIntraKbD ? `pétrole intra-Afrique ${t.oilIntraKbD} kb/j` : null,
+              t.oilExtraKbD ? `pétrole extra-Afrique ${t.oilExtraKbD} kb/j` : null,
+              t.gasIntraBcm ? `gaz intra-Afrique ${t.gasIntraBcm} bcm` : null,
+              t.gasExtraBcm ? `gaz extra-Afrique ${t.gasExtraBcm} bcm` : null,
+              t.essenceM3   ? `essence ${t.essenceM3} m³` : null,
+              t.gasoilM3    ? `gasoil/diesel ${t.gasoilM3} m³` : null,
+              t.gplTM       ? `GPL ${t.gplTM} t` : null,
+              t.jetFuelTM   ? `jet fuel ${t.jetFuelTM} t` : null,
+            ].filter(Boolean)
+            return parts.length ? `  ${t.country.name} (${t.year}): ${parts.join(", ")}` : null
+          }).filter(Boolean).join("\n") || "  Aucune importation enregistrée."
+        : "  Aucune importation enregistrée.",
+      tradeExports: tradeExports.length
+        ? tradeExports.map(t => {
+            const parts = [
+              t.oilIntraKbD ? `pétrole intra-Afrique ${t.oilIntraKbD} kb/j` : null,
+              t.oilExtraKbD ? `pétrole extra-Afrique ${t.oilExtraKbD} kb/j` : null,
+              t.gasIntraBcm ? `gaz intra-Afrique ${t.gasIntraBcm} bcm` : null,
+              t.gasExtraBcm ? `gaz extra-Afrique ${t.gasExtraBcm} bcm` : null,
+              t.essenceM3   ? `essence ${t.essenceM3} m³` : null,
+              t.gasoilM3    ? `gasoil/diesel ${t.gasoilM3} m³` : null,
+              t.gplTM       ? `GPL ${t.gplTM} t` : null,
+              t.jetFuelTM   ? `jet fuel ${t.jetFuelTM} t` : null,
+            ].filter(Boolean)
+            return parts.length ? `  ${t.country.name} (${t.year}): ${parts.join(", ")}` : null
+          }).filter(Boolean).join("\n") || "  Aucune exportation enregistrée."
+        : "  Aucune exportation enregistrée.",
     }
 
     const text = locale === "en" ? `You are APPO-IA, the AI assistant of AIEM (Africa Interactive Energy Map), an interactive hydrocarbon intelligence platform developed by APPO (African Petroleum Producers' Organization). You reply ONLY in English.
@@ -144,6 +195,12 @@ ${lines.storage}
 
 ## PETROCHEMICALS (${petrochems.length})
 ${lines.petrochem}
+
+## HYDROCARBON IMPORTS — latest year per country
+${lines.tradeImports}
+
+## HYDROCARBON EXPORTS — latest year per country
+${lines.tradeExports}
 
 ## PLATFORM NAVIGATION — Features & URLs
 - **[Overview](/app?view=overview)**: Dashboard with global statistics and key indicators
@@ -196,6 +253,12 @@ ${lines.storage}
 
 ## PÉTROCHIMIE (${petrochems.length})
 ${lines.petrochem}
+
+## IMPORTATIONS D'HYDROCARBURES — dernière année par pays
+${lines.tradeImports}
+
+## EXPORTATIONS D'HYDROCARBURES — dernière année par pays
+${lines.tradeExports}
 
 ## NAVIGATION SUR LA PLATEFORME — Vues et URLs
 - **[Vue Générale](/app?view=overview)** : Tableau de bord avec statistiques globales et indicateurs clés

@@ -1637,6 +1637,15 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "TM",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel"] },
     }
 
+    // Active trade themes (in the same iteration order as TRADE_SUB) — used to
+    // spread multiple markers around a country's centroid instead of stacking
+    // them on the exact same lat/lon (which would make only the topmost marker
+    // respond to hover — the "only Jet Fuel shows on hover" bug).
+    const activeTradeThemes = Object.keys(TRADE_SUB).filter(k => activeThemes.has(k))
+    const themeIndexInActive: Record<string, number> = {}
+    activeTradeThemes.forEach((k, i) => { themeIndexInActive[k] = i })
+    const totalActiveTrade = activeTradeThemes.length
+
     Object.entries(TRADE_SUB).forEach(([themeKey, cfg]) => {
       if (!activeThemes.has(themeKey)) return
       const rows = cfg.dir === "imports" ? tradeImports : tradeExports
@@ -1656,6 +1665,18 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           className: "", iconSize: [radius*2, radius*2], iconAnchor: [radius, radius],
         })
 
+        // Spread this theme's marker around the country centroid so multiple
+        // simultaneously-active trade themes don't sit exactly on top of each
+        // other. Offset is 0 when only one theme is active.
+        let lat = r.country.lat
+        let lon = r.country.lon
+        if (totalActiveTrade > 1) {
+          const angle = (themeIndexInActive[themeKey] / totalActiveTrade) * 2 * Math.PI
+          const offsetDeg = 0.9  // ~100 km at the equator — enough to avoid overlap on the Africa view
+          lat += offsetDeg * Math.sin(angle)
+          lon += offsetDeg * Math.cos(angle)
+        }
+
         // Parse partner details and filter by hydrocarbon keys for this theme
         const allPartners: TradePartner[] = (() => {
           try { return JSON.parse(r.partnersDetail) } catch { return [] }
@@ -1674,8 +1695,12 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
         const subtitle = cfg.dir === "imports" ? `⬇️ Importation ${selectedYear}` : `⬆️ Exportation ${selectedYear}`
         const partnerNames = relevant.map(p => p.partner)
-        const m = L.marker([r.country.lat, r.country.lon], { icon })
-        bindTip(m, e => ({ title: r.country.name, subtitle, rows: tipRows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => { setTooltip(null); clearTradeHighlight() })
+        const m = L.marker([lat, lon], { icon })
+        // Include the theme label in the tooltip title when several trade themes
+        // share the same country — otherwise all offset markers show the raw
+        // country name and the user can't tell which pill corresponds to what.
+        const tipTitle = totalActiveTrade > 1 ? `${r.country.name} — ${cfg.label}` : r.country.name
+        bindTip(m, e => ({ title: tipTitle, subtitle, rows: tipRows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => { setTooltip(null); clearTradeHighlight() })
         m.on("click", () => highlightPartners(partnerNames, cfg.color))
         m.addTo(mg)
       })
