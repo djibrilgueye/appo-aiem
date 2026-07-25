@@ -91,13 +91,14 @@ interface MapProps {
 
 const MC = {
   ocean:              "#D2E2F0",   // soft daylight blue (matches Leaflet container in globals.css)
-  countryDefault:     "#E9ECF0",   // APPO member, active region — subtle grey-blue
-  countryMemberOff:   "#DDE2E8",   // APPO member, outside active region — slightly deeper
+  countryDefault:     "#5B9EC9",   // APPO member IN the active region — strong accent so the region really pops
+  countryMemberOff:   "#E9ECF0",   // APPO member OUTSIDE active region — muted grey-blue
   countryNonMember:   "#F5F7F8",   // non-APPO member — near-white
-  countryHover:       "#D6E4F0",   // hover
+  countryHover:       "#3E82AD",   // hover — slightly deeper than in-region so the cursor is obvious
   countrySelected:    "#0F3B57",   // selected — APPO dark blue
   countrySelectedH:   "#0A2B41",
   border:             "#CFD8E3",   // country borders — thin, gentle
+  borderInRegion:     "#0F3B57",   // in-region border — sharper to reinforce the emphasis
   borderHover:        "#0F3B57",
 }
 
@@ -1089,10 +1090,10 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       const isMember   = memberCodesRef.current.has(iso2)
       const isInRegion = regionCodesRef.current.size === 0 || regionCodesRef.current.has(iso2)
       lyr.setStyle(
-        isSelected  ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover, weight: 1.2 }
-        : !isMember ? { fillColor: MC.countryNonMember, fillOpacity: 0.45, color: MC.border,      weight: 0.8 }
-        : isInRegion? { fillColor: MC.countryDefault,   fillOpacity: 0.7,  color: MC.border,      weight: 0.8 }
-        :             { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border,      weight: 0.8 }
+        isSelected  ? { fillColor: MC.countrySelected,  fillOpacity: 0.9,  color: MC.borderHover,    weight: 1.4 }
+        : !isMember ? { fillColor: MC.countryNonMember, fillOpacity: 0.5,  color: MC.border,         weight: 0.6 }
+        : isInRegion? { fillColor: MC.countryDefault,   fillOpacity: 0.85, color: MC.borderInRegion, weight: 1.2 }
+        :             { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border,         weight: 0.6 }
       )
     })
     tradeHighlightRef.current.clear()
@@ -1206,7 +1207,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 if (hoveredLayer.current && hoveredLayer.current !== tgt)
                   geoLayer.current?.resetStyle(hoveredLayer.current)
                 hoveredLayer.current = tgt
-                tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.9, color: MC.borderHover, weight: 1.5 })
+                tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.95, color: MC.borderHover, weight: 1.6 })
               },
               mouseout: (e) => {
                 const tgt = e.target as L.Path & { _iso2?: string }
@@ -1217,12 +1218,12 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 // Restore the correct style (4-tier: selected > non-member > in-region > off-region)
                 tgt.setStyle(
                   isSelected
-                    ? { fillColor: MC.countrySelected, fillOpacity: 0.85, color: MC.borderHover, weight: 1.2 }
+                    ? { fillColor: MC.countrySelected,  fillOpacity: 0.9,  color: MC.borderHover,    weight: 1.4 }
                     : !isMember
-                    ? { fillColor: MC.countryNonMember, fillOpacity: 0.45, color: MC.border, weight: 0.8 }
+                    ? { fillColor: MC.countryNonMember, fillOpacity: 0.5,  color: MC.border,         weight: 0.6 }
                     : isInRegion
-                    ? { fillColor: MC.countryDefault, fillOpacity: 0.7, color: MC.border, weight: 0.8 }
-                    : { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border, weight: 0.8 }
+                    ? { fillColor: MC.countryDefault,   fillOpacity: 0.85, color: MC.borderInRegion, weight: 1.2 }
+                    : { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border,         weight: 0.6 }
                 )
                 if (hoveredLayer.current === tgt) hoveredLayer.current = null
                 if (!tooltipLocked.current) {
@@ -1299,16 +1300,17 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                         : !isMember    ? MC.countryNonMember
                         : isInRegion   ? MC.countryDefault
                         :                MC.countryMemberOff
-      const fillOpacity = isSelected ? 0.85
-                        : !isMember  ? 0.45
-                        : isInRegion ? 0.7
-                        :              0.5
-      return {
-        fillColor,
-        fillOpacity,
-        color: isSelected ? MC.borderHover : MC.border,
-        weight: isSelected ? 1.2 : 0.8,
-      }
+      const fillOpacity = isSelected ? 0.9
+                        : !isMember  ? 0.5
+                        : isInRegion ? 0.85
+                        :              0.55
+      const borderColor = isSelected                ? MC.borderHover
+                        : isMember && isInRegion    ? MC.borderInRegion
+                        :                             MC.border
+      const borderWeight = isSelected              ? 1.4
+                         : isMember && isInRegion  ? 1.2
+                         :                            0.6
+      return { fillColor, fillOpacity, color: borderColor, weight: borderWeight }
     })
   }, [selectedCountries, countries, selectedRegion, geoReady])
 
