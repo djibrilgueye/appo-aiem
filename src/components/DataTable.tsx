@@ -33,7 +33,7 @@ const THEME_CONFIG: Record<string, { label: string; icon: string; source: string
 const PIPELINE_STATUS_COLORS: Record<string, { bg: string; color: string }> = {
   "operational":        { bg: "#EBF5EB", color: "#1A7A2E" },
   "under construction": { bg: "#FFF8E6", color: "#B45309" },
-  "proposed":           { bg: "#EBF3FB", color: "#1B4F72" },
+  "proposed":           { bg: "#F4F7FA", color: "#1B4F72" },
   "offline":            { bg: "#F3F4F6", color: "#6C757D" },
   "concept":            { bg: "#F3EFFE", color: "#7C3AED" },
 }
@@ -108,13 +108,13 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
     const dataKey = cfg?.dataKey || activeTab
     const items = data[dataKey] || []
 
-    const thStyle = { color: "#1B4F72", borderBottom: "2px solid #D0E4F0" }
+    const thStyle = { color: "#1B4F72", borderBottom: "2px solid #E5EDF5" }
 
     switch (activeTab) {
       case "basins":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -124,7 +124,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((b: any, i: number) => (
-                <tr key={b.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={b.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{b.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{b.country?.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{b.type}</td>
@@ -138,7 +138,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "oil_reserves":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
                 <th className={`${TH} text-right`} style={thStyle}>{t.table.oilReserves}</th>
@@ -147,7 +147,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).filter((r: any) => r.oil > 0).map((r: any, i: number) => (
-                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{r.country?.name}</td>
                   <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#1A7A2E" }}>{r.oil.toLocaleString()}</td>
                   <td className={`${TD} text-right`} style={{ color: "#5B8FB9" }}>{r.year}</td>
@@ -160,7 +160,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "gas_reserves":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
                 <th className={`${TH} text-right`} style={thStyle}>{t.table.gasReserves}</th>
@@ -169,7 +169,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).filter((r: any) => r.gas > 0).map((r: any, i: number) => (
-                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{r.country?.name}</td>
                   <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#1B6CA8" }}>{r.gas.toLocaleString()}</td>
                   <td className={`${TD} text-right`} style={{ color: "#5B8FB9" }}>{r.year}</td>
@@ -182,7 +182,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "oil_production":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
                 <th className={`${TH} text-right`} style={thStyle}>{t.table.oilProduction}</th>
@@ -191,7 +191,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).filter((p: any) => p.oil > 0).map((p: any, i: number) => (
-                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{p.country?.name}</td>
                   <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#B91C1C" }}>{p.oil.toLocaleString()}</td>
                   <td className={`${TD} text-right`} style={{ color: "#5B8FB9" }}>{p.year}</td>
@@ -204,7 +204,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "gas_production":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
                 <th className={`${TH} text-right`} style={thStyle}>{t.table.gasProduction}</th>
@@ -213,7 +213,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).filter((p: any) => p.gas > 0).map((p: any, i: number) => (
-                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{p.country?.name}</td>
                   <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#B45309" }}>{p.gas.toLocaleString()}</td>
                   <td className={`${TD} text-right`} style={{ color: "#5B8FB9" }}>{p.year}</td>
@@ -226,7 +226,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "pipelines":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.countries}</th>
@@ -238,7 +238,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {items.filter((p: any) => filteredCodes.size === 0 || p.countries?.some((c: string) => filteredCodes.has(c))).map((p: any, i: number) => (
-                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{p.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{p.countries?.join(", ")}</td>
                   <td className={TD}>{statusBadge(p.status, PIPELINE_STATUS_COLORS)}</td>
@@ -254,7 +254,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "refineries":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -264,7 +264,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((r: any, i: number) => (
-                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{r.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{r.country?.name}</td>
                   <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#1B4F72" }}>{r.capacityKbd?.toLocaleString()}</td>
@@ -278,7 +278,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "training":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -288,7 +288,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((inst: any, i: number) => (
-                <tr key={inst.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={inst.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{inst.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{inst.country?.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{inst.type}</td>
@@ -302,7 +302,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "rnd":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -312,7 +312,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((r: any, i: number) => (
-                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{r.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{r.country?.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{r.focus}</td>
@@ -326,7 +326,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "storage":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -336,7 +336,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((s: any, i: number) => (
-                <tr key={s.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={s.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{s.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{s.country?.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{s.type}</td>
@@ -350,7 +350,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       case "petrochem":
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.name}</th>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
@@ -360,7 +360,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filterByCountry(items).map((p: any, i: number) => (
-                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={p.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{p.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{p.country?.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{Array.isArray(p.products) ? p.products.join(", ") : p.products}</td>
@@ -382,7 +382,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
           .filter(c => filteredCodes.size === 0 || filteredCodes.has(c.code))
         return (
           <table className="w-full">
-            <thead style={{ backgroundColor: "#EBF3FB" }}>
+            <thead style={{ backgroundColor: "#F4F7FA" }}>
               <tr>
                 <th className={TH} style={thStyle}>{t.table.country}</th>
                 <th className={TH} style={thStyle}>{t.table.region}</th>
@@ -391,7 +391,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             </thead>
             <tbody>
               {filtered.map((c, i) => (
-                <tr key={c.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #EBF3FB" }}>
+                <tr key={c.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
                   <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{c.name}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{c.region}</td>
                   <td className={TD} style={{ color: "#5B8FB9" }}>{isImport ? t.table.netImporter : t.table.netExporter}</td>
@@ -424,10 +424,10 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
     : filterByCountry(currentItems).length
 
   return (
-    <div className="h-full flex flex-col" style={{ backgroundColor: "#F4F7FB", fontFamily: "Arial, Helvetica, sans-serif" }}>
+    <div className="h-full flex flex-col" style={{ backgroundColor: "#F4F7FB" }}>
 
       {/* Theme tabs */}
-      <div className="flex flex-wrap gap-1.5 p-3" style={{ backgroundColor: "#ffffff", borderBottom: "2px solid #D0E4F0" }}>
+      <div className="flex flex-wrap gap-1.5 p-3" style={{ backgroundColor: "#ffffff", borderBottom: "2px solid #E5EDF5" }}>
         {themes.map(theme => {
           const cfg = THEME_CONFIG[theme]
           if (!cfg) return null
@@ -436,10 +436,10 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
             <button key={theme} onClick={() => setActiveTab(theme)}
               className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
               style={{
-                backgroundColor: isActive ? "#1B4F72" : "#EBF3FB",
+                backgroundColor: isActive ? "#1B4F72" : "#F4F7FA",
                 color: isActive ? "#ffffff" : "#1B4F72",
-                border: `1px solid ${isActive ? "#1B4F72" : "#D0E4F0"}`,
-                fontFamily: "Arial, sans-serif",
+                border: `1px solid ${isActive ? "#1B4F72" : "#E5EDF5"}`,
+               
               }}>
               {cfg.icon} {cfg.label}
             </button>
@@ -451,12 +451,12 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
         <div className="flex-1 flex flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #D0E4F0" }}>
+          <div className="flex items-center justify-between px-6 py-4" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #E5EDF5" }}>
             <div>
               <h2 className="text-lg font-bold" style={{ color: "#1B4F72" }}>{config.icon} {config.label}</h2>
               <div className="text-xs mt-0.5" style={{ color: "#5B8FB9" }}>{count} {count !== 1 ? t.table.recordsPlural : t.table.records}</div>
             </div>
-            <div className="px-3 py-1 rounded-lg text-sm font-bold" style={{ backgroundColor: "#EBF3FB", color: "#1B4F72" }}>
+            <div className="px-3 py-1 rounded-lg text-sm font-bold" style={{ backgroundColor: "#F4F7FA", color: "#1B4F72" }}>
               {selectedYear}
             </div>
           </div>
@@ -467,7 +467,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
           </div>
 
           {/* Source */}
-          <div className="px-6 py-2.5" style={{ backgroundColor: "#ffffff", borderTop: "1px solid #D0E4F0" }}>
+          <div className="px-6 py-2.5" style={{ backgroundColor: "#ffffff", borderTop: "1px solid #E5EDF5" }}>
             <div className="text-xs" style={{ color: "#A3C4DC" }}>
               <strong style={{ color: "#5B8FB9" }}>Source :</strong> {config.source}
             </div>

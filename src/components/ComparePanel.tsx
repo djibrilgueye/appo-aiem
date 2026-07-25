@@ -183,22 +183,22 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
     if (!panelRef.current) return
 
     // Build a standalone HTML snapshot
-    const countryHeaders = selected.map(c => `<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #D0E4F0;white-space:nowrap;color:#0D2840;font-weight:700">${c.name}</th>`).join("")
+    const countryHeaders = selected.map(c => `<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #E5EDF5;white-space:nowrap;color:#0D2840;font-weight:700">${c.name}</th>`).join("")
     const bodyRows = rows.map(row => {
-      const cells = row.values.map(v => `<td style="padding:6px 12px;border-bottom:1px solid #EBF3FB;color:#334155;vertical-align:top">${v}</td>`).join("")
-      return `<tr><th style="padding:6px 12px;border-bottom:1px solid #EBF3FB;text-align:left;color:#1B4F72;font-weight:600;white-space:nowrap">${row.label}</th>${cells}</tr>`
+      const cells = row.values.map(v => `<td style="padding:6px 12px;border-bottom:1px solid #F4F7FA;color:#334155;vertical-align:top">${v}</td>`).join("")
+      return `<tr><th style="padding:6px 12px;border-bottom:1px solid #F4F7FA;text-align:left;color:#1B4F72;font-weight:600;white-space:nowrap">${row.label}</th>${cells}</tr>`
     }).join("")
 
     const html = `<!DOCTYPE html><html><head><meta charset="utf-8"/>
 <style>body{margin:0;font-family:Arial,sans-serif;background:#F4F7FB;padding:24px;}
-.card{background:#fff;border-radius:12px;border:1px solid #D0E4F0;overflow:hidden;box-shadow:0 2px 12px rgba(27,79,114,.1);}
+.card{background:#fff;border-radius:12px;border:1px solid #E5EDF5;overflow:hidden;box-shadow:0 2px 12px rgba(27,79,114,.1);}
 h2{margin:0;padding:16px 20px;background:#1B4F72;color:#fff;font-size:15px;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 </style></head><body>
 <div class="card">
 <h2>Country Comparison — ${selectedYear}</h2>
 <table>
-<thead><tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #D0E4F0;color:#0D2840"></th>${countryHeaders}</tr></thead>
+<thead><tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #E5EDF5;color:#0D2840"></th>${countryHeaders}</tr></thead>
 <tbody>${bodyRows}</tbody>
 </table>
 </div></body></html>`
@@ -222,10 +222,10 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
 
   if (loading || selected.length === 0) {
     return (
-      <div ref={panelRef} style={panelStyle} className="w-[360px] bg-white text-[#0b2e59] rounded-xl border border-[#D0E4F0] shadow-xl">
+      <div ref={panelRef} style={panelStyle} className="w-[360px] bg-white text-[#0b2e59] rounded-xl border border-[#E5EDF5] shadow-xl">
         <header
           onMouseDown={onMouseDown}
-          className="flex items-center gap-2 px-3 py-2 border-b border-[#D0E4F0] font-bold cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl"
+          className="flex items-center gap-2 px-3 py-2 border-b border-[#E5EDF5] font-bold cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl"
         >
           <GripHorizontal size={14} className="opacity-60 shrink-0" />
           <span className="flex-1 text-sm">Comparaison des pays</span>
@@ -244,12 +244,12 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
     <div
       ref={panelRef}
       style={panelStyle}
-      className="max-w-[640px] bg-white text-[#0b2e59] rounded-xl border border-[#D0E4F0] shadow-xl"
+      className="max-w-[640px] bg-white text-[#0b2e59] rounded-xl border border-[#E5EDF5] shadow-xl"
     >
       {/* Header */}
       <header
         onMouseDown={onMouseDown}
-        className="flex items-center gap-2 px-3 py-2 border-b border-[#D0E4F0] cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl sticky top-0 z-10"
+        className="flex items-center gap-2 px-3 py-2 border-b border-[#E5EDF5] cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl sticky top-0 z-10"
       >
         <GripHorizontal size={14} className="opacity-60 shrink-0" />
         <span className="flex-1 text-sm font-bold">Country comparison — {selectedYear}</span>
@@ -264,7 +264,7 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
             <Download size={12} /> Export
           </button>
           {showExport && (
-            <div className="absolute right-0 top-full mt-1 bg-white border border-[#D0E4F0] rounded-lg shadow-lg z-50 min-w-[140px] overflow-hidden">
+            <div className="absolute right-0 top-full mt-1 bg-white border border-[#E5EDF5] rounded-lg shadow-lg z-50 min-w-[140px] overflow-hidden">
               <button
                 onClick={exportCsv}
                 className="flex items-center gap-2 w-full px-3 py-2 text-xs text-[#0D2840] hover:bg-[#F4F7FB] transition"
@@ -291,9 +291,9 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
         <table className="w-full border-collapse text-[13px]">
           <thead>
             <tr>
-              <th className="sticky top-0 bg-[#EBF3FB] z-[1] border-b border-[#D0E4F0] p-2 text-left text-[#5B8FB9] text-xs uppercase font-semibold" />
+              <th className="sticky top-0 bg-[#F4F7FA] z-[1] border-b border-[#E5EDF5] p-2 text-left text-[#5B8FB9] text-xs uppercase font-semibold" />
               {selected.map(c => (
-                <th key={c.id} className="sticky top-0 bg-[#EBF3FB] z-[1] border-b border-[#D0E4F0] p-2 text-left font-bold text-[#0D2840] text-sm whitespace-nowrap">
+                <th key={c.id} className="sticky top-0 bg-[#F4F7FA] z-[1] border-b border-[#E5EDF5] p-2 text-left font-bold text-[#0D2840] text-sm whitespace-nowrap">
                   {c.name}
                 </th>
               ))}
@@ -302,11 +302,11 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
           <tbody>
             {rows.map(row => (
               <tr key={row.label} className="hover:bg-[#F4F7FB] transition">
-                <th className="border-b border-[#EBF3FB] p-2 text-left font-semibold text-[#1B4F72] whitespace-nowrap text-xs">
+                <th className="border-b border-[#F4F7FA] p-2 text-left font-semibold text-[#1B4F72] whitespace-nowrap text-xs">
                   {row.label}
                 </th>
                 {row.values.map((val, i) => (
-                  <td key={i} className="border-b border-[#EBF3FB] p-2 text-left align-top text-[#334155]">
+                  <td key={i} className="border-b border-[#F4F7FA] p-2 text-left align-top text-[#334155]">
                     {val}
                   </td>
                 ))}

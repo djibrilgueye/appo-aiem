@@ -1,7 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  /* ── APPO Brand Colors ── */
+  /* ── APPO DDCL brand palette (light theme) ── */
+  --appo-sidebar-bg:    #0F3B57;
+  --appo-sidebar-hover: #164e73;
+  --appo-bg-light:      #F4F7FA;
+  --appo-card-bg:       #FFFFFF;
+  --appo-border-soft:   #E5EDF5;
+  --appo-text-dark:     #0D2840;
+  --appo-text-muted:    #5B8FB9;
+  --appo-accent:        #F4B942;
+  --appo-accent-dark:   #D4920A;
+
+  /* Semantic aliases (used across components) */
+  --bg:       var(--appo-bg-light);
+  --surface:  var(--appo-card-bg);
+  --panel:    #FFFFFF;
+  --border:   var(--appo-border-soft);
+  --muted:    var(--appo-text-muted);
+  --text:     var(--appo-text-dark);
+  --text-sub: var(--appo-text-muted);
+  --accent:   var(--appo-accent);
+
+  /* Legacy aliases kept so existing color-* references still resolve */
   --appo-blue:        #1B4F72;
   --appo-blue-dark:   #0D2840;
   --appo-blue-light:  #5B8FB9;
@@ -9,59 +30,58 @@
   --appo-gold:        #F4B942;
   --appo-gold-light:  #F7D078;
   --appo-grey:        #6C757D;
-
-  /* ── Light theme semantics ── */
-  --bg:       #F4F7FB;
-  --surface:  #FFFFFF;
-  --panel:    #EBF3FB;
-  --border:   #D0E4F0;
-  --muted:    #5B8FB9;
-  --text:     #0D2840;
-  --text-sub: #5B8FB9;
-  --accent:   #F4B942;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--appo-bg-light);
+  color: var(--appo-text-dark);
+  /* Inter is loaded in layout.tsx via next/font — no font-family here so it wins */
 }
 
-/* ── Leaflet map background (ocean color) ── */
+/* ── Leaflet map background (soft daylight blue) ── */
 .leaflet-container {
-  background: #B8D0E8 !important;
+  background: #D2E2F0 !important;
 }
 
-/* ── Leaflet Popup ── */
+/* ── Leaflet popup: rounded, soft shadow, thin border ── */
 .leaflet-popup-content-wrapper {
-  background: #ffffff;
-  color: var(--appo-blue-dark);
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(27, 79, 114, 0.18);
-  border: 1px solid var(--border);
+  background: #FFFFFF !important;
+  color: var(--appo-text-dark) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(15, 59, 87, 0.08) !important;
+  border: 1px solid var(--appo-border-soft) !important;
 }
 
 .leaflet-popup-tip {
-  background: #ffffff;
+  background: #FFFFFF !important;
 }
 
 .leaflet-popup-content {
-  margin: 10px 14px;
-  font-size: 13px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 12px 16px !important;
+  font-size: 13px !important;
 }
 
 .leaflet-popup-content strong {
-  color: var(--appo-blue);
+  color: var(--appo-sidebar-bg);
 }
 
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #EBF3FB; }
-::-webkit-scrollbar-thumb { background: var(--appo-blue-pastel); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--appo-gold); }
+/* ── Discreet scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D0DCE5;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--appo-text-muted);
+}
 
 /* ── Float animation (APPO-IA robot) ── */
 @keyframes appoFloat {

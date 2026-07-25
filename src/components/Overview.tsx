@@ -82,10 +82,10 @@ export function Overview() {
   ]
 
   return (
-    <div style={{ color: "#0D2840", fontFamily: "Arial, Helvetica, sans-serif" }}>
+    <div style={{ color: "#0D2840" }}>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 60% 50%, #daeaf7 0%, #eaf3fb 55%, #f0f6fc 100%)" }}>
+      <div className="relative overflow-hidden" style={{ background: "radial-gradient(circle at 80% 50%, #EBF3FB 0%, #FAFBFE 100%)" }}>
         {/* Decorative geometry */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           {/* Large circle top-right */}
@@ -170,18 +170,19 @@ export function Overview() {
             <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
               {t.overview.dataSection}
             </h2>
-            <div className="flex-1 h-px" style={{ backgroundColor: "#D0E4F0" }} />
+            <div className="flex-1 h-px" style={{ backgroundColor: "#E5EDF5" }} />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {statCards.map((card, i) => (
               <Link key={card.data.label} href={card.href}
                 className="group block rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #D0E4F0",
-                  boxShadow: "0 1px 4px rgba(27,79,114,0.06)",
+                  backgroundColor: "#FFFFFF",
+                  border: "1px solid #E5EDF5",
+                  borderTop: `4px solid ${CARD_ACCENTS[i % CARD_ACCENTS.length]}`,
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 18px rgba(15, 59, 87, 0.03)",
                   textDecoration: "none",
-                  borderTop: `3px solid ${CARD_ACCENTS[i % CARD_ACCENTS.length]}`,
                 }}>
                 {/* Icon container */}
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3 text-base"
@@ -214,14 +215,14 @@ export function Overview() {
             <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
               {t.overview.themesSection}
             </h2>
-            <div className="flex-1 h-px" style={{ backgroundColor: "#D0E4F0" }} />
+            <div className="flex-1 h-px" style={{ backgroundColor: "#E5EDF5" }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {displayThemes.map((theme, i) => (
               <div key={i} className="group flex items-start gap-3 rounded-xl px-4 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-                style={{ backgroundColor: "#ffffff", border: "1px solid #D0E4F0", boxShadow: "0 1px 4px rgba(27,79,114,0.04)" }}>
+                style={{ backgroundColor: "#ffffff", border: "1px solid #E5EDF5", boxShadow: "0 1px 4px rgba(27,79,114,0.04)" }}>
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center text-base shrink-0"
-                  style={{ backgroundColor: "#EBF3FB", border: "1px solid #D0E4F0" }}>
+                  style={{ backgroundColor: "#F4F7FA", border: "1px solid #E5EDF5" }}>
                   {theme.icon}
                 </div>
                 <div className="min-w-0">
@@ -240,9 +241,9 @@ export function Overview() {
             <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
               {t.overview.sourcesSection}
             </h2>
-            <div className="flex-1 h-px" style={{ backgroundColor: "#D0E4F0" }} />
+            <div className="flex-1 h-px" style={{ backgroundColor: "#E5EDF5" }} />
           </div>
-          <div className="rounded-xl px-6 py-5" style={{ backgroundColor: "#ffffff", border: "1px solid #D0E4F0", boxShadow: "0 1px 4px rgba(27,79,114,0.06)" }}>
+          <div className="rounded-xl px-6 py-5" style={{ backgroundColor: "#ffffff", border: "1px solid #E5EDF5", boxShadow: "0 1px 4px rgba(27,79,114,0.06)" }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs">
               {sources
                 ? sources.map((s, i) => (
@@ -263,11 +264,11 @@ export function Overview() {
                   </>
               }
             </div>
-            <div className="mt-5 pt-4 flex items-center justify-between" style={{ borderTop: "1px solid #EBF3FB" }}>
+            <div className="mt-5 pt-4 flex items-center justify-between" style={{ borderTop: "1px solid #F4F7FA" }}>
               <span className="text-xs" style={{ color: "#A3C4DC" }}>
                 AIEM — Africa Interactive Energy Map &nbsp;|&nbsp; APPO © 2026
               </span>
-              <span className="text-xs" style={{ color: "#D0E4F0" }}>
+              <span className="text-xs" style={{ color: "#E5EDF5" }}>
                 Données à titre indicatif
               </span>
             </div>

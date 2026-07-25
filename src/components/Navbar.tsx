@@ -41,19 +41,19 @@ export function Navbar({ onShowMap }: NavbarProps) {
   const current = LANG_OPTIONS.find(l => l.code === lang) ?? LANG_OPTIONS[0]
 
   return (
-    <nav style={{ backgroundColor: "#f0f4f8", borderBottom: "2px solid #D0E4F0", boxShadow: "0 1px 6px rgba(27,79,114,0.08)" }} className="px-4 py-2.5">
+    <nav style={{ backgroundColor: "#FFFFFF", borderBottom: "1px solid #E5EDF5", boxShadow: "0 2px 12px rgba(15,59,87,0.03)" }} className="px-4 py-2.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo + Title */}
         <Link href="/" className="flex items-center gap-3">
-          <div style={{ border: "1px solid #D0E4F0" }} className="rounded-lg p-1">
+          <div style={{ border: "1px solid #E5EDF5" }} className="rounded-lg p-1">
             <img src="/appo_logo.jpeg" alt="APPO" className="h-9 w-9 rounded object-contain bg-white" />
           </div>
           <div>
-            <div className="font-bold text-base leading-tight" style={{ color: "#0D2840", fontFamily: "Arial, sans-serif" }}>
+            <div className="font-bold text-base leading-tight" style={{ color: "#0D2840" }}>
               AIEM
             </div>
-            <div className="text-xs leading-tight" style={{ color: "#5B8FB9", fontFamily: "Arial, sans-serif" }}>
+            <div className="text-xs leading-tight" style={{ color: "#5B8FB9" }}>
               Africa Interactive Energy Map
             </div>
           </div>
@@ -69,10 +69,10 @@ export function Navbar({ onShowMap }: NavbarProps) {
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors"
               style={{
                 backgroundColor: "#ffffff",
-                border: "1px solid #D0E4F0",
+                border: "1px solid #E5EDF5",
                 color: "#1B4F72",
                 cursor: "pointer",
-                fontFamily: "Arial, sans-serif",
+               
               }}
             >
               <span className="text-base leading-none">{current.flag}</span>
@@ -85,7 +85,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
                 className="absolute right-0 top-full mt-1 rounded-lg overflow-hidden"
                 style={{
                   backgroundColor: "#ffffff",
-                  border: "1px solid #D0E4F0",
+                  border: "1px solid #E5EDF5",
                   boxShadow: "0 4px 20px rgba(27,79,114,0.12)",
                   zIndex: 9999,
                   minWidth: "148px",
@@ -97,10 +97,10 @@ export function Navbar({ onShowMap }: NavbarProps) {
                     onClick={() => { setLang(opt.code); setLangOpen(false) }}
                     className="flex items-center gap-2.5 w-full px-3 py-2 text-left text-xs transition-colors"
                     style={{
-                      backgroundColor: lang === opt.code ? "#EBF3FB" : "transparent",
+                      backgroundColor: lang === opt.code ? "#F4F7FA" : "transparent",
                       color: lang === opt.code ? "#1B4F72" : "#475569",
                       fontWeight: lang === opt.code ? "bold" : "normal",
-                      fontFamily: "Arial, sans-serif",
+                     
                       cursor: "pointer",
                       border: "none",
                       direction: opt.code === "ar" ? "rtl" : "ltr",
@@ -120,7 +120,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
             <button
               onClick={onShowMap}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-              style={{ color: "#1B4F72", fontFamily: "Arial, sans-serif", border: "none", background: "none", cursor: "pointer" }}
+              style={{ color: "#1B4F72", border: "none", background: "none", cursor: "pointer" }}
             >
               <span>🗺️</span>
               <span>{t.nav.map}</span>
@@ -129,7 +129,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
             <Link
               href="/app?view=map"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-              style={{ color: "#1B4F72", fontFamily: "Arial, sans-serif" }}
+              style={{ color: "#1B4F72" }}
             >
               <span>🗺️</span>
               <span>{t.nav.map}</span>
@@ -141,13 +141,13 @@ export function Navbar({ onShowMap }: NavbarProps) {
               {["admin", "editor"].includes(session.user.role) && (
                 <Link href="/admin"
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-                  style={{ color: "#1B4F72", fontFamily: "Arial, sans-serif" }}>
+                  style={{ color: "#1B4F72" }}>
                   <Settings size={16} />
                   <span>{t.nav.admin}</span>
                 </Link>
               )}
               <div className="flex items-center gap-1.5 px-3 py-1.5 text-sm"
-                style={{ color: "#5B8FB9", fontFamily: "Arial, sans-serif" }}>
+                style={{ color: "#5B8FB9" }}>
                 <User size={16} />
                 <span className="hidden sm:inline">{session.user.name || session.user.email}</span>
               </div>
@@ -160,7 +160,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
           ) : (
             <Link href="/login"
               className="px-4 py-1.5 rounded text-sm font-bold transition-colors hover:opacity-90"
-              style={{ backgroundColor: "#1B4F72", color: "#ffffff", fontFamily: "Arial, sans-serif" }}>
+              style={{ backgroundColor: "#0F3B57", color: "#ffffff" }}>
               {t.nav.login}
             </Link>
           )}

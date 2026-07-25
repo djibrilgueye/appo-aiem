@@ -313,7 +313,7 @@ export function Sidebar({
     letterSpacing: "0.12em",
     color: "#4cc9f0",
     marginBottom: "8px",
-    fontFamily: "Arial, sans-serif",
+   
   }
 
   const viewBtn = (active: boolean): React.CSSProperties => ({
@@ -325,7 +325,7 @@ export function Sidebar({
     fontSize: "12px",
     fontWeight: active ? "bold" : "normal",
     cursor: "pointer",
-    fontFamily: "Arial, sans-serif",
+   
   })
 
   const smallBtn: React.CSSProperties = {
@@ -338,11 +338,11 @@ export function Sidebar({
     padding: "4px 9px",
     fontSize: "11px",
     cursor: "pointer",
-    fontFamily: "Arial, sans-serif",
+   
   }
 
   return (
-    <div className="overflow-auto h-full" style={{ backgroundColor: "#0b2e59", padding: "10px 10px 20px", fontFamily: "Arial, Helvetica, sans-serif" }}>
+    <div className="overflow-auto h-full" style={{ backgroundColor: "#0F3B57", padding: "10px 10px 20px" }}>
 
       {/* View Mode */}
       <div style={section}>

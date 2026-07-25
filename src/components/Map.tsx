@@ -90,15 +90,15 @@ interface MapProps {
 // ─── APPO Map Colors ──────────────────────────────────────────────────────────
 
 const MC = {
-  ocean:              "#B8D0E8",   // bleu océan soutenu
-  countryDefault:     "#5B9EC9",   // APPO member, région active — bleu moyen franc
-  countryMemberOff:   "#4A82A6",   // APPO member, hors région — bleu atténué
-  countryNonMember:   "#D4DCE4",   // non-APPO member — gris bleuté neutre
-  countryHover:       "#2E86C1",   // survol — bleu vif
-  countrySelected:    "#0D3B5E",   // sélectionné — bleu très foncé
-  countrySelectedH:   "#092D4A",
-  border:             "#3A7CA5",   // bordure bien définie
-  borderHover:        "#1B4F72",
+  ocean:              "#D2E2F0",   // soft daylight blue (matches Leaflet container in globals.css)
+  countryDefault:     "#E9ECF0",   // APPO member, active region — subtle grey-blue
+  countryMemberOff:   "#DDE2E8",   // APPO member, outside active region — slightly deeper
+  countryNonMember:   "#F5F7F8",   // non-APPO member — near-white
+  countryHover:       "#D6E4F0",   // hover
+  countrySelected:    "#0F3B57",   // selected — APPO dark blue
+  countrySelectedH:   "#0A2B41",
+  border:             "#CFD8E3",   // country borders — thin, gentle
+  borderHover:        "#0F3B57",
 }
 
 // ─── ISO3 → ISO2 mapping ──────────────────────────────────────────────────────
@@ -918,21 +918,24 @@ function wrapText(text: string, maxChars: number): string[] {
 
 // ─── Pipeline colors ──────────────────────────────────────────────────────────
 
-function pipelineStyle(status: string) {
-  const colors: Record<string, string> = {
-    "operational":        "#1B4F72",
-    "under construction": "#F4B942",
-    "proposed":           "#5B8FB9",
-    "offline":            "#9CA3AF",
-    "concept":            "#A78BFA",
-  }
+// Pipeline colors: hybrid — hue driven by product type (gas vs oil) inferred
+// from the pipeline name so they stay legible on the light-theme country fills,
+// dash pattern still driven by status so operational / UC / concept / offline
+// stay visually distinct.
+function pipelineStyle(status: string, name?: string) {
+  const n = (name ?? "").toLowerCase()
+  const isGas = /\bgas|gaz|gnl|lng\b/.test(n)
+  const isOil = /\boil|petrol|crude|brut|condensat\b/.test(n)
+  const color = isGas ? "#FF9F1C"      // orange vif — gaz
+              : isOil ? "#00A896"      // vert-turquoise — pétrole/brut
+              : "#0F3B57"              // fallback: bleu APPO
   const dashes: Record<string, string> = {
     "proposed":           "4,6",
     "under construction": "10,5",
     "concept":            "3,8",
     "offline":            "6,4",
   }
-  return { color: colors[status] ?? "#5B8FB9", dash: dashes[status] }
+  return { color, dash: dashes[status] }
 }
 
 // ─── Marker factories ─────────────────────────────────────────────────────────
@@ -1525,7 +1528,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     // Pipelines
     if (activeThemes.has("pipelines")) {
       pipelines.filter(p => (filteredCodes.size === 0 || p.countries.some(c => filteredCodes.has(c))) && passesStatus(p.status)).forEach(pipe => {
-        const { color, dash } = pipelineStyle(pipe.status)
+        const { color, dash } = pipelineStyle(pipe.status, pipe.name)
         const routeStr = pipe.countries.join(" → ")
         const rows = [
           { label: t.map.status, value: pipe.status },

@@ -289,7 +289,7 @@ export default function LandingPage() {
     <div
       className="h-screen w-full flex overflow-hidden"
       dir={isRtl ? "rtl" : "ltr"}
-      style={{ backgroundColor: "#f0f4f8" }}
+      style={{ backgroundColor: "#F4F7FA" }}
     >
 
       {/* ══════════ COLONNE GAUCHE — Connexion ══════════ */}
@@ -301,7 +301,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-2.5">
               <img src="/appo_logo.jpeg" alt="APPO" className="h-10 w-10 rounded object-contain" />
               <div>
-                <p className="font-bold text-base leading-tight" style={{ color: "#1B4F72" }}>AIEM</p>
+                <p className="font-bold text-base leading-tight" style={{ color: "#0F3B57" }}>AIEM</p>
                 <p className="text-[10px] text-slate-400">Africa Interactive Energy Map</p>
               </div>
             </div>
@@ -310,7 +310,7 @@ export default function LandingPage() {
               <button
                 onClick={() => setLangOpen(o => !o)}
                 className="flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold transition-colors"
-                style={{ backgroundColor: "#f1f5f9", border: "1px solid #e2e8f0", color: "#1B4F72", cursor: "pointer" }}
+                style={{ backgroundColor: "#f1f5f9", border: "1px solid #e2e8f0", color: "#0F3B57", cursor: "pointer" }}
               >
                 <span>{currentLang.flag}</span>
                 <span>{currentLang.code.toUpperCase()}</span>
@@ -322,10 +322,10 @@ export default function LandingPage() {
                   {LANG_OPTIONS.map(opt => (
                     <button key={opt.code} onClick={() => { setLang(opt.code); setLangOpen(false) }}
                       className="flex items-center gap-2 w-full px-3 py-2 text-left text-xs transition-colors"
-                      style={{ backgroundColor: lang === opt.code ? "#eff6ff" : "transparent", color: lang === opt.code ? "#1B4F72" : "#475569", fontWeight: lang === opt.code ? "bold" : "normal", border: "none", cursor: "pointer", direction: opt.code === "ar" ? "rtl" : "ltr" }}>
+                      style={{ backgroundColor: lang === opt.code ? "#eff6ff" : "transparent", color: lang === opt.code ? "#0F3B57" : "#475569", fontWeight: lang === opt.code ? "bold" : "normal", border: "none", cursor: "pointer", direction: opt.code === "ar" ? "rtl" : "ltr" }}>
                       <span>{opt.flag}</span>
                       <span>{opt.label}</span>
-                      {lang === opt.code && <span style={{ marginLeft: "auto", color: "#1B4F72" }}>✓</span>}
+                      {lang === opt.code && <span style={{ marginLeft: "auto", color: "#0F3B57" }}>✓</span>}
                     </button>
                   ))}
                 </div>
@@ -340,7 +340,7 @@ export default function LandingPage() {
           {/* Badge + titre */}
           <div>
             <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-1 rounded-full mb-3"
-              style={{ backgroundColor: "#eff6ff", color: "#1B4F72" }}>
+              style={{ backgroundColor: "#eff6ff", color: "#0F3B57" }}>
               <ShieldCheck className="h-3 w-3" />
               {t("badge")}
             </div>
@@ -350,7 +350,7 @@ export default function LandingPage() {
             <p className="text-xs text-slate-400 mt-1">
               {step === "email"
                 ? t("step1Sub")
-                : <>{t("codeSentTo")} <strong style={{ color: "#1B4F72" }}>{email}</strong></>
+                : <>{t("codeSentTo")} <strong style={{ color: "#0F3B57" }}>{email}</strong></>
               }
             </p>
           </div>
@@ -358,12 +358,12 @@ export default function LandingPage() {
           {/* Indicateur étapes */}
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold"
-              style={{ backgroundColor: step === "email" ? "#1B4F72" : "#22c55e", color: "#fff" }}>
+              style={{ backgroundColor: step === "email" ? "#0F3B57" : "#22c55e", color: "#fff" }}>
               {step === "email" ? "1" : <CheckCircle2 className="h-3.5 w-3.5" />}
             </div>
             <div className="flex-1 h-0.5 rounded-full" style={{ backgroundColor: step === "code" ? "#22c55e" : "#e2e8f0" }} />
             <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold"
-              style={{ backgroundColor: step === "code" ? "#1B4F72" : "#e2e8f0", color: step === "code" ? "#fff" : "#94a3b8" }}>
+              style={{ backgroundColor: step === "code" ? "#0F3B57" : "#e2e8f0", color: step === "code" ? "#fff" : "#94a3b8" }}>
               2
             </div>
           </div>
@@ -376,7 +376,7 @@ export default function LandingPage() {
               )}
               <div className="text-[11px] text-slate-500 rounded-lg p-2.5 flex gap-2"
                 style={{ backgroundColor: "#eff6ff", border: "1px solid #bfdbfe" }}>
-                <Mail className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" style={{ color: "#1B4F72" }} />
+                <Mail className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" style={{ color: "#0F3B57" }} />
                 {t("emailInfo")}
               </div>
               <div className="space-y-1.5">
@@ -386,13 +386,13 @@ export default function LandingPage() {
                   required disabled={isLoading} autoComplete="email"
                   className="w-full h-10 px-3 text-sm rounded-xl outline-none transition-all"
                   style={{ border: "1px solid #e2e8f0", backgroundColor: "#fff" }}
-                  onFocus={e => e.target.style.borderColor = "#1B4F72"}
+                  onFocus={e => e.target.style.borderColor = "#0F3B57"}
                   onBlur={e => e.target.style.borderColor = "#e2e8f0"}
                 />
               </div>
               <button type="submit" disabled={isLoading || !email}
                 className="w-full h-10 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
-                style={{ backgroundColor: "#1B4F72", color: "#fff", cursor: isLoading || !email ? "not-allowed" : "pointer", opacity: !email ? 0.6 : 1 }}>
+                style={{ backgroundColor: "#0F3B57", color: "#fff", cursor: isLoading || !email ? "not-allowed" : "pointer", opacity: !email ? 0.6 : 1 }}>
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
                 {t("sendBtn")}
               </button>
@@ -413,14 +413,14 @@ export default function LandingPage() {
                   required disabled={isLoading} autoComplete="one-time-code" autoFocus
                   className="w-full h-14 text-center text-2xl tracking-[0.5em] font-mono rounded-xl outline-none transition-all"
                   style={{ border: "1px solid #e2e8f0", backgroundColor: "#fff" }}
-                  onFocus={e => e.target.style.borderColor = "#1B4F72"}
+                  onFocus={e => e.target.style.borderColor = "#0F3B57"}
                   onBlur={e => e.target.style.borderColor = "#e2e8f0"}
                 />
                 <p className="text-[11px] text-slate-400">{t("codeExpiry")}</p>
               </div>
               <button type="submit" disabled={isLoading || code.length !== 6}
                 className="w-full h-10 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
-                style={{ backgroundColor: "#1B4F72", color: "#fff", cursor: isLoading || code.length !== 6 ? "not-allowed" : "pointer", opacity: code.length !== 6 ? 0.6 : 1 }}>
+                style={{ backgroundColor: "#0F3B57", color: "#fff", cursor: isLoading || code.length !== 6 ? "not-allowed" : "pointer", opacity: code.length !== 6 ? 0.6 : 1 }}>
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <KeyRound className="h-4 w-4" />}
                 {t("verifyBtn")}
               </button>
@@ -437,7 +437,7 @@ export default function LandingPage() {
           <div className="mt-auto pt-3 border-t border-slate-100">
             <Link href="/app"
               className="flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-semibold transition-colors"
-              style={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", color: "#1B4F72" }}>
+              style={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", color: "#0F3B57" }}>
               <Globe2 className="h-3.5 w-3.5" />
               {t("openMap")}
               <ArrowRight className="h-3 w-3 ml-auto" />
@@ -449,7 +449,7 @@ export default function LandingPage() {
         <div className="px-6 py-4 border-t border-slate-100">
           <p className="text-[10px] text-slate-400 text-center leading-relaxed">
             {t("footerText")}<br />
-            <a href="mailto:info@apposecretariat.org" style={{ color: "#1B4F72" }}>info@apposecretariat.org</a>
+            <a href="mailto:info@apposecretariat.org" style={{ color: "#0F3B57" }}>info@apposecretariat.org</a>
           </p>
         </div>
       </div>
@@ -459,7 +459,7 @@ export default function LandingPage() {
 
         {/* Bloc descriptif */}
         <div className="p-5 border-b border-slate-200" style={{ backgroundColor: "rgba(255,255,255,0.7)" }}>
-          <div className="text-[10px] font-bold tracking-[0.2em] uppercase mb-1.5" style={{ color: "#1B4F72" }}>
+          <div className="text-[10px] font-bold tracking-[0.2em] uppercase mb-1.5" style={{ color: "#0F3B57" }}>
             {t("tagline")}
           </div>
           <p className="text-slate-500 text-xs leading-relaxed">{t("desc")}</p>
@@ -469,9 +469,9 @@ export default function LandingPage() {
             {/* Ligne 1 : Pays membres pleine largeur */}
             <div className="flex flex-col items-center justify-center gap-0.5 rounded-lg px-3 py-2"
               style={{ backgroundColor: "#eff6ff", border: "1px solid #bfdbfe" }}>
-              <Globe2 className="h-4 w-4" style={{ color: "#1B4F72" }} />
-              <div className="text-lg font-bold leading-none" style={{ color: "#1B4F72" }}>{APPO_MEMBERS.length}</div>
-              <div className="text-[10px] font-semibold text-center" style={{ color: "#1B4F72" }}>{t("membersLbl")}</div>
+              <Globe2 className="h-4 w-4" style={{ color: "#0F3B57" }} />
+              <div className="text-lg font-bold leading-none" style={{ color: "#0F3B57" }}>{APPO_MEMBERS.length}</div>
+              <div className="text-[10px] font-semibold text-center" style={{ color: "#0F3B57" }}>{t("membersLbl")}</div>
             </div>
             {/* Lignes 2-4 : 9 autres en grille 3×3 */}
             <div className="grid grid-cols-3 gap-1.5">
@@ -502,13 +502,13 @@ export default function LandingPage() {
           <div className="flex border-b border-slate-200 flex-shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.8)" }}>
             <button onClick={() => setActiveTab("info")}
               className="flex-1 py-2.5 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-              style={{ color: activeTab === "info" ? "#1B4F72" : "#94a3b8", background: "none", border: "none", borderBottom: activeTab === "info" ? "2px solid #1B4F72" : "2px solid transparent", cursor: "pointer" }}>
+              style={{ color: activeTab === "info" ? "#0F3B57" : "#94a3b8", background: "none", border: "none", borderBottom: activeTab === "info" ? "2px solid #0F3B57" : "2px solid transparent", cursor: "pointer" }}>
               <BookOpen className="h-3 w-3" />
               {t("infoTitle")}
             </button>
             <button onClick={() => setActiveTab("members")}
               className="flex-1 py-2.5 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-              style={{ color: activeTab === "members" ? "#1B4F72" : "#94a3b8", background: "none", border: "none", cursor: "pointer", borderBottom: activeTab === "members" ? "2px solid #1B4F72" : "2px solid transparent" }}>
+              style={{ color: activeTab === "members" ? "#0F3B57" : "#94a3b8", background: "none", border: "none", cursor: "pointer", borderBottom: activeTab === "members" ? "2px solid #0F3B57" : "2px solid transparent" }}>
               <Users className="h-3 w-3" />
               {APPO_MEMBERS.length} {t("memberTab")}
             </button>
@@ -527,7 +527,7 @@ export default function LandingPage() {
                   <p className="text-slate-400 text-xs leading-relaxed">{t("selectSub")}</p>
                   <div className="flex items-center gap-4 mt-1">
                     <div className="flex items-center gap-1.5">
-                      <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#1B4F72" }} />
+                      <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#0F3B57" }} />
                       <span className="text-slate-500 text-[11px]">{t("memberLegend")}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -540,7 +540,7 @@ export default function LandingPage() {
                 <div className="p-4 flex flex-col gap-3">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                      style={{ backgroundColor: isAppo ? "#1B4F72" : "#cbd5e1" }}>
+                      style={{ backgroundColor: isAppo ? "#0F3B57" : "#cbd5e1" }}>
                       {selectedCountry}
                     </div>
                     <div>
@@ -548,8 +548,8 @@ export default function LandingPage() {
                         {country?.[lang as keyof typeof country] as string ?? country?.fr ?? ""}
                       </div>
                       {isAppo && (
-                        <div className="text-[10px] font-semibold flex items-center gap-1" style={{ color: "#1B4F72" }}>
-                          <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: "#1B4F72" }} />
+                        <div className="text-[10px] font-semibold flex items-center gap-1" style={{ color: "#0F3B57" }}>
+                          <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: "#0F3B57" }} />
                           {t("memberLegend")}
                         </div>
                       )}
@@ -575,7 +575,7 @@ export default function LandingPage() {
                       </div>
                       <Link href="/app?view=map"
                         className="flex items-center justify-between w-full py-2 px-3 rounded-lg text-white text-xs font-medium shadow-sm transition-all"
-                        style={{ backgroundColor: "#1B4F72" }}>
+                        style={{ backgroundColor: "#0F3B57" }}>
                         {t("openMap")}
                         <ChevronRight className="h-3.5 w-3.5" />
                       </Link>
@@ -596,15 +596,15 @@ export default function LandingPage() {
                     className="w-full flex items-center gap-2.5 px-4 py-2 text-left transition-all"
                     style={{
                       backgroundColor: selectedCountry === iso2 ? "#eff6ff" : "transparent",
-                      borderLeft: selectedCountry === iso2 ? "2px solid #1B4F72" : "2px solid transparent",
+                      borderLeft: selectedCountry === iso2 ? "2px solid #0F3B57" : "2px solid transparent",
                       cursor: "pointer", border: "none",
                     }}>
                     <div className="w-6 h-6 rounded-md flex items-center justify-center text-[9px] font-bold text-white flex-shrink-0"
-                      style={{ backgroundColor: "#1B4F72" }}>{iso2}</div>
+                      style={{ backgroundColor: "#0F3B57" }}>{iso2}</div>
                     <span className="text-slate-600 text-xs">
                       {info?.[lang as keyof typeof info] as string ?? info?.fr ?? iso2}
                     </span>
-                    {selectedCountry === iso2 && <ChevronRight className="h-3 w-3 ml-auto" style={{ color: "#1B4F72" }} />}
+                    {selectedCountry === iso2 && <ChevronRight className="h-3 w-3 ml-auto" style={{ color: "#0F3B57" }} />}
                   </button>
                 )
               })}
@@ -623,7 +623,7 @@ export default function LandingPage() {
         <div className="absolute bottom-4 right-4 z-[1000]">
           <Link href="/app"
             className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold shadow-lg transition-all hover:opacity-90"
-            style={{ backgroundColor: "#1B4F72", color: "#fff", border: "2px solid #F4B942" }}>
+            style={{ backgroundColor: "#0F3B57", color: "#fff", border: "2px solid #F4B942" }}>
             <Globe2 className="h-4 w-4" />
             {t("openMap")}
             <ArrowRight className="h-4 w-4" />
@@ -631,7 +631,7 @@ export default function LandingPage() {
         </div>
         {/* Badge */}
         <div className="absolute top-4 right-4 z-[1000] px-3 py-1.5 rounded-lg text-xs font-semibold"
-          style={{ backgroundColor: "rgba(255,255,255,0.88)", color: "#1B4F72", border: "1px solid #D0E4F0", boxShadow: "0 2px 8px rgba(27,79,114,0.1)" }}>
+          style={{ backgroundColor: "rgba(255,255,255,0.88)", color: "#0F3B57", border: "1px solid #D0E4F0", boxShadow: "0 2px 8px rgba(27,79,114,0.1)" }}>
           APPO © 2026
         </div>
       </div>
