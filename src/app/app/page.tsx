@@ -35,13 +35,14 @@ function HomeContent() {
   const [viewMode, setViewMode] = useState<"overview" | "map" | "table">("overview")
   const [showCompare, setShowCompare] = useState(false)
 
-  // Handle ?view=map&theme=xxx from Overview stat cards or Navbar
+  // Handle ?view=<map|table|overview>&theme=xxx from Overview stat cards,
+  // Navbar links, or AI assistant links.
   useEffect(() => {
     const view = searchParams.get("view")
     const theme = searchParams.get("theme")
-    if (view === "map") {
-      setViewMode("map")
-      if (theme) {
+    if (view === "map" || view === "table" || view === "overview") {
+      setViewMode(view)
+      if (view === "map" && theme) {
         setActiveThemes(new Set([theme]))
       }
       router.replace("/app", { scroll: false })
