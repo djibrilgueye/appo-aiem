@@ -175,10 +175,17 @@ const PARTNER_NAME_TO_ISO2: Record<string, string> = {
 
 // ─── Tooltip ──────────────────────────────────────────────────────────────────
 
+// A tooltip row is either a value row (label + value) or a section header
+// used to visually separate groups of information in the same tooltip
+// (e.g. one section per active trade theme on a country marker).
+type TooltipRow =
+  | { label: string; value: string | string[]; section?: undefined }
+  | { section: string; label?: undefined; value?: undefined }
+
 interface TooltipData {
   title: string
   subtitle?: string
-  rows: { label: string; value: string | string[] }[]
+  rows: TooltipRow[]
   x: number; y: number; locked: boolean
 }
 
@@ -245,23 +252,29 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
           )}
         </div>
         <div className="px-4 py-3 space-y-1.5 max-h-64 overflow-y-auto">
-          {tooltip.rows.map((r, i) => (
-            <div key={`${r.label}-${i}`}>
-              {i === 2 && (
-                <div className="border-t border-[#EBF3FB] pt-1.5 mb-1">
-                  <div className="text-[9px] font-bold uppercase tracking-wider" style={{ color: "#5B8FB9" }}>
-                    Partenaires
+          {tooltip.rows.map((r, i) => {
+            if (r.section !== undefined) {
+              // Section separator between two groups of rows (e.g. one trade theme
+              // ends, the next begins). The very first section header shouldn't get
+              // a top border because there's nothing above it in the panel.
+              const isFirst = tooltip.rows.slice(0, i).every(prev => prev.section !== undefined)
+              return (
+                <div key={`section-${i}`} className={isFirst ? "" : "border-t border-[#EBF3FB] pt-2 mt-1"}>
+                  <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "#5B8FB9" }}>
+                    {r.section}
                   </div>
                 </div>
-              )}
-              <div className="flex justify-between text-xs gap-2">
-                <span style={{ color: i >= 2 ? "#1B4F72" : "#6C757D" }} className="shrink-0">{r.label}</span>
+              )
+            }
+            return (
+              <div key={`${r.label}-${i}`} className="flex justify-between text-xs gap-2">
+                <span style={{ color: "#6C757D" }} className="shrink-0">{r.label}</span>
                 <span className="font-semibold text-right leading-relaxed" style={{ color: "#0D2840" }}>
                   {Array.isArray(r.value) ? r.value.join(" → ") : r.value}
                 </span>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         {tooltip.locked && <p className="text-xs text-center pb-2" style={{ color: "#A3C4DC" }}>{t.map.legend}</p>}
       </div>
@@ -1639,74 +1652,123 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "TM",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel"] },
     }
 
-    // Active trade themes (in the same iteration order as TRADE_SUB) — used to
-    // spread multiple markers around a country's centroid instead of stacking
-    // them on the exact same lat/lon (which would make only the topmost marker
-    // respond to hover — the "only Jet Fuel shows on hover" bug).
-    const activeTradeThemes = Object.keys(TRADE_SUB).filter(k => activeThemes.has(k))
-    const themeIndexInActive: Record<string, number> = {}
-    activeTradeThemes.forEach((k, i) => { themeIndexInActive[k] = i })
-    const totalActiveTrade = activeTradeThemes.length
+    // Group active trade themes by country so each country gets a SINGLE marker
+    // with a stacked tooltip listing every active theme as its own section
+    // (imports first, then exports). This replaces the earlier per-theme
+    // markers that either stacked on top of each other or had to be spread
+    // around the centroid to stay hoverable.
+    const activeTradeKeys = Object.keys(TRADE_SUB).filter(k => activeThemes.has(k))
+    if (activeTradeKeys.length > 0) {
+      // Pre-compute the per-theme max so each theme's contribution to the marker
+      // radius is normalized on its own scale (a value of 1 bcm gas isn't
+      // comparable to 1000 t of jet fuel).
+      const perThemeMax: Record<string, number> = {}
+      activeTradeKeys.forEach(k => {
+        const cfg = TRADE_SUB[k]
+        const rows = cfg.dir === "imports" ? tradeImports : tradeExports
+        const vals = rows.map(r => Number(r[cfg.field] ?? 0)).filter(v => v > 0)
+        perThemeMax[k] = Math.max(...vals, 1)
+      })
 
-    Object.entries(TRADE_SUB).forEach(([themeKey, cfg]) => {
-      if (!activeThemes.has(themeKey)) return
-      const rows = cfg.dir === "imports" ? tradeImports : tradeExports
-      const filtered = rows.filter(r => filteredCodes.size === 0 || filteredCodes.has(r.country.code))
-      if (filtered.length === 0) return
+      // Build one aggregate entry per country. `entries` per country is the
+      // list of (themeKey, cfg, row, val) that will become tooltip sections.
+      type Entry = {
+        themeKey: string
+        cfg: (typeof TRADE_SUB)[keyof typeof TRADE_SUB]
+        row: TradeRow
+        val: number
+      }
+      const perCountry = new Map<string, {
+        country: TradeRow["country"]
+        entries: Entry[]
+        hasImport: boolean
+        hasExport: boolean
+        year: number  // most recent year across active entries
+      }>()
 
-      const vals = filtered.map(r => Number(r[cfg.field] ?? 0)).filter(v => v > 0)
-      const maxVal = Math.max(...vals, 1)
+      activeTradeKeys.forEach(themeKey => {
+        const cfg = TRADE_SUB[themeKey]
+        const rows = cfg.dir === "imports" ? tradeImports : tradeExports
+        rows.forEach(r => {
+          if (filteredCodes.size > 0 && !filteredCodes.has(r.country.code)) return
+          const val = Number(r[cfg.field] ?? 0)
+          if (val <= 0) return
+          const key = r.country.code
+          const bucket = perCountry.get(key) ?? {
+            country: r.country,
+            entries: [] as Entry[],
+            hasImport: false,
+            hasExport: false,
+            year: r.year,
+          }
+          bucket.entries.push({ themeKey, cfg, row: r, val })
+          if (cfg.dir === "imports") bucket.hasImport = true
+          else bucket.hasExport = true
+          if (r.year > bucket.year) bucket.year = r.year
+          perCountry.set(key, bucket)
+        })
+      })
 
-      filtered.forEach(r => {
-        const val = Number(r[cfg.field] ?? 0)
-        if (val <= 0) return
-        const radius = 8 + (val / maxVal) * 28
-        const dir = cfg.dir === "imports" ? "⬇️" : "⬆️"
+      perCountry.forEach(({ country, entries, hasImport, hasExport, year }) => {
+        // Marker radius: mean of normalized ratios × 28 + base 10.
+        // Keeps big absolute values from swallowing small ones and vice-versa.
+        const meanRatio = entries.reduce((sum, e) => sum + e.val / perThemeMax[e.themeKey], 0) / entries.length
+        const radius = 10 + meanRatio * 28
+
+        // Marker color: mix priority — if only imports show orange gradient,
+        // only exports show green, mixed shows the APPO gold accent.
+        const fill = hasImport && hasExport ? "#F4B942"
+                   : hasImport               ? "#E67E22"
+                   :                           "#1E8449"
+        const dirBadge = hasImport && hasExport ? "⇅"
+                       : hasImport              ? "⬇"
+                       :                          "⬆"
+
         const icon = L.divIcon({
-          html: `<div style="width:${radius*2}px;height:${radius*2}px;background:${cfg.color};border:2px solid white;border-radius:50%;opacity:0.75;display:flex;align-items:center;justify-content:center;font-size:${Math.max(8,radius/2)}px;color:white;font-weight:bold;">${dir}</div>`,
+          html: `<div style="width:${radius*2}px;height:${radius*2}px;background:${fill};border:2px solid white;border-radius:50%;opacity:0.85;display:flex;align-items:center;justify-content:center;font-size:${Math.max(9,radius/2)}px;color:white;font-weight:bold;box-shadow:0 2px 8px rgba(15,59,87,0.25);">${dirBadge}</div>`,
           className: "", iconSize: [radius*2, radius*2], iconAnchor: [radius, radius],
         })
 
-        // Spread this theme's marker around the country centroid so multiple
-        // simultaneously-active trade themes don't sit exactly on top of each
-        // other. Offset is 0 when only one theme is active.
-        let lat = r.country.lat
-        let lon = r.country.lon
-        if (totalActiveTrade > 1) {
-          const angle = (themeIndexInActive[themeKey] / totalActiveTrade) * 2 * Math.PI
-          const offsetDeg = 0.9  // ~100 km at the equator — enough to avoid overlap on the Africa view
-          lat += offsetDeg * Math.sin(angle)
-          lon += offsetDeg * Math.cos(angle)
-        }
-
-        // Parse partner details and filter by hydrocarbon keys for this theme
-        const allPartners: TradePartner[] = (() => {
-          try { return JSON.parse(r.partnersDetail) } catch { return [] }
-        })()
-        const relevant = allPartners.filter(p => cfg.hydroKeys.includes(p.hydro))
-
-        const tipRows: { label: string; value: string }[] = [
-          { label: cfg.label,  value: `${val.toLocaleString()} ${cfg.unit}` },
-          { label: t.map.year, value: `${r.year}` },
-        ]
-        // Add one row per partner sorted by qty descending
-        const sortedPartners = [...relevant].sort((a, b) => b.qty - a.qty)
-        sortedPartners.forEach(p => {
-          tipRows.push({ label: p.partner, value: `${p.qty.toLocaleString()} ${p.unit}` })
+        // Build tooltip rows: one section header per entry, then value +
+        // partner rows. Sort entries so imports come before exports and
+        // within each direction, by value descending — most significant first.
+        const sortedEntries = [...entries].sort((a, b) => {
+          if (a.cfg.dir !== b.cfg.dir) return a.cfg.dir === "imports" ? -1 : 1
+          return b.val - a.val
         })
 
-        const subtitle = cfg.dir === "imports" ? `⬇️ Importation ${selectedYear}` : `⬆️ Exportation ${selectedYear}`
-        const partnerNames = relevant.map(p => p.partner)
-        const m = L.marker([lat, lon], { icon })
-        // Include the theme label in the tooltip title when several trade themes
-        // share the same country — otherwise all offset markers show the raw
-        // country name and the user can't tell which pill corresponds to what.
-        const tipTitle = totalActiveTrade > 1 ? `${r.country.name} — ${cfg.label}` : r.country.name
-        bindTip(m, e => ({ title: tipTitle, subtitle, rows: tipRows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => { setTooltip(null); clearTradeHighlight() })
-        m.on("click", () => highlightPartners(partnerNames, cfg.color))
+        const tipRows: TooltipRow[] = []
+        const allPartnerNames: string[] = []
+        sortedEntries.forEach(e => {
+          const dirArrow = e.cfg.dir === "imports" ? "⬇" : "⬆"
+          tipRows.push({ section: `${dirArrow} ${e.cfg.label}` })
+          tipRows.push({ label: e.cfg.label, value: `${e.val.toLocaleString()} ${e.cfg.unit}` })
+          const allPartners: TradePartner[] = (() => {
+            try { return JSON.parse(e.row.partnersDetail) } catch { return [] }
+          })()
+          const relevant = allPartners.filter(p => e.cfg.hydroKeys.includes(p.hydro))
+          const sortedPartners = [...relevant].sort((a, b) => b.qty - a.qty)
+          sortedPartners.forEach(p => {
+            tipRows.push({ label: p.partner, value: `${p.qty.toLocaleString()} ${p.unit}` })
+            allPartnerNames.push(p.partner)
+          })
+        })
+
+        // Header hint so users immediately know the tooltip has multiple sections
+        const subtitle = entries.length > 1
+          ? (hasImport && hasExport ? `⇅ ${entries.length} flux (${year})` : `${dirBadge} ${entries.length} flux (${year})`)
+          : (hasImport ? `⬇ Importation ${year}` : `⬆ Exportation ${year}`)
+
+        const m = L.marker([country.lat, country.lon], { icon })
+        bindTip(m,
+          e => ({ title: country.name, subtitle, rows: tipRows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }),
+          tooltipLocked, tooltipTimer, showTip,
+          () => { setTooltip(null); clearTradeHighlight() },
+        )
+        m.on("click", () => highlightPartners(allPartnerNames, fill))
         m.addTo(mg)
       })
-    })
+    }
 
     // Country labels — rendered LAST so they appear above all markers
     if (showLabels) {
