@@ -5,11 +5,13 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const REGIONS = ["North Africa", "West Africa", "Central Africa", "East Africa", "Southern Africa"]
 
 export default function NewCountryPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -56,7 +58,7 @@ export default function NewCountryPage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (

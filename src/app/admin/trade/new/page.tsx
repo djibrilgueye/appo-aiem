@@ -6,9 +6,11 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function NewTradePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -61,7 +63,7 @@ export default function NewTradePage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -81,14 +83,14 @@ export default function NewTradePage() {
             </select>
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Pays</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.country}</label>
             <select value={form.countryId} onChange={e => setForm({ ...form, countryId: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              <option value="">-- Sélectionner --</option>
+              <option value="">{t.admin.common.selectPlaceholder}</option>
               {countries.map(c => <option key={c.id} value={c.id}>{c.name} ({c.code})</option>)}
             </select>
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Année</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.year}</label>
             <input type="number" min="2000" max="2030" value={form.year} onChange={e => setForm({ ...form, year: parseInt(e.target.value) || new Date().getFullYear() })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
@@ -97,11 +99,11 @@ export default function NewTradePage() {
           <p className="text-[#1B4F72] text-sm font-medium mb-3">Hydrocarbures bruts</p>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Pétrole intra-africain (kb/d) <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.trade.oilIntra} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
               <input type="number" step="0.01" value={form.oilIntraKbD} onChange={e => setForm({ ...form, oilIntraKbD: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Pétrole hors Afrique (kb/d) <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.trade.oilExtra} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
               <input type="number" step="0.01" value={form.oilExtraKbD} onChange={e => setForm({ ...form, oilExtraKbD: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>
@@ -116,7 +118,7 @@ export default function NewTradePage() {
         </div>
 
         <div className="border-t border-[#EBF3FB] pt-4">
-          <p className="text-[#1B4F72] text-sm font-medium mb-3">Produits raffinés <span className="text-[#A3C4DC] text-xs font-normal">optionnel</span></p>
+          <p className="text-[#1B4F72] text-sm font-medium mb-3">{t.admin.trade.refinedProducts} <span className="text-[#A3C4DC] text-xs font-normal">optionnel</span></p>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-[#1B4F72] text-sm mb-1">Essence (m³)</label>
@@ -139,13 +141,13 @@ export default function NewTradePage() {
 
         <div>
           <label className="block text-[#1B4F72] text-sm mb-1">
-            {form.direction === "Import" ? "Principales sources" : "Principales destinations"} <span className="text-[#A3C4DC] text-xs">codes pays séparés par des virgules, ex: DZA, NGA</span>
+            {form.direction === "Import" ? "Principales sources" : "Principales destinations"} <span className="text-[#A3C4DC] text-xs">{t.admin.trade.countryCodesHintExample}</span>
           </label>
           <input value={form.partiesInput} onChange={e => setForm({ ...form, partiesInput: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="DZA, NGA, LBY" />
         </div>
 
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
           <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
         </div>
 
@@ -153,7 +155,7 @@ export default function NewTradePage() {
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">
             <Save size={18} />{loading ? "Enregistrement..." : "Enregistrer"}
           </button>
-          <Link href="/admin/trade" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">Annuler</Link>
+          <Link href="/admin/trade" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">{t.admin.common.cancel}</Link>
         </div>
       </form>
     </div>

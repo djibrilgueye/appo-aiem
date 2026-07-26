@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, Save, Plus, Trash2 } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface NationalCompany {
   id: string
@@ -43,6 +44,7 @@ const emptyCompany = (): Omit<NationalCompany, "id"> => ({
 
 export default function CountryProfilePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -147,7 +149,7 @@ export default function CountryProfilePage() {
   }
 
   if (loading) return <div className="p-8 text-[#5B8FB9]">Chargement…</div>
-  if (!profile) return <div className="p-8 text-red-500">Pays introuvable.</div>
+  if (!profile) return <div className="p-8 text-red-500">{t.admin.countries.notFound}</div>
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -163,7 +165,7 @@ export default function CountryProfilePage() {
 
       {/* General info */}
       <div className="bg-white border border-[#D0E4F0] rounded-xl p-6 mb-6">
-        <h2 className="text-sm font-bold text-[#1B4F72] uppercase tracking-wider mb-4">Informations générales</h2>
+        <h2 className="text-sm font-bold text-[#1B4F72] uppercase tracking-wider mb-4">{t.admin.countries.generalInfo}</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Emoji drapeau</label>
@@ -177,11 +179,11 @@ export default function CountryProfilePage() {
           </div>
           <div>
             <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Monnaie</label>
-            <input value={currency} onChange={e => setCurrency(e.target.value)} placeholder="Dinar algérien (DZD)"
+            <input value={currency} onChange={e => setCurrency(e.target.value)} placeholder={t.admin.countries.currencyPlaceholder}
               className="w-full border border-[#D0E4F0] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Date d&apos;indépendance</label>
+            <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.countries.independenceDate}</label>
             <input value={independence} onChange={e => setIndependence(e.target.value)} placeholder="1er novembre 1962"
               className="w-full border border-[#D0E4F0] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1B4F72]" />
           </div>
@@ -196,9 +198,9 @@ export default function CountryProfilePage() {
               className="w-full border border-[#D0E4F0] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div className="col-span-2">
-            <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Description de l&apos;économie</label>
+            <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.countries.economyDescLabel}</label>
             <textarea value={economyDesc} onChange={e => setEconomyDesc(e.target.value)} rows={3}
-              placeholder="Économie basée principalement sur les hydrocarbures…"
+              placeholder={t.admin.countries.economyDescPlaceholder}
               className="w-full border border-[#D0E4F0] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1B4F72] resize-none" />
           </div>
         </div>
@@ -214,7 +216,7 @@ export default function CountryProfilePage() {
       {/* National companies */}
       <div className="bg-white border border-[#D0E4F0] rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-bold text-[#1B4F72] uppercase tracking-wider">Sociétés Nationales des Hydrocarbures</h2>
+          <h2 className="text-sm font-bold text-[#1B4F72] uppercase tracking-wider">{t.admin.countries.snhSection}</h2>
           <button onClick={() => setCompanies(prev => [...prev, { ...emptyCompany(), _new: true } as NationalCompany & { _new: true }])}
             className="flex items-center gap-1 text-xs bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#1B4F72] px-3 py-1.5 rounded-lg border border-[#D0E4F0] transition">
             <Plus size={13} /> Ajouter
@@ -222,7 +224,7 @@ export default function CountryProfilePage() {
         </div>
 
         {companies.length === 0 && (
-          <p className="text-xs text-[#5B8FB9] text-center py-4">Aucune société enregistrée.</p>
+          <p className="text-xs text-[#5B8FB9] text-center py-4">{t.admin.countries.snhNone}</p>
         )}
 
         {companies.map((co, idx) => (
@@ -237,7 +239,7 @@ export default function CountryProfilePage() {
               <div>
                 <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Nom complet *</label>
                 <input value={co.name} onChange={e => setCompanies(prev => { const n = [...prev]; (n[idx] as any).name = e.target.value; return n })}
-                  placeholder="Société Nationale des Hydrocarbures"
+                  placeholder={t.admin.countries.snhNamePlaceholder}
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white" />
               </div>
               <div>
@@ -247,27 +249,27 @@ export default function CountryProfilePage() {
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Fondée</label>
+                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.common.founded}</label>
                 <input type="number" value={co.founded ?? ""} onChange={e => setCompanies(prev => { const n = [...prev]; (n[idx] as any).founded = e.target.value ? parseInt(e.target.value) : null; return n })}
                   placeholder="1963"
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Site web</label>
+                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.common.website}</label>
                 <input value={co.website ?? ""} onChange={e => setCompanies(prev => { const n = [...prev]; (n[idx] as any).website = e.target.value || null; return n })}
                   placeholder="https://sonatrach.com"
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Contact</label>
+                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.common.contact}</label>
                 <input value={co.contact ?? ""} onChange={e => setCompanies(prev => { const n = [...prev]; (n[idx] as any).contact = e.target.value || null; return n })}
                   placeholder="contact@sonatrach.com"
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white" />
               </div>
               <div className="col-span-2">
-                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">Description</label>
+                <label className="block text-xs font-semibold text-[#5B8FB9] mb-1">{t.admin.common.description}</label>
                 <textarea value={co.description ?? ""} onChange={e => setCompanies(prev => { const n = [...prev]; (n[idx] as any).description = e.target.value || null; return n })}
-                  rows={2} placeholder="Présentation sommaire de la société…"
+                  rows={2} placeholder={t.admin.countries.snhDescPlaceholder}
                   className="w-full border border-[#D0E4F0] rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#1B4F72] bg-white resize-none" />
               </div>
             </div>

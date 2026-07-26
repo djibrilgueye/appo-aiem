@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface TradeRecord {
   id: string
@@ -23,6 +24,7 @@ interface TradeRecord {
 
 export default function TradePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [records, setRecords] = useState<TradeRecord[]>([])
   const [loading, setLoading] = useState(true)
@@ -44,7 +46,7 @@ export default function TradePage() {
     })
       .catch(err => {
         console.error("[trade list]", err)
-        alert("Impossible de charger les données de commerce. Rechargez la page ou vérifiez votre connexion.")
+        alert(t.admin.trade.loadFailed)
       })
       .finally(() => setLoading(false))
   }, [session])

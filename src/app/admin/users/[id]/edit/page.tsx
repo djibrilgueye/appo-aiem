@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState, use } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface User {
   id: string
@@ -18,6 +19,7 @@ interface User {
 export default function EditUserPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
@@ -43,7 +45,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
 
   if (status === "loading" || fetching) return null
   if (!session || session.user.role !== "admin") {
-    return <div className="text-[#0D2840]">Accès refusé.</div>
+    return <div className="text-[#0D2840]">{t.admin.common.accessDenied}</div>
   }
 
   const isSelf = session.user.id === id
@@ -69,7 +71,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
     <div>
       <div className="flex items-center gap-4 mb-6">
         <Link href="/admin/users" className="text-[#5B8FB9] hover:text-[#1B4F72]"></Link>
-        <h1 className="text-2xl font-bold text-[#0D2840]">Modifier l'utilisateur</h1>
+        <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.users.editTitle}</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4 max-w-2xl">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded">{error}</div>}
@@ -80,7 +82,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
         )}
 
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Nom complet</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.fullName}</label>
           <input
             value={form.name}
             onChange={e => setForm({ ...form, name: e.target.value })}
@@ -101,7 +103,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
         </div>
 
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Rôle</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.role}</label>
           <select
             value={form.role}
             onChange={e => setForm({ ...form, role: e.target.value })}
@@ -110,8 +112,8 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
             className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72] disabled:opacity-60"
           >
             <option value="user">user — lecture seule</option>
-            <option value="editor">editor — édition des données</option>
-            <option value="admin">admin — accès complet</option>
+            <option value="editor">{t.admin.users.roleEditor}</option>
+            <option value="admin">{t.admin.users.roleAdmin}</option>
           </select>
         </div>
 
@@ -125,7 +127,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
             className="w-4 h-4 disabled:opacity-60"
           />
           <label htmlFor="active" className="text-[#0D2840] text-sm">
-            Compte actif {isSelf && <span className="text-[#A3C4DC]">(verrouillé)</span>}
+            {t.admin.countries.activeCountry.replace('Pays actif','Compte actif')} {isSelf && <span className="text-[#A3C4DC]">{t.admin.common.locked}</span>}
           </label>
         </div>
 
@@ -142,7 +144,7 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
             href="/admin/users"
             className="px-4 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition"
           >
-            Annuler
+            {t.admin.common.cancel}
           </Link>
         </div>
       </form>

@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import { Upload, Trash2, FileText, Image, File, ExternalLink } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface CountryDoc {
   id: string
@@ -38,6 +39,7 @@ function formatSize(bytes: number | null) {
 
 export default function CountryDocumentsPage() {
   const { status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const countryId = params.id as string
@@ -147,7 +149,7 @@ export default function CountryDocumentsPage() {
           </div>
         </div>
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Description</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.description}</label>
           <input
             value={form.description}
             onChange={e => setForm({ ...form, description: e.target.value })}

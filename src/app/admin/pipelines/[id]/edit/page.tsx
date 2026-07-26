@@ -6,9 +6,11 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function EditPipelinePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -72,7 +74,7 @@ export default function EditPipelinePage() {
   if (fetching) return null
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -89,7 +91,7 @@ export default function EditPipelinePage() {
               <input value={form.pipelineId} onChange={e => setForm({...form, pipelineId: e.target.value})} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
               <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
             </div>
           </div>
@@ -98,7 +100,7 @@ export default function EditPipelinePage() {
             <input value={form.name} onChange={e => setForm({...form, name: e.target.value})} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Countries <span className="text-[#A3C4DC] text-xs">codes ISO séparés par virgule (ex. NGA,BEN,GHA)</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">Countries <span className="text-[#A3C4DC] text-xs">{t.admin.pipelines.countriesHint}</span></label>
             <input value={form.countries} onChange={e => setForm({...form, countries: e.target.value})} required placeholder="NGA,BEN,GHA" className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
@@ -111,7 +113,7 @@ export default function EditPipelinePage() {
               <input type="number" value={form.lengthKm} onChange={e => setForm({...form, lengthKm: e.target.value})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Diamètre <span className="text-[#A3C4DC] text-xs">ex. 48 pouces</span></label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.pipelines.diameter} <span className="text-[#A3C4DC] text-xs">ex. 48 pouces</span></label>
               <input value={form.diametre} onChange={e => setForm({...form, diametre: e.target.value})} placeholder='ex. 48"' className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>

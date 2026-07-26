@@ -6,12 +6,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const STORAGE_TYPES = ["Crude Oil", "LNG Import Terminal (FSRU)", "LNG Export Terminal", "Products Depot", "LNG"]
 const LNG_SUBTYPES = ["Import (regasification)", "Export (liquefaction)"]
 
 export default function NewStoragePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -59,14 +61,14 @@ export default function NewStoragePage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
     <div>
       <div className="flex items-center gap-4 mb-6">
         <Link href="/admin/storage" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
-        <h1 className="text-2xl font-bold text-[#0D2840]">Nouveau Dépôt / Stockage</h1>
+        <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.storage.newTitle}</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded">{error}</div>}
@@ -76,15 +78,15 @@ export default function NewStoragePage() {
             <input value={form.storageId} onChange={e => setForm({ ...form, storageId: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Nom</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.name}</label>
             <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Pays</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.country}</label>
             <select value={form.countryId} onChange={e => setForm({ ...form, countryId: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              <option value="">-- Sélectionner --</option>
+              <option value="">{t.admin.common.selectPlaceholder}</option>
               {countries.map(c => <option key={c.id} value={c.id}>{c.name} ({c.code})</option>)}
             </select>
           </div>
@@ -97,9 +99,9 @@ export default function NewStoragePage() {
         </div>
         {isLng && (
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Sous-type GNL <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.storage.lngSubtype} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
             <select value={form.lngSubtype} onChange={e => setForm({ ...form, lngSubtype: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              <option value="">-- Aucun --</option>
+              <option value="">{t.admin.common.nonePlaceholder}</option>
               {LNG_SUBTYPES.map(t => <option key={t} value={t}>{t}</option>)}
             </select>
           </div>
@@ -116,22 +118,22 @@ export default function NewStoragePage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Capacité totale (Mb) <span className="text-[#A3C4DC] text-xs">ou Mm³ pour GNL</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.storage.capacityTotal} <span className="text-[#A3C4DC] text-xs">ou Mm³ pour GNL</span></label>
             <input type="number" step="0.001" value={form.capacityMb} onChange={e => setForm({ ...form, capacityMb: parseFloat(e.target.value) || 0 })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
             <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
         </div>
         {isLng && (
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Capacité regazéification (bcm/an) <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.storage.regasCapacity} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
               <input type="number" step="0.01" value={form.regasCapacity} onChange={e => setForm({ ...form, regasCapacity: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Capacité liquéfaction (Mt/an) <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.storage.liquefCapacity} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
               <input type="number" step="0.01" value={form.liquefCapacity} onChange={e => setForm({ ...form, liquefCapacity: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
           </div>
@@ -140,7 +142,7 @@ export default function NewStoragePage() {
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">
             <Save size={18} />{loading ? "Enregistrement..." : "Enregistrer"}
           </button>
-          <Link href="/admin/storage" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">Annuler</Link>
+          <Link href="/admin/storage" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">{t.admin.common.cancel}</Link>
         </div>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
+import { useLanguage } from "@/i18n/LanguageContext"
 import { Plus, Trash2, Edit, Upload, ExternalLink, FileText, Image, File, Building2, X, Check, Eye, Download } from "lucide-react"
 
 interface Basin { id: string; name: string; basinId: string; type: string; location: string; countryId: string; country: { name: string; code: string } }
@@ -51,6 +52,7 @@ function formatSize(bytes: number | null) {
 
 export default function BasinDetailPage() {
   const { status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const basinId = params.id as string
@@ -98,17 +100,17 @@ export default function BasinDetailPage() {
   }, [basin])
 
   const deleteBlock = async (id: string) => {
-    if (!confirm("Supprimer ce bloc ?")) return
+    if (!confirm(t.admin.basinDetail.confirmDeleteBlock)) return
     await fetch(`/api/blocks/${id}`, { method: "DELETE" })
     setBlocks(prev => prev.filter(b => b.id !== id))
   }
   const deleteField = async (id: string) => {
-    if (!confirm("Supprimer ce champ ?")) return
+    if (!confirm(t.admin.basinDetail.confirmDeleteField)) return
     await fetch(`/api/fields/${id}`, { method: "DELETE" })
     setFields(prev => prev.filter(f => f.id !== id))
   }
   const deleteDoc = async (id: string) => {
-    if (!confirm("Supprimer ce document ?")) return
+    if (!confirm(t.admin.basinDetail.confirmDeleteDoc)) return
     await fetch(`/api/basin-documents/${id}`, { method: "DELETE" })
     setDocs(prev => prev.filter(d => d.id !== id))
   }
@@ -163,7 +165,7 @@ export default function BasinDetailPage() {
   }
 
   const deleteOperator = async (id: string) => {
-    if (!confirm("Supprimer cette société nationale ?")) return
+    if (!confirm(t.admin.operators.confirmDeleteSnh)) return
     await fetch(`/api/national-companies/${id}`, { method: "DELETE" })
     setOperators(prev => prev.filter(o => o.id !== id))
   }
@@ -236,7 +238,7 @@ export default function BasinDetailPage() {
           </div>
           <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
             {blocks.length === 0 ? (
-              <p className="text-center text-[#5B8FB9] text-sm py-8">Aucun bloc défini pour ce bassin.</p>
+              <p className="text-center text-[#5B8FB9] text-sm py-8">{t.admin.basinDetail.noBlocks}</p>
             ) : (
               <table className="w-full text-sm">
                 <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
@@ -245,7 +247,7 @@ export default function BasinDetailPage() {
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Nom</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Statut</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Type</th>
-                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Opérateur</th>
+                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basins.operator}</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Attribution</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Surface km²</th>
                     <th className="px-4 py-3"></th>
@@ -288,7 +290,7 @@ export default function BasinDetailPage() {
           </div>
           <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
             {fields.length === 0 ? (
-              <p className="text-center text-[#5B8FB9] text-sm py-8">Aucun champ défini pour ce bassin.</p>
+              <p className="text-center text-[#5B8FB9] text-sm py-8">{t.admin.basinDetail.noFields}</p>
             ) : (
               <table className="w-full text-sm">
                 <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
@@ -296,9 +298,9 @@ export default function BasinDetailPage() {
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">ID</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Nom</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Statut</th>
-                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Opérateur</th>
-                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Découverte</th>
-                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Prod. départ</th>
+                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basins.operator}</th>
+                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basins.discovery}</th>
+                    <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basinDetail.productionStartShort}</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Huile (Mmb)</th>
                     <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Gaz (Bcf)</th>
                     <th className="px-4 py-3"></th>
@@ -347,16 +349,16 @@ export default function BasinDetailPage() {
             const blockOps = Array.from(opMap.entries())
             return (
               <div>
-                <h3 className="font-semibold text-[#1B4F72] text-sm mb-2 flex items-center gap-2"><Building2 size={15} />Opérateurs des blocs <span className="text-[#A3C4DC] font-normal">(dédupliqués depuis les blocs de ce bassin)</span></h3>
+                <h3 className="font-semibold text-[#1B4F72] text-sm mb-2 flex items-center gap-2"><Building2 size={15} />{t.admin.basinDetail.blockOperatorsTitle} <span className="text-[#A3C4DC] font-normal">(dédupliqués depuis les blocs de ce bassin)</span></h3>
                 <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
                   {blockOps.length === 0 ? (
-                    <p className="text-center text-[#5B8FB9] text-sm py-6">Aucun opérateur renseigné dans les blocs de ce bassin.</p>
+                    <p className="text-center text-[#5B8FB9] text-sm py-6">{t.admin.basinDetail.noBlockOperators}</p>
                   ) : (
                     <table className="w-full text-sm">
                       <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
                         <tr>
-                          <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Opérateur</th>
-                          <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Blocs opérés</th>
+                          <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basins.operator}</th>
+                          <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.basinDetail.blocksOperated}</th>
                           <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Contact / Site</th>
                         </tr>
                       </thead>
@@ -445,7 +447,7 @@ export default function BasinDetailPage() {
                     <tr>
                       <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Nom</th>
                       <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Sigle</th>
-                      <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Fondée</th>
+                      <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">{t.admin.common.founded}</th>
                       <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Contact</th>
                       <th className="text-left px-4 py-3 text-[#1B4F72] font-semibold">Site web</th>
                       <th className="px-4 py-3"></th>
@@ -529,8 +531,8 @@ export default function BasinDetailPage() {
                       <td className="px-4 py-3 text-[#5B8FB9] text-xs">{new Date(doc.createdAt).toLocaleDateString()}</td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
-                          <button onClick={() => setPreviewDoc(doc)} title="Aperçu" className="text-[#5B8FB9] hover:text-[#1B4F72]"><Eye size={14} /></button>
-                          <a href={`/uploads/${doc.filePath}`} download={doc.fileName} title="Télécharger" className="text-[#5B8FB9] hover:text-[#1B4F72]"><Download size={14} /></a>
+                          <button onClick={() => setPreviewDoc(doc)} title={t.admin.basinDetail.previewTitle} className="text-[#5B8FB9] hover:text-[#1B4F72]"><Eye size={14} /></button>
+                          <a href={`/uploads/${doc.filePath}`} download={doc.fileName} title={t.admin.basinDetail.downloadTitle} className="text-[#5B8FB9] hover:text-[#1B4F72]"><Download size={14} /></a>
                           <button onClick={() => deleteDoc(doc.id)} className="text-red-400 hover:text-red-600"><Trash2 size={14} /></button>
                         </div>
                       </td>
@@ -608,7 +610,7 @@ export default function BasinDetailPage() {
                 return (
                   <div className="text-center space-y-4">
                     <File size={56} className="text-[#D0E4F0] mx-auto" />
-                    <p className="text-[#5B8FB9]">Aperçu non disponible pour ce type de fichier.</p>
+                    <p className="text-[#5B8FB9]">{t.admin.basinDetail.noPreview}</p>
                     <a
                       href={url}
                       download={previewDoc.fileName}

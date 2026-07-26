@@ -6,11 +6,13 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const TYPES = ["Oil", "Gas", "Oil & Gas"]
 
 export default function NewBlockPage() {
   const { status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const basinId = params.id as string
@@ -69,7 +71,7 @@ export default function NewBlockPage() {
     <div>
       <div className="flex items-center gap-4 mb-6">
         <Link href={`/admin/basins/${basinId}`} className="text-[#5B8FB9] hover:text-[#1B4F72] text-sm">← {basinName}</Link>
-        <h1 className="text-2xl font-bold text-[#0D2840]">Ajouter un bloc</h1>
+        <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.basins.blocksNewTitle}</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded text-sm">{error}</div>}
@@ -79,13 +81,13 @@ export default function NewBlockPage() {
             <input {...f("blockId")} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Nom</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.name}</label>
             <input {...f("name")} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
             <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div>
@@ -101,17 +103,17 @@ export default function NewBlockPage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Opérateur principal <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.mainOperator} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
             <input {...f("operator")} placeholder="ex. TotalEnergies" className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Contact / Site web opérateur <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.operatorContact} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
             <input {...f("operatorContact")} placeholder="ex. https://totalenergies.com" className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Année d&apos;attribution <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.awardYear} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
             <input type="number" min="1960" max="2030" {...f("awardDate")} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
@@ -121,27 +123,27 @@ export default function NewBlockPage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Latitude (centroïde) <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.latCentroid} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
             <input type="number" step="0.0001" {...f("lat")} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Longitude (centroïde) <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.lonCentroid} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
             <input type="number" step="0.0001" {...f("lon")} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Associés / Partenaires <span className="text-[#A3C4DC] text-xs">JSON opt., ex. [{`{"name":"Eni","share":25}`}]</span></label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.basins.partners} <span className="text-[#A3C4DC] text-xs">JSON opt., ex. [{`{"name":"Eni","share":25}`}]</span></label>
           <input {...f("partners")} placeholder='[{"name":"Eni","share":25},{"name":"Petrosen","share":10}]' className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] font-mono text-xs focus:outline-none focus:border-[#1B4F72]" />
         </div>
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Description <span className="text-[#A3C4DC] text-xs">opt.</span></label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.description} <span className="text-[#A3C4DC] text-xs">opt.</span></label>
           <textarea {...f("description")} rows={2} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
         </div>
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">
             <Save size={18} />{loading ? "Saving..." : "Save"}
           </button>
-          <Link href={`/admin/basins/${basinId}`} className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">Annuler</Link>
+          <Link href={`/admin/basins/${basinId}`} className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">{t.admin.common.cancel}</Link>
         </div>
       </form>
     </div>

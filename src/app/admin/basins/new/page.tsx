@@ -6,12 +6,14 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const TYPES = ["Oil", "Gas", "Oil & Gas"]
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
 
 export default function NewBasinPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -48,7 +50,7 @@ export default function NewBasinPage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -105,11 +107,11 @@ export default function NewBasinPage() {
             </div>
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
             <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Description <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.description} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
             <textarea value={form.description} onChange={e => setForm({...form, description: e.target.value})} rows={3} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div className="flex gap-3 pt-2">

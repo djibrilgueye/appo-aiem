@@ -6,9 +6,11 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function EditRefineryPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -56,7 +58,7 @@ export default function EditRefineryPage() {
   if (fetching) return null
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -86,7 +88,7 @@ export default function EditRefineryPage() {
               </select>
             </div>
             <div>
-              <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+              <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
               <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
             </div>
           </div>

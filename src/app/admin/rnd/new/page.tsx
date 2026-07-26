@@ -6,10 +6,12 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function NewRnDPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
+  const { t } = useLanguage()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -43,14 +45,14 @@ export default function NewRnDPage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
     <div>
       <div className="flex items-center gap-4 mb-6">
         <Link href="/admin/rnd" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
-        <h1 className="text-2xl font-bold text-[#0D2840]">Nouveau centre R&D</h1>
+        <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.rnd.newTitle}</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded">{error}</div>}
@@ -60,21 +62,21 @@ export default function NewRnDPage() {
             <input value={form.centerId} onChange={e => setForm({ ...form, centerId: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Nom</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.name}</label>
             <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Pays</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.country}</label>
             <select value={form.countryId} onChange={e => setForm({ ...form, countryId: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-white border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-              <option value="">-- Sélectionner --</option>
+              <option value="">{t.admin.common.selectPlaceholder}</option>
               {countries.map(c => <option key={c.id} value={c.id}>{c.name} ({c.code})</option>)}
             </select>
           </div>
           <div>
             <label className="block text-[#1B4F72] text-sm mb-1">Domaine de recherche (focus)</label>
-            <input value={form.focus} onChange={e => setForm({ ...form, focus: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="ex: Exploration pétrolière, Énergies renouvelables" />
+            <input value={form.focus} onChange={e => setForm({ ...form, focus: e.target.value })} required className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder={t.admin.rnd.focusPlaceholder} />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -88,18 +90,18 @@ export default function NewRnDPage() {
           </div>
         </div>
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Année de création <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.creationYear} <span className="text-[#A3C4DC] text-xs">optionnel</span></label>
           <input type="number" value={form.year} onChange={e => setForm({ ...form, year: e.target.value })} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" placeholder="ex: 2005" />
         </div>
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
           <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
         </div>
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">
             <Save size={18} />{loading ? "Enregistrement..." : "Enregistrer"}
           </button>
-          <Link href="/admin/rnd" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">Annuler</Link>
+          <Link href="/admin/rnd" className="px-6 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition">{t.admin.common.cancel}</Link>
         </div>
       </form>
     </div>

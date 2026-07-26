@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { BarChart3, Info } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface Country {
   id: string; code: string; name: string; region: string
@@ -14,6 +15,7 @@ interface Country {
 
 export default function CountryEconomicsPage() {
   const { status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -41,7 +43,7 @@ export default function CountryEconomicsPage() {
       <div className="flex items-center gap-4 mb-6">
         <Link href="/admin/countries" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
         <div>
-          <h1 className="text-2xl font-bold text-[#0D2840]">Données Économiques</h1>
+          <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.countries.economicsTitle}</h1>
           <p className="text-[#5B8FB9] font-mono text-sm">{country.code} — {country.name}</p>
         </div>
       </div>
@@ -68,7 +70,7 @@ export default function CountryEconomicsPage() {
 
       {country.economyDesc && (
         <div className="bg-white border border-[#D0E4F0] rounded-xl p-5 mb-6">
-          <p className="text-[#1B4F72] text-sm font-semibold mb-2 flex items-center gap-2"><BarChart3 size={15} />Description économique</p>
+          <p className="text-[#1B4F72] text-sm font-semibold mb-2 flex items-center gap-2"><BarChart3 size={15} />{t.admin.countries.economyDesc}</p>
           <p className="text-[#0D2840] text-sm">{country.economyDesc}</p>
         </div>
       )}
@@ -77,7 +79,7 @@ export default function CountryEconomicsPage() {
       <div className="bg-[#EBF3FB] border border-[#A3C4DC] rounded-xl p-5 flex gap-3">
         <Info size={18} className="text-[#1B4F72] shrink-0 mt-0.5" />
         <div>
-          <p className="text-[#1B4F72] font-semibold text-sm mb-1">Séries temporelles économiques</p>
+          <p className="text-[#1B4F72] font-semibold text-sm mb-1">{t.admin.countries.economicsTimeseries}</p>
           <p className="text-[#5B8FB9] text-sm mb-3">
             Les données économiques annuelles détaillées (PIB, PIB/habitant, taux de croissance, inflation, taux de change, part des hydrocarbures dans le PIB et dans les exportations) seront disponibles dans une prochaine mise à jour de la base de données.
           </p>

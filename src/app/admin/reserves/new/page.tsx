@@ -6,9 +6,11 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function NewReservePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -27,7 +29,7 @@ export default function NewReservePage() {
       // existing entry so they can undo (or reload the source) rather than
       // silently losing the previous values.
       if (data.wasUpdate) {
-        alert("Une entrée existait déjà pour ce pays et cette année — elle a été remplacée par vos nouvelles valeurs.")
+        alert(t.admin.common.overwriteWarn)
       }
       router.push("/admin/reserves")
     } else {
@@ -39,7 +41,7 @@ export default function NewReservePage() {
 
   if (status === "loading") return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -76,7 +78,7 @@ export default function NewReservePage() {
             </div>
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
             <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div className="flex gap-3 pt-2">

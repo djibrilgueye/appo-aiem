@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save, Mail } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 export default function NewUserPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -19,7 +21,7 @@ export default function NewUserPage() {
 
   if (status === "loading") return null
   if (!session || session.user.role !== "admin") {
-    return <div className="text-[#0D2840]">Accès refusé.</div>
+    return <div className="text-[#0D2840]">{t.admin.common.accessDenied}</div>
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,7 +42,7 @@ export default function NewUserPage() {
     // surface it so the admin knows to communicate the login flow manually
     // instead of assuming the invitee will receive an email.
     if (data.invitationSent === false) {
-      alert("Utilisateur créé, mais l'email d'invitation n'a pas pu être envoyé (service SMTP indisponible). Prévenez l'utilisateur qu'il doit se connecter depuis /login pour recevoir un code OTP.")
+      alert(t.admin.users.invitationFailed)
     }
     router.push("/admin/users")
   }
@@ -49,13 +51,13 @@ export default function NewUserPage() {
     <div>
       <div className="flex items-center gap-4 mb-6">
         <Link href="/admin/users" className="text-[#5B8FB9] hover:text-[#1B4F72]"></Link>
-        <h1 className="text-2xl font-bold text-[#0D2840]">Ajouter un utilisateur</h1>
+        <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.users.addTitle}</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white border border-[#D0E4F0] rounded-xl p-6 space-y-4 max-w-2xl">
         {error && <div className="bg-red-50 border border-red-300 text-red-600 px-4 py-2 rounded">{error}</div>}
 
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Nom complet</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.fullName}</label>
           <input
             value={form.name}
             onChange={e => setForm({ ...form, name: e.target.value })}
@@ -76,7 +78,7 @@ export default function NewUserPage() {
         </div>
 
         <div>
-          <label className="block text-[#1B4F72] text-sm mb-1">Rôle</label>
+          <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.role}</label>
           <select
             value={form.role}
             onChange={e => setForm({ ...form, role: e.target.value })}
@@ -84,8 +86,8 @@ export default function NewUserPage() {
             className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]"
           >
             <option value="user">user — lecture seule</option>
-            <option value="editor">editor — édition des données</option>
-            <option value="admin">admin — accès complet</option>
+            <option value="editor">{t.admin.users.roleEditor}</option>
+            <option value="admin">{t.admin.users.roleAdmin}</option>
           </select>
         </div>
 
@@ -111,7 +113,7 @@ export default function NewUserPage() {
             href="/admin/users"
             className="px-4 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg hover:bg-[#EBF3FB] transition"
           >
-            Annuler
+            {t.admin.common.cancel}
           </Link>
         </div>
       </form>

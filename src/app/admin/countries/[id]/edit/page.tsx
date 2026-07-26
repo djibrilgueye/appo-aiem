@@ -5,11 +5,13 @@ import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Save } from "lucide-react"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const REGIONS = ["North Africa", "West Africa", "Central Africa", "East Africa", "Southern Africa"]
 
 export default function EditCountryPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -88,7 +90,7 @@ export default function EditCountryPage() {
     )
   }
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+    return <div className="text-[#0D2840] p-8">{t.admin.common.accessDenied}</div>
   }
 
   return (
@@ -196,7 +198,7 @@ export default function EditCountryPage() {
                   formData.active ? "translate-x-6" : "translate-x-1"
                 }`} />
               </button>
-              <span className="text-[#0D2840]">Pays actif <span className="text-[#A3C4DC] text-xs">(affiché sur la carte)</span></span>
+              <span className="text-[#0D2840]">{t.admin.countries.activeCountry} <span className="text-[#A3C4DC] text-xs">{t.admin.countries.activeCountryHint}</span></span>
             </label>
           </div>
 

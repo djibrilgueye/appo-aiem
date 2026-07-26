@@ -8,6 +8,7 @@ import { Plus, Edit, Trash2, ExternalLink, Building2, X, Check } from "lucide-re
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
 import { StatusSelect } from "@/components/StatusSelect"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface NationalCompany {
   id: string; companyId: string; name: string; acronym: string | null
@@ -28,6 +29,7 @@ const emptyForm = { name: "", acronym: "", founded: "", website: "", description
 export default function OperatorsPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
+  const { t } = useLanguage()
 
   const [companies, setCompanies] = useState<NationalCompany[]>([])
   const [blockOps, setBlockOps] = useState<BlockOp[]>([])
@@ -52,7 +54,7 @@ export default function OperatorsPage() {
 
   if (status === "loading" || loading) return null
   if (!session || !["admin", "editor"].includes(session.user.role)) {
-    return <div className="text-[#0D2840]">Accès refusé.</div>
+    return <div className="text-[#0D2840]">{t.admin.common.accessDenied}</div>
   }
 
   const companiesColumns = [
@@ -198,7 +200,7 @@ export default function OperatorsPage() {
       console.error(e)
       // Empty lists otherwise look like a legitimately empty DB — surface
       // network/server errors so the admin can distinguish a real outage.
-      alert("Impossible de charger les opérateurs. Rechargez la page ou vérifiez votre connexion.")
+      alert(t.admin.operators.loadFailed)
     } finally {
       setLoading(false)
     }
@@ -228,7 +230,7 @@ export default function OperatorsPage() {
           cancelForm()
         } else { const d = await res.json(); setFormError(d.error || "Erreur") }
       } else {
-        if (!form.countryId) { setFormError("Veuillez sélectionner un pays"); setSaving(false); return }
+        if (!form.countryId) { setFormError(t.admin.common.selectCountryError); setSaving(false); return }
         const res = await fetch("/api/national-companies", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -250,12 +252,12 @@ export default function OperatorsPage() {
           cancelForm()
         } else { const d = await res.json(); setFormError(d.error || "Erreur") }
       }
-    } catch { setFormError("Erreur réseau") }
+    } catch { setFormError(t.admin.common.networkError) }
     setSaving(false)
   }
 
   const deleteCompany = async (id: string) => {
-    if (!confirm("Supprimer cette société nationale ?")) return
+    if (!confirm(t.admin.operators.confirmDeleteSnh)) return
     const res = await fetch(`/api/national-companies/${id}`, { method: "DELETE" })
     if (!res.ok) {
       const d = await res.json().catch(() => ({}))
@@ -279,8 +281,8 @@ export default function OperatorsPage() {
         <div className="flex items-center gap-4">
           <Link href="/admin" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
           <div>
-            <h1 className="text-2xl font-bold text-[#0D2840]">Opérateurs Pétroliers</h1>
-            <p className="text-[#5B8FB9]">{companies.length} sociétés nationales · {blockOps.length} opérateurs de blocs</p>
+            <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.operators.title}</h1>
+            <p className="text-[#5B8FB9]">{companies.length} {t.admin.operators.nationalCompaniesLabel} · {blockOps.length} {t.admin.operators.blockOperatorsLabel}</p>
           </div>
         </div>
         {!adding && !editing && (
@@ -313,7 +315,7 @@ export default function OperatorsPage() {
                 <div className="md:col-span-3">
                   <label className="block text-[#1B4F72] text-xs mb-1">Pays *</label>
                   <select value={form.countryId} onChange={e => setForm({...form, countryId: e.target.value})} required className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]">
-                    <option value="">-- Sélectionner un pays --</option>
+                    <option value="">{t.admin.common.selectCountryPlaceholder}</option>
                     {countries.map(c => <option key={c.id} value={c.id}>{c.name} ({c.code})</option>)}
                   </select>
                 </div>
@@ -323,27 +325,27 @@ export default function OperatorsPage() {
                 <input value={form.name} onChange={e => setForm({...form, name: e.target.value})} required className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Sigle</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.acronym}</label>
                 <input value={form.acronym} onChange={e => setForm({...form, acronym: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Fondée</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.founded}</label>
                 <input type="number" value={form.founded} onChange={e => setForm({...form, founded: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Site web</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.website}</label>
                 <input value={form.website} onChange={e => setForm({...form, website: e.target.value})} placeholder="https://..." className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Contact</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.contact}</label>
                 <input value={form.contact} onChange={e => setForm({...form, contact: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Description</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.description}</label>
                 <input value={form.description} onChange={e => setForm({...form, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
               </div>
               <div>
-                <label className="block text-[#1B4F72] text-xs mb-1">Statut opérationnel</label>
+                <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.operationalStatus}</label>
                 <StatusSelect
                   value={form.status}
                   onChange={status => setForm({ ...form, status })}
@@ -356,14 +358,14 @@ export default function OperatorsPage() {
               <button type="submit" disabled={saving} className="flex items-center gap-1.5 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
                 <Check size={14} />{saving ? "Enregistrement..." : "Enregistrer"}
               </button>
-              <button type="button" onClick={cancelForm} className="px-4 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg text-sm hover:bg-[#EBF3FB] transition">Annuler</button>
+              <button type="button" onClick={cancelForm} className="px-4 py-2 border border-[#D0E4F0] text-[#0D2840] rounded-lg text-sm hover:bg-[#EBF3FB] transition">{t.admin.common.cancel}</button>
             </div>
           </form>
         )}
 
         <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
           {companies.length === 0 ? (
-            <p className="text-center text-[#5B8FB9] text-sm py-8">Aucune société nationale enregistrée.</p>
+            <p className="text-center text-[#5B8FB9] text-sm py-8">{t.admin.operators.noSnh}</p>
           ) : (
             <AdminTable
               // Attach country.name to each row so the search box matches the
@@ -383,11 +385,11 @@ export default function OperatorsPage() {
       <section>
         <h2 className="text-lg font-semibold text-[#0D2840] mb-3 flex items-center gap-2">
           <Building2 size={18} className="text-[#1B4F72]" />
-          Opérateurs de blocs <span className="text-[#5B8FB9] font-normal text-base">(issus des données blocs)</span>
+          {t.admin.basinDetail.blockOperatorsTitle.replace('Opérateurs des blocs','Opérateurs de blocs')} <span className="text-[#5B8FB9] font-normal text-base">{t.admin.operators.blockOpsSuffix}</span>
         </h2>
         <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
           {blockOps.length === 0 ? (
-            <p className="text-center text-[#5B8FB9] text-sm py-8">Aucun opérateur renseigné dans les blocs.</p>
+            <p className="text-center text-[#5B8FB9] text-sm py-8">{t.admin.operators.noBlockOps}</p>
           ) : (
             <AdminTable
               data={blockOps}

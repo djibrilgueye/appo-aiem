@@ -255,14 +255,14 @@ export function Overview() {
                     </div>
                   ))
                 : <>
-                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">📊</span><span><strong style={{ color: "#0D2840" }}>Réserves :</strong> OPEC Annual Statistical Bulletin — Energy Institute Statistical Review of World Energy</span></div>
+                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">📊</span><span><strong style={{ color: "#0D2840" }}>{t.admin.overview.reservesLabel}</strong> OPEC Annual Statistical Bulletin — Energy Institute Statistical Review of World Energy</span></div>
                     <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">⚡</span><span><strong style={{ color: "#0D2840" }}>Production :</strong> IEA World Energy Balances (WBES) — OPEC Monthly Oil Market Report</span></div>
                     <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🗺️</span><span><strong style={{ color: "#0D2840" }}>Bassins :</strong> USGS World Petroleum Assessment — AAPG/CGG Robertson Tellus</span></div>
                     <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🚇</span><span><strong style={{ color: "#0D2840" }}>Pipelines :</strong> Global Energy Monitor — Gas & Oil Infrastructure Trackers</span></div>
                     <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🏭</span><span><strong style={{ color: "#0D2840" }}>Raffineries :</strong> Oil & Gas Journal Worldwide Refining Survey — ARDA</span></div>
                     <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🎓</span><span><strong style={{ color: "#0D2840" }}>Formation :</strong> APPO Forum of Directors of Oil & Gas Training Institutes</span></div>
-                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🏪</span><span><strong style={{ color: "#0D2840" }}>Stockage :</strong> GIIGNL Annual Report — Global Energy Monitor</span></div>
-                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🧬</span><span><strong style={{ color: "#0D2840" }}>Pétrochimie :</strong> GlobalData — publications des opérateurs</span></div>
+                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🏪</span><span><strong style={{ color: "#0D2840" }}>{t.admin.overview.storageLabel}</strong> GIIGNL Annual Report — Global Energy Monitor</span></div>
+                    <div className="flex items-start gap-2" style={{ color: "#5B8FB9" }}><span className="shrink-0">🧬</span><span><strong style={{ color: "#0D2840" }}>{t.admin.overview.petrochemLabel}</strong> {t.admin.overview.petrochemSource}</span></div>
                   </>
               }
             </div>
