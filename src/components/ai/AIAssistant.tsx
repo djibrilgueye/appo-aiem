@@ -142,6 +142,7 @@ export function AIAssistant() {
 
   const [pos, setPos] = useState({ x: 16, y: 96 })
   const posRef = useRef({ x: 16, y: 96 })
+  const pointerDown = useRef(false)   // true only between pointerdown and pointerup on the FAB
   const dragging = useRef(false)
   const dragStart = useRef({ px: 0, py: 0, x: 0, y: 0 })
   const rafRef = useRef<number | null>(null)
@@ -197,11 +198,16 @@ export function AIAssistant() {
 
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
     e.currentTarget.setPointerCapture(e.pointerId)
+    pointerDown.current = true
     dragging.current = false
     dragStart.current = { px: e.clientX, py: e.clientY, x: posRef.current.x, y: posRef.current.y }
   }, [])
 
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
+    // Ignore pointermove that fires during hover (no pointerdown yet). Without
+    // this guard, dragStart.current still holds the previous session's values,
+    // dx/dy are huge, the >4 threshold trips, and the FAB "jumps" on hover.
+    if (!pointerDown.current) return
     const dx = e.clientX - dragStart.current.px
     const dy = e.clientY - dragStart.current.py
     if (!dragging.current && Math.abs(dx) + Math.abs(dy) > 4) dragging.current = true
@@ -216,6 +222,7 @@ export function AIAssistant() {
     e.currentTarget.releasePointerCapture(e.pointerId)
     if (!dragging.current) setOpen((o) => !o)
     dragging.current = false
+    pointerDown.current = false
   }, [])
 
   const winDragStart = useRef({ px: 0, py: 0, x: 0, y: 0 })
@@ -435,6 +442,7 @@ export function AIAssistant() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
         className={cn(
           "fixed z-[9999] w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-shadow duration-200 touch-none select-none overflow-hidden",
           "bg-gradient-to-br from-[#1B4F72] to-[#0c1624] hover:shadow-2xl",
