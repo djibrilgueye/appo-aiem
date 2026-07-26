@@ -457,6 +457,7 @@ function CountryDocsSection({ countryId }: { countryId: string }) {
 // ─── Country Profile Panel (draggable) ───────────────────────────────────────
 
 function CountryProfilePanel({ profile, onClose }: { profile: CountryProfile; onClose: () => void }) {
+  const { t } = useLanguage()
   const panelRef = useRef<HTMLDivElement>(null)
   const dragging = useRef(false)
   const offset = useRef({ x: 0, y: 0 })
@@ -522,7 +523,7 @@ function CountryProfilePanel({ profile, onClose }: { profile: CountryProfile; on
           )}
           {profile.independence && (
             <div>
-              <div className="text-[9px] font-bold uppercase tracking-wider text-[#5B8FB9]">Indépendance</div>
+              <div className="text-[9px] font-bold uppercase tracking-wider text-[#5B8FB9]">{t.map.independence}</div>
               <div className="text-xs font-semibold text-[#0D2840] mt-0.5">{profile.independence}</div>
             </div>
           )}
@@ -557,12 +558,12 @@ function CountryProfilePanel({ profile, onClose }: { profile: CountryProfile; on
                 <>
                   <div className="bg-[#F4F7FB] rounded-lg px-2.5 py-2 text-center">
                     <div className="text-lg font-bold text-[#1B4F72]">{latestReserve.oil.toFixed(1)}</div>
-                    <div className="text-[10px] text-[#5B8FB9]">Réserves pétrole</div>
+                    <div className="text-[10px] text-[#5B8FB9]">{t.map.oilReserves}</div>
                     <div className="text-[9px] text-[#A3C4DC]">Gbbl — {latestReserve.year}</div>
                   </div>
                   <div className="bg-[#F4F7FB] rounded-lg px-2.5 py-2 text-center">
                     <div className="text-lg font-bold text-[#1B4F72]">{latestReserve.gas.toFixed(1)}</div>
-                    <div className="text-[10px] text-[#5B8FB9]">Réserves gaz</div>
+                    <div className="text-[10px] text-[#5B8FB9]">{t.map.gasReserves}</div>
                     <div className="text-[9px] text-[#A3C4DC]">Tcf — {latestReserve.year}</div>
                   </div>
                 </>
@@ -571,7 +572,7 @@ function CountryProfilePanel({ profile, onClose }: { profile: CountryProfile; on
                 <>
                   <div className="bg-[#EBF3FB] rounded-lg px-2.5 py-2 text-center">
                     <div className="text-lg font-bold text-[#1B4F72]">{latestProd.oil.toFixed(0)}</div>
-                    <div className="text-[10px] text-[#5B8FB9]">Production pétrole</div>
+                    <div className="text-[10px] text-[#5B8FB9]">{t.map.oilProduction}</div>
                     <div className="text-[9px] text-[#A3C4DC]">kb/d — {latestProd.year}</div>
                   </div>
                   <div className="bg-[#EBF3FB] rounded-lg px-2.5 py-2 text-center">
@@ -668,6 +669,7 @@ function BasinPanel({
   onClose: () => void
   setPreviewDoc: (d: CountryDoc | null) => void
 }) {
+  const { t } = useLanguage()
   const panelRef = useRef<HTMLDivElement>(null)
   const dragging = useRef(false)
   const offset   = useRef({ x: 0, y: 0 })
@@ -816,7 +818,7 @@ function BasinPanel({
         {activeTab === "blocks" && (
           <div>
             {basinBlocks.length === 0 ? (
-              <p className="text-center text-[#5B8FB9] text-xs py-6">Aucun bloc enregistré pour ce bassin.</p>
+              <p className="text-center text-[#5B8FB9] text-xs py-6">{t.map.noBlocksShort}</p>
             ) : (
               <ul className="divide-y divide-[#EBF3FB]">
                 {basinBlocks.map(blk => {
@@ -847,7 +849,7 @@ function BasinPanel({
         {activeTab === "fields" && (
           <div>
             {basinFields.length === 0 ? (
-              <p className="text-center text-[#5B8FB9] text-xs py-6">Aucun champ enregistré pour ce bassin.</p>
+              <p className="text-center text-[#5B8FB9] text-xs py-6">{t.map.noFieldsShort}</p>
             ) : (
               <ul className="divide-y divide-[#EBF3FB]">
                 {basinFields.map(fld => (

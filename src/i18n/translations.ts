@@ -143,7 +143,12 @@ export const translations = {
       importFlow:         "Importation",
       exportFlow:         "Exportation",
       flows:              "flux",
-    },
+          independence: "Indépendance",
+      noBlocksShort: "Aucun bloc enregistré pour ce bassin.",
+      noFieldsShort: "Aucun champ enregistré pour ce bassin.",
+      pipelineOperational: "Pipeline (opérationnel)",
+      pipelineProposed: "Pipeline (proposé)",
+},
 
     // DataTable
     table: {
@@ -514,7 +519,12 @@ export const translations = {
       importFlow:         "Import",
       exportFlow:         "Export",
       flows:              "flows",
-    },
+          independence: "Independence",
+      noBlocksShort: "No block registered for this basin.",
+      noFieldsShort: "No field registered for this basin.",
+      pipelineOperational: "Pipeline (operational)",
+      pipelineProposed: "Pipeline (proposed)",
+},
 
     table: {
       name:               "Name",
@@ -883,7 +893,12 @@ export const translations = {
       importFlow:         "Importação",
       exportFlow:         "Exportação",
       flows:              "fluxos",
-    },
+          independence: "Independência",
+      noBlocksShort: "Nenhum bloco registado para esta bacia.",
+      noFieldsShort: "Nenhum campo registado para esta bacia.",
+      pipelineOperational: "Oleoduto (operacional)",
+      pipelineProposed: "Oleoduto (proposto)",
+},
 
     table: {
       name:               "Nome",
@@ -1249,7 +1264,12 @@ export const translations = {
       importFlow:         "Importación",
       exportFlow:         "Exportación",
       flows:              "flujos",
-    },
+          independence: "Independencia",
+      noBlocksShort: "No hay bloques registrados para esta cuenca.",
+      noFieldsShort: "No hay campos registrados para esta cuenca.",
+      pipelineOperational: "Oleoducto (operativo)",
+      pipelineProposed: "Oleoducto (propuesto)",
+},
 
     table: {
       name:               "Nombre",
@@ -1616,7 +1636,12 @@ export const translations = {
       importFlow:         "استيراد",
       exportFlow:         "تصدير",
       flows:              "تدفقات",
-    },
+          independence: "الاستقلال",
+      noBlocksShort: "لا توجد كتل مسجلة لهذا الحوض.",
+      noFieldsShort: "لا توجد حقول مسجلة لهذا الحوض.",
+      pipelineOperational: "خط أنابيب (تشغيل)",
+      pipelineProposed: "خط أنابيب (مقترح)",
+},
 
     table: {
       name:               "الاسم",

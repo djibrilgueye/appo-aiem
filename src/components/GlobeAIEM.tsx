@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react"
 import Globe, { GlobeMethods } from "react-globe.gl"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 const APPO_MEMBERS = new Set(["DZ","AO","BJ","CM","CG","CD","CI","EG","GQ","GA","GH","LY","NA","NE","NG","SN","ZA","TD"])
 
@@ -72,6 +73,7 @@ export default function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIE
   const globeRef = useRef<GlobeMethods | undefined>(undefined)
   const containerRef = useRef<HTMLDivElement>(null)
   const [size, setSize] = useState({ w: 800, h: 800 })
+  const { t } = useLanguage()
   const [geoData, setGeoData] = useState<{ features: GeoFeature[] } | null>(null)
   const [prodPoints, setProdPoints] = useState<ProductionPoint[]>([])
   const [arcs, setArcs] = useState<ArcEntry[]>([])
@@ -355,18 +357,18 @@ export default function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIE
             <line x1="5" y1="5" x2="5" y2="19"/><line x1="19" y1="5" x2="19" y2="19"/>
             <path d="M5 9 Q12 11 19 9"/><path d="M5 15 Q12 17 19 15"/>
           </svg>
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>Production pétrolière</span>
+          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.oilProduction}</span>
         </div>
         <div className="flex items-center gap-2">
           <svg viewBox="0 0 24 24" fill="rgba(251,191,36,0.95)" stroke="none" style={{ width: 14, height: 14, flexShrink: 0 }}>
             <path d="M12 2C12 2 8 7 8 11c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.5-1-3-1-3s-.5 2-1.5 2.5C13 9 12 2 12 2z"/>
             <path d="M7 17c0-2.8 2.2-5 5-5s5 2.2 5 5c0 2.2-1.8 4-5 4s-5-1.8-5-4z" opacity="0.7"/>
           </svg>
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>Production gazière</span>
+          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.gasProduction}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(244,185,66,0.85)" }} />
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>Pipeline (opérationnel)</span>
+          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.pipelineOperational}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(76,201,240,0.75)" }} />
@@ -374,7 +376,7 @@ export default function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIE
         </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(180,180,180,0.55)" }} />
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>Pipeline (proposé)</span>
+          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.pipelineProposed}</span>
         </div>
       </div>
     </div>
