@@ -11,7 +11,7 @@ const STORAGE_TYPES = ["Crude Oil", "LNG Import Terminal (FSRU)", "LNG Export Te
 const LNG_SUBTYPES = ["Import (regasification)", "Export (liquefaction)"]
 
 export default function EditStoragePage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -34,7 +34,8 @@ export default function EditStoragePage() {
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
-  useEffect(() => { fetch("/api/countries?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) }) }, [])
+  // See storage/new/page.tsx: only APPO members reach the listing.
+  useEffect(() => { fetch("/api/countries").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) }) }, [])
 
   useEffect(() => {
     if (!id) return
@@ -82,6 +83,10 @@ export default function EditStoragePage() {
   }
 
   if (fetching) return null
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+  }
 
   return (
     <div>

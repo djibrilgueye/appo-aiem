@@ -43,7 +43,10 @@ function HomeContent() {
     if (view === "map" || view === "table" || view === "overview") {
       setViewMode(view)
       if (view === "map" && theme) {
-        setActiveThemes(new Set([theme]))
+        // Add to the existing selection instead of wiping it. Clicking a stat
+        // card on Overview was silently clearing whatever themes the user
+        // had turned on before.
+        setActiveThemes(prev => new Set([...prev, theme]))
       }
       router.replace("/app", { scroll: false })
     }

@@ -71,21 +71,27 @@ export async function POST(req: Request) {
     const body = await req.json()
     const data = productionSchema.parse(body)
 
+    // Same wasUpdate signal as reserves — the "Add Record" form uses it to
+    // warn the admin that they overwrote a previous (country, year) entry.
+    const existing = await prisma.production.findUnique({
+      where: { countryId_year: { countryId: data.countryId, year: data.year } },
+      select: { id: true },
+    })
+
     const production = await prisma.production.upsert({
-      where: {
-        countryId_year: {
-          countryId: data.countryId,
-          year: data.year,
-        }
-      },
-      // Update mirrors create for oil/gas/condensat/status — previously status
-      // edits on an existing (country, year) row were silently dropped.
+      where: { countryId_year: { countryId: data.countryId, year: data.year } },
       update: { oil: data.oil, gas: data.gas, condensat: data.condensat, status: data.status },
       create: data,
       include: { country: { select: { name: true, code: true } } },
     })
-    createAuditLog({ ...getAuditContext(session, req), action: "CREATE", entity: "Production", entityId: production.id, description: `Upserted production for ${production.country.name} year ${production.year}` }).catch(console.error)
-    return NextResponse.json(production, { status: 201 })
+    createAuditLog({
+      ...getAuditContext(session, req),
+      action:      existing ? "UPDATE" : "CREATE",
+      entity:      "Production",
+      entityId:    production.id,
+      description: `${existing ? "Overwrote" : "Created"} production for ${production.country.name} year ${production.year}`,
+    }).catch(console.error)
+    return NextResponse.json({ ...production, wasUpdate: Boolean(existing) }, { status: existing ? 200 : 201 })
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: error.issues }, { status: 400 })

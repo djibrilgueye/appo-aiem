@@ -24,7 +24,17 @@ export default function ReservesPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
-  useEffect(() => { if (session) fetch("/api/reserves?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setReserves(d) }).finally(() => setLoading(false)) }, [session])
+  useEffect(() => {
+    if (!session) return
+    fetch("/api/reserves?all=1")
+      .then(r => r.json())
+      .then(d => { if (Array.isArray(d)) setReserves(d) })
+      .catch(err => {
+        console.error("[reserves list]", err)
+        alert("Impossible de charger les réserves. Rechargez la page ou vérifiez votre connexion.")
+      })
+      .finally(() => setLoading(false))
+  }, [session])
 
   const handleDelete = async (id: string) => {
     if (!confirm("Supprimer cette entrée de réserves ?")) return

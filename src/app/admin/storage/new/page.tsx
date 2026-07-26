@@ -11,7 +11,7 @@ const STORAGE_TYPES = ["Crude Oil", "LNG Import Terminal (FSRU)", "LNG Export Te
 const LNG_SUBTYPES = ["Import (regasification)", "Export (liquefaction)"]
 
 export default function NewStoragePage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -31,7 +31,12 @@ export default function NewStoragePage() {
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
-  useEffect(() => { fetch("/api/countries?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) }) }, [])
+  // Only offer APPO members — the storage listing filters on appoMember,
+  // so creating a record tied to a non-member country makes it invisible
+  // afterwards from the admin table (yet exists in the DB).
+  useEffect(() => {
+    fetch("/api/countries").then(r => r.json()).then(d => { if (Array.isArray(d)) setCountries(d) })
+  }, [])
 
   const isLng = form.type.toLowerCase().includes("lng")
 
@@ -50,6 +55,11 @@ export default function NewStoragePage() {
     if (res.ok) router.push("/admin/storage")
     else { const d = await res.json(); setError(d.error || "Erreur") }
     setLoading(false)
+  }
+
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (

@@ -9,7 +9,7 @@ import { Save } from "lucide-react"
 const REGIONS = ["North Africa", "West Africa", "Central Africa", "East Africa", "Southern Africa"]
 
 export default function EditCountryPage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -86,6 +86,9 @@ export default function EditCountryPage() {
         <div className="text-[#0D2840]">Loading...</div>
       </div>
     )
+  }
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (

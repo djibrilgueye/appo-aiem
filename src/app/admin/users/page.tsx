@@ -96,7 +96,9 @@ export default function UsersPage() {
   }
 
   if (status === "loading") return <div className="pt-2 flex items-center justify-center text-[#0D2840]">Loading...</div>
-  if (!session || !["admin", "editor"].includes(session.user.role as string)) return null
+  // Admin-only: /api/admin/users is admin-gated too, so editors saw a fully
+  // clickable UI that silently 401'd on every action.
+  if (!session || session.user.role !== "admin") return null
 
   const columns = [
     {
@@ -216,7 +218,10 @@ export default function UsersPage() {
           <div className="bg-white border border-[#D0E4F0] rounded-xl p-6 max-w-sm w-full">
             <h2 className="text-[#0D2840] font-semibold mb-2">Delete user?</h2>
             <p className="text-[#5B8FB9] text-sm mb-4">
-              This will permanently delete <span className="text-[#0D2840]">{deleteTarget.email}</span> and all their sessions.
+              This will permanently delete <span className="text-[#0D2840]">{deleteTarget.email}</span> along with
+              their sessions, OAuth accounts, and any records they own (delegated via ON DELETE CASCADE).
+              Audit-log entries where they appear as actor are preserved but the userId reference becomes orphaned.
+              This action cannot be undone.
             </p>
             <div className="flex gap-3 justify-end">
               <button onClick={() => setDeleteTarget(null)} className="bg-[#F4F7FB] hover:bg-[#EBF3FB] text-[#0D2840] px-4 py-2 rounded-lg text-sm transition">

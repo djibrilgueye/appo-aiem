@@ -11,7 +11,7 @@ const TYPES = ["Oil", "Gas", "Oil & Gas"]
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
 
 export default function EditBasinPage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -65,6 +65,10 @@ export default function EditBasinPage() {
   }
 
   if (fetching) return null
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+  }
 
   return (
     <div>

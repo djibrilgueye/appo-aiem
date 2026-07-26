@@ -30,14 +30,14 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
 
   useEffect(() => {
     if (!session) return
-    fetch("/api/admin/users")
-      .then(r => r.json())
-      .then((users: User[]) => {
-        const u = users.find(x => x.id === id)
-        if (u) setForm({ name: u.name ?? "", email: u.email, role: u.role, active: u.active })
-        else setError("Utilisateur introuvable")
+    fetch(`/api/admin/users/${id}`)
+      .then(async r => {
+        if (r.status === 404) throw new Error("Utilisateur introuvable")
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json() as Promise<User>
       })
-      .catch(() => setError("Erreur de chargement"))
+      .then(u => setForm({ name: u.name ?? "", email: u.email, role: u.role, active: u.active }))
+      .catch(err => setError(err?.message ?? "Erreur de chargement"))
       .finally(() => setFetching(false))
   }, [session, id])
 

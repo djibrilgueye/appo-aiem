@@ -69,7 +69,9 @@ export function Overview() {
   }))
 
   const statCards = [
-    { icon: "🌍", stat: stats.countries,            data: t.overview.stats.countries,  href: "/app?view=map&theme=countries" },
+    // "Countries" is not a map theme — sending &theme=countries would land the
+    // user on an empty map. Open the map with no theme forced instead.
+    { icon: "🌍", stat: stats.countries,            data: t.overview.stats.countries,  href: "/app?view=map" },
     { icon: "🗺️", stat: stats.basins,               data: t.overview.stats.basins,     href: "/app?view=map&theme=basins" },
     { icon: "🟢", stat: stats.reserves_countries,   data: t.overview.stats.reserves,   href: "/app?view=map&theme=oil_reserves" },
     { icon: "🔴", stat: stats.production_countries, data: t.overview.stats.production, href: "/app?view=map&theme=oil_production" },

@@ -279,7 +279,9 @@ export default function LandingPage() {
         const dest = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/app"
         window.location.href = dest
       } else {
-        setAuthError(result?.error || t("errorVerify"))
+        // NextAuth returns internal codes like "CredentialsSignin" which look
+        // like a stack trace to end users. Show the localized fallback instead.
+        setAuthError(t("errorVerify"))
       }
     } catch { setAuthError(t("errorVerify")) }
     finally { setIsLoading(false) }

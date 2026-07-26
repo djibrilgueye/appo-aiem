@@ -78,8 +78,10 @@ export default function CountryProfilePage() {
         setCapital(d.capital ?? "")
         setCurrency(d.currency ?? "")
         setIndependence(d.independence ?? "")
-        setPopulation(d.population ? String(d.population) : "")
-        setGdpBnUsd(d.gdpBnUsd ? String(d.gdpBnUsd) : "")
+        // Use != null so an explicit 0 (small state, dormant economy) is
+        // preserved instead of being turned into an empty input.
+        setPopulation(d.population != null ? String(d.population) : "")
+        setGdpBnUsd(d.gdpBnUsd != null ? String(d.gdpBnUsd) : "")
         setEconomyDesc(d.economyDesc ?? "")
         setCompanies(d.nationalCompanies)
         setLoading(false)
@@ -119,19 +121,27 @@ export default function CountryProfilePage() {
     const method = isNew ? "POST" : "PUT"
     const body = { ...co, countryId: id }
     const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
-    if (res.ok) {
-      const saved = await res.json()
-      setCompanies(prev => {
-        const next = [...prev]
-        next[idx] = saved
-        return next
-      })
+    if (!res.ok) {
+      const d = await res.json().catch(() => ({}))
+      alert(`Échec de l'enregistrement : ${d.error ?? res.status}`)
+      return
     }
+    const saved = await res.json()
+    setCompanies(prev => {
+      const next = [...prev]
+      next[idx] = saved
+      return next
+    })
   }
 
   const deleteCompany = async (co: NationalCompany | (Omit<NationalCompany, "id"> & { _new?: true }), idx: number) => {
     if ("id" in co && !("_new" in co)) {
-      await fetch(`/api/national-companies/${(co as NationalCompany).id}`, { method: "DELETE" })
+      const res = await fetch(`/api/national-companies/${(co as NationalCompany).id}`, { method: "DELETE" })
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}))
+        alert(`Échec de la suppression : ${d.error ?? res.status}`)
+        return
+      }
     }
     setCompanies(prev => prev.filter((_, i) => i !== idx))
   }

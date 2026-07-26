@@ -8,7 +8,7 @@ import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
 
 export default function EditRefineryPage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const params = useParams()
   const id = params.id as string
@@ -49,11 +49,15 @@ export default function EditRefineryPage() {
     const body = { ...form, lat: parseFloat(String(form.lat)), lon: parseFloat(String(form.lon)), capacityKbd: parseInt(String(form.capacityKbd)), year: form.year ? parseInt(form.year) : undefined }
     const res = await fetch(`/api/refineries/${id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
     if (res.ok) router.push("/admin/refineries")
-    else { const d = await res.json(); setError(d.error || "Erreur") }
+    else { const d = await res.json().catch(() => ({})); setError(typeof d.error === "string" ? d.error : "Erreur") }
     setLoading(false)
   }
 
   if (fetching) return null
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
+  }
 
   return (
     <div>

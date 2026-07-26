@@ -11,7 +11,7 @@ const TYPES = ["Oil", "Gas", "Oil & Gas"]
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
 
 export default function NewBasinPage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -23,10 +23,20 @@ export default function NewBasinPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); setLoading(true); setError("")
+    const lat = parseFloat(String(form.lat))
+    const lon = parseFloat(String(form.lon))
+    // The Zod schema on the API accepts lat=0/lon=0, but Africa never has a
+    // real basin at (0, 0) — that's the Gulf of Guinea intersection of the
+    // equator and Greenwich. Reject to prevent misplaced pins.
+    if (lat === 0 && lon === 0) {
+      setError("Latitude/Longitude are required (0, 0 is not a valid basin location).")
+      setLoading(false)
+      return
+    }
     const body = {
       ...form,
-      lat: parseFloat(String(form.lat)),
-      lon: parseFloat(String(form.lon)),
+      lat,
+      lon,
       areaKm2: form.areaKm2 ? parseInt(form.areaKm2) : undefined,
       description: form.description || undefined,
     }
@@ -34,6 +44,11 @@ export default function NewBasinPage() {
     if (res.ok) router.push("/admin/basins")
     else { const d = await res.json(); setError(d.error || "Erreur") }
     setLoading(false)
+  }
+
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (

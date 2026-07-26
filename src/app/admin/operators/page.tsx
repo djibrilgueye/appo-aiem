@@ -113,7 +113,9 @@ export default function OperatorsPage() {
   const companiesActions = (co: NationalCompany) => (
     <div className="flex items-center gap-2">
       <button onClick={() => startEdit(co)} className="text-[#5B8FB9] hover:text-[#1B4F72]"><Edit size={14} /></button>
-      {session.user.role === "admin" && (
+      {/* API allows admin + editor to DELETE — UI matches so editors don't see
+          an edit-only row while still being authorized to remove entries. */}
+      {["admin", "editor"].includes(session.user.role) && (
         <button onClick={() => deleteCompany(co.id)} className="text-red-400 hover:text-red-600"><Trash2 size={14} /></button>
       )}
     </div>
@@ -194,6 +196,9 @@ export default function OperatorsPage() {
       }
     } catch (e) {
       console.error(e)
+      // Empty lists otherwise look like a legitimately empty DB — surface
+      // network/server errors so the admin can distinguish a real outage.
+      alert("Impossible de charger les opérateurs. Rechargez la page ou vérifiez votre connexion.")
     } finally {
       setLoading(false)
     }
@@ -361,9 +366,12 @@ export default function OperatorsPage() {
             <p className="text-center text-[#5B8FB9] text-sm py-8">Aucune société nationale enregistrée.</p>
           ) : (
             <AdminTable
-              data={companies}
+              // Attach country.name to each row so the search box matches the
+              // visible country label instead of the opaque UUID stored in
+              // countryId. AdminTable supports dotted keys via getValue().
+              data={companies.map(c => ({ ...c, country: { name: countryName(c.countryId) } }))}
               columns={companiesColumns}
-              searchFields={['countryId', 'name', 'acronym', 'contact', 'website', 'status']}
+              searchFields={['country.name', 'name', 'acronym', 'contact', 'website', 'status']}
               actions={companiesActions}
               loading={false}
             />

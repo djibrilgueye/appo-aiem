@@ -54,12 +54,9 @@ export default function NewCountryPage() {
     }
   }
 
-  if (status === "loading") {
-    return (
-      <div>
-        <div className="text-[#0D2840]">Loading...</div>
-      </div>
-    )
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (

@@ -41,7 +41,12 @@ export default function TradePage() {
       ]
       combined.sort((a, b) => b.year - a.year || a.country?.name.localeCompare(b.country?.name || "") || 0)
       setRecords(combined)
-    }).finally(() => setLoading(false))
+    })
+      .catch(err => {
+        console.error("[trade list]", err)
+        alert("Impossible de charger les données de commerce. Rechargez la page ou vérifiez votre connexion.")
+      })
+      .finally(() => setLoading(false))
   }, [session])
 
   const handleDelete = async (id: string, direction: "Import" | "Export") => {

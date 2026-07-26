@@ -8,7 +8,7 @@ import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
 
 export default function NewReservePage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -21,9 +21,25 @@ export default function NewReservePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); setLoading(true); setError("")
     const res = await fetch("/api/reserves", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) })
-    if (res.ok) router.push("/admin/reserves")
-    else { const d = await res.json(); setError(d.error || "Erreur") }
+    if (res.ok) {
+      const data = await res.json().catch(() => ({}))
+      // API upserts on (country, year). Warn the admin if they replaced an
+      // existing entry so they can undo (or reload the source) rather than
+      // silently losing the previous values.
+      if (data.wasUpdate) {
+        alert("Une entrée existait déjà pour ce pays et cette année — elle a été remplacée par vos nouvelles valeurs.")
+      }
+      router.push("/admin/reserves")
+    } else {
+      const d = await res.json().catch(() => ({}))
+      setError(d.error || "Erreur")
+    }
     setLoading(false)
+  }
+
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (

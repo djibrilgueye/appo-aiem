@@ -13,6 +13,20 @@ const patchSchema = z.object({
   active: z.boolean().optional(),
 })
 
+export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const session = await getServerSession(authOptions)
+  if (!session || session.user.role !== "admin") {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  }
+  const { id } = await params
+  const user = await prisma.user.findUnique({
+    where: { id },
+    select: { id: true, name: true, email: true, role: true, active: true, createdAt: true },
+  })
+  if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 })
+  return NextResponse.json(user)
+}
+
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions)
   if (!session || session.user.role !== "admin") {

@@ -8,7 +8,7 @@ import { Save } from "lucide-react"
 import { StatusSelect } from "@/components/StatusSelect"
 
 export default function NewRnDPage() {
-  const { status } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const [countries, setCountries] = useState<{ id: string; name: string; code: string }[]>([])
   const [loading, setLoading] = useState(false)
@@ -39,6 +39,11 @@ export default function NewRnDPage() {
     if (res.ok) router.push("/admin/rnd")
     else { const d = await res.json(); setError(d.error || "Erreur") }
     setLoading(false)
+  }
+
+  if (status === "loading") return null
+  if (!session || !["admin", "editor"].includes(session.user.role)) {
+    return <div className="text-[#0D2840] p-8">Accès refusé.</div>
   }
 
   return (
