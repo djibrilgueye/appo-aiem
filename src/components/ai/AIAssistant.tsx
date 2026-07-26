@@ -204,16 +204,25 @@ export function AIAssistant() {
   }, [])
 
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
-    // Ignore pointermove that fires during hover (no pointerdown yet). Without
-    // this guard, dragStart.current still holds the previous session's values,
-    // dx/dy are huge, the >4 threshold trips, and the FAB "jumps" on hover.
+    // No-op on plain hover (no pointerdown was recorded on this button).
     if (!pointerDown.current) return
     const dx = e.clientX - dragStart.current.px
     const dy = e.clientY - dragStart.current.py
-    if (!dragging.current && Math.abs(dx) + Math.abs(dy) > 4) dragging.current = true
-    if (!dragging.current) return
-    const newX = Math.max(8, Math.min(window.innerWidth - 44, dragStart.current.x - dx))
-    const newY = Math.max(8, Math.min(window.innerHeight - 44, dragStart.current.y - dy))
+    // Enter drag mode once the cursor has moved past the 4px click-vs-drag
+    // threshold. Rebase dragStart at that exact moment so the first drag
+    // frame doesn't jump the button by the accumulated dx/dy — this is what
+    // felt like the "raté" at the start of a drag.
+    if (!dragging.current) {
+      if (Math.abs(dx) + Math.abs(dy) <= 4) return
+      dragging.current = true
+      dragStart.current = { px: e.clientX, py: e.clientY, x: posRef.current.x, y: posRef.current.y }
+      return
+    }
+    // FAB is 56px wide (w-14) + a small margin from the viewport edge.
+    const SIZE = 56
+    const MARGIN = 8
+    const newX = Math.max(MARGIN, Math.min(window.innerWidth  - SIZE - MARGIN, dragStart.current.x - dx))
+    const newY = Math.max(MARGIN, Math.min(window.innerHeight - SIZE - MARGIN, dragStart.current.y - dy))
     if (rafRef.current) cancelAnimationFrame(rafRef.current)
     rafRef.current = requestAnimationFrame(() => { posRef.current = { x: newX, y: newY }; setPos({ x: newX, y: newY }) })
   }, [])
