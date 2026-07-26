@@ -36,6 +36,12 @@ export default function NewUserPage() {
       setLoading(false)
       return
     }
+    // The user was created but the invitation email couldn't be sent —
+    // surface it so the admin knows to communicate the login flow manually
+    // instead of assuming the invitee will receive an email.
+    if (data.invitationSent === false) {
+      alert("Utilisateur créé, mais l'email d'invitation n'a pas pu être envoyé (service SMTP indisponible). Prévenez l'utilisateur qu'il doit se connecter depuis /login pour recevoir un code OTP.")
+    }
     router.push("/admin/users")
   }
 

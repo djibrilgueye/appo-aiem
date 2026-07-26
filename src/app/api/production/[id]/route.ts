@@ -5,13 +5,14 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { nullableNumberFromForm } from "@/lib/zodHelpers"
 
 const productionUpdateSchema = z.object({
   countryId: z.string().optional(),
   year: z.number().optional(),
   oil: z.number().optional(),
   gas: z.number().optional(),
-  condensat: z.number().nullable().optional(),
+  condensat: nullableNumberFromForm,
   status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).optional(),
 })
 

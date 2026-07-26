@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const countryUpdateSchema = z.object({
   code: z.string().length(3).optional(),
@@ -71,10 +72,7 @@ export async function PUT(
     createAuditLog({ ...getAuditContext(session, req), action: "UPDATE", entity: "Country", entityId: id, description: `Updated country ${country.name}` }).catch(console.error)
     return NextResponse.json(country)
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to update country" }, { status: 500 })
+    return apiError(error, "Failed to update country")
   }
 }
 
@@ -93,6 +91,6 @@ export async function DELETE(
     createAuditLog({ ...getAuditContext(session, req), action: "DELETE", entity: "Country", entityId: id, description: `Deleted country ${id}` }).catch(console.error)
     return NextResponse.json({ message: "Country deleted" })
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete country" }, { status: 500 })
+    return apiError(error, "Failed to delete country")
   }
 }

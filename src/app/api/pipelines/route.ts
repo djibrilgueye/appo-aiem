@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const pipelineSchema = z.object({
   pipelineId: z.string(),
@@ -65,9 +66,6 @@ export async function POST(req: Request) {
       coords: JSON.parse(pipeline.coords),
     }, { status: 201 })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to create pipeline" }, { status: 500 })
+    return apiError(error, "Failed to create pipeline")
   }
 }

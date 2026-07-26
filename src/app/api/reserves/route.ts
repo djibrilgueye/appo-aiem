@@ -5,13 +5,14 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { optionalNumberFromForm } from "@/lib/zodHelpers"
 
 const reserveSchema = z.object({
   countryId: z.string(),
   year: z.number(),
   oil: z.number(),
   gas: z.number(),
-  condensat: z.number().optional(),
+  condensat: optionalNumberFromForm,
   status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
@@ -75,7 +76,9 @@ export async function POST(req: Request) {
           year: data.year,
         }
       },
-      update: { oil: data.oil, gas: data.gas, condensat: data.condensat },
+      // Status must be included in update: previously status edits on an
+      // existing (country, year) row were silently dropped by the upsert.
+      update: { oil: data.oil, gas: data.gas, condensat: data.condensat, status: data.status },
       create: data,
       include: { country: { select: { name: true, code: true } } },
     })

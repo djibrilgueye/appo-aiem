@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const refineryUpdateSchema = z.object({
   refineryId: z.string().optional(),
@@ -54,10 +55,7 @@ export async function PUT(
     createAuditLog({ ...getAuditContext(session, req), action: "UPDATE", entity: "Refinery", entityId: id, description: `Updated refinery ${refinery.name}` }).catch(console.error)
     return NextResponse.json(refinery)
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to update refinery" }, { status: 500 })
+    return apiError(error, "Failed to update refinery")
   }
 }
 
@@ -74,7 +72,7 @@ export async function DELETE(
     await prisma.refinery.delete({ where: { id } })
     createAuditLog({ ...getAuditContext(session, req), action: "DELETE", entity: "Refinery", entityId: id, description: `Deleted refinery ${id}` }).catch(console.error)
     return NextResponse.json({ message: "Refinery deleted" })
-  } catch {
-    return NextResponse.json({ error: "Failed to delete refinery" }, { status: 500 })
+  } catch (error) {
+    return apiError(error, "Failed to delete refinery")
   }
 }

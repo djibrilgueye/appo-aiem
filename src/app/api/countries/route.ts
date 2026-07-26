@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const countrySchema = z.object({
   code: z.string().length(3),
@@ -51,9 +52,6 @@ export async function POST(req: Request) {
     createAuditLog({ ...getAuditContext(session, req), action: "CREATE", entity: "Country", entityId: country.id, description: `Created country ${country.name}` }).catch(console.error)
     return NextResponse.json(country, { status: 201 })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to create country" }, { status: 500 })
+    return apiError(error, "Failed to create country")
   }
 }

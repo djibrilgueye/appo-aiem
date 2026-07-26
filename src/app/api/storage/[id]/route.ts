@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const storageUpdateSchema = z.object({
   storageId: z.string().optional(),
@@ -57,10 +58,7 @@ export async function PUT(
     createAuditLog({ ...getAuditContext(session, req), action: "UPDATE", entity: "Storage", entityId: id, description: `Updated storage ${storage.name}` }).catch(console.error)
     return NextResponse.json(storage)
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to update storage" }, { status: 500 })
+    return apiError(error, "Failed to update storage")
   }
 }
 
@@ -77,7 +75,7 @@ export async function DELETE(
     await prisma.storage.delete({ where: { id } })
     createAuditLog({ ...getAuditContext(session, req), action: "DELETE", entity: "Storage", entityId: id, description: `Deleted storage ${id}` }).catch(console.error)
     return NextResponse.json({ message: "Storage deleted" })
-  } catch {
-    return NextResponse.json({ error: "Failed to delete storage" }, { status: 500 })
+  } catch (error) {
+    return apiError(error, "Failed to delete storage")
   }
 }

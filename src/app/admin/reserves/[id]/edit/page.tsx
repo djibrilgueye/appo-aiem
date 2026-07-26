@@ -27,12 +27,15 @@ export default function EditReservePage() {
   useEffect(() => {
     if (!id) return
     fetch(`/api/reserves/${id}`)
-      .then(r => r.json())
+      .then(async r => {
+        if (!r.ok) throw new Error(r.status === 404 ? "Reserve not found" : `HTTP ${r.status}`)
+        return r.json()
+      })
       .then(d => {
         setForm({ countryId: d.countryId || "", year: d.year || new Date().getFullYear(), oil: d.oil || 0, gas: d.gas || 0, condensat: d.condensat ?? "", status: d.status ?? "operational" })
         setFetching(false)
       })
-      .catch(() => { setError("Failed to load reserve"); setFetching(false) })
+      .catch(e => { setError(e?.message ?? "Failed to load reserve"); setFetching(false) })
   }, [id])
 
   const handleSubmit = async (e: React.FormEvent) => {

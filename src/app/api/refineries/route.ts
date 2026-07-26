@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const refinerySchema = z.object({
   refineryId: z.string(),
@@ -56,9 +57,6 @@ export async function POST(req: Request) {
     createAuditLog({ ...getAuditContext(session, req), action: "CREATE", entity: "Refinery", entityId: refinery.id, description: `Created refinery ${refinery.name}` }).catch(console.error)
     return NextResponse.json(refinery, { status: 201 })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to create refinery" }, { status: 500 })
+    return apiError(error, "Failed to create refinery")
   }
 }

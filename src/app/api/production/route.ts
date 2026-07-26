@@ -5,13 +5,16 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { optionalNumberFromForm } from "@/lib/zodHelpers"
 
 const productionSchema = z.object({
   countryId: z.string(),
   year: z.number(),
   oil: z.number(),
   gas: z.number(),
-  condensat: z.number().optional(),
+  // HTML forms POST "" for empty number inputs — coerce to undefined so
+  // z.number().optional() doesn't throw a 400 on the primary create path.
+  condensat: optionalNumberFromForm,
   status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).default("operational"),
 })
 
@@ -75,7 +78,9 @@ export async function POST(req: Request) {
           year: data.year,
         }
       },
-      update: { oil: data.oil, gas: data.gas, condensat: data.condensat },
+      // Update mirrors create for oil/gas/condensat/status — previously status
+      // edits on an existing (country, year) row were silently dropped.
+      update: { oil: data.oil, gas: data.gas, condensat: data.condensat, status: data.status },
       create: data,
       include: { country: { select: { name: true, code: true } } },
     })

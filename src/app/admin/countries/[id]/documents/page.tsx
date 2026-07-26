@@ -92,7 +92,12 @@ export default function CountryDocumentsPage() {
 
   const handleDelete = async (docId: string) => {
     if (!confirm("Delete this document?")) return
-    await fetch(`/api/documents/${docId}`, { method: "DELETE" })
+    const res = await fetch(`/api/documents/${docId}`, { method: "DELETE" })
+    if (!res.ok) {
+      const d = await res.json().catch(() => ({}))
+      alert(`Delete failed: ${d.error ?? res.status}`)
+      return
+    }
     setDocs(prev => prev.filter(d => d.id !== docId))
   }
 

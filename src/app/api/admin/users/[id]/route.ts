@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { createAuditLog, getAuditContext, calculateChanges } from "@/lib/audit"
 import { z } from "zod"
+import { apiError } from "@/lib/zodHelpers"
 
 const patchSchema = z.object({
   name:   z.string().min(1).max(100).optional(),
@@ -18,46 +19,50 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
-  const { id } = await params
-  const body = await req.json()
-  const data = patchSchema.parse(body)
+  try {
+    const { id } = await params
+    const body = await req.json()
+    const data = patchSchema.parse(body)
 
-  const before = await prisma.user.findUnique({
-    where: { id },
-    select: { role: true, active: true, email: true, name: true },
-  })
-  if (!before) return NextResponse.json({ error: "User not found" }, { status: 404 })
+    const before = await prisma.user.findUnique({
+      where: { id },
+      select: { role: true, active: true, email: true, name: true },
+    })
+    if (!before) return NextResponse.json({ error: "User not found" }, { status: 404 })
 
-  // Prevent admin from deactivating or demoting themselves
-  if (id === session.user.id && (data.active === false || (data.role && data.role !== "admin"))) {
-    return NextResponse.json({ error: "Cannot modify your own account" }, { status: 400 })
-  }
-
-  // If email is being changed, ensure it stays unique
-  if (data.email && data.email !== before.email) {
-    const clash = await prisma.user.findUnique({ where: { email: data.email } })
-    if (clash) {
-      return NextResponse.json({ error: "Un utilisateur avec cet email existe déjà" }, { status: 409 })
+    // Prevent admin from deactivating or demoting themselves
+    if (id === session.user.id && (data.active === false || (data.role && data.role !== "admin"))) {
+      return NextResponse.json({ error: "Cannot modify your own account" }, { status: 400 })
     }
+
+    // If email is being changed, ensure it stays unique
+    if (data.email && data.email !== before.email) {
+      const clash = await prisma.user.findUnique({ where: { email: data.email } })
+      if (clash) {
+        return NextResponse.json({ error: "Un utilisateur avec cet email existe déjà" }, { status: 409 })
+      }
+    }
+
+    const updated = await prisma.user.update({
+      where: { id },
+      data,
+      select: { id: true, name: true, email: true, role: true, active: true, createdAt: true },
+    })
+
+    createAuditLog({
+      ...getAuditContext(session, req),
+      action:      "UPDATE",
+      entity:      "User",
+      entityId:    id,
+      description: `Updated user ${before.email}: ${Object.keys(data).join(", ")}`,
+      changes:     calculateChanges(before as Record<string, unknown>, data as Record<string, unknown>),
+      status:      "success",
+    }).catch(console.error)
+
+    return NextResponse.json(updated)
+  } catch (error) {
+    return apiError(error, "Failed to update user")
   }
-
-  const updated = await prisma.user.update({
-    where: { id },
-    data,
-    select: { id: true, name: true, email: true, role: true, active: true, createdAt: true },
-  })
-
-  createAuditLog({
-    ...getAuditContext(session, req),
-    action:      "UPDATE",
-    entity:      "User",
-    entityId:    id,
-    description: `Updated user ${before.email}: ${Object.keys(data).join(", ")}`,
-    changes:     calculateChanges(before as Record<string, unknown>, data as Record<string, unknown>),
-    status:      "success",
-  }).catch(console.error)
-
-  return NextResponse.json(updated)
 }
 
 export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {

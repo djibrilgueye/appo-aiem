@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const LOCATIONS = ["Onshore", "Offshore", "Deep Offshore", "Ultra Deep Offshore", "Onshore & Offshore"]
 
@@ -58,9 +59,6 @@ export async function POST(req: Request) {
     createAuditLog({ ...getAuditContext(session, req), action: "CREATE", entity: "Basin", entityId: basin.id, description: `Created basin ${basin.name}` }).catch(console.error)
     return NextResponse.json(basin, { status: 201 })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to create basin" }, { status: 500 })
+    return apiError(error, "Failed to create basin")
   }
 }

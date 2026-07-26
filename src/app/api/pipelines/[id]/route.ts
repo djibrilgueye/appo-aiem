@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const pipelineUpdateSchema = z.object({
   pipelineId: z.string().optional(),
@@ -60,10 +61,7 @@ export async function PUT(
       coords: JSON.parse(pipeline.coords),
     })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to update pipeline" }, { status: 500 })
+    return apiError(error, "Failed to update pipeline")
   }
 }
 
@@ -80,7 +78,7 @@ export async function DELETE(
     await prisma.pipeline.delete({ where: { id } })
     createAuditLog({ ...getAuditContext(session, req), action: "DELETE", entity: "Pipeline", entityId: id, description: `Deleted pipeline ${id}` }).catch(console.error)
     return NextResponse.json({ message: "Pipeline deleted" })
-  } catch {
-    return NextResponse.json({ error: "Failed to delete pipeline" }, { status: 500 })
+  } catch (error) {
+    return apiError(error, "Failed to delete pipeline")
   }
 }

@@ -39,7 +39,10 @@ export default function EditStoragePage() {
   useEffect(() => {
     if (!id) return
     fetch(`/api/storage/${id}`)
-      .then(r => r.json())
+      .then(async r => {
+        if (!r.ok) throw new Error(r.status === 404 ? "Enregistrement introuvable" : `HTTP ${r.status}`)
+        return r.json()
+      })
       .then(d => {
         setForm({
           storageId: d.storageId || "",
@@ -56,7 +59,7 @@ export default function EditStoragePage() {
         })
         setFetching(false)
       })
-      .catch(() => { setError("Impossible de charger l'enregistrement"); setFetching(false) })
+      .catch(e => { setError(e?.message ?? "Impossible de charger l'enregistrement"); setFetching(false) })
   }, [id])
 
   const isLng = form.type.toLowerCase().includes("lng")

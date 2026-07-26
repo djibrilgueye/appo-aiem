@@ -251,7 +251,12 @@ export default function OperatorsPage() {
 
   const deleteCompany = async (id: string) => {
     if (!confirm("Supprimer cette société nationale ?")) return
-    await fetch(`/api/national-companies/${id}`, { method: "DELETE" })
+    const res = await fetch(`/api/national-companies/${id}`, { method: "DELETE" })
+    if (!res.ok) {
+      const d = await res.json().catch(() => ({}))
+      alert(`Échec de la suppression : ${d.error ?? res.status}`)
+      return
+    }
     setCompanies(prev => prev.filter(c => c.id !== id))
   }
 

@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { z } from "zod"
 import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
 import { createAuditLog, getAuditContext } from "@/lib/audit"
+import { apiError } from "@/lib/zodHelpers"
 
 const basinUpdateSchema = z.object({
   basinId: z.string().optional(),
@@ -56,10 +57,7 @@ export async function PUT(
     createAuditLog({ ...getAuditContext(session, req), action: "UPDATE", entity: "Basin", entityId: id, description: `Updated basin ${basin.name}` }).catch(console.error)
     return NextResponse.json(basin)
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
-    }
-    return NextResponse.json({ error: "Failed to update basin" }, { status: 500 })
+    return apiError(error, "Failed to update basin")
   }
 }
 
@@ -76,7 +74,7 @@ export async function DELETE(
     await prisma.basin.delete({ where: { id } })
     createAuditLog({ ...getAuditContext(session, req), action: "DELETE", entity: "Basin", entityId: id, description: `Deleted basin ${id}` }).catch(console.error)
     return NextResponse.json({ message: "Basin deleted" })
-  } catch {
-    return NextResponse.json({ error: "Failed to delete basin" }, { status: 500 })
+  } catch (error) {
+    return apiError(error, "Failed to delete basin")
   }
 }

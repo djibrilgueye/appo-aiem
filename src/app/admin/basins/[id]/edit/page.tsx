@@ -27,7 +27,10 @@ export default function EditBasinPage() {
   useEffect(() => {
     if (!id) return
     fetch(`/api/basins/${id}`)
-      .then(r => r.json())
+      .then(async r => {
+        if (!r.ok) throw new Error(r.status === 404 ? "Basin not found" : `HTTP ${r.status}`)
+        return r.json()
+      })
       .then(d => {
         setForm({
           basinId: d.basinId || "",
@@ -43,7 +46,7 @@ export default function EditBasinPage() {
         })
         setFetching(false)
       })
-      .catch(() => { setError("Failed to load basin"); setFetching(false) })
+      .catch(e => { setError(e?.message ?? "Failed to load basin"); setFetching(false) })
   }, [id])
 
   const handleSubmit = async (e: React.FormEvent) => {
