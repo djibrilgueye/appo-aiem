@@ -272,7 +272,11 @@ export default function LandingPage() {
           if (session) break
         }
         const params = new URLSearchParams(window.location.search)
-        const dest = params.get("callbackUrl") || "/app"
+        // Only accept same-origin relative paths as callbackUrl — never a full URL.
+        // Prevents ?callbackUrl=https://evil.example from turning a legit login
+        // into an open redirect toward a phishing page.
+        const raw = params.get("callbackUrl") ?? ""
+        const dest = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/app"
         window.location.href = dest
       } else {
         setAuthError(result?.error || t("errorVerify"))

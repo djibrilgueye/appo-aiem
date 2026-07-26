@@ -298,10 +298,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const session = await getServerSession(authOptions)
-    // Also accept requests coming from the authenticated /app page
-    // (cookie is present but getServerSession may not resolve in App Router)
-    const hasSessionCookie = cookieHeader.includes("next-auth.session-token") || cookieHeader.includes("__Secure-next-auth.session-token")
-    if (!session && !hasSessionCookie) {
+    if (!session) {
       return NextResponse.json({ error: "Non autorisé" }, { status: 401 })
     }
 
@@ -356,8 +353,11 @@ export async function POST(request: NextRequest) {
         if (!reader) { controller.close(); return }
         const decoder = new TextDecoder()
         let buffer = ""
+        // Single close point in `finally` — inline paths just `return` so we
+        // don't call controller.close() twice (throws TypeError on the second
+        // call and killed every successful stream response).
         try {
-          while (true) {
+          outer: while (true) {
             const { done, value } = await reader.read()
             if (done) break
             buffer += decoder.decode(value, { stream: true })
@@ -366,23 +366,20 @@ export async function POST(request: NextRequest) {
             for (const line of lines) {
               if (!line.startsWith("data: ")) continue
               const data = line.slice(6).trim()
-              if (data === "[DONE]") { controller.close(); return }
+              if (data === "[DONE]") break outer
               try {
                 const json = JSON.parse(data)
                 if (json.type === "content_block_delta" && json.delta?.type === "text_delta") {
                   controller.enqueue(encoder.encode(json.delta.text))
                 }
-                if (json.type === "message_stop") {
-                  controller.close()
-                  return
-                }
+                if (json.type === "message_stop") break outer
               } catch { /* ignore partial chunks */ }
             }
           }
         } catch (e) {
           console.error("Stream error:", e)
         } finally {
-          controller.close()
+          try { controller.close() } catch { /* already closed */ }
         }
       },
     })

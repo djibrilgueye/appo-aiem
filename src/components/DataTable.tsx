@@ -13,6 +13,29 @@ interface Country {
   id: string; code: string; name: string; region: string; appoMember: boolean
 }
 
+// One entry per leaf trade theme emitted by Sidebar. field = column on the DB
+// row for TradeImport / TradeExport, unit = display unit.
+const TRADE_LEAVES: Record<string, { dir: "imports" | "exports"; field: string; label: string; unit: string; icon: string }> = {
+  imports_oil_intra:  { dir: "imports", field: "oilIntraKbD", label: "Crude Oil Imports (Intra-Africa)", unit: "kb/d", icon: "⬇️" },
+  imports_cond_intra: { dir: "imports", field: "oilIntraKbD", label: "Condensate Imports (Intra-Africa)", unit: "kb/d", icon: "⬇️" },
+  imports_gas_intra:  { dir: "imports", field: "gasIntraBcm", label: "Natural Gas Imports (Intra-Africa)", unit: "bcm", icon: "⬇️" },
+  imports_oil_extra:  { dir: "imports", field: "oilExtraKbD", label: "Crude Oil Imports (Extra-Africa)", unit: "kb/d", icon: "⬇️" },
+  imports_gas_extra:  { dir: "imports", field: "gasExtraBcm", label: "Natural Gas Imports (Extra-Africa)", unit: "bcm", icon: "⬇️" },
+  imports_essence:    { dir: "imports", field: "essenceM3",   label: "Gasoline Imports", unit: "m³", icon: "⬇️" },
+  imports_gasoil:     { dir: "imports", field: "gasoilM3",    label: "Diesel Imports", unit: "m³", icon: "⬇️" },
+  imports_gpl:        { dir: "imports", field: "gplTM",       label: "LPG Imports", unit: "t", icon: "⬇️" },
+  imports_jetfuel:    { dir: "imports", field: "jetFuelTM",   label: "Jet Fuel Imports", unit: "t", icon: "⬇️" },
+  exports_oil_intra:  { dir: "exports", field: "oilIntraKbD", label: "Crude Oil Exports (Intra-Africa)", unit: "kb/d", icon: "⬆️" },
+  exports_cond_intra: { dir: "exports", field: "oilIntraKbD", label: "Condensate Exports (Intra-Africa)", unit: "kb/d", icon: "⬆️" },
+  exports_gas_intra:  { dir: "exports", field: "gasIntraBcm", label: "Natural Gas Exports (Intra-Africa)", unit: "bcm", icon: "⬆️" },
+  exports_oil_extra:  { dir: "exports", field: "oilExtraKbD", label: "Crude Oil Exports (Extra-Africa)", unit: "kb/d", icon: "⬆️" },
+  exports_gas_extra:  { dir: "exports", field: "gasExtraBcm", label: "Natural Gas Exports (Extra-Africa)", unit: "bcm", icon: "⬆️" },
+  exports_essence:    { dir: "exports", field: "essenceM3",   label: "Gasoline Exports", unit: "m³", icon: "⬆️" },
+  exports_gasoil:     { dir: "exports", field: "gasoilM3",    label: "Diesel Exports", unit: "m³", icon: "⬆️" },
+  exports_gpl:        { dir: "exports", field: "gplTM",       label: "LPG Exports", unit: "t", icon: "⬆️" },
+  exports_jetfuel:    { dir: "exports", field: "jetFuelTM",   label: "Jet Fuel Exports", unit: "t", icon: "⬆️" },
+}
+
 const THEME_CONFIG: Record<string, { label: string; icon: string; source: string; dataKey?: string }> = {
   basins:         { label: "Basins / Fields",      icon: "🟤", source: "USGS World Petroleum Assessment — AAPG/CGG Robertson Tellus Sedimentary Basins" },
   oil_reserves:   { label: "Oil Reserves",          icon: "🟢", source: "OPEC Annual Statistical Bulletin 2025 — Energy Institute Statistical Review of World Energy 2025", dataKey: "reserves" },
@@ -25,8 +48,20 @@ const THEME_CONFIG: Record<string, { label: string; icon: string; source: string
   rnd:            { label: "R&D Centers",           icon: "🔬", source: "National Oil Companies (NNPC, Sonatrach, EPRI, SASOL) — publications officielles" },
   storage:        { label: "Storage Facilities",    icon: "🏪", source: "GIIGNL Annual Report — Global Energy Monitor Gas Infrastructure Tracker" },
   petrochem:      { label: "Petrochemical Plants",  icon: "🧬", source: "GlobalData / Offshore Technology — publications des opérateurs (Dangote, SASOL, Sonatrach, ECHEM)" },
+  // Legacy aggregated keys — kept for backward-compat if ever emitted by some URL, but no leaf theme in Sidebar uses them today.
   imports:        { label: "Oil/Gas Imports",       icon: "⬇️", source: "IEA World Energy Balances (WBES)" },
   exports:        { label: "Oil/Gas Exports",       icon: "⬆️", source: "IEA World Energy Balances (WBES)" },
+}
+// Auto-register every trade leaf into THEME_CONFIG so DataTable's THEME_CONFIG-driven
+// tabs/count/render logic handles them uniformly. dataKey = "tradeImports" or
+// "tradeExports" so all leaves of the same direction share one fetched dataset.
+for (const [key, cfg] of Object.entries(TRADE_LEAVES)) {
+  THEME_CONFIG[key] = {
+    label:   cfg.label,
+    icon:    cfg.icon,
+    source:  "IEA World Energy Balances (WBES) — Trade Statistics",
+    dataKey: cfg.dir === "imports" ? "tradeImports" : "tradeExports",
+  }
 }
 
 // Pipeline status badge colors
@@ -65,6 +100,11 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
     if (activeThemes.has("rnd"))        fetches.push(fetch("/api/rnd").then(r => r.json()).then(d => ["rnd", d]))
     if (activeThemes.has("storage"))    fetches.push(fetch("/api/storage").then(r => r.json()).catch(() => []).then(d => ["storage", d]))
     if (activeThemes.has("petrochem"))  fetches.push(fetch("/api/petrochem").then(r => r.json()).catch(() => []).then(d => ["petrochem", d]))
+    // Any active leaf trade theme triggers fetch of the corresponding direction — leaves share the dataset.
+    if (Array.from(activeThemes).some(t => TRADE_LEAVES[t]?.dir === "imports"))
+      fetches.push(fetch(`/api/trade/imports?year=${selectedYear}`).then(r => r.json()).catch(() => []).then(d => ["tradeImports", d]))
+    if (Array.from(activeThemes).some(t => TRADE_LEAVES[t]?.dir === "exports"))
+      fetches.push(fetch(`/api/trade/exports?year=${selectedYear}`).then(r => r.json()).catch(() => []).then(d => ["tradeExports", d]))
 
     Promise.all(fetches).then(results => {
       const newData: Record<string, unknown[]> = {}
@@ -402,7 +442,44 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
         )
       }
 
-      default:
+      default: {
+        // Trade leaf themes (imports_gasoil, exports_jetfuel, etc.)
+        // All 18 share the same shape — flat list of country rows with the
+        // active field's value + year, sorted by value descending.
+        const leaf = TRADE_LEAVES[activeTab]
+        if (leaf) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const rows = filterByCountry(items as any[])
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            .map((r: any) => ({ ...r, _v: Number(r[leaf.field] ?? 0) }))
+            .filter(r => r._v > 0)
+            .sort((a, b) => b._v - a._v)
+          if (rows.length === 0) {
+            return <div className="p-8 text-center text-sm" style={{ color: "#A3C4DC" }}>{t.table.noData}</div>
+          }
+          return (
+            <table className="w-full">
+              <thead style={{ backgroundColor: "#F4F7FA" }}>
+                <tr>
+                  <th className={TH} style={thStyle}>{t.table.country}</th>
+                  <th className={`${TH} text-right`} style={thStyle}>{t.table.year}</th>
+                  <th className={`${TH} text-right`} style={thStyle}>{leaf.label} ({leaf.unit})</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={r.id} className={i % 2 === 0 ? TR_EVEN : TR_ODD} style={{ borderBottom: "1px solid #F4F7FA" }}>
+                    <td className={`${TD} font-medium`} style={{ color: "#0D2840" }}>{r.country?.name}</td>
+                    <td className={`${TD} text-right`} style={{ color: "#1B4F72" }}>{r.year}</td>
+                    <td className={`${TD} text-right font-mono font-bold`} style={{ color: "#0F3B57" }}>{r._v.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )
+        }
+        return <div className="p-8 text-center text-sm" style={{ color: "#A3C4DC" }}>{t.table.noData}</div>
+      }
         return <div className="p-8 text-center text-sm" style={{ color: "#A3C4DC" }}>{t.table.noData}</div>
     }
   }
@@ -415,6 +492,9 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
         const codes = activeTab === "imports" ? ["MAR","TUN","SEN","KEN","ZAF","GHA"] : ["NGA","DZA","AGO","LBY","EGY","COG","GAB","GNQ","TCD"]
         return codes.includes(c.code) && (filteredCodes.size === 0 || filteredCodes.has(c.code))
       }).length
+    : TRADE_LEAVES[activeTab]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ? filterByCountry(currentItems).filter((r: any) => Number(r[TRADE_LEAVES[activeTab].field] ?? 0) > 0).length
     : activeTab === "pipelines"
     ? currentItems.filter((p: any) => filteredCodes.size === 0 || p.countries?.some((c: string) => filteredCodes.has(c))).length
     : activeTab === "oil_reserves"   ? filterByCountry(currentItems).filter((r: any) => r.oil > 0).length

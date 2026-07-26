@@ -1005,10 +1005,12 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
   const nfLocale = lang === "ar" ? "en" : lang
   const fmt = (n: number) => n.toLocaleString(nfLocale)
 
-  // If activeStatuses is undefined or empty, treat as "all statuses allowed".
-  // Otherwise an asset's normalized status must be in the set to be rendered.
+  // Status filter is set-driven: a status must be in the set to render.
+  // Undefined prop = permissive (used when the parent has no filter concept),
+  // but an empty set now means "hide everything" so the sidebar's Clear button
+  // does what users expect (was previously interpreted as "allow all").
   const passesStatus = (raw: string | null | undefined): boolean => {
-    if (!activeStatuses || activeStatuses.size === 0) return true
+    if (!activeStatuses) return true
     return activeStatuses.has(normalizeStatus(raw))
   }
 
