@@ -208,17 +208,12 @@ export function AIAssistant() {
     if (!pointerDown.current) return
     const dx = e.clientX - dragStart.current.px
     const dy = e.clientY - dragStart.current.py
-    // Enter drag mode once the cursor has moved past the 4px click-vs-drag
-    // threshold. Rebase dragStart at that exact moment so the first drag
-    // frame doesn't jump the button by the accumulated dx/dy — this is what
-    // felt like the "raté" at the start of a drag.
     if (!dragging.current) {
       if (Math.abs(dx) + Math.abs(dy) <= 4) return
       dragging.current = true
-      dragStart.current = { px: e.clientX, py: e.clientY, x: posRef.current.x, y: posRef.current.y }
-      return
     }
-    // FAB is 56px wide (w-14) + a small margin from the viewport edge.
+    // Button is anchored via right/bottom, so cursor moving right (dx>0)
+    // must decrease `right` (== pos.x). Same for bottom.
     const SIZE = 56
     const MARGIN = 8
     const newX = Math.max(MARGIN, Math.min(window.innerWidth  - SIZE - MARGIN, dragStart.current.x - dx))
