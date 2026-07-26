@@ -175,12 +175,16 @@ const PARTNER_NAME_TO_ISO2: Record<string, string> = {
 
 // ─── Tooltip ──────────────────────────────────────────────────────────────────
 
-// A tooltip row is either a value row (label + value) or a section header
-// used to visually separate groups of information in the same tooltip
-// (e.g. one section per active trade theme on a country marker).
+// A tooltip row is either:
+//  - a value row (label + value) — plain metric/partner line
+//  - a section header — visually separates groups (e.g. one section per active
+//    trade theme on an aggregate country marker)
+//  - a total row — same shape as a value row but styled emphatically to stand
+//    out from the partner-breakdown rows that follow
 type TooltipRow =
-  | { label: string; value: string | string[]; section?: undefined }
-  | { section: string; label?: undefined; value?: undefined }
+  | { label: string; value: string | string[]; section?: undefined; total?: undefined }
+  | { section: string; label?: undefined; value?: undefined; total?: undefined }
+  | { label: string; value: string | string[]; total: true; section?: undefined }
 
 interface TooltipData {
   title: string
@@ -263,6 +267,20 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
                   <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "#5B8FB9" }}>
                     {r.section}
                   </div>
+                </div>
+              )
+            }
+            if (r.total) {
+              return (
+                <div
+                  key={`total-${i}`}
+                  className="flex justify-between text-xs gap-2 rounded px-2 py-1 -mx-1"
+                  style={{ backgroundColor: "#F4F7FA", border: "1px solid #E5EDF5" }}
+                >
+                  <span className="shrink-0 uppercase tracking-wider text-[10px] font-bold" style={{ color: "#1B4F72" }}>{r.label}</span>
+                  <span className="font-bold text-right leading-relaxed" style={{ color: "#0F3B57" }}>
+                    {Array.isArray(r.value) ? r.value.join(" → ") : r.value}
+                  </span>
                 </div>
               )
             }
@@ -981,7 +999,11 @@ function emojiMarker(emoji: string, size = 22) {
 // ─── Main Map Component ────────────────────────────────────────────────────────
 
 export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All", activeThemes, activeStatuses, showLabels, showPipelineLabels = false }: MapProps) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
+  // Numbers use the active locale's thousands/decimal separators (fr: 1 234,5 ; en: 1,234.5).
+  // Arabic keeps Western digits for consistency with the DB-stored numeric values.
+  const nfLocale = lang === "ar" ? "en" : lang
+  const fmt = (n: number) => n.toLocaleString(nfLocale)
 
   // If activeStatuses is undefined or empty, treat as "all statuses allowed".
   // Otherwise an asset's normalized status must be in the set to be rendered.
@@ -1637,19 +1659,19 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       imports_gas_intra:  { dir: "imports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#5DADE2", hydroKeys: ["Gaz naturel"] },
       imports_oil_extra:  { dir: "imports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#154360", hydroKeys: ["Pétrole brut","LGN"] },
       imports_gas_extra:  { dir: "imports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A5276", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié"] },
-      imports_essence:    { dir: "imports", field: "essenceM3",    label: "Essence",                    unit: "TM",    color: "#F39C12", hydroKeys: ["Essence"] },
-      imports_gasoil:     { dir: "imports", field: "gasoilM3",     label: "Gasoil",                     unit: "TM",    color: "#E67E22", hydroKeys: ["Gasoil","Bitumes"] },
-      imports_gpl:        { dir: "imports", field: "gplTM",        label: "GPL",                        unit: "TM",    color: "#D35400", hydroKeys: ["GPL"] },
-      imports_jetfuel:    { dir: "imports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "TM",    color: "#CA6F1E", hydroKeys: ["Jet fuel","Jet Fuel"] },
+      imports_essence:    { dir: "imports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#F39C12", hydroKeys: ["Essence"] },
+      imports_gasoil:     { dir: "imports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#E67E22", hydroKeys: ["Gasoil","Bitumes"] },
+      imports_gpl:        { dir: "imports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#D35400", hydroKeys: ["GPL"] },
+      imports_jetfuel:    { dir: "imports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#CA6F1E", hydroKeys: ["Jet fuel","Jet Fuel"] },
       exports_oil_intra:  { dir: "exports", field: "oilIntraKbD",  label: "Pétrole brut Intra-Afrique", unit: "kb/d",  color: "#1E8449", hydroKeys: ["Pétrole brut"] },
       exports_cond_intra: { dir: "exports", field: "oilIntraKbD",  label: "Condensat Intra-Afrique",    unit: "kb/d",  color: "#27AE60", hydroKeys: ["Condensat"] },
       exports_gas_intra:  { dir: "exports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#52BE80", hydroKeys: ["Gaz naturel"] },
       exports_oil_extra:  { dir: "exports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#145A32", hydroKeys: ["Pétrole brut","LGN"] },
       exports_gas_extra:  { dir: "exports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A7431", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié"] },
-      exports_essence:    { dir: "exports", field: "essenceM3",    label: "Essence",                    unit: "TM",    color: "#8E44AD", hydroKeys: ["Essence"] },
-      exports_gasoil:     { dir: "exports", field: "gasoilM3",     label: "Gasoil",                     unit: "TM",    color: "#7D3C98", hydroKeys: ["Gasoil","Bitumes","Fuel Oil"] },
-      exports_gpl:        { dir: "exports", field: "gplTM",        label: "GPL",                        unit: "TM",    color: "#6C3483", hydroKeys: ["GPL"] },
-      exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "TM",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel"] },
+      exports_essence:    { dir: "exports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#8E44AD", hydroKeys: ["Essence"] },
+      exports_gasoil:     { dir: "exports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#7D3C98", hydroKeys: ["Gasoil","Bitumes","Fuel Oil"] },
+      exports_gpl:        { dir: "exports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#6C3483", hydroKeys: ["GPL"] },
+      exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel"] },
     }
 
     // Group active trade themes by country so each country gets a SINGLE marker
@@ -1739,25 +1761,33 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
         const tipRows: TooltipRow[] = []
         const allPartnerNames: string[] = []
+        const hasMultipleEntries = sortedEntries.length > 1
         sortedEntries.forEach(e => {
           const dirArrow = e.cfg.dir === "imports" ? "⬇" : "⬆"
-          tipRows.push({ section: `${dirArrow} ${e.cfg.label}` })
-          tipRows.push({ label: e.cfg.label, value: `${e.val.toLocaleString()} ${e.cfg.unit}` })
+          // When several trade flows share the same country, prefix each section
+          // with a total row so the user can distinguish the aggregated flow value
+          // from the per-partner breakdown that follows.
+          if (hasMultipleEntries) {
+            tipRows.push({ section: `${dirArrow} ${e.cfg.label}` })
+            tipRows.push({ label: t.map.total, value: `${fmt(e.val)} ${e.cfg.unit}`, total: true })
+          } else {
+            tipRows.push({ label: e.cfg.label, value: `${fmt(e.val)} ${e.cfg.unit}` })
+          }
           const allPartners: TradePartner[] = (() => {
             try { return JSON.parse(e.row.partnersDetail) } catch { return [] }
           })()
           const relevant = allPartners.filter(p => e.cfg.hydroKeys.includes(p.hydro))
           const sortedPartners = [...relevant].sort((a, b) => b.qty - a.qty)
           sortedPartners.forEach(p => {
-            tipRows.push({ label: p.partner, value: `${p.qty.toLocaleString()} ${p.unit}` })
+            tipRows.push({ label: p.partner, value: `${fmt(p.qty)} ${p.unit}` })
             allPartnerNames.push(p.partner)
           })
         })
 
         // Header hint so users immediately know the tooltip has multiple sections
         const subtitle = entries.length > 1
-          ? (hasImport && hasExport ? `⇅ ${entries.length} flux (${year})` : `${dirBadge} ${entries.length} flux (${year})`)
-          : (hasImport ? `⬇ Importation ${year}` : `⬆ Exportation ${year}`)
+          ? `${dirBadge} ${entries.length} ${t.map.flows} (${year})`
+          : (hasImport ? `⬇ ${t.map.importFlow} ${year}` : `⬆ ${t.map.exportFlow} ${year}`)
 
         const m = L.marker([country.lat, country.lon], { icon })
         bindTip(m,

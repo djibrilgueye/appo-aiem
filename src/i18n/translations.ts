@@ -138,6 +138,11 @@ export const translations = {
       lngImport:          "Terminal GNL Import",
       lngExport:          "Terminal GNL Export",
       nelsonIndex:        "Indice de Nelson",
+      total:              "Total",
+      partners:           "Partenaires",
+      importFlow:         "Importation",
+      exportFlow:         "Exportation",
+      flows:              "flux",
     },
 
     // DataTable
@@ -326,6 +331,11 @@ export const translations = {
       lngImport:          "LNG Import Terminal",
       lngExport:          "LNG Export Terminal",
       nelsonIndex:        "Nelson Complexity Index",
+      total:              "Total",
+      partners:           "Partners",
+      importFlow:         "Import",
+      exportFlow:         "Export",
+      flows:              "flows",
     },
 
     table: {
@@ -512,6 +522,11 @@ export const translations = {
       lngImport:          "Terminal GNL Importação",
       lngExport:          "Terminal GNL Exportação",
       nelsonIndex:        "Índice de Nelson",
+      total:              "Total",
+      partners:           "Parceiros",
+      importFlow:         "Importação",
+      exportFlow:         "Exportação",
+      flows:              "fluxos",
     },
 
     table: {
@@ -695,6 +710,11 @@ export const translations = {
       lngImport:          "Terminal GNL Importación",
       lngExport:          "Terminal GNL Exportación",
       nelsonIndex:        "Índice de Nelson",
+      total:              "Total",
+      partners:           "Socios",
+      importFlow:         "Importación",
+      exportFlow:         "Exportación",
+      flows:              "flujos",
     },
 
     table: {
@@ -879,6 +899,11 @@ export const translations = {
       lngImport:          "محطة استيراد الغاز المسال",
       lngExport:          "محطة تصدير الغاز المسال",
       nelsonIndex:        "مؤشر نيلسون",
+      total:              "الإجمالي",
+      partners:           "الشركاء",
+      importFlow:         "استيراد",
+      exportFlow:         "تصدير",
+      flows:              "تدفقات",
     },
 
     table: {
