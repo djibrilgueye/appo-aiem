@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface Reserve {
   id: string
@@ -19,6 +20,7 @@ interface Reserve {
 
 export default function ReservesPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [reserves, setReserves] = useState<Reserve[]>([])
   const [loading, setLoading] = useState(true)
@@ -31,13 +33,13 @@ export default function ReservesPage() {
       .then(d => { if (Array.isArray(d)) setReserves(d) })
       .catch(err => {
         console.error("[reserves list]", err)
-        alert("Impossible de charger les réserves. Rechargez la page ou vérifiez votre connexion.")
+        alert(t.admin.reserves.loadFailed)
       })
       .finally(() => setLoading(false))
   }, [session])
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Supprimer cette entrée de réserves ?")) return
+    if (!confirm(t.admin.reserves.confirmDelete)) return
     const res = await fetch(`/api/reserves/${id}`, { method: "DELETE" })
     if (res.ok) setReserves(reserves.filter(r => r.id !== id))
     else alert("Échec de la suppression")

@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface StorageRecord {
   id: string
@@ -23,6 +24,7 @@ interface StorageRecord {
 
 export default function StoragePage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [records, setRecords] = useState<StorageRecord[]>([])
   const [loading, setLoading] = useState(true)
@@ -106,7 +108,7 @@ export default function StoragePage() {
           <Link href="/admin" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
           <div>
             <h1 className="text-2xl font-bold text-[#0D2840]">Stockage</h1>
-            <p className="text-[#5B8FB9]">{records.length} dépôt{records.length !== 1 ? "s" : ""}</p>
+            <p className="text-[#5B8FB9]">{records.length} {t.admin.storage.recordCount}{records.length !== 1 ? "s" : ""}</p>
           </div>
         </div>
         <Link href="/admin/storage/new" className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] text-white px-4 py-2 rounded-lg transition">

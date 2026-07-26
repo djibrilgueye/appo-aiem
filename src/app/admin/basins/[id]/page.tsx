@@ -387,7 +387,7 @@ export default function BasinDetailPage() {
           {/* National Companies CRUD */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-semibold text-[#1B4F72] text-sm flex items-center gap-2"><Building2 size={15} />Sociétés nationales des hydrocarbures — {basin.country.name}</h3>
+              <h3 className="font-semibold text-[#1B4F72] text-sm flex items-center gap-2"><Building2 size={15} />{t.admin.basinDetail.snhForCountry} — {basin.country.name}</h3>
               {!opAdding && !opEditing && (
                 <button onClick={() => { setOpAdding(true); setOpEditing(null); setOpForm({ name: "", acronym: "", founded: "", website: "", description: "", contact: "" }) }}
                   className="flex items-center gap-1.5 text-sm bg-[#1B4F72] hover:bg-[#154060] text-white px-3 py-1.5 rounded-lg transition">
@@ -413,7 +413,7 @@ export default function BasinDetailPage() {
                     <input value={opForm.acronym} onChange={e => setOpForm({...opForm, acronym: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
                   </div>
                   <div>
-                    <label className="block text-[#1B4F72] text-xs mb-1">Fondée (année)</label>
+                    <label className="block text-[#1B4F72] text-xs mb-1">{t.admin.common.foundedYear}</label>
                     <input type="number" value={opForm.founded} onChange={e => setOpForm({...opForm, founded: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-white border border-[#D0E4F0] text-sm text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
                   </div>
                   <div>
@@ -440,7 +440,7 @@ export default function BasinDetailPage() {
 
             <div className="bg-white border border-[#D0E4F0] rounded-xl overflow-hidden">
               {operators.length === 0 ? (
-                <p className="text-center text-[#5B8FB9] text-sm py-6">Aucune société nationale enregistrée pour {basin.country.name}.</p>
+                <p className="text-center text-[#5B8FB9] text-sm py-6">{t.admin.basinDetail.noSnhForCountry} {basin.country.name}.</p>
               ) : (
                 <table className="w-full text-sm">
                   <thead className="bg-[#F4F7FB] border-b border-[#D0E4F0]">
@@ -567,7 +567,7 @@ export default function BasinDetailPage() {
                   download={previewDoc.fileName}
                   className="flex items-center gap-1.5 text-xs text-[#1B4F72] border border-[#D0E4F0] px-3 py-1.5 rounded-lg hover:bg-[#EBF3FB] transition"
                 >
-                  <Download size={12} /> Télécharger
+                  <Download size={12} /> {t.admin.common.download}
                 </a>
                 <a
                   href={`/uploads/${previewDoc.filePath}`}
@@ -616,7 +616,7 @@ export default function BasinDetailPage() {
                       download={previewDoc.fileName}
                       className="inline-flex items-center gap-2 bg-[#1B4F72] text-white px-5 py-2 rounded-lg hover:bg-[#154060] transition text-sm"
                     >
-                      <Download size={16} /> Télécharger {previewDoc.fileName}
+                      <Download size={16} /> {t.admin.common.download} {previewDoc.fileName}
                     </a>
                   </div>
                 )
@@ -625,7 +625,7 @@ export default function BasinDetailPage() {
             {/* Modal footer */}
             <div className="px-5 py-2 border-t border-[#D0E4F0] bg-[#F4F7FB] shrink-0 flex items-center justify-between text-xs text-[#5B8FB9]">
               <span>{previewDoc.fileName} {previewDoc.fileSize ? `· ${formatSize(previewDoc.fileSize)}` : ""}</span>
-              <span>Ajouté le {new Date(previewDoc.createdAt).toLocaleDateString("fr-FR")} {previewDoc.addedBy ? `par ${previewDoc.addedBy}` : ""}</span>
+              <span>{t.admin.common.addedOn} {new Date(previewDoc.createdAt).toLocaleDateString()} {previewDoc.addedBy ? `${t.admin.common.by} ${previewDoc.addedBy}` : ""}</span>
             </div>
           </div>
         </div>

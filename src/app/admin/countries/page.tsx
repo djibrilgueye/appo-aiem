@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Plus, Edit, Trash2, FolderOpen, User, BarChart3 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface Country {
   id: string
@@ -20,6 +21,7 @@ interface Country {
 
 export default function CountriesPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [countries, setCountries] = useState<Country[]>([])
   const [loading, setLoading] = useState(true)
@@ -156,7 +158,7 @@ export default function CountriesPage() {
       <Link
         href={`/admin/countries/${country.id}/economics`}
         className="p-2 text-[#5B8FB9] hover:text-[#1B4F72] transition"
-        title="Données économiques"
+        title={t.admin.countries.economicsData}
       >
         <BarChart3 size={16} />
       </Link>

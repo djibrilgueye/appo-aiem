@@ -81,7 +81,7 @@ export default function NewPipelinePage() {
             <input value={form.countries} onChange={e => setForm({...form, countries: e.target.value})} required placeholder="NGA,BEN,GHA" className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Coordinates <span className="text-[#A3C4DC] text-xs">lat,lon|lat,lon|... (point par point du tracé)</span></label>
+            <label className="block text-[#1B4F72] text-sm mb-1">Coordinates <span className="text-[#A3C4DC] text-xs">{t.admin.pipelines.coordinatesHint}</span></label>
             <textarea value={form.coords} onChange={e => setForm({...form, coords: e.target.value})} required rows={3} placeholder="6.43,3.38|6.36,2.39|4.91,-1.75" className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72] font-mono text-sm" />
           </div>
           <div className="grid grid-cols-3 gap-4">

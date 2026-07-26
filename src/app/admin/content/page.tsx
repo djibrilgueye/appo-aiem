@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import { useLanguage } from "@/i18n/LanguageContext"
 import { Save, Plus, Trash2, ChevronDown, ChevronUp, Globe } from "lucide-react"
 
 type Lang = "fr" | "en" | "pt"
@@ -110,6 +111,7 @@ const DEFAULT_SOURCES: Record<Lang, SourceEntry[]> = {
 
 export default function ContentPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [activeLang, setActiveLang] = useState<Lang>("fr")
   const [content, setContent] = useState<Record<Lang, ContentState>>({
@@ -216,7 +218,7 @@ export default function ContentPage() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-[#0D2840]">Contenu de la page d&apos;accueil</h1>
-          <p className="text-[#5B8FB9] text-sm mt-0.5">Modifiez les descriptions des thèmes et les sources de données</p>
+          <p className="text-[#5B8FB9] text-sm mt-0.5">{t.admin.content.modifyThemesDesc}</p>
         </div>
         <div className="flex items-center gap-2 text-xs text-[#5B8FB9]">
           <Globe size={14} />
@@ -244,12 +246,12 @@ export default function ContentPage() {
       <div className="bg-white border border-[#D0E4F0] rounded-xl mb-6">
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#D0E4F0]">
           <div>
-            <h2 className="text-base font-semibold text-[#0D2840]">Thèmes disponibles</h2>
-            <p className="text-xs text-[#5B8FB9] mt-0.5">Icône, nom et description de chaque thème affichés sur la page d&apos;accueil</p>
+            <h2 className="text-base font-semibold text-[#0D2840]">{t.admin.content.availableThemes}</h2>
+            <p className="text-xs text-[#5B8FB9] mt-0.5">{t.admin.content.themesDesc}</p>
           </div>
           <div className="flex items-center gap-2">
             {saved === "themes" && (
-              <span className="text-xs text-green-600 font-medium">Sauvegardé ✓</span>
+              <span className="text-xs text-green-600 font-medium">{t.admin.content.saved}</span>
             )}
             <button
               onClick={() => save("themes")}
@@ -272,7 +274,7 @@ export default function ContentPage() {
               >
                 <div className="flex items-center gap-3">
                   <span className="text-lg w-7">{theme.icon}</span>
-                  <span className="text-sm font-medium text-[#0D2840]">{theme.label || <span className="text-[#A3C4DC] italic">Nouveau thème</span>}</span>
+                  <span className="text-sm font-medium text-[#0D2840]">{theme.label || <span className="text-[#A3C4DC] italic">{t.admin.content.newTheme}</span>}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -289,7 +291,7 @@ export default function ContentPage() {
                 <div className="px-4 pb-4 pt-1 border-t border-[#D0E4F0] bg-[#F4F7FB] space-y-3">
                   <div className="grid grid-cols-[80px_1fr] gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#5B8FB9] mb-1">Icône</label>
+                      <label className="block text-xs font-medium text-[#5B8FB9] mb-1">{t.admin.content.icon}</label>
                       <input
                         value={theme.icon}
                         onChange={e => updateTheme(activeLang, idx, "icon", e.target.value)}
@@ -298,12 +300,12 @@ export default function ContentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#5B8FB9] mb-1">Nom du thème</label>
+                      <label className="block text-xs font-medium text-[#5B8FB9] mb-1">{t.admin.content.themeName}</label>
                       <input
                         value={theme.label}
                         onChange={e => updateTheme(activeLang, idx, "label", e.target.value)}
                         className="w-full border border-[#D0E4F0] rounded px-3 py-1.5 text-sm bg-white text-[#0D2840] focus:outline-none focus:border-[#1B4F72]"
-                        placeholder="Nom du thème"
+                        placeholder={t.admin.content.themeNamePlaceholder}
                       />
                     </div>
                   </div>
@@ -314,7 +316,7 @@ export default function ContentPage() {
                       onChange={e => updateTheme(activeLang, idx, "desc", e.target.value)}
                       rows={2}
                       className="w-full border border-[#D0E4F0] rounded px-3 py-1.5 text-sm bg-white text-[#0D2840] focus:outline-none focus:border-[#1B4F72] resize-none"
-                      placeholder="Description du thème…"
+                      placeholder={t.admin.content.themeDescPlaceholder}
                     />
                   </div>
                 </div>
@@ -336,12 +338,12 @@ export default function ContentPage() {
       <div className="bg-white border border-[#D0E4F0] rounded-xl">
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#D0E4F0]">
           <div>
-            <h2 className="text-base font-semibold text-[#0D2840]">Sources de données</h2>
-            <p className="text-xs text-[#5B8FB9] mt-0.5">Sources bibliographiques par type de données affichées en bas de la page d&apos;accueil</p>
+            <h2 className="text-base font-semibold text-[#0D2840]">{t.admin.content.dataSources}</h2>
+            <p className="text-xs text-[#5B8FB9] mt-0.5">{t.admin.content.dataSourcesDesc}</p>
           </div>
           <div className="flex items-center gap-2">
             {saved === "sources" && (
-              <span className="text-xs text-green-600 font-medium">Sauvegardé ✓</span>
+              <span className="text-xs text-green-600 font-medium">{t.admin.content.saved}</span>
             )}
             <button
               onClick={() => save("sources")}
@@ -359,7 +361,7 @@ export default function ContentPage() {
           {cur.sources.map((source, idx) => (
             <div key={idx} className="grid grid-cols-[60px_160px_1fr_36px] gap-2 items-center">
               <div>
-                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">Icône</label>
+                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">{t.admin.content.icon}</label>
                 <input
                   value={source.icon}
                   onChange={e => updateSource(activeLang, idx, "icon", e.target.value)}
@@ -368,16 +370,16 @@ export default function ContentPage() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">Libellé</label>
+                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">{t.admin.content.labelField}</label>
                 <input
                   value={source.label}
                   onChange={e => updateSource(activeLang, idx, "label", e.target.value)}
                   className="w-full border border-[#D0E4F0] rounded px-3 py-1.5 text-sm bg-white text-[#0D2840] focus:outline-none focus:border-[#1B4F72]"
-                  placeholder="Réserves"
+                  placeholder={t.admin.content.reservesPlaceholder}
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">Texte / Références</label>
+                <label className="block text-xs font-medium text-[#5B8FB9] mb-1">{t.admin.content.textReferences}</label>
                 <input
                   value={source.text}
                   onChange={e => updateSource(activeLang, idx, "text", e.target.value)}

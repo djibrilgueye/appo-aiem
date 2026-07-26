@@ -126,7 +126,7 @@ export default function EditBasinPage() {
             </div>
           </div>
           <div>
-            <label className="block text-[#1B4F72] text-sm mb-1">Statut opérationnel</label>
+            <label className="block text-[#1B4F72] text-sm mb-1">{t.admin.common.operationalStatus}</label>
             <StatusSelect value={form.status} onChange={status => setForm({ ...form, status })} required />
           </div>
           <div>
@@ -135,7 +135,7 @@ export default function EditBasinPage() {
           </div>
           {/* Info: HD map upload */}
           <div className="bg-[#EBF3FB] border border-[#A3C4DC] rounded-lg px-4 py-3 text-sm text-[#1B4F72]">
-            <strong>Carte HD :</strong> {t.admin.basins.editMapHint} <em>Documents</em> dans la page détail du bassin.
+            <strong>{t.admin.common.openHDMap}</strong> {t.admin.basins.editMapHint} <em>Documents</em> {t.admin.basins.openInDocsSection}
           </div>
 
           <div className="flex gap-3 pt-2">

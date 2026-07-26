@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface Production {
   id: string
@@ -19,6 +20,7 @@ interface Production {
 
 export default function ProductionPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [productions, setProductions] = useState<Production[]>([])
   const [loading, setLoading] = useState(true)
@@ -27,7 +29,7 @@ export default function ProductionPage() {
   useEffect(() => { if (session) fetch("/api/production?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setProductions(d) }).finally(() => setLoading(false)) }, [session])
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Supprimer cette entrée de production ?")) return
+    if (!confirm(t.admin.production.confirmDelete)) return
     const res = await fetch(`/api/production/${id}`, { method: "DELETE" })
     if (res.ok) setProductions(productions.filter(p => p.id !== id))
     else alert("Échec de la suppression")

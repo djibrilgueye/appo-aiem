@@ -7,6 +7,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { AdminTable } from "@/components/AdminTable"
 import { StatusBadge } from "@/components/StatusBadge"
+import { useLanguage } from "@/i18n/LanguageContext"
 
 interface PetrochemRecord {
   id: string
@@ -22,6 +23,7 @@ interface PetrochemRecord {
 
 export default function PetrochemPage() {
   const { data: session, status } = useSession()
+  const { t } = useLanguage()
   const router = useRouter()
   const [records, setRecords] = useState<PetrochemRecord[]>([])
   const [loading, setLoading] = useState(true)
@@ -109,7 +111,7 @@ export default function PetrochemPage() {
         <div className="flex items-center gap-4">
           <Link href="/admin" className="text-[#5B8FB9] hover:text-[#1B4F72]">←</Link>
           <div>
-            <h1 className="text-2xl font-bold text-[#0D2840]">Pétrochimie</h1>
+            <h1 className="text-2xl font-bold text-[#0D2840]">{t.admin.petrochem.pageTitle}</h1>
             <p className="text-[#5B8FB9]">{records.length} usine{records.length !== 1 ? "s" : ""}</p>
           </div>
         </div>
