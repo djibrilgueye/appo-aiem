@@ -43,3 +43,6 @@ next-env.d.ts
 # SQLite databases
 prisma/*.db
 prisma/*.db-journal
+
+# Local backups — full copies of the production DB, never committed
+backups/
