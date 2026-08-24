@@ -1,11 +1,12 @@
 import nodemailer from "nodemailer"
+import { isGraphMailConfigured, sendMailViaGraph } from "./msgraph"
 
 const EMAIL_SERVICE_URL = process.env.EMAIL_SERVICE_URL ?? "http://localhost:5003"
 const EMAIL_SERVICE_API_KEY = process.env.EMAIL_SERVICE_API_KEY ?? "appo-email-service-key-2026"
 
-// Sender display name (overrides the shared email-service's default FROM_NAME).
-// Plumbed per request via the `fromName` body field on /send and /send-otp.
-// Address is set on the SMTP server side (online@apposecretariat.com).
+// Sender display name shown in the recipient's inbox.
+// Plumbed per request via the `fromName` body field on the Python service and
+// via the `fromName` option of the Graph transport.
 const FROM_NAME = "AIEM Portal"
 
 /** Check if the Python email service is reachable */
@@ -96,8 +97,8 @@ export async function sendOtpEmail(
   otp: string,
   userName?: string | null
 ): Promise<{ success: boolean; dev: boolean }> {
-  // Dev console fallback when no SMTP configured
-  if (!process.env.SMTP_HOST) {
+  // Dev console fallback when neither Graph nor SMTP is configured.
+  if (!isGraphMailConfigured() && !process.env.SMTP_HOST) {
     console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     console.log(`  [AIEM OTP] Email: ${email}`)
     console.log(`  [AIEM OTP] Code:  ${otp}`)
@@ -105,7 +106,23 @@ export async function sendOtpEmail(
     return { success: true, dev: true }
   }
 
-  // 1. Try Python service
+  // 1. Microsoft Graph (online@apposecretariat.org) — OAuth, no SMTP secret.
+  if (isGraphMailConfigured()) {
+    const sent = await sendMailViaGraph({
+      to: [email],
+      subject: "Your AIEM Login Code",
+      html: buildOtpHtml(otp, userName),
+      text: `Your AIEM one-time login code is: ${otp}\n\nThis code expires in 5 minutes. Do not share it.`,
+      fromName: FROM_NAME,
+    })
+    if (sent) {
+      console.log(`[Graph] OTP sent to ${email}`)
+      return { success: true, dev: false }
+    }
+    console.warn("[Email] Graph mail failed, falling back to Python service")
+  }
+
+  // 2. Python email service (Bluehost SMTP)
   const serviceAvailable = await isPythonServiceAvailable()
   if (serviceAvailable) {
     const sent = await sendViaService(email, otp, userName)
@@ -114,7 +131,7 @@ export async function sendOtpEmail(
     console.warn("[Email] Python service unavailable, falling back to nodemailer")
   }
 
-  // 2. Nodemailer STARTTLS fallback
+  // 3. Nodemailer STARTTLS fallback
   const sent = await sendViaNodemailer(email, otp, userName)
   return { success: sent, dev: false }
 }
@@ -280,8 +297,8 @@ export async function sendInvitationEmail(
     `An account has been created for you on AIEM.\n` +
     `To sign in, go to ${loginUrl} and enter your email — a one-time login code will be sent to your inbox.\n`
 
-  // Dev console fallback
-  if (!process.env.SMTP_HOST) {
+  // Dev console fallback when neither Graph nor SMTP is configured.
+  if (!isGraphMailConfigured() && !process.env.SMTP_HOST) {
     console.log("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     console.log(`  [AIEM INVITE] To:    ${email}`)
     console.log(`  [AIEM INVITE] Name:  ${userName}`)
@@ -290,7 +307,23 @@ export async function sendInvitationEmail(
     return { success: true, dev: true }
   }
 
-  // 1. Try Python /send
+  // 1. Microsoft Graph (online@apposecretariat.org)
+  if (isGraphMailConfigured()) {
+    const sent = await sendMailViaGraph({
+      to: [email],
+      subject,
+      html,
+      text,
+      fromName: FROM_NAME,
+    })
+    if (sent) {
+      console.log(`[Graph] Invitation sent to ${email}`)
+      return { success: true, dev: false }
+    }
+    console.warn("[Email] Graph mail failed, falling back to Python service")
+  }
+
+  // 2. Try Python /send
   try {
     const res = await fetch(`${EMAIL_SERVICE_URL}/send`, {
       method: "POST",
@@ -308,7 +341,7 @@ export async function sendInvitationEmail(
     console.error("[Email Service] Invite connection error:", err)
   }
 
-  // 2. Fallback to nodemailer
+  // 3. Fallback to nodemailer
   try {
     const nodemailer = await import("nodemailer")
     const transporter = nodemailer.default.createTransport({
