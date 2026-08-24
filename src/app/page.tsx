@@ -158,6 +158,13 @@ const T = {
   oilGas:      { fr: "Pétrole & Gaz", en: "Oil & Gas",  es: "Petróleo & Gas", pt: "Petróleo & Gás", ar: "النفط والغاز" },
   notMember:   { fr: "Ce pays n'est pas membre de l'APPO", en: "This country is not an APPO member", es: "Este país no es miembro de la OPPA", pt: "Este país não é membro da APPO", ar: "هذه الدولة ليست عضوًا في APPO" },
   openMap:     { fr: "Accéder à la carte complète", en: "Open full map", es: "Abrir mapa completo", pt: "Abrir mapa completo", ar: "فتح الخريطة الكاملة" },
+  ssoOr:       { fr: "Ou",                          en: "Or",                     es: "O",                       pt: "Ou",                      ar: "أو" },
+  ssoBtn:      { fr: "Se connecter avec Microsoft", en: "Sign in with Microsoft", es: "Iniciar sesión con Microsoft", pt: "Entrar com a Microsoft", ar: "تسجيل الدخول عبر Microsoft" },
+  ssoDomain:   { fr: "(@apposecretariat.org)",      en: "(@apposecretariat.org)", es: "(@apposecretariat.org)",  pt: "(@apposecretariat.org)",  ar: "(@apposecretariat.org)" },
+  ssoErrDomain:{ fr: "Connexion Microsoft réservée aux comptes @apposecretariat.org.", en: "Microsoft sign-in is restricted to @apposecretariat.org accounts.", es: "El inicio de sesión Microsoft está reservado a las cuentas @apposecretariat.org.", pt: "O login Microsoft é restrito às contas @apposecretariat.org.", ar: "تسجيل الدخول عبر Microsoft مقتصر على حسابات @apposecretariat.org." },
+  ssoErrUser:  { fr: "Ce compte n'est pas encore autorisé. Contactez votre administrateur.", en: "This account is not yet authorized. Contact your administrator.", es: "Esta cuenta aún no está autorizada. Contacte a su administrador.", pt: "Esta conta ainda não está autorizada. Contate seu administrador.", ar: "هذا الحساب غير مخوَّل بعد. اتصل بالمسؤول." },
+  ssoErrCfg:   { fr: "La connexion Microsoft n'est pas encore configurée.", en: "Microsoft sign-in is not configured yet.", es: "El inicio de sesión Microsoft aún no está configurado.", pt: "O login Microsoft ainda não foi configurado.", ar: "لم يتم إعداد تسجيل الدخول عبر Microsoft بعد." },
+  ssoErrGeneric:{ fr: "Échec de la connexion Microsoft.", en: "Microsoft sign-in failed.", es: "Error de inicio de sesión Microsoft.", pt: "Falha no login Microsoft.", ar: "فشل تسجيل الدخول عبر Microsoft." },
 }
 
 // ─── Sélecteur de langue ───────────────────────────────────────────────────────
@@ -200,6 +207,22 @@ export default function LandingPage() {
     document.addEventListener("mousedown", handler)
     return () => document.removeEventListener("mousedown", handler)
   }, [])
+
+  // Message d'erreur SSO renvoyé par le callback Azure (?error=...).
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const err = new URLSearchParams(window.location.search).get("error")
+    if (!err) return
+    const map: Record<string, keyof typeof T> = {
+      sso_domain_not_allowed: "ssoErrDomain",
+      sso_user_not_found:     "ssoErrUser",
+      sso_not_configured:     "ssoErrCfg",
+    }
+    const key = map[err] ?? "ssoErrGeneric"
+    setAuthError(t(key))
+    // Nettoie l'URL pour ne pas rejouer l'erreur à chaque navigation.
+    window.history.replaceState({}, "", window.location.pathname)
+  }, [t])
 
   // Stats
   useEffect(() => {
@@ -402,6 +425,30 @@ export default function LandingPage() {
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
                 {t("sendBtn")}
               </button>
+
+              {/* Séparateur + SSO Microsoft (comptes @apposecretariat.org) */}
+              <div className="flex items-center gap-3 py-0.5">
+                <span className="h-px flex-1 bg-slate-200" />
+                <span className="text-[11px] uppercase tracking-wide text-slate-400">{t("ssoOr")}</span>
+                <span className="h-px flex-1 bg-slate-200" />
+              </div>
+              <a href="/api/auth/azure/login" className="w-full">
+                <button type="button"
+                  className="w-full h-10 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
+                  style={{ backgroundColor: "#fff", color: "#0F3B57", border: "1px solid #cbd5e1", cursor: "pointer" }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#0F3B57"; e.currentTarget.style.color = "#fff" }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#fff"; e.currentTarget.style.color = "#0F3B57" }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 23 23" aria-hidden="true" className="shrink-0">
+                    <rect x="1" y="1" width="10" height="10" fill="#F25022" />
+                    <rect x="12" y="1" width="10" height="10" fill="#7FBA00" />
+                    <rect x="1" y="12" width="10" height="10" fill="#00A4EF" />
+                    <rect x="12" y="12" width="10" height="10" fill="#FFB900" />
+                  </svg>
+                  {t("ssoBtn")}
+                </button>
+              </a>
+              <p className="text-[11px] text-center text-slate-400 -mt-1">{t("ssoDomain")}</p>
             </form>
           )}
 
