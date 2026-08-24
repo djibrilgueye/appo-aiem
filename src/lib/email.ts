@@ -5,7 +5,8 @@ const EMAIL_SERVICE_API_KEY = process.env.EMAIL_SERVICE_API_KEY ?? "appo-email-s
 
 // Sender display name (overrides the shared email-service's default FROM_NAME).
 // Plumbed per request via the `fromName` body field on /send and /send-otp.
-const FROM_NAME = "APPO AIEM Platform"
+// Address is set on the SMTP server side (online@apposecretariat.com).
+const FROM_NAME = "AIEM Portal"
 
 /** Check if the Python email service is reachable */
 async function isPythonServiceAvailable(): Promise<boolean> {
