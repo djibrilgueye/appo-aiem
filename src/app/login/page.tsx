@@ -1,20 +1,44 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { signIn } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 
 type Step = "email" | "otp"
 
+const SSO_ERRORS: Record<string, string> = {
+  sso_domain_not_allowed:  "Microsoft sign-in is restricted to @apposecretariat.org accounts.",
+  sso_user_not_found:      "This account is not yet authorized. Contact your administrator.",
+  sso_not_configured:      "Microsoft sign-in is not configured yet.",
+  sso_state_mismatch:      "Session expired. Please try again.",
+  sso_no_code:             "Microsoft sign-in was cancelled.",
+  sso_no_email:            "Microsoft did not return an email address.",
+  sso_token_error:         "Could not complete Microsoft sign-in.",
+}
+
 export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginPageInner />
+    </Suspense>
+  )
+}
+
+function LoginPageInner() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [step, setStep]     = useState<Step>("email")
   const [email, setEmail]   = useState("")
   const [otp, setOtp]       = useState("")
   const [error, setError]   = useState("")
   const [info, setInfo]     = useState("")
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const e = searchParams.get("error")
+    if (e) setError(SSO_ERRORS[e] ?? "Sign-in failed. Please try again.")
+  }, [searchParams])
 
   // ── Step 1: email → request OTP ─────────────────────────────────────────
   const handleEmail = async (e: React.FormEvent) => {
@@ -207,6 +231,35 @@ export default function LoginPage() {
             <button type="submit" disabled={loading} style={btnPrimary}>
               {loading ? "Sending code…" : "Send code →"}
             </button>
+
+            {/* Séparateur + SSO Microsoft (comptes @apposecretariat.org) */}
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "4px 0" }}>
+              <span style={{ height: "1px", flex: 1, backgroundColor: "#E2E8F0" }} />
+              <span style={{ fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "#94A3B8", fontFamily: "Arial, sans-serif" }}>Or</span>
+              <span style={{ height: "1px", flex: 1, backgroundColor: "#E2E8F0" }} />
+            </div>
+            <a href="/api/auth/azure/login" style={{ textDecoration: "none" }}>
+              <button type="button" style={{
+                width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
+                padding: "12px", borderRadius: "8px", border: "1.5px solid #D0E4F0", backgroundColor: "#ffffff",
+                color: "#0D2840", fontSize: "14px", fontWeight: 600, cursor: "pointer",
+                fontFamily: "Arial, sans-serif", transition: "background-color 0.15s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#F4F7FB" }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#ffffff" }}
+              >
+                <svg width="16" height="16" viewBox="0 0 23 23" aria-hidden="true">
+                  <rect x="1" y="1" width="10" height="10" fill="#F25022" />
+                  <rect x="12" y="1" width="10" height="10" fill="#7FBA00" />
+                  <rect x="1" y="12" width="10" height="10" fill="#00A4EF" />
+                  <rect x="12" y="12" width="10" height="10" fill="#FFB900" />
+                </svg>
+                Sign in with Microsoft
+              </button>
+            </a>
+            <p style={{ margin: "-6px 0 0", fontSize: "11px", color: "#9CA3AF", textAlign: "center", fontFamily: "Arial, sans-serif" }}>
+              (@apposecretariat.org)
+            </p>
           </form>
         )}
 
