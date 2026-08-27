@@ -1,32 +1,48 @@
 "use client"
 
-import { useEffect, useRef, useState, useCallback } from "react"
-import Globe, { GlobeMethods } from "react-globe.gl"
-import { useLanguage } from "@/i18n/LanguageContext"
+import React, { memo, useState, useRef, useCallback, useEffect } from "react"
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps"
+import { geoCentroid } from "d3-geo"
+import type { Feature, Geometry } from "geojson"
 
 const APPO_MEMBERS = new Set(["DZ","AO","BJ","CM","CG","CD","CI","EG","GQ","GA","GH","LY","NA","NE","NG","SN","ZA","TD"])
 
-// ISO3 → ISO2
-const ISO3_TO_ISO2: Record<string, string> = {
-  DZA:"DZ", AGO:"AO", BEN:"BJ", CMR:"CM", COG:"CG", COD:"CD", CIV:"CI",
-  EGY:"EG", GNQ:"GQ", GAB:"GA", GHA:"GH", LBY:"LY", NAM:"NA", NER:"NE",
-  NGA:"NG", SEN:"SN", ZAF:"ZA", TCD:"TD",
+const COUNTRY_INFO: Record<string, { fr: string; en: string }> = {
+  DZ: { fr: "Algérie", en: "Algeria" },
+  AO: { fr: "Angola", en: "Angola" },
+  BJ: { fr: "Bénin", en: "Benin" },
+  CM: { fr: "Cameroun", en: "Cameroon" },
+  CG: { fr: "Rép. du Congo", en: "Congo" },
+  CD: { fr: "RD Congo", en: "DR Congo" },
+  CI: { fr: "Côte d'Ivoire", en: "Ivory Coast" },
+  EG: { fr: "Égypte", en: "Egypt" },
+  GQ: { fr: "Guinée équat.", en: "Eq. Guinea" },
+  GA: { fr: "Gabon", en: "Gabon" },
+  GH: { fr: "Ghana", en: "Ghana" },
+  LY: { fr: "Libye", en: "Libya" },
+  NA: { fr: "Namibie", en: "Namibia" },
+  NE: { fr: "Niger", en: "Niger" },
+  NG: { fr: "Nigéria", en: "Nigeria" },
+  SN: { fr: "Sénégal", en: "Senegal" },
+  ZA: { fr: "Afrique du Sud", en: "South Africa" },
+  TD: { fr: "Tchad", en: "Chad" },
 }
 
-// Coordonnées pays (centroïdes) pour les marqueurs de production
 const COUNTRY_COORDS: Record<string, [number, number]> = {
-  DZ:[28.0,2.6], AO:[-11.2,17.9], BJ:[9.3,2.3], CM:[5.5,12.3],
-  CG:[-0.8,15.2], CD:[-4.0,23.0], CI:[7.5,-5.7], EG:[26.8,29.5],
-  GQ:[1.7,8.5], GA:[-0.8,11.6], GH:[7.9,-1.2], LY:[27.0,17.0],
-  NA:[-22.0,17.1], NE:[17.6,8.1], NG:[9.5,8.2], SN:[14.5,-14.2],
-  ZA:[-29.0,25.0], TD:[15.5,18.7],
+  DZ: [2.6, 28.0], AO: [17.9, -11.2], BJ: [2.3, 9.3], CM: [12.3, 5.5],
+  CG: [15.2, -0.8], CD: [23.0, -4.0], CI: [-5.7, 7.5], EG: [29.5, 26.8],
+  GQ: [8.5, 1.7], GA: [11.6, -0.8], GH: [-1.2, 7.9], LY: [17.0, 27.0],
+  NA: [17.1, -22.0], NE: [8.1, 17.6], NG: [8.2, 9.5], SN: [-14.2, 14.5],
+  ZA: [25.0, -29.0], TD: [18.7, 15.5],
 }
 
-interface GeoFeature {
-  type: string
-  properties: { name: string; "ISO3166-1-Alpha-2"?: string; iso_a2?: string; ISO_A2?: string }
-  geometry: object
+interface GeoFeatureProps {
+  name: string
+  "ISO3166-1-Alpha-2"?: string
+  iso_a2?: string
+  ISO_A2?: string
 }
+type GeoFeature = Feature<Geometry, GeoFeatureProps>
 
 interface ProductionEntry {
   country: { code: string }
@@ -34,34 +50,9 @@ interface ProductionEntry {
   gas: number
 }
 
-interface PipelineEntry {
-  name: string
-  countries: string[]
-  coords: [number, number][]
-  status: string
-}
-
 interface ProductionPoint {
-  lat: number; lng: number; iso2: string
+  lon: number; lat: number; iso2: string
   oil: number; gas: number
-}
-
-interface ArcEntry {
-  name: string
-  startLat: number; startLng: number
-  endLat: number; endLng: number
-  color: string
-  status: string
-}
-
-interface TooltipState {
-  iso2?: string
-  name: string
-  isMember?: boolean
-  kind: "country" | "pipeline"
-  status?: string
-  x: number
-  y: number
 }
 
 interface GlobeAIEMProps {
@@ -69,316 +60,305 @@ interface GlobeAIEMProps {
   selectedCountry?: string | null
 }
 
-export default function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
-  const globeRef = useRef<GlobeMethods | undefined>(undefined)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [size, setSize] = useState({ w: 800, h: 800 })
-  const { t } = useLanguage()
+const SENSITIVITY = 0.25
+const BASE_SCALE = 380
+const GLOBE_DIAMETER_PCT = 88
+const INITIAL_ROTATION: [number, number, number] = [-20, -5, 0]
+
+// Animation d'oscillation (pendule)
+const CENTER_LNG = -20
+const CENTER_LAT = -5
+const AMPLITUDE = 15
+const PERIOD_MS = 25000
+
+function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
   const [geoData, setGeoData] = useState<{ features: GeoFeature[] } | null>(null)
   const [prodPoints, setProdPoints] = useState<ProductionPoint[]>([])
-  const [arcs, setArcs] = useState<ArcEntry[]>([])
-  const [tooltip, setTooltip] = useState<TooltipState | null>(null)
 
-  // Resize
+  // Drag & rotation states
+  const [rotation, setRotation] = useState<[number, number, number]>(INITIAL_ROTATION)
+  const [grabbing, setGrabbing] = useState(false)
+  const isDragging = useRef(false)
+  const hasDragged = useRef(false)
+  const dragStart = useRef<{ x: number; y: number } | null>(null)
+  const rotStart = useRef<[number, number, number]>(INITIAL_ROTATION)
+
+  // Animation automatique
+  const animRef = useRef<number | null>(null)
+  const startTimeRef = useRef<number | null>(null)
+  const isUserInteracting = useRef(false)
+
+  // Charger le GeoJSON de l'Afrique
   useEffect(() => {
-    if (!containerRef.current) return
-    const update = () => {
-      if (containerRef.current)
-        setSize({ w: containerRef.current.offsetWidth, h: containerRef.current.offsetHeight })
+    fetch("/data/africa.geojson")
+      .then(r => r.json())
+      .then(setGeoData)
+      .catch(console.error)
+  }, [])
+
+  // Charger les données de production
+  useEffect(() => {
+    fetch("/api/production")
+      .then(r => r.json())
+      .then((production: ProductionEntry[]) => {
+        const latest: Record<string, ProductionEntry> = {}
+        for (const p of production) {
+          const iso2 = p.country?.code
+          if (!iso2) continue
+          if (!latest[iso2] || (p.oil ?? 0) > (latest[iso2].oil ?? 0)) {
+            latest[iso2] = p
+          }
+        }
+        const points: ProductionPoint[] = []
+        for (const [iso2, p] of Object.entries(latest)) {
+          const coords = COUNTRY_COORDS[iso2]
+          if (!coords || (!p.oil && !p.gas)) continue
+          points.push({ lon: coords[0], lat: coords[1], iso2, oil: p.oil ?? 0, gas: p.gas ?? 0 })
+        }
+        setProdPoints(points)
+      })
+      .catch(console.error)
+  }, [])
+
+  // Boucle d'animation d'oscillation
+  useEffect(() => {
+    const animate = (ts: number) => {
+      if (!isUserInteracting.current) {
+        if (!startTimeRef.current) startTimeRef.current = ts
+        const elapsed = ts - startTimeRef.current
+        const phase = (elapsed % PERIOD_MS) / PERIOD_MS
+        const lng = CENTER_LNG + AMPLITUDE * Math.sin(phase * 2 * Math.PI)
+        setRotation([lng, CENTER_LAT, 0])
+      }
+      animRef.current = requestAnimationFrame(animate)
     }
-    update()
-    const ro = new ResizeObserver(update)
-    ro.observe(containerRef.current)
-    return () => ro.disconnect()
-  }, [])
-
-  // GeoJSON
-  useEffect(() => {
-    fetch("/data/africa.geojson").then(r => r.json()).then(setGeoData).catch(console.error)
-  }, [])
-
-  // Production + Pipelines
-  useEffect(() => {
-    Promise.all([
-      fetch("/api/production").then(r => r.json()).catch(() => []),
-      fetch("/api/pipelines").then(r => r.json()).catch(() => []),
-    ]).then(([production, pipelines]: [ProductionEntry[], PipelineEntry[]]) => {
-      // Production: dernière année disponible par pays
-      const latest: Record<string, ProductionEntry> = {}
-      for (const p of production) {
-        const iso2 = ISO3_TO_ISO2[p.country?.code] ?? p.country?.code
-        if (!latest[iso2] || (p.oil ?? 0) > (latest[iso2].oil ?? 0)) {
-          latest[iso2] = p
-        }
-      }
-      const points: ProductionPoint[] = []
-      for (const [iso2, p] of Object.entries(latest)) {
-        const coords = COUNTRY_COORDS[iso2]
-        if (!coords || (!p.oil && !p.gas)) continue
-        points.push({ lat: coords[0], lng: coords[1], iso2, oil: p.oil ?? 0, gas: p.gas ?? 0 })
-      }
-      setProdPoints(points)
-
-      // Pipelines multi-pays uniquement
-      const arcList: ArcEntry[] = []
-      for (const pipe of pipelines) {
-        if (!pipe.coords || pipe.coords.length < 2) continue
-        const isMulti = pipe.countries && pipe.countries.length > 1
-        if (!isMulti) continue
-        // Couleur selon statut
-        const color =
-          pipe.status === "operational"      ? "rgba(244,185,66,0.85)" :
-          pipe.status === "under construction"? "rgba(76,201,240,0.75)" :
-          "rgba(180,180,180,0.45)"
-        // Découper en segments consécutifs
-        for (let i = 0; i < pipe.coords.length - 1; i++) {
-          arcList.push({
-            name: pipe.name,
-            startLat: pipe.coords[i][0], startLng: pipe.coords[i][1],
-            endLat: pipe.coords[i+1][0], endLng: pipe.coords[i+1][1],
-            color,
-            status: pipe.status,
-          })
-        }
-      }
-      setArcs(arcList)
-    })
+    animRef.current = requestAnimationFrame(animate)
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current)
+    }
   }, [])
 
   const getIso2 = (feat: GeoFeature) =>
     feat.properties?.["ISO3166-1-Alpha-2"] ?? feat.properties?.iso_a2 ?? feat.properties?.ISO_A2 ?? ""
 
-  const getColor = useCallback((feat: object) => {
-    const iso2 = getIso2(feat as GeoFeature)
-    if (iso2 === selectedCountry) return "rgba(244, 185, 66, 0.95)"
-    return APPO_MEMBERS.has(iso2) ? "rgba(27, 100, 160, 0.88)" : "rgba(200, 218, 232, 0.75)"
-  }, [selectedCountry])
+  // Gestion de la rotation à la souris
+  const onMouseDown = (e: React.MouseEvent) => {
+    isUserInteracting.current = true
+    isDragging.current = true
+    hasDragged.current = false
+    dragStart.current = { x: e.clientX, y: e.clientY }
+    rotStart.current = rotation
+    setGrabbing(true)
+  }
 
-  const getSideColor = useCallback((feat: object) => {
-    const iso2 = getIso2(feat as GeoFeature)
-    if (iso2 === selectedCountry) return "rgba(200, 140, 20, 1)"
-    return APPO_MEMBERS.has(iso2) ? "rgba(15, 70, 120, 1)" : "rgba(160, 185, 205, 0.8)"
-  }, [selectedCountry])
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || !dragStart.current) return
+    const dx = e.clientX - dragStart.current.x
+    const dy = e.clientY - dragStart.current.y
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) hasDragged.current = true
+    setRotation([
+      rotStart.current[0] + dx * SENSITIVITY,
+      Math.max(-85, Math.min(85, rotStart.current[1] - dy * SENSITIVITY)),
+      rotStart.current[2],
+    ])
+  }
 
-  const getAltitude = useCallback((feat: object) => {
-    const iso2 = getIso2(feat as GeoFeature)
-    if (iso2 === selectedCountry) return 0.02
-    return APPO_MEMBERS.has(iso2) ? 0.012 : 0.004
-  }, [selectedCountry])
+  const onMouseUp = () => {
+    isDragging.current = false
+    dragStart.current = null
+    setGrabbing(false)
+    // Relancer l'animation après un délai
+    setTimeout(() => {
+      if (!isDragging.current) {
+        startTimeRef.current = null // Réinitialise l'origine temporelle
+        isUserInteracting.current = false
+      }
+    }, 5000)
+  }
 
-  const handleClick = useCallback((feat: object, event: MouseEvent) => {
-    const f = feat as GeoFeature
-    const iso2 = getIso2(f)
-    if (!iso2) return
-    const isMember = APPO_MEMBERS.has(iso2)
-    const name = f.properties?.name ?? iso2
-    const rect = containerRef.current?.getBoundingClientRect()
-    const x = rect ? event.clientX - rect.left : event.clientX
-    const y = rect ? event.clientY - rect.top : event.clientY
-    setTooltip({ iso2, name, isMember, kind: "country", x, y })
-    if (onSelectCountry) onSelectCountry(iso2)
-  }, [onSelectCountry])
-
-  const handleArcClick = useCallback((arc: object, event: MouseEvent) => {
-    const a = arc as ArcEntry
-    const rect = containerRef.current?.getBoundingClientRect()
-    const x = rect ? event.clientX - rect.left : event.clientX
-    const y = rect ? event.clientY - rect.top : event.clientY
-    setTooltip({ name: a.name, status: a.status, kind: "pipeline", x, y })
-  }, [])
-
-  // Marqueurs HTML pour production — icônes baril et flamme
-  const makeHtmlElement = useCallback((d: object) => {
-    const p = d as ProductionPoint
-    const hasOil = p.oil > 0
-    const hasGas = p.gas > 0
-    const el = document.createElement("div")
-    el.style.cssText = "display:flex;gap:2px;align-items:center;pointer-events:none;"
-
-    if (hasOil) {
-      const size = Math.min(22, Math.max(10, Math.log10(p.oil + 1) * 6))
-      const wrap = document.createElement("div")
-      wrap.style.cssText = `
-        width:${size}px; height:${size}px;
-        filter: drop-shadow(0 0 3px rgba(220,80,60,0.7));
-      `
-      wrap.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,80,60,0.95)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="${size}" height="${size}">
-        <ellipse cx="12" cy="5" rx="7" ry="2.5"/>
-        <ellipse cx="12" cy="19" rx="7" ry="2.5"/>
-        <line x1="5" y1="5" x2="5" y2="19"/>
-        <line x1="19" y1="5" x2="19" y2="19"/>
-        <path d="M5 9 Q12 11 19 9"/>
-        <path d="M5 15 Q12 17 19 15"/>
-      </svg>`
-      el.appendChild(wrap)
-    }
-
-    if (hasGas) {
-      const size = Math.min(22, Math.max(10, Math.log10(p.gas + 1) * 4))
-      const wrap = document.createElement("div")
-      wrap.style.cssText = `
-        width:${size}px; height:${size}px;
-        filter: drop-shadow(0 0 3px rgba(251,191,36,0.7));
-      `
-      wrap.innerHTML = `<svg viewBox="0 0 24 24" fill="rgba(251,191,36,0.9)" stroke="none" width="${size}" height="${size}">
-        <path d="M12 2C12 2 8 7 8 11c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.5-1-3-1-3s-.5 2-1.5 2.5C13 9 12 2 12 2z"/>
-        <path d="M7 17c0-2.8 2.2-5 5-5s5 2.2 5 5c0 2.2-1.8 4-5 4s-5-1.8-5-4z" opacity="0.7"/>
-        <path d="M12 14c0 0-1.5 1.5-1.5 3s.7 2 1.5 2 1.5-.7 1.5-2S12 14 12 14z" fill="white" opacity="0.5"/>
-      </svg>`
-      el.appendChild(wrap)
-    }
-
-    return el
-  }, [])
-
-  // Animation ±20° autour du centre Afrique
-  const animRef = useRef<number | null>(null)
-  const startTimeRef = useRef<number | null>(null)
-  const CENTER_LNG = 20
-  const CENTER_LAT = 2
-  const AMPLITUDE = 15
-  const PERIOD_MS = 30000
-
-  const handleGlobeReady = useCallback(() => {
-    const g = globeRef.current
-    if (!g) return
-    g.pointOfView({ lat: CENTER_LAT, lng: CENTER_LNG, altitude: 1.65 }, 0)
-    const ctrl = g.controls()
-    ctrl.autoRotate = false
-    ctrl.enableZoom = false
-    ctrl.enablePan = false
-
-    const animate = (ts: number) => {
-      if (!startTimeRef.current) startTimeRef.current = ts
-      const elapsed = ts - startTimeRef.current
-      const phase = (elapsed % PERIOD_MS) / PERIOD_MS
-      const lng = CENTER_LNG + AMPLITUDE * Math.sin(phase * 2 * Math.PI)
-      g.pointOfView({ lat: CENTER_LAT, lng, altitude: 1.65 }, 0)
-      animRef.current = requestAnimationFrame(animate)
-    }
-    animRef.current = requestAnimationFrame(animate)
-  }, [])
-
-  useEffect(() => {
-    return () => { if (animRef.current) cancelAnimationFrame(animRef.current) }
-  }, [])
+  // Vérifier si un point est sur l'hémisphère visible
+  const isPointVisible = useCallback((lon: number, lat: number) => {
+    const [rx] = rotation
+    const dLon = ((lon - (-rx)) + 540) % 360 - 180
+    return Math.abs(dLon) <= 90
+  }, [rotation])
 
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full" onClick={(e) => {
-      // Ferme le tooltip si clic en dehors d'un pays
-      if ((e.target as HTMLElement).tagName === "CANVAS") setTooltip(null)
-    }}>
-      {/* Tooltip au clic — stable, ne dépend pas du hover */}
-      {tooltip && (
-        <div
-          style={{
-            position: "absolute",
-            left: Math.min(tooltip.x + 12, size.w - 200),
-            top: Math.max(tooltip.y - 70, 8),
-            zIndex: 20,
-            pointerEvents: "none",
-            background: "rgba(13,40,64,0.95)",
-            color: "white",
-            padding: "8px 13px",
-            borderRadius: "8px",
-            fontSize: "12px",
-            fontFamily: "Arial, sans-serif",
-            border: `1px solid ${tooltip.kind === "pipeline" ? "rgba(244,185,66,0.55)" : tooltip.isMember ? "rgba(244,185,66,0.6)" : "rgba(255,255,255,0.15)"}`,
-            boxShadow: "0 4px 16px rgba(0,0,0,0.35)",
-            whiteSpace: "nowrap",
-            minWidth: "120px",
-          }}
-        >
-          {tooltip.kind === "pipeline" ? (
-            <>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                <div style={{ width: 18, height: 2, borderRadius: 1, backgroundColor: tooltip.status === "operational" ? "#F4B942" : tooltip.status === "under construction" ? "#4cc9f0" : "#aaa", flexShrink: 0 }} />
-                <div style={{ fontWeight: "bold" }}>{tooltip.name}</div>
-              </div>
-              <div style={{
-                fontSize: "10px",
-                color: tooltip.status === "operational" ? "#F4B942" : tooltip.status === "under construction" ? "#4cc9f0" : "#aaa",
-              }}>
-                {tooltip.status === "operational" ? "● Opérationnel" : tooltip.status === "under construction" ? "● En construction" : `● ${tooltip.status}`}
-              </div>
-            </>
-          ) : (
-            <>
-              <div style={{ fontWeight: "bold", marginBottom: tooltip.isMember ? 3 : 0 }}>{tooltip.name}</div>
-              {tooltip.isMember && <div style={{ color: "#F4B942", fontSize: "10px" }}>● Membre APPO</div>}
-              <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "10px", marginTop: 2 }}>Voir le profil →</div>
-            </>
-          )}
-        </div>
-      )}
+    <div
+      className="w-full h-full flex items-center justify-center relative select-none"
+      style={{ cursor: grabbing ? "grabbing" : "grab" }}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+    >
+      {/* Arrière-plan Constellation (réseau étoilé) */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" style={{ zIndex: 0 }}>
+        <line x1="15%" y1="20%" x2="45%" y2="15%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="45%" y1="15%" x2="70%" y2="30%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="70%" y1="30%" x2="80%" y2="60%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="80%" y1="60%" x2="50%" y2="85%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="50%" y1="85%" x2="25%" y2="70%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="25%" y1="70%" x2="15%" y2="20%" stroke="#0F3B57" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="45%" y1="15%" x2="50%" y2="85%" stroke="#0F3B57" strokeWidth="0.8" strokeDasharray="3 3" />
+        <line x1="25%" y1="70%" x2="70%" y2="30%" stroke="#0F3B57" strokeWidth="0.8" strokeDasharray="3 3" />
+        <circle cx="15%" cy="20%" r="3" fill="#0F3B57" />
+        <circle cx="45%" cy="15%" r="3" fill="#F4B942" className="animate-pulse" />
+        <circle cx="70%" cy="30%" r="3.5" fill="#0F3B57" />
+        <circle cx="80%" cy="60%" r="2.5" fill="#0F3B57" />
+        <circle cx="50%" cy="85%" r="4" fill="#F4B942" className="animate-pulse" />
+        <circle cx="25%" cy="70%" r="3" fill="#0F3B57" />
+      </svg>
+
+      {/* Conteneur Océanique Sphérique du Globe (radial gradient 3D) */}
+      <div
+        aria-hidden="true"
+        className="absolute rounded-full transition-transform duration-300"
+        style={{
+          width: `${GLOBE_DIAMETER_PCT}%`,
+          aspectRatio: "1 / 1",
+          background: "radial-gradient(circle at 35% 30%, #164e73 0%, #0c2b42 45%, #05131d 100%)",
+          boxShadow: "0 10px 40px rgba(15,59,87,0.25), inset 0 0 45px rgba(0,0,0,0.6)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Carte SimpleMaps vectorielle (projection orthographique) */}
       {geoData && (
-        <Globe
-          ref={globeRef}
-          width={size.w}
-          height={size.h}
-          backgroundColor="rgba(0,0,0,0)"
-          globeImageUrl=""
-          atmosphereColor="#a8d0ee"
-          atmosphereAltitude={0.18}
-          // Polygones pays
-          polygonsData={geoData.features}
-          polygonCapColor={getColor}
-          polygonSideColor={getSideColor}
-          polygonStrokeColor={() => "rgba(100,150,190,0.4)"}
-          polygonAltitude={getAltitude}
-          onPolygonClick={handleClick}
-          polygonsTransitionDuration={200}
-          // Arcs pipelines multi-pays
-          arcsData={arcs}
-          arcStartLat={(d) => (d as ArcEntry).startLat}
-          arcStartLng={(d) => (d as ArcEntry).startLng}
-          arcEndLat={(d) => (d as ArcEntry).endLat}
-          arcEndLng={(d) => (d as ArcEntry).endLng}
-          arcColor={(d: object) => (d as ArcEntry).color}
-          arcStroke={1.8}
-          arcAltitude={0.03}
-          onArcClick={handleArcClick}
-          // Marqueurs production HTML
-          htmlElementsData={prodPoints}
-          htmlLat={(d) => (d as ProductionPoint).lat}
-          htmlLng={(d) => (d as ProductionPoint).lng}
-          htmlAltitude={0.025}
-          htmlElement={makeHtmlElement}
-          onGlobeReady={handleGlobeReady}
-          rendererConfig={{ antialias: true, alpha: true }}
-        />
+        <ComposableMap
+          projection="geoOrthographic"
+          projectionConfig={{ rotate: rotation, scale: BASE_SCALE }}
+          className="w-full h-full"
+          style={{ outline: "none", background: "transparent", position: "relative", zIndex: 2 }}
+        >
+          <Geographies geography={geoData}>
+            {({ geographies }: { geographies: GeoFeature[] }) => {
+              const africanGeos = geographies.filter(geo => getIso2(geo))
+              return (
+                <>
+                  {/* Tracés géographiques des pays */}
+                  {africanGeos.map((geo) => {
+                    const iso2 = getIso2(geo)
+                    const isSelected = selectedCountry === iso2
+                    const isAppo = APPO_MEMBERS.has(iso2)
+                    return (
+                      <Geography
+                        key={(geo as unknown as { rsmKey: string }).rsmKey}
+                        geography={geo}
+                        onClick={() => {
+                          if (!hasDragged.current && iso2 && onSelectCountry) {
+                            onSelectCountry(iso2)
+                          }
+                        }}
+                        style={{
+                          default: {
+                            fill: isSelected ? "#F4B942" : isAppo ? "#065586" : "#E5EDF5",
+                            stroke: "#FFFFFF",
+                            strokeWidth: 0.5,
+                            outline: "none",
+                            transition: "fill 0.25s",
+                          },
+                          hover: {
+                            fill: isSelected ? "#F4B942" : isAppo ? "#0a73b5" : "#D2E2F0",
+                            stroke: "#FFFFFF",
+                            strokeWidth: 0.8,
+                            outline: "none",
+                            cursor: "pointer",
+                            transition: "fill 0.25s",
+                          },
+                          pressed: {
+                            fill: "#F4B942",
+                            stroke: "#FFFFFF",
+                            strokeWidth: 0.8,
+                            outline: "none",
+                          },
+                        }}
+                      />
+                    )
+                  })}
+
+                  {/* Noms des pays membres APPO */}
+                  {africanGeos.map((geo) => {
+                    const centroid = geoCentroid(geo)
+                    const iso2 = getIso2(geo)
+                    const isSelected = selectedCountry === iso2
+                    const isAppo = APPO_MEMBERS.has(iso2)
+                    if (!isAppo || !isPointVisible(centroid[0], centroid[1])) return null
+
+                    const label = COUNTRY_INFO[iso2]?.fr || geo.properties.name
+
+                    return (
+                      <Marker key={`${(geo as unknown as { rsmKey: string }).rsmKey}-label`} coordinates={centroid}>
+                        <text
+                          y="2"
+                          fontSize={isSelected ? 10 : 8}
+                          textAnchor="middle"
+                          alignmentBaseline="middle"
+                          fill={isSelected ? "#0D2840" : "rgba(255,255,255,0.85)"}
+                          fontWeight={isSelected ? "bold" : "normal"}
+                          className="pointer-events-none transition-all duration-300"
+                          style={{
+                            fontFamily: "sans-serif",
+                            textShadow: isSelected ? "none" : "1px 1px 2px rgba(0,0,0,0.7)",
+                          }}
+                        >
+                          {label}
+                        </text>
+                      </Marker>
+                    )
+                  })}
+                </>
+              )
+            }}
+          </Geographies>
+
+          {/* Spinners dynamiques de production (pétrole/gaz) */}
+          {prodPoints.map((p) => {
+            if (!isPointVisible(p.lon, p.lat)) return null
+            const hasOil = p.oil > 0
+
+            return (
+              <Marker key={p.iso2} coordinates={[p.lon, p.lat]}>
+                <g className="pointer-events-none">
+                  {/* Halo d'animation pulsée (effet radar) */}
+                  <circle
+                    r="12"
+                    fill={hasOil ? "rgba(239,68,68,0.2)" : "rgba(244,185,66,0.2)"}
+                    className="animate-ping"
+                  />
+
+                  {/* Icône du marqueur */}
+                  {hasOil ? (
+                    /* Baril de pétrole miniature */
+                    <g transform="translate(-6, -6) scale(0.5)" filter="drop-shadow(0 0 2px rgba(220,50,40,0.6))">
+                      <ellipse cx="12" cy="5" rx="7" ry="2.5" fill="#EF4444" stroke="#FFFFFF" strokeWidth="1.5" />
+                      <path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5" fill="#EF4444" stroke="#FFFFFF" strokeWidth="1.5" />
+                      <ellipse cx="12" cy="19" rx="7" ry="2.5" fill="none" stroke="#FFFFFF" strokeWidth="1.5" />
+                      <path d="M5 9h14M5 15h14" stroke="#FFFFFF" strokeWidth="1.5" />
+                    </g>
+                  ) : (
+                    /* Flamme de gaz miniature */
+                    <g transform="translate(-6, -6) scale(0.5)" filter="drop-shadow(0 0 2px rgba(244,185,66,0.8))">
+                      <path
+                        fill="#F4B942"
+                        stroke="#FFFFFF"
+                        strokeWidth="1.5"
+                        d="M12 2C12 2 8 7 8 11c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.5-1-3-1-3s-.5 2-1.5 2.5C13 9 12 2 12 2z"
+                      />
+                    </g>
+                  )}
+                </g>
+              </Marker>
+            )
+          })}
+        </ComposableMap>
       )}
-      {/* Légende */}
-      <div className="absolute bottom-16 left-3 z-10 flex flex-col gap-1.5 px-3 py-2 rounded-lg"
-        style={{ backgroundColor: "rgba(255,255,255,0.88)", border: "1px solid #D0E4F0", boxShadow: "0 2px 8px rgba(27,79,114,0.1)" }}>
-        <div className="flex items-center gap-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(220,80,60,0.95)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14, flexShrink: 0 }}>
-            <ellipse cx="12" cy="5" rx="7" ry="2.5"/><ellipse cx="12" cy="19" rx="7" ry="2.5"/>
-            <line x1="5" y1="5" x2="5" y2="19"/><line x1="19" y1="5" x2="19" y2="19"/>
-            <path d="M5 9 Q12 11 19 9"/><path d="M5 15 Q12 17 19 15"/>
-          </svg>
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.oilProduction}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <svg viewBox="0 0 24 24" fill="rgba(251,191,36,0.95)" stroke="none" style={{ width: 14, height: 14, flexShrink: 0 }}>
-            <path d="M12 2C12 2 8 7 8 11c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.5-1-3-1-3s-.5 2-1.5 2.5C13 9 12 2 12 2z"/>
-            <path d="M7 17c0-2.8 2.2-5 5-5s5 2.2 5 5c0 2.2-1.8 4-5 4s-5-1.8-5-4z" opacity="0.7"/>
-          </svg>
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.gasProduction}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(244,185,66,0.85)" }} />
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.pipelineOperational}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(76,201,240,0.75)" }} />
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>Pipeline (en construction)</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-0.5" style={{ backgroundColor: "rgba(180,180,180,0.55)" }} />
-          <span className="text-[10px] font-medium" style={{ color: "#1B4F72" }}>{t.map.pipelineProposed}</span>
-        </div>
-      </div>
     </div>
   )
 }
+
+export default memo(GlobeAIEM)
