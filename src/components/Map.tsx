@@ -90,16 +90,16 @@ interface MapProps {
 // ─── APPO Map Colors ──────────────────────────────────────────────────────────
 
 const MC = {
-  ocean:              "#D2E2F0",   // soft daylight blue (matches Leaflet container in globals.css)
-  countryDefault:     "#5B9EC9",   // APPO member IN the active region — strong accent so the region really pops
-  countryMemberOff:   "#E9ECF0",   // APPO member OUTSIDE active region — muted grey-blue
-  countryNonMember:   "#F5F7F8",   // non-APPO member — near-white
-  countryHover:       "#3E82AD",   // hover — slightly deeper than in-region so the cursor is obvious
-  countrySelected:    "#0F3B57",   // selected — APPO dark blue
-  countrySelectedH:   "#0A2B41",
-  border:             "#CFD8E3",   // country borders — thin, gentle
-  borderInRegion:     "#0F3B57",   // in-region border — sharper to reinforce the emphasis
-  borderHover:        "#0F3B57",
+  ocean:              "#D4E5F5",   // satin daylight blue
+  countryDefault:     "#1B4F72",   // APPO member IN active region — deep royal blue (prestige)
+  countryMemberOff:   "#4A7A99",   // APPO member OUTSIDE active region — muted elegant blue
+  countryNonMember:   "#EBEFEA",   // non-APPO — warm neutral limestone
+  countryHover:       "#F4B942",   // hover — bright APPO gold
+  countrySelected:    "#0A2540",   // selected — imperial navy
+  countrySelectedH:   "#061726",
+  border:             "#CBD5E1",   // country borders — thin, crisp
+  borderInRegion:     "#3B82F6",   // in-region border — reinforced accent
+  borderHover:        "#F4B942",   // hover border — gold trim
 }
 
 // ─── ISO3 → ISO2 mapping ──────────────────────────────────────────────────────
@@ -489,13 +489,22 @@ function CountryProfilePanel({ profile, onClose }: { profile: CountryProfile; on
   return (
     <div
       ref={panelRef}
-      className="fixed z-[2500] w-[350px] rounded-xl shadow-2xl overflow-hidden select-none"
-      style={{ left: pos.x, top: pos.y, border: "1px solid #D0E4F0" }}
+      className="fixed z-[2500] w-[360px] overflow-hidden select-none"
+      style={{
+        left: pos.x,
+        top: pos.y,
+        backgroundColor: "rgba(255,255,255,0.92)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderRadius: "20px",
+        border: "1px solid rgba(255,255,255,0.8)",
+        boxShadow: "0 20px 50px rgba(15,59,87,0.15)",
+      }}
     >
       {/* Header — drag handle */}
       <div
         className="flex items-start justify-between px-4 py-3 cursor-grab active:cursor-grabbing"
-        style={{ background: "linear-gradient(135deg, #0D2840, #1B4F72)", borderBottom: "3px solid #F4B942" }}
+        style={{ background: "linear-gradient(135deg, #0A2540, #1B4F72)", borderBottom: "3px solid #F4B942" }}
         onMouseDown={onMouseDown}
       >
         <div className="flex items-center gap-3">
@@ -719,8 +728,17 @@ function BasinPanel({
   return (
     <div
       ref={panelRef}
-      className="fixed z-[2500] w-[350px] rounded-xl shadow-2xl overflow-hidden select-none"
-      style={{ left: pos.x, top: pos.y, border: "1px solid #D0E4F0" }}
+      className="fixed z-[2500] w-[360px] overflow-hidden select-none"
+      style={{
+        left: pos.x,
+        top: pos.y,
+        backgroundColor: "rgba(255,255,255,0.92)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderRadius: "20px",
+        border: "1px solid rgba(255,255,255,0.8)",
+        boxShadow: "0 20px 50px rgba(15,59,87,0.15)",
+      }}
     >
       {/* Header */}
       <div
@@ -960,9 +978,19 @@ function pipelineStyle(status: string, name?: string) {
   const n = (name ?? "").toLowerCase()
   const isGas = /\bgas|gaz|gnl|lng\b/.test(n)
   const isOil = /\boil|petrol|crude|brut|condensat\b/.test(n)
-  const color = isGas ? "#FF9F1C"      // orange vif — gaz
-              : isOil ? "#00A896"      // vert-turquoise — pétrole/brut
-              : "#0F3B57"              // fallback: bleu APPO
+  // Primary palette drives the pipeline hue by product; when the product
+  // cannot be inferred from the name we fall back to a status-driven palette
+  // so the map still reads.
+  const byStatus: Record<string, string> = {
+    "operational":        "#F59E0B", // warm amber
+    "under construction": "#06B6D4", // electric cyan
+    "proposed":           "#8B5CF6", // modern violet
+    "concept":            "#8B5CF6",
+    "offline":            "#94A3B8", // sober slate
+  }
+  const color = isGas ? "#F59E0B"
+              : isOil ? "#0EA5A4"    // brighter teal — matches the premium palette
+              : (byStatus[status] ?? "#1B4F72")
   const dashes: Record<string, string> = {
     "proposed":           "4,6",
     "under construction": "10,5",

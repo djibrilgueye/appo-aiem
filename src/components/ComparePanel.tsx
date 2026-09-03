@@ -218,11 +218,17 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
     left: pos.x,
     top:  pos.y,
     zIndex: 1450,
+    backgroundColor: "rgba(255,255,255,0.95)",
+    backdropFilter: "blur(18px)",
+    WebkitBackdropFilter: "blur(18px)",
+    borderRadius: "20px",
+    border: "1px solid rgba(226,232,240,0.9)",
+    boxShadow: "0 25px 60px rgba(15,59,87,0.18)",
   }
 
   if (loading || selected.length === 0) {
     return (
-      <div ref={panelRef} style={panelStyle} className="w-[360px] bg-white text-[#0b2e59] rounded-xl border border-[#E5EDF5] shadow-xl">
+      <div ref={panelRef} style={panelStyle} className="w-[360px] text-[#0b2e59] overflow-hidden">
         <header
           onMouseDown={onMouseDown}
           className="flex items-center gap-2 px-3 py-2 border-b border-[#E5EDF5] font-bold cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl"
@@ -244,7 +250,7 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
     <div
       ref={panelRef}
       style={panelStyle}
-      className="max-w-[640px] bg-white text-[#0b2e59] rounded-xl border border-[#E5EDF5] shadow-xl"
+      className="max-w-[640px] text-[#0b2e59] overflow-hidden"
     >
       {/* Header */}
       <header

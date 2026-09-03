@@ -269,6 +269,7 @@ export function Sidebar({
 }: SidebarProps) {
   const { t } = useLanguage()
   const [countries, setCountries] = useState<Country[]>([])
+  const [countryQuery, setCountryQuery] = useState("")
 
   useEffect(() => {
     fetch("/api/countries")
@@ -277,9 +278,13 @@ export function Sidebar({
       .catch(console.error)
   }, [])
 
-  const filteredCountries = selectedRegion === "All"
+  const byRegion = selectedRegion === "All"
     ? countries
     : countries.filter(c => c.region === selectedRegion)
+  const q = countryQuery.trim().toLowerCase()
+  const filteredCountries = q
+    ? byRegion.filter(c => c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q))
+    : byRegion
 
   const toggleCountry = (id: string) =>
     selectedCountries.includes(id)
@@ -380,6 +385,14 @@ export function Sidebar({
           </div>
 
           <div className="flex-1">
+            <input
+              type="text"
+              value={countryQuery}
+              onChange={e => setCountryQuery(e.target.value)}
+              placeholder="🔎  Rechercher un pays…"
+              className="w-full mb-1.5 px-2 py-1 rounded outline-none"
+              style={{ fontSize: "11px", backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "#e6eef7" }}
+            />
             <div className="overflow-auto" style={{ maxHeight: "180px", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "6px", padding: "4px", backgroundColor: "rgba(255,255,255,0.04)" }}>
               {filteredCountries.map(country => {
                 const selected = selectedCountries.includes(country.id)
