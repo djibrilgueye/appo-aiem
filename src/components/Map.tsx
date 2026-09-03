@@ -1188,13 +1188,23 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       scrollWheelZoom: true, minZoom: 3, maxZoom: 9,
     })
 
-    // Fond de carte OpenStreetMap (Standard) — libre, sans clé API. Carto exige
-    // désormais une clé pour son endpoint anonyme (filigrane "API KEY REQUIRED").
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      opacity: 0.25,
-      attribution: "© OpenStreetMap contributors",
-    }).addTo(map)
+    // Fond de carte Carto "light_nolabels" — rendu épuré. Depuis 2024 Carto
+    // impose une clé API (NEXT_PUBLIC_CARTO_KEY, restreinte par domaine). Sans
+    // clé, on retombe sur OpenStreetMap Standard pour éviter le filigrane
+    // "API KEY REQUIRED" que Carto stampe sur les tuiles anonymes.
+    const cartoKey = process.env.NEXT_PUBLIC_CARTO_KEY
+    if (cartoKey) {
+      L.tileLayer(
+        `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?api_key=${cartoKey}`,
+        { maxZoom: 19, opacity: 0.25, attribution: "© CARTO © OpenStreetMap contributors" },
+      ).addTo(map)
+    } else {
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        opacity: 0.25,
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map)
+    }
     L.control.zoom({ position: "bottomleft" }).addTo(map)
 
     // Create groups but don't add to map yet — added after GeoJSON so they stay on top
