@@ -1188,7 +1188,13 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       scrollWheelZoom: true, minZoom: 3, maxZoom: 9,
     })
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", { maxZoom: 19, opacity: 0.25 }).addTo(map)
+    // Fond de carte OpenStreetMap (Standard) — libre, sans clé API. Carto exige
+    // désormais une clé pour son endpoint anonyme (filigrane "API KEY REQUIRED").
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      opacity: 0.25,
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(map)
     L.control.zoom({ position: "bottomleft" }).addTo(map)
 
     // Create groups but don't add to map yet — added after GeoJSON so they stay on top
