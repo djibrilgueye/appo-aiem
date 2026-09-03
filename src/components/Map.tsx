@@ -1182,27 +1182,34 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     if (container._leaflet_id) delete container._leaflet_id
     let destroyed = false
 
+    // attributionControl activé — obligation licence CARTO + OpenStreetMap
+    // (contrepartie du tier gratuit CARTO).
     const map = L.map(mapRef.current, {
       center: [3, 20], zoom: 4,
-      zoomControl: false, attributionControl: false,
+      zoomControl: false,
       scrollWheelZoom: true, minZoom: 3, maxZoom: 9,
     })
 
     // Fond de carte Carto "light_nolabels" — rendu épuré. Depuis 2024 Carto
-    // impose une clé API (NEXT_PUBLIC_CARTO_KEY, restreinte par domaine). Sans
+    // impose une clé (NEXT_PUBLIC_CARTO_KEY, restreinte par domaine). Sans
     // clé, on retombe sur OpenStreetMap Standard pour éviter le filigrane
     // "API KEY REQUIRED" que Carto stampe sur les tuiles anonymes.
     const cartoKey = process.env.NEXT_PUBLIC_CARTO_KEY
     if (cartoKey) {
       L.tileLayer(
-        `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?api_key=${cartoKey}`,
-        { maxZoom: 19, opacity: 0.25, attribution: "© CARTO © OpenStreetMap contributors" },
+        `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?key=${cartoKey}`,
+        {
+          maxZoom: 20,
+          opacity: 0.25,
+          subdomains: "abcd",
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+        },
       ).addTo(map)
     } else {
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         opacity: 0.25,
-        attribution: "© OpenStreetMap contributors",
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
       }).addTo(map)
     }
     L.control.zoom({ position: "bottomleft" }).addTo(map)
