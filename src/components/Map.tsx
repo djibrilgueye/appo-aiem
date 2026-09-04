@@ -90,15 +90,15 @@ interface MapProps {
 // ─── APPO Map Colors ──────────────────────────────────────────────────────────
 
 const MC = {
-  ocean:              "#D4E5F5",   // satin daylight blue
-  countryDefault:     "#1B4F72",   // APPO member IN active region — deep royal blue (prestige)
-  countryMemberOff:   "#4A7A99",   // APPO member OUTSIDE active region — muted elegant blue
-  countryNonMember:   "#EBEFEA",   // non-APPO — warm neutral limestone
-  countryHover:       "#F4B942",   // hover — bright APPO gold
-  countrySelected:    "#0A2540",   // selected — imperial navy
-  countrySelectedH:   "#061726",
+  ocean:              "#D4E5F5",   // satin daylight blue (fallback)
+  countryDefault:     "#1E6091",   // APPO member IN active region — royal blue, translucent
+  countryMemberOff:   "#4A7A99",   // APPO member OUTSIDE active region — muted blue
+  countryNonMember:   "#FFFFFF",   // non-APPO — near-white so relief shows through
+  countryHover:       "#2563EB",   // hover — vivid azure
+  countrySelected:    "#0F3B57",   // selected — APPO deep navy
+  countrySelectedH:   "#0A2540",
   border:             "#CBD5E1",   // country borders — thin, crisp
-  borderInRegion:     "#3B82F6",   // in-region border — reinforced accent
+  borderInRegion:     "#38BDF8",   // in-region border — bright sky trim
   borderHover:        "#F4B942",   // hover border — gold trim
 }
 
@@ -1157,10 +1157,10 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       const isMember   = memberCodesRef.current.has(iso2)
       const isInRegion = regionCodesRef.current.size === 0 || regionCodesRef.current.has(iso2)
       lyr.setStyle(
-        isSelected  ? { fillColor: MC.countrySelected,  fillOpacity: 0.9,  color: MC.borderHover,    weight: 1.4 }
-        : !isMember ? { fillColor: MC.countryNonMember, fillOpacity: 0.5,  color: MC.border,         weight: 0.6 }
-        : isInRegion? { fillColor: MC.countryDefault,   fillOpacity: 0.85, color: MC.borderInRegion, weight: 1.2 }
-        :             { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border,         weight: 0.6 }
+        isSelected  ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
+        : !isMember ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
+        : isInRegion? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
+        :             { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
       )
     })
     tradeHighlightRef.current.clear()
@@ -1218,29 +1218,31 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       scrollWheelZoom: true, minZoom: 3, maxZoom: 9,
     })
 
-    // Fond de carte Carto "light_nolabels" — rendu épuré. Depuis 2024 Carto
-    // impose une clé (NEXT_PUBLIC_CARTO_KEY, restreinte par domaine). Sans
-    // clé, on retombe sur OpenStreetMap Standard pour éviter le filigrane
-    // "API KEY REQUIRED" que Carto stampe sur les tuiles anonymes.
+    // Bathymetric ocean base — Esri World Ocean Base, free & keyless, brings
+    // sea-floor relief and coastal shading. Serves as the always-on background.
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
+      {
+        maxZoom: 13,
+        attribution: "Tiles &copy; Esri — Sources: GEBCO, NOAA, CHS, National Geographic",
+      },
+    ).addTo(map)
+
+    // Optional Carto light_nolabels overlay (thin labels-free borders) on top
+    // of the Esri ocean base, at reduced opacity so relief still reads.
     const cartoKey = process.env.NEXT_PUBLIC_CARTO_KEY
     if (cartoKey) {
       L.tileLayer(
         `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?key=${cartoKey}`,
         {
           maxZoom: 20,
-          opacity: 0.25,
+          opacity: 0.35,
           subdomains: "abcd",
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
         },
       ).addTo(map)
-    } else {
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        opacity: 0.25,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
-      }).addTo(map)
     }
-    L.control.zoom({ position: "bottomleft" }).addTo(map)
+    L.control.zoom({ position: "topright" }).addTo(map)
 
     // Create groups but don't add to map yet — added after GeoJSON so they stay on top
     const mg = L.layerGroup()
@@ -1279,7 +1281,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
         geoCentroidsRef.current = centroids
 
         const layer = L.geoJSON(geo, {
-          style: () => ({ fillColor: MC.countryNonMember, fillOpacity: 0.55, color: MC.border, weight: 0.8 }),
+          style: () => ({ fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border, weight: 0.6 }),
           onEachFeature: (feature, lyr) => {
             const iso2 = feature.properties?.iso2
             // Store iso2 on the layer for membership checks in hover
@@ -1297,7 +1299,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 if (hoveredLayer.current && hoveredLayer.current !== tgt)
                   geoLayer.current?.resetStyle(hoveredLayer.current)
                 hoveredLayer.current = tgt
-                tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.95, color: MC.borderHover, weight: 1.6 })
+                tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
               },
               mouseout: (e) => {
                 const tgt = e.target as L.Path & { _iso2?: string }
@@ -1308,12 +1310,12 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 // Restore the correct style (4-tier: selected > non-member > in-region > off-region)
                 tgt.setStyle(
                   isSelected
-                    ? { fillColor: MC.countrySelected,  fillOpacity: 0.9,  color: MC.borderHover,    weight: 1.4 }
+                    ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
                     : !isMember
-                    ? { fillColor: MC.countryNonMember, fillOpacity: 0.5,  color: MC.border,         weight: 0.6 }
+                    ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
                     : isInRegion
-                    ? { fillColor: MC.countryDefault,   fillOpacity: 0.85, color: MC.borderInRegion, weight: 1.2 }
-                    : { fillColor: MC.countryMemberOff, fillOpacity: 0.55, color: MC.border,         weight: 0.6 }
+                    ? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
+                    : { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
                 )
                 if (hoveredLayer.current === tgt) hoveredLayer.current = null
                 if (!tooltipLocked.current) {
@@ -1878,16 +1880,14 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
         const lines = wrapText(country.name, LABEL_WRAP[iso2] ?? 14)
         const html = lines.map(l => `<div style="line-height:1.2">${l}</div>`).join("")
         const h = lines.length * 14
-        const isSelected = selectedIso2Set.has(iso2)
-        const color = isSelected ? "#ffffff" : "#0D2840"
-        const shadow = isSelected
-          ? "0 1px 3px rgba(0,0,0,0.7)"
-          : "0 0 2px rgba(255,255,255,0.9),0 0 4px rgba(255,255,255,0.7)"
+        // Labels always in crisp white with a strong drop shadow — legible on
+        // every fill (deep royal, translucent limestone, navy when selected).
+        const shadow = "0 1px 4px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,0.7)"
         const icon = L.divIcon({
           className: "",
-          html: `<div style="background:transparent;color:${color};font-size:10px;font-weight:bold;font-family:Arial,sans-serif;text-align:center;text-shadow:${shadow}">${html}</div>`,
-          iconSize: [90, h],
-          iconAnchor: [45, h / 2],
+          html: `<div style="background:transparent;color:#FFFFFF;font-size:9px;font-weight:700;font-family:Arial,Helvetica,sans-serif;text-align:center;text-transform:uppercase;letter-spacing:0.06em;text-shadow:${shadow}">${html}</div>`,
+          iconSize: [110, h],
+          iconAnchor: [55, h / 2],
         })
         L.marker([lat, lon], { icon, interactive: false, zIndexOffset: 2000 }).addTo(lg)
       })
