@@ -418,17 +418,16 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* Year */}
-      <div style={section}>
-        <div style={sectionTitle}>{t.sidebar.year}</div>
-        <div className="flex items-center gap-2">
-          <span style={{ backgroundColor: "#4cc9f0", color: "#0b1220", borderRadius: "6px", padding: "3px 10px", fontWeight: "bold", fontSize: "14px", minWidth: "46px", textAlign: "center" }}>
-            {selectedYear}
-          </span>
-          <input type="range" min="2021" max="2026" value={selectedYear}
-            onChange={e => setSelectedYear(parseInt(e.target.value))}
-            className="flex-1" style={{ accentColor: "#4cc9f0" }} />
-        </div>
+      {/* Year — read-only reminder. Selection and Play/Pause live in the
+          floating timeline at the bottom of the map (single source of truth). */}
+      <div style={{ ...section, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+        <div style={{ ...sectionTitle, marginBottom: 0 }}>{t.sidebar.year}</div>
+        <span
+          title="Sélection via la timeline en bas de la carte"
+          style={{ backgroundColor: "rgba(76,201,240,0.15)", color: "#4cc9f0", border: "1px solid rgba(76,201,240,0.45)", borderRadius: "999px", padding: "2px 10px", fontWeight: "bold", fontSize: "12px", letterSpacing: "0.04em" }}
+        >
+          Édition {selectedYear}
+        </span>
       </div>
 
       {/* Display + Status — side-by-side accordions to keep the sidebar compact */}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
-import { Download, GripHorizontal, X, FileText, Image } from "lucide-react"
+import { Download, GripHorizontal, X, FileText, ChevronDown, ChevronUp, Maximize2, Minimize2 } from "lucide-react"
 
 interface Country {
   id: string
@@ -16,6 +16,88 @@ interface ComparePanelProps {
   onClose: () => void
 }
 
+// ISO3 → ISO2 for flag emoji (DB country codes are ISO3).
+const ISO3_TO_ISO2: Record<string, string> = {
+  DZA: "DZ", AGO: "AO", BEN: "BJ", CMR: "CM", TCD: "TD", COD: "CD", COG: "CG", CIV: "CI",
+  EGY: "EG", GNQ: "GQ", GAB: "GA", GHA: "GH", LBY: "LY", NAM: "NA", NER: "NE", NGA: "NG",
+  SEN: "SN", ZAF: "ZA", SDN: "SD", SSD: "SS", TZA: "TZ", TUN: "TN", MOZ: "MZ", MAR: "MA",
+  RWA: "RW", TGO: "TG", KEN: "KE", ETH: "ET", UGA: "UG", MRT: "MR",
+}
+
+function getCountryFlag(code: string): string {
+  const iso2 = code.length === 2 ? code : (ISO3_TO_ISO2[code] ?? "")
+  if (!iso2 || iso2.length !== 2) return "🌍"
+  return [...iso2.toUpperCase()]
+    .map(c => String.fromCodePoint(127397 + c.charCodeAt(0)))
+    .join("")
+}
+
+function ExpandableBadgeList({
+  items,
+  label,
+  colorClass = "bg-blue-50 text-[#0F3B57] border-blue-200/70",
+}: {
+  items: string[]
+  label: string
+  colorClass?: string
+}) {
+  const [expanded, setExpanded] = useState(false)
+  if (!items || items.length === 0) return <span className="text-slate-400">—</span>
+
+  return (
+    <div className="flex flex-col gap-1.5 items-start">
+      <button
+        onClick={() => setExpanded(e => !e)}
+        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer hover:shadow-sm ${colorClass}`}
+      >
+        <span>{items.length} {label}{items.length > 1 ? "s" : ""}</span>
+        {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+      </button>
+
+      {expanded && (
+        <div className="mt-1 p-2 rounded-xl bg-slate-50 border border-slate-200/80 shadow-inner flex flex-col gap-1 max-h-44 overflow-y-auto w-full">
+          {items.map((item, idx) => (
+            <div key={idx} className="text-[11px] font-medium text-slate-700 bg-white px-2 py-1 rounded-md border border-slate-100">
+              {item}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function BenchmarkMetricBar({
+  value,
+  maxValue,
+  unit,
+  barColor = "bg-cyan-500",
+}: {
+  value: number
+  maxValue: number
+  unit: string
+  barColor?: string
+}) {
+  if (!value || value <= 0) return <span className="text-slate-400 font-medium">—</span>
+  const pct = maxValue > 0 ? Math.min(100, Math.max(8, (value / maxValue) * 100)) : 0
+
+  return (
+    <div className="flex flex-col gap-1 w-full max-w-[170px]">
+      <div className="flex items-baseline justify-between text-xs">
+        <span className="font-bold text-slate-900">{value.toLocaleString()}</span>
+        <span className="text-[10px] text-slate-400 font-medium ml-1">{unit}</span>
+      </div>
+      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all duration-500 ${barColor}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  )
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function ComparePanel({ selectedCountries, selectedYear, onClose }: ComparePanelProps) {
   const [countries, setCountries]   = useState<Country[]>([])
   const [reserves, setReserves]     = useState<any[]>([])
@@ -27,12 +109,13 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
   const [storage, setStorage]       = useState<any[]>([])
   const [petrochem, setPetrochem]   = useState<any[]>([])
   const [showExport, setShowExport] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading]       = useState(true)
+  const [isMaximized, setIsMaximized] = useState(false)
 
   // Drag state
   const panelRef  = useRef<HTMLDivElement>(null)
   const dragState = useRef({ dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 })
-  const [pos, setPos] = useState({ x: 12, y: 12 })
+  const [pos, setPos] = useState({ x: 360, y: 70 })
 
   useEffect(() => {
     Promise.all([
@@ -59,24 +142,27 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
     })
   }, [selectedYear])
 
-  // Drag handlers
   const onMouseDown = useCallback((e: React.MouseEvent) => {
+    if (isMaximized) return // no drag while maximized
     if ((e.target as HTMLElement).closest("button")) return
     dragState.current = { dragging: true, startX: e.clientX, startY: e.clientY, originX: pos.x, originY: pos.y }
     e.preventDefault()
-  }, [pos])
+  }, [pos, isMaximized])
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       if (!dragState.current.dragging) return
       const dx = e.clientX - dragState.current.startX
       const dy = e.clientY - dragState.current.startY
-      setPos({ x: dragState.current.originX + dx, y: dragState.current.originY + dy })
+      setPos({ x: Math.max(10, dragState.current.originX + dx), y: Math.max(10, dragState.current.originY + dy) })
     }
     const onUp = () => { dragState.current.dragging = false }
     window.addEventListener("mousemove", onMove)
     window.addEventListener("mouseup", onUp)
-    return () => { window.removeEventListener("mousemove", onMove); window.removeEventListener("mouseup", onUp) }
+    return () => {
+      window.removeEventListener("mousemove", onMove)
+      window.removeEventListener("mouseup", onUp)
+    }
   }, [])
 
   const selected = countries.filter(c => selectedCountries.includes(c.id))
@@ -87,160 +173,79 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
       return val === code
     })
 
-  const rows: { label: string; values: (string | number)[] }[] = [
-    {
-      label: "Oil production (kb/d)",
-      values: selected.map(c => {
-        const p = getByCode(production, c.code)
-        return p.length > 0 && p[0].oil > 0 ? p[0].oil.toLocaleString() : "—"
-      }),
-    },
-    {
-      label: "Gas production (M m³/yr)",
-      values: selected.map(c => {
-        const p = getByCode(production, c.code)
-        return p.length > 0 && p[0].gas > 0 ? p[0].gas.toLocaleString() : "—"
-      }),
-    },
-    {
-      label: "Oil reserves (Gbbl)",
-      values: selected.map(c => {
-        const r = getByCode(reserves, c.code)
-        return r.length > 0 && r[0].oil > 0 ? r[0].oil.toLocaleString() : "—"
-      }),
-    },
-    {
-      label: "Gas reserves (Tcf)",
-      values: selected.map(c => {
-        const r = getByCode(reserves, c.code)
-        return r.length > 0 && r[0].gas > 0 ? r[0].gas.toLocaleString() : "—"
-      }),
-    },
-    {
-      label: "Refineries",
-      values: selected.map(c => {
-        const items = getByCode(refineries, c.code)
-        return items.length > 0 ? items.map((r: any) => r.name).join(", ") : "—"
-      }),
-    },
-    {
-      label: "Pipelines",
-      values: selected.map(c => {
-        const items = pipelines.filter((p: any) => p.countries?.includes(c.code))
-        return items.length > 0 ? items.map((p: any) => p.name).join(", ") : "—"
-      }),
-    },
-    {
-      label: "Training institutes",
-      values: selected.map(c => {
-        const items = getByCode(training, c.code)
-        return items.length > 0 ? items.map((t: any) => t.name).join(", ") : "—"
-      }),
-    },
-    {
-      label: "R&D centers",
-      values: selected.map(c => {
-        const items = getByCode(rnd, c.code)
-        return items.length > 0 ? items.map((r: any) => r.name).join(", ") : "—"
-      }),
-    },
-    {
-      label: "Storage facilities",
-      values: selected.map(c => {
-        const items = getByCode(storage, c.code)
-        return items.length > 0 ? items.map((s: any) => `${s.name} (${s.capacityMb} Mb)`).join(", ") : "—"
-      }),
-    },
-    {
-      label: "Petrochemical plants",
-      values: selected.map(c => {
-        const items = getByCode(petrochem, c.code)
-        return items.length > 0 ? items.map((p: any) => p.name).join(", ") : "—"
-      }),
-    },
-  ]
+  const maxOilProd = Math.max(...selected.map(c => getByCode(production, c.code)[0]?.oil || 0), 1)
+  const maxGasProd = Math.max(...selected.map(c => getByCode(production, c.code)[0]?.gas || 0), 1)
+  const maxOilRes  = Math.max(...selected.map(c => getByCode(reserves, c.code)[0]?.oil || 0), 1)
+  const maxGasRes  = Math.max(...selected.map(c => getByCode(reserves, c.code)[0]?.gas || 0), 1)
 
-  // Export CSV
   const exportCsv = () => {
-    const header = ["Indicator", ...selected.map(c => c.name)].join(",")
-    const body = rows.map(row =>
-      [`"${row.label}"`, ...row.values.map(v => `"${String(v).replace(/"/g, '""')}"`)]
-        .join(",")
-    ).join("\n")
+    const header = ["Indicateur", ...selected.map(c => c.name)].join(",")
+    const body = [
+      ["Production Pétrole (kb/j)", ...selected.map(c => getByCode(production, c.code)[0]?.oil || 0)],
+      ["Production Gaz (M m³/an)", ...selected.map(c => getByCode(production, c.code)[0]?.gas || 0)],
+      ["Réserves Pétrole (Gbbl)", ...selected.map(c => getByCode(reserves, c.code)[0]?.oil || 0)],
+      ["Réserves Gaz (Tcf)", ...selected.map(c => getByCode(reserves, c.code)[0]?.gas || 0)],
+      ["Raffineries", ...selected.map(c => getByCode(refineries, c.code).length)],
+      ["Pipelines", ...selected.map(c => pipelines.filter((p: any) => p.countries?.includes(c.code)).length)],
+    ].map(row => row.map(v => `"${v}"`).join(",")).join("\n")
+
     const blob = new Blob([`${header}\n${body}`], { type: "text/csv;charset=utf-8;" })
     const url  = URL.createObjectURL(blob)
     const a    = document.createElement("a")
     a.href     = url
-    a.download = `country-comparison-${selectedYear}.csv`
+    a.download = `comparaison-pays-${selectedYear}.csv`
     a.click()
     URL.revokeObjectURL(url)
     setShowExport(false)
   }
 
-  // Export PNG (html2canvas-free: use native print on a hidden iframe)
-  const exportPng = async () => {
-    setShowExport(false)
-    if (!panelRef.current) return
-
-    // Build a standalone HTML snapshot
-    const countryHeaders = selected.map(c => `<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #E5EDF5;white-space:nowrap;color:#0D2840;font-weight:700">${c.name}</th>`).join("")
-    const bodyRows = rows.map(row => {
-      const cells = row.values.map(v => `<td style="padding:6px 12px;border-bottom:1px solid #F4F7FA;color:#334155;vertical-align:top">${v}</td>`).join("")
-      return `<tr><th style="padding:6px 12px;border-bottom:1px solid #F4F7FA;text-align:left;color:#1B4F72;font-weight:600;white-space:nowrap">${row.label}</th>${cells}</tr>`
-    }).join("")
-
-    const html = `<!DOCTYPE html><html><head><meta charset="utf-8"/>
-<style>body{margin:0;font-family:Arial,sans-serif;background:#F4F7FB;padding:24px;}
-.card{background:#fff;border-radius:12px;border:1px solid #E5EDF5;overflow:hidden;box-shadow:0 2px 12px rgba(27,79,114,.1);}
-h2{margin:0;padding:16px 20px;background:#1B4F72;color:#fff;font-size:15px;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
-</style></head><body>
-<div class="card">
-<h2>Country Comparison — ${selectedYear}</h2>
-<table>
-<thead><tr><th style="padding:8px 12px;text-align:left;border-bottom:2px solid #E5EDF5;color:#0D2840"></th>${countryHeaders}</tr></thead>
-<tbody>${bodyRows}</tbody>
-</table>
-</div></body></html>`
-
-    const iframe = document.createElement("iframe")
-    iframe.style.cssText = "position:fixed;top:-9999px;left:-9999px;width:900px;height:600px;border:none"
-    document.body.appendChild(iframe)
-    iframe.contentDocument!.write(html)
-    iframe.contentDocument!.close()
-    await new Promise(r => setTimeout(r, 300))
-    iframe.contentWindow!.print()
-    setTimeout(() => document.body.removeChild(iframe), 2000)
-  }
-
-  const panelStyle: React.CSSProperties = {
-    position: "absolute",
-    left: pos.x,
-    top:  pos.y,
-    zIndex: 1450,
-    backgroundColor: "rgba(255,255,255,0.95)",
-    backdropFilter: "blur(18px)",
-    WebkitBackdropFilter: "blur(18px)",
-    borderRadius: "20px",
-    border: "1px solid rgba(226,232,240,0.9)",
-    boxShadow: "0 25px 60px rgba(15,59,87,0.18)",
-  }
+  // Floating (draggable) or maximized (fixed inset) shell
+  const panelStyle: React.CSSProperties = isMaximized
+    ? {
+        position: "fixed",
+        top: "20px",
+        left: "20px",
+        right: "20px",
+        bottom: "20px",
+        zIndex: 1500,
+        backgroundColor: "rgba(255,255,255,0.98)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        borderRadius: "24px",
+        border: "1px solid rgba(226,232,240,0.9)",
+        boxShadow: "0 25px 80px rgba(15,59,87,0.3)",
+      }
+    : {
+        position: "absolute",
+        left: pos.x,
+        top:  pos.y,
+        zIndex: 1450,
+        width: "720px",
+        maxWidth: "92vw",
+        maxHeight: "85vh",
+        backgroundColor: "rgba(255,255,255,0.96)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderRadius: "20px",
+        border: "1px solid rgba(226,232,240,0.9)",
+        boxShadow: "0 25px 60px -15px rgba(15,59,87,0.22)",
+      }
 
   if (loading || selected.length === 0) {
     return (
-      <div ref={panelRef} style={panelStyle} className="w-[360px] text-[#0b2e59] overflow-hidden">
+      <div ref={panelRef} style={{ ...panelStyle, width: "380px" }} className="overflow-hidden">
         <header
           onMouseDown={onMouseDown}
-          className="flex items-center gap-2 px-3 py-2 border-b border-[#E5EDF5] font-bold cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl"
+          className="flex items-center gap-2 px-4 py-3 border-b border-slate-200/80 bg-[#0F3B57] text-white cursor-grab active:cursor-grabbing select-none"
         >
-          <GripHorizontal size={14} className="opacity-60 shrink-0" />
-          <span className="flex-1 text-sm">Comparaison des pays</span>
-          <button onClick={onClose} title="Close" className="hover:opacity-70 transition ml-1">
+          <GripHorizontal size={15} className="opacity-70 shrink-0" />
+          <span className="flex-1 text-xs font-bold uppercase tracking-wider">Comparaison des pays</span>
+          <button onClick={onClose} className="hover:opacity-75 transition text-white">
             <X size={15} />
           </button>
         </header>
-        <div className="p-3 text-[#5B8FB9] text-sm">
-          {loading ? "Chargement…" : "Sélectionnez au moins un pays dans la liste."}
+        <div className="p-5 text-slate-500 text-xs">
+          {loading ? "Chargement des données…" : "Veuillez cocher au moins 2 pays dans la liste pour les comparer."}
         </div>
       </div>
     )
@@ -250,74 +255,195 @@ table{width:100%;border-collapse:collapse;font-size:13px;}
     <div
       ref={panelRef}
       style={panelStyle}
-      className="max-w-[640px] text-[#0b2e59] overflow-hidden"
+      className="overflow-hidden flex flex-col transition-all duration-200"
     >
-      {/* Header */}
+      {/* Header: draggable + maximize / export / close */}
       <header
         onMouseDown={onMouseDown}
-        className="flex items-center gap-2 px-3 py-2 border-b border-[#E5EDF5] cursor-grab active:cursor-grabbing select-none bg-[#1B4F72] text-white rounded-t-xl sticky top-0 z-10"
+        className={`flex items-center gap-3 px-5 py-3 border-b border-slate-200/80 bg-white select-none shrink-0 ${
+          isMaximized ? "cursor-default" : "cursor-grab active:cursor-grabbing"
+        }`}
       >
-        <GripHorizontal size={14} className="opacity-60 shrink-0" />
-        <span className="flex-1 text-sm font-bold">Country comparison — {selectedYear}</span>
+        {!isMaximized && (
+          <GripHorizontal size={16} className="text-slate-400 hover:text-slate-600 transition" />
+        )}
+        <div className="flex-1 flex items-center gap-2">
+          <span className="text-sm font-extrabold text-[#0F3B57]">Comparaison des Pays</span>
+          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+            {selectedYear}
+          </span>
+          <span className="text-xs text-slate-400 font-medium">
+            ({selected.length} pays sélectionnés)
+          </span>
+        </div>
 
-        {/* Export dropdown */}
         <div className="relative">
           <button
             onClick={() => setShowExport(v => !v)}
-            title="Export"
-            className="flex items-center gap-1 bg-white/15 hover:bg-white/25 text-white px-2 py-1 rounded text-xs transition"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-[#0F3B57] border border-slate-200/80 transition"
           >
-            <Download size={12} /> Export
+            <Download size={13} />
+            <span className="hidden sm:inline">Exporter</span>
           </button>
           {showExport && (
-            <div className="absolute right-0 top-full mt-1 bg-white border border-[#E5EDF5] rounded-lg shadow-lg z-50 min-w-[140px] overflow-hidden">
+            <div className="absolute right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl z-50 min-w-[140px] overflow-hidden">
               <button
                 onClick={exportCsv}
-                className="flex items-center gap-2 w-full px-3 py-2 text-xs text-[#0D2840] hover:bg-[#F4F7FB] transition"
+                className="flex items-center gap-2 w-full px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition"
               >
-                <FileText size={13} className="text-[#1B4F72]" /> Export CSV
-              </button>
-              <button
-                onClick={exportPng}
-                className="flex items-center gap-2 w-full px-3 py-2 text-xs text-[#0D2840] hover:bg-[#F4F7FB] transition"
-              >
-                <Image size={13} className="text-[#1B4F72]" /> Export / Print
+                <FileText size={13} className="text-[#0F3B57]" /> Export CSV
               </button>
             </div>
           )}
         </div>
 
-        <button onClick={onClose} title="Close" className="hover:opacity-70 transition ml-1 text-white">
-          <X size={15} />
+        <button
+          onClick={() => setIsMaximized(m => !m)}
+          title={isMaximized ? "Réduire à la fenêtre flottante" : "Agrandir en plein écran"}
+          className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-500 hover:text-[#0F3B57] hover:bg-slate-100 transition"
+        >
+          {isMaximized ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+        </button>
+
+        <button
+          onClick={onClose}
+          title="Fermer la comparaison"
+          className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition"
+        >
+          <X size={16} />
         </button>
       </header>
 
       {/* Table */}
-      <div className="max-h-[60vh] overflow-auto">
-        <table className="w-full border-collapse text-[13px]">
+      <div className="flex-1 overflow-auto p-4 sm:p-6">
+        <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th className="sticky top-0 bg-[#F4F7FA] z-[1] border-b border-[#E5EDF5] p-2 text-left text-[#5B8FB9] text-xs uppercase font-semibold" />
+              <th className="p-3 text-left text-[11px] font-extrabold text-slate-400 uppercase tracking-wider w-[200px] border-b border-slate-200">
+                Indicateurs
+              </th>
               {selected.map(c => (
-                <th key={c.id} className="sticky top-0 bg-[#F4F7FA] z-[1] border-b border-[#E5EDF5] p-2 text-left font-bold text-[#0D2840] text-sm whitespace-nowrap">
-                  {c.name}
+                <th key={c.id} className="p-3 text-left border-b border-slate-200 min-w-[180px]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-2xl leading-none">{getCountryFlag(c.code)}</span>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-slate-900 leading-tight">{c.name}</span>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold">{c.code}</span>
+                    </div>
+                  </div>
                 </th>
               ))}
             </tr>
           </thead>
+
           <tbody>
-            {rows.map(row => (
-              <tr key={row.label} className="hover:bg-[#F4F7FB] transition">
-                <th className="border-b border-[#F4F7FA] p-2 text-left font-semibold text-[#1B4F72] whitespace-nowrap text-xs">
-                  {row.label}
-                </th>
-                {row.values.map((val, i) => (
-                  <td key={i} className="border-b border-[#F4F7FA] p-2 text-left align-top text-[#334155]">
-                    {val}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            <tr>
+              <td colSpan={selected.length + 1} className="pt-4 pb-1.5 px-3 text-[10px] font-extrabold text-[#0F3B57] uppercase tracking-wider bg-slate-50/80 border-y border-slate-200/60">
+                📊 Production & Réserves ({selectedYear})
+              </td>
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Production pétrole brut</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <BenchmarkMetricBar value={getByCode(production, c.code)[0]?.oil || 0} maxValue={maxOilProd} unit="kb/j" barColor="bg-cyan-500" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Production gaz naturel</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <BenchmarkMetricBar value={getByCode(production, c.code)[0]?.gas || 0} maxValue={maxGasProd} unit="M m³/an" barColor="bg-amber-500" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Réserves pétrole</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <BenchmarkMetricBar value={getByCode(reserves, c.code)[0]?.oil || 0} maxValue={maxOilRes} unit="Gbbl" barColor="bg-cyan-600" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Réserves gaz</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <BenchmarkMetricBar value={getByCode(reserves, c.code)[0]?.gas || 0} maxValue={maxGasRes} unit="Tcf" barColor="bg-amber-600" />
+                </td>
+              ))}
+            </tr>
+
+            <tr>
+              <td colSpan={selected.length + 1} className="pt-5 pb-1.5 px-3 text-[10px] font-extrabold text-[#0F3B57] uppercase tracking-wider bg-slate-50/80 border-y border-slate-200/60">
+                🏭 Infrastructures Énergétiques
+              </td>
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Raffineries</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={getByCode(refineries, c.code).map((r: any) => r.name)} label="Raffinerie" colorClass="bg-rose-50 text-rose-800 border-rose-200" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Pipelines</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={pipelines.filter((p: any) => p.countries?.includes(c.code)).map((p: any) => p.name)} label="Pipeline" colorClass="bg-amber-50 text-amber-900 border-amber-200" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Stockage</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={getByCode(storage, c.code).map((s: any) => `${s.name} (${s.capacityMb} Mb)`)} label="Site Stockage" colorClass="bg-sky-50 text-sky-800 border-sky-200" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Pétrochimie</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={getByCode(petrochem, c.code).map((p: any) => p.name)} label="Usine" colorClass="bg-purple-50 text-purple-800 border-purple-200" />
+                </td>
+              ))}
+            </tr>
+
+            <tr>
+              <td colSpan={selected.length + 1} className="pt-5 pb-1.5 px-3 text-[10px] font-extrabold text-[#0F3B57] uppercase tracking-wider bg-slate-50/80 border-y border-slate-200/60">
+                🎓 Formation & R&D
+              </td>
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Centres de formation</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={getByCode(training, c.code).map((t: any) => t.name)} label="Centre" colorClass="bg-emerald-50 text-emerald-800 border-emerald-200" />
+                </td>
+              ))}
+            </tr>
+
+            <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition">
+              <td className="p-3 text-xs font-semibold text-slate-700">Instituts R&D</td>
+              {selected.map(c => (
+                <td key={c.id} className="p-3">
+                  <ExpandableBadgeList items={getByCode(rnd, c.code).map((r: any) => r.name)} label="Institut R&D" colorClass="bg-indigo-50 text-indigo-800 border-indigo-200" />
+                </td>
+              ))}
+            </tr>
           </tbody>
         </table>
       </div>

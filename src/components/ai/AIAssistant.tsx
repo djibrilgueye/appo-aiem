@@ -454,8 +454,10 @@ export function AIAssistant() {
         style={{ right: pos.x, bottom: pos.y, willChange: "transform" }}
         title="Assistant IA APPO"
       >
+        {/* Transparent bust of the APPO robot avatar (background removed) —
+            sits on the navy gradient so the cream body and gold trims pop. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/robot-appo-ia.png" alt="APPO-IA" style={{ width: "78%", height: "78%", objectFit: "contain", display: "block" }} />
+        <img src="/images/robot-appo-ia.png" alt="APPO-IA" style={{ width: "94%", height: "94%", objectFit: "contain", display: "block", transform: "translateY(2px)" }} />
         <span className="absolute top-1 right-1 w-3 h-3 rounded-full bg-green-400 border-2 border-white animate-pulse" />
       </button>
     </>

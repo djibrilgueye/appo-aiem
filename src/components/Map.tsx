@@ -1501,20 +1501,36 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       })
     }
 
-    // Helper: proportional oil barrel icon — vert pour pétrole
-    function oilBarrelIcon(value: number, maxVal: number, label: string) {
-      const s = Math.round(22 + (value / maxVal) * 26)
-      const svg = `<svg viewBox="0 0 24 24" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.45))"><line x1="5" y1="5.5" x2="5" y2="18.5" stroke="#145a32" stroke-width="1.5"/><line x1="19" y1="5.5" x2="19" y2="18.5" stroke="#145a32" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="13" fill="#27ae60" stroke="none"/><path d="M5 9.5 Q12 11 19 9.5" stroke="#145a32" stroke-width="1.1" fill="none"/><path d="M5 14.5 Q12 16 19 14.5" stroke="#145a32" stroke-width="1.1" fill="none"/><ellipse cx="12" cy="18.5" rx="7" ry="2.5" fill="#1e8449" stroke="#145a32" stroke-width="1.2"/><ellipse cx="12" cy="5.5" rx="7" ry="2.5" fill="#58d68d" stroke="#145a32" stroke-width="1.2"/></svg>`
+    // Marker palettes — production vs reserves are told apart by colour so the
+    // four hydrocarbon markers never read as duplicates of one another:
+    //   oil production  : green barrel     | oil reserves : gold barrel
+    //   gas production  : blue flame       | gas reserves : orange flame
+    type MarkerKind = "production" | "reserve"
+    const BARREL: Record<MarkerKind, { body: string; top: string; bottom: string; line: string }> = {
+      production: { body: "#27ae60", top: "#58d68d", bottom: "#1e8449", line: "#145a32" },
+      reserve:    { body: "#F4B942", top: "#FBD97A", bottom: "#D4920A", line: "#7A5C00" },
+    }
+    const FLAME: Record<MarkerKind, { outer: string; mid: string; core: string }> = {
+      production: { outer: "#1a5276", mid: "#2980b9", core: "#5dade2" },
+      reserve:    { outer: "#C2410C", mid: "#F97316", core: "#FDBA74" },
+    }
+
+    // Helper: proportional oil barrel icon
+    function oilBarrelIcon(value: number, maxVal: number, label: string, kind: MarkerKind = "production") {
+      const s = Math.round(20 + (value / maxVal) * 22)
+      const p = BARREL[kind]
+      const svg = `<svg viewBox="0 0 24 24" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.45))"><line x1="5" y1="5.5" x2="5" y2="18.5" stroke="${p.line}" stroke-width="1.5"/><line x1="19" y1="5.5" x2="19" y2="18.5" stroke="${p.line}" stroke-width="1.5"/><rect x="5" y="5.5" width="14" height="13" fill="${p.body}" stroke="none"/><path d="M5 9.5 Q12 11 19 9.5" stroke="${p.line}" stroke-width="1.1" fill="none"/><path d="M5 14.5 Q12 16 19 14.5" stroke="${p.line}" stroke-width="1.1" fill="none"/><ellipse cx="12" cy="18.5" rx="7" ry="2.5" fill="${p.bottom}" stroke="${p.line}" stroke-width="1.2"/><ellipse cx="12" cy="5.5" rx="7" ry="2.5" fill="${p.top}" stroke="${p.line}" stroke-width="1.2"/></svg>`
       return L.divIcon({
         html: `<div title="${label}" style="line-height:0;">${svg}</div>`,
         className: "", iconSize: [s, s], iconAnchor: [s / 2, s / 2],
       })
     }
 
-    // Helper: proportional gas flame icon — bleu pour gaz
-    function gasFlameIcon(value: number, maxVal: number, label: string) {
-      const s = Math.round(22 + (value / maxVal) * 26)
-      const svg = `<svg viewBox="0 0 24 24" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.45))"><path fill="#1a5276" stroke="none" d="M12 2s-4 5-4 9c0 1.5.5 2.8 1.4 3.8-.3-1.3-.4-2.5-.4-2.8 0-2 2-4 2-4s0 3 2 4.5c.6.5 1 1.2 1 2 0 .5-.1.9-.4 1.3.9-.6 1.4-1.6 1.4-2.8 0-1.5-1-3-1-3s2 1.5 2 4c0 2.2-1.8 4-4 4s-4-1.8-4-4c0-.8.2-1.5.6-2.1-.4.7-.6 1.5-.6 2.4 0 2.8 2.2 5 5 5s5-2.2 5-5c0-3.5-2-6-2-6s.5 1 .5 2c0 .8-.3 1.6-.8 2.1.5-1.1.8-2.6.8-4.4 0-3-4-6-4-6z"/><path fill="#2980b9" stroke="none" d="M12 8s-2 2-2 4c0 1.1.9 2 2 2s2-.9 2-2c0-1.3-.8-2.5-1.2-3 .1.5.2 1 .2 1.5 0 .6-.4 1.1-1 1.1s-1-.5-1-1.1c0-.9.7-1.9 1-2.5z"/><path fill="#5dade2" stroke="none" opacity="0.5" d="M12 14s-1 1-1 2.5c0 .5.2 1 .5 1.3-.1-.3-.1-.6-.1-.9 0-.7.6-1.4.6-1.4z"/></svg>`
+    // Helper: proportional gas flame icon
+    function gasFlameIcon(value: number, maxVal: number, label: string, kind: MarkerKind = "production") {
+      const s = Math.round(20 + (value / maxVal) * 22)
+      const p = FLAME[kind]
+      const svg = `<svg viewBox="0 0 24 24" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.45))"><path fill="${p.outer}" stroke="none" d="M12 2s-4 5-4 9c0 1.5.5 2.8 1.4 3.8-.3-1.3-.4-2.5-.4-2.8 0-2 2-4 2-4s0 3 2 4.5c.6.5 1 1.2 1 2 0 .5-.1.9-.4 1.3.9-.6 1.4-1.6 1.4-2.8 0-1.5-1-3-1-3s2 1.5 2 4c0 2.2-1.8 4-4 4s-4-1.8-4-4c0-.8.2-1.5.6-2.1-.4.7-.6 1.5-.6 2.4 0 2.8 2.2 5 5 5s5-2.2 5-5c0-3.5-2-6-2-6s.5 1 .5 2c0 .8-.3 1.6-.8 2.1.5-1.1.8-2.6.8-4.4 0-3-4-6-4-6z"/><path fill="${p.mid}" stroke="none" d="M12 8s-2 2-2 4c0 1.1.9 2 2 2s2-.9 2-2c0-1.3-.8-2.5-1.2-3 .1.5.2 1 .2 1.5 0 .6-.4 1.1-1 1.1s-1-.5-1-1.1c0-.9.7-1.9 1-2.5z"/><path fill="${p.core}" stroke="none" opacity="0.6" d="M12 14s-1 1-1 2.5c0 .5.2 1 .5 1.3-.1-.3-.1-.6-.1-.9 0-.7.6-1.4.6-1.4z"/></svg>`
       return L.divIcon({
         html: `<div title="${label}" style="line-height:0;">${svg}</div>`,
         className: "", iconSize: [s, s], iconAnchor: [s / 2, s / 2],
@@ -1554,14 +1570,33 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     }
     const defaultOffset: [number, number, number, number] = [0.6, -1.0, 0.6, 1.0]
 
+    // 2×2 grid inside each country so the four hydrocarbon markers sit side
+    // by side instead of stacking on the same point:
+    //   reserves   → north row   (oil left, gas right)
+    //   production → south row   (oil left, gas right)
+    // Half-spreads are derived from the per-country offsets above so large
+    // countries stay spread out and small ones stay tight and inside borders.
+    type Slot = "oilRes" | "gasRes" | "oilProd" | "gasProd"
+    function slotOffset(code: string, slot: Slot): [number, number] {
+      const [oLat, oLon, gLat, gLon] = MARKER_OFFSETS[code] ?? defaultOffset
+      const dLat = Math.max(Math.abs(oLat), Math.abs(gLat), 0.22)
+      const dLon = Math.max(Math.abs(oLon), Math.abs(gLon), 0.32)
+      switch (slot) {
+        case "oilRes":  return [ dLat, -dLon]
+        case "gasRes":  return [ dLat,  dLon]
+        case "oilProd": return [-dLat, -dLon]
+        case "gasProd": return [-dLat,  dLon]
+      }
+    }
+
     // Oil Reserves — proportional barrel icons
     if (activeThemes.has("oil_reserves")) {
       const filtered = reserves.filter(r => (filteredCodes.size === 0 || filteredCodes.has(r.country.code)) && r.oil > 0)
       const maxVal = Math.max(...filtered.map(r => r.oil), 1)
       filtered.forEach(rv => {
         const c = countries.find(c => c.code === rv.country.code); if (!c) return
-        const [dlat, dlon] = (MARKER_OFFSETS[c.code] ?? defaultOffset).slice(0, 2) as [number, number]
-        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: oilBarrelIcon(rv.oil, maxVal, `${rv.oil} Gbbl`) })
+        const [dlat, dlon] = slotOffset(c.code, "oilRes")
+        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: oilBarrelIcon(rv.oil, maxVal, `${rv.oil} Gbbl`, "reserve") })
         bindTip(m, e => ({ title: `${c.name} — ${t.map.oilReserves}`, rows: [{ label: t.map.oilReserves, value: `${rv.oil} Gbbl` }, { label: t.map.year, value: `${rv.year}` }], x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })
@@ -1573,8 +1608,8 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       const maxVal = Math.max(...filtered.map(r => r.gas), 1)
       filtered.forEach(rv => {
         const c = countries.find(c => c.code === rv.country.code); if (!c) return
-        const [,, dlat, dlon] = MARKER_OFFSETS[c.code] ?? defaultOffset
-        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: gasFlameIcon(rv.gas, maxVal, `${rv.gas} Tcf`) })
+        const [dlat, dlon] = slotOffset(c.code, "gasRes")
+        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: gasFlameIcon(rv.gas, maxVal, `${rv.gas} Tcf`, "reserve") })
         bindTip(m, e => ({ title: `${c.name} — ${t.map.gasReserves}`, rows: [{ label: t.map.gasReserves, value: `${rv.gas} Tcf` }, { label: t.map.year, value: `${rv.year}` }], x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })
@@ -1586,8 +1621,8 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       const maxVal = Math.max(...filtered.map(p => p.oil), 1)
       filtered.forEach(pr => {
         const c = countries.find(c => c.code === pr.country.code); if (!c) return
-        const [dlat, dlon] = (MARKER_OFFSETS[c.code] ?? defaultOffset).slice(0, 2) as [number, number]
-        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: oilBarrelIcon(pr.oil, maxVal, `${pr.oil.toLocaleString()} kb/d`) })
+        const [dlat, dlon] = slotOffset(c.code, "oilProd")
+        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: oilBarrelIcon(pr.oil, maxVal, `${pr.oil.toLocaleString()} kb/d`, "production") })
         bindTip(m, e => ({ title: `${c.name} — ${t.map.oilProduction}`, rows: [{ label: t.map.oilProduction, value: `${pr.oil.toLocaleString()} kb/d` }, { label: t.map.year, value: `${pr.year}` }], x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })
@@ -1599,8 +1634,8 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       const maxVal = Math.max(...filtered.map(p => p.gas), 1)
       filtered.forEach(pr => {
         const c = countries.find(c => c.code === pr.country.code); if (!c) return
-        const [,, dlat, dlon] = MARKER_OFFSETS[c.code] ?? defaultOffset
-        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: gasFlameIcon(pr.gas, maxVal, `${pr.gas.toLocaleString()} M m³/yr`) })
+        const [dlat, dlon] = slotOffset(c.code, "gasProd")
+        const m = L.marker([c.lat + dlat, c.lon + dlon], { icon: gasFlameIcon(pr.gas, maxVal, `${pr.gas.toLocaleString()} M m³/yr`, "production") })
         bindTip(m, e => ({ title: `${c.name} — ${t.map.gasProduction}`, rows: [{ label: t.map.gasProduction, value: `${pr.gas.toLocaleString()} M m³/yr` }, { label: t.map.year, value: `${pr.year}` }], x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })

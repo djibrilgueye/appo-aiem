@@ -68,7 +68,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
               </span>
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Système actif" />
             </div>
-            <div className="text-[10px] font-medium tracking-wide text-slate-400">
+            <div className="text-[10px] font-medium tracking-wide text-slate-600">
               Africa Interactive Energy Map
             </div>
           </div>
@@ -115,10 +115,10 @@ export function Navbar({ onShowMap }: NavbarProps) {
           <div className="flex items-center p-0.5 rounded-xl bg-slate-100 border border-slate-200/80">
             <Link
               href="/app"
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs transition-all ${
                 pathname === "/app"
-                  ? "bg-white text-[#0F3B57] shadow-sm"
-                  : "text-slate-600 hover:text-[#0F3B57]"
+                  ? "bg-white text-[#0F3B57] font-bold shadow-sm"
+                  : "text-slate-500 hover:text-slate-900 font-semibold"
               }`}
             >
               <LayoutDashboard size={13} className="text-[#164E73]" />
@@ -128,7 +128,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
             {isOnHome ? (
               <button
                 onClick={onShowMap}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#0F3B57] hover:bg-white/60 transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all cursor-pointer"
               >
                 <MapIcon size={13} className="text-[#0284C7]" />
                 <span>Carte</span>
@@ -136,7 +136,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
             ) : (
               <Link
                 href="/app?view=map"
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#0F3B57] hover:bg-white/60 transition-all"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all"
               >
                 <MapIcon size={13} className="text-[#0284C7]" />
                 <span>Carte</span>
@@ -170,7 +170,7 @@ export function Navbar({ onShowMap }: NavbarProps) {
               <button
                 onClick={() => signOut()}
                 title="Se déconnecter"
-                className="w-7 h-7 rounded-xl flex items-center justify-center text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-slate-500 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
               >
                 <LogOut size={14} />
               </button>

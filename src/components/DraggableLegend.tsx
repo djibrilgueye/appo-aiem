@@ -32,10 +32,12 @@ function useThemeItems(activeThemes: Set<string>, t: ReturnType<typeof useLangua
     items.push({ icon: "🏪", label: t.map.storage })
   if (activeThemes.has("petrochem"))
     items.push({ icon: "🧬", label: t.map.petrochem })
+  // Reserves use the gold barrel / orange flame palette; production keeps
+  // green barrel / blue flame — mirrors the marker colours on the map.
   if (activeThemes.has("oil_reserves"))
-    items.push({ icon: "🟢", label: t.map.oilReserves })
+    items.push({ icon: "🟡", label: t.map.oilReserves })
   if (activeThemes.has("gas_reserves"))
-    items.push({ icon: "🔵", label: t.map.gasReserves })
+    items.push({ icon: "🟠", label: t.map.gasReserves })
   if (activeThemes.has("oil_production"))
     items.push({ icon: "🟢", label: t.map.oilProduction })
   if (activeThemes.has("gas_production"))
