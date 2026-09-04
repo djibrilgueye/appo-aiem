@@ -1296,8 +1296,27 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 const isActive = tgtIso2 && memberCodesRef.current.has(tgtIso2) &&
                   (regionCodesRef.current.size === 0 || regionCodesRef.current.has(tgtIso2))
                 if (!isActive) return
-                if (hoveredLayer.current && hoveredLayer.current !== tgt)
-                  geoLayer.current?.resetStyle(hoveredLayer.current)
+                // Force-restore the previous hovered layer to its correct
+                // 4-tier style. resetStyle() would reapply the geoJSON base
+                // style (non-member, 0.25 opacity) — which is wrong for the
+                // previous layer if it was an APPO member, hence the "bleu
+                // qui disparaît" bug after hovering a country.
+                const prev = hoveredLayer.current
+                if (prev && prev !== tgt) {
+                  const prevIso2 = (prev as L.Path & { _iso2?: string })._iso2
+                  const prevSelected = prevIso2 && selectedCodesRef.current.has(prevIso2)
+                  const prevMember = prevIso2 && memberCodesRef.current.has(prevIso2)
+                  const prevInRegion = !prevIso2 || regionCodesRef.current.size === 0 || regionCodesRef.current.has(prevIso2)
+                  prev.setStyle(
+                    prevSelected
+                      ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
+                      : !prevMember
+                      ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
+                      : prevInRegion
+                      ? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
+                      : { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
+                  )
+                }
                 hoveredLayer.current = tgt
                 tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
               },

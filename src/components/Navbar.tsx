@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useSession, signOut } from "next-auth/react"
 import { usePathname } from "next/navigation"
-import { Settings, User, LogOut, ChevronDown } from "lucide-react"
+import { Settings, LogOut, ChevronDown, LayoutDashboard, Map as MapIcon } from "lucide-react"
 import { useLanguage } from "@/i18n/LanguageContext"
 import type { Lang } from "@/i18n/translations"
 import { useState, useRef, useEffect } from "react"
@@ -24,9 +24,18 @@ export function Navbar({ onShowMap }: NavbarProps) {
   const { data: session } = useSession()
   const { lang, setLang, t } = useLanguage()
   const pathname = usePathname()
-  const isOnHome = pathname === "/"
+  const isOnHome = pathname === "/" || pathname === "/app"
   const [langOpen, setLangOpen] = useState(false)
   const langRef = useRef<HTMLDivElement>(null)
+
+  // Initiales de l'utilisateur (ex: "DG" pour Djibril Gueye)
+  const userName = session?.user?.name || session?.user?.email || "Utilisateur"
+  const userInitials = userName
+    .split(" ")
+    .map(n => n[0] ?? "")
+    .join("")
+    .slice(0, 2)
+    .toUpperCase()
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -41,131 +50,141 @@ export function Navbar({ onShowMap }: NavbarProps) {
   const current = LANG_OPTIONS.find(l => l.code === lang) ?? LANG_OPTIONS[0]
 
   return (
-    <nav style={{ backgroundColor: "#FFFFFF", borderBottom: "1px solid #E5EDF5", boxShadow: "0 2px 12px rgba(15,59,87,0.03)" }} className="px-4 py-2.5">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="relative z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+      {/* Liseré supérieur — dégradé APPO */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-[#0F3B57] via-[#2563EB] to-[#F4B942]" />
 
-        {/* Logo + Title */}
-        <Link href="/" className="flex items-center gap-3">
-          <div style={{ border: "1px solid #E5EDF5" }} className="rounded-lg p-1">
-            <img src="/appo_logo.jpeg" alt="APPO" className="h-9 w-9 rounded object-contain bg-white" />
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+        {/* Gauche : brand lockup */}
+        <Link href="/app" className="flex items-center gap-3 group shrink-0">
+          <div className="rounded-xl p-1 bg-white border border-slate-200 shadow-sm transition-transform group-hover:scale-105">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/appo_logo.jpeg" alt="APPO" className="h-8 w-8 rounded-lg object-contain" />
           </div>
           <div>
-            <div className="font-bold text-base leading-tight" style={{ color: "#0D2840" }}>
-              AIEM
+            <div className="flex items-center gap-1.5">
+              <span className="font-extrabold text-base leading-tight tracking-tight text-[#0F3B57]">
+                AIEM
+              </span>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Système actif" />
             </div>
-            <div className="text-xs leading-tight" style={{ color: "#5B8FB9" }}>
+            <div className="text-[10px] font-medium tracking-wide text-slate-400">
               Africa Interactive Energy Map
             </div>
           </div>
         </Link>
 
-        {/* Right controls */}
-        <div className="flex items-center gap-1">
-
-          {/* Language selector — flag dropdown */}
-          <div ref={langRef} className="relative mr-2">
+        {/* Droite : navigation, langue, admin, profil */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Sélecteur de langue */}
+          <div ref={langRef} className="relative">
             <button
               onClick={() => setLangOpen(o => !o)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors"
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #E5EDF5",
-                color: "#1B4F72",
-                cursor: "pointer",
-               
-              }}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 shadow-sm text-[#0F3B57] hover:bg-slate-50 transition-all cursor-pointer"
             >
-              <span className="text-base leading-none">{current.flag}</span>
-              <span style={{ letterSpacing: "0.04em" }}>{current.code.toUpperCase()}</span>
-              <ChevronDown size={12} style={{ color: "#5B8FB9", transform: langOpen ? "rotate(180deg)" : "none", transition: "transform 0.15s" }} />
+              <span className="text-sm">{current.flag}</span>
+              <span className="tracking-wider">{current.code.toUpperCase()}</span>
+              <ChevronDown size={11} className={`text-slate-400 transition-transform ${langOpen ? "rotate-180" : ""}`} />
             </button>
 
             {langOpen && (
-              <div
-                className="absolute right-0 top-full mt-1 rounded-lg overflow-hidden"
-                style={{
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #E5EDF5",
-                  boxShadow: "0 4px 20px rgba(27,79,114,0.12)",
-                  zIndex: 9999,
-                  minWidth: "148px",
-                }}
-              >
+              <div className="absolute right-0 top-full mt-1.5 rounded-xl overflow-hidden bg-white border border-slate-200 shadow-xl z-50 min-w-[145px]">
                 {LANG_OPTIONS.map(opt => (
                   <button
                     key={opt.code}
                     onClick={() => { setLang(opt.code); setLangOpen(false) }}
-                    className="flex items-center gap-2.5 w-full px-3 py-2 text-left text-xs transition-colors"
+                    className="flex items-center gap-2.5 w-full px-3 py-2 text-left text-xs font-medium hover:bg-slate-50 transition-colors"
                     style={{
+                      color: lang === opt.code ? "#0F3B57" : "#475569",
                       backgroundColor: lang === opt.code ? "#F4F7FA" : "transparent",
-                      color: lang === opt.code ? "#1B4F72" : "#475569",
-                      fontWeight: lang === opt.code ? "bold" : "normal",
-                     
-                      cursor: "pointer",
-                      border: "none",
-                      direction: opt.code === "ar" ? "rtl" : "ltr",
                     }}
                   >
-                    <span className="text-base leading-none">{opt.flag}</span>
-                    <span>{opt.label}</span>
-                    {lang === opt.code && <span style={{ marginLeft: "auto", color: "#1B4F72" }}>✓</span>}
+                    <span className="text-sm">{opt.flag}</span>
+                    <span className="flex-1">{opt.label}</span>
+                    {lang === opt.code && <span className="text-[#0F3B57] font-bold">✓</span>}
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Map button — on home calls onShowMap, elsewhere navigates to /?view=map */}
-          {isOnHome ? (
-            <button
-              onClick={onShowMap}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-              style={{ color: "#1B4F72", border: "none", background: "none", cursor: "pointer" }}
-            >
-              <span>🗺️</span>
-              <span>{t.nav.map}</span>
-            </button>
-          ) : (
+          {/* Séparateur discret */}
+          <div className="h-4 w-px bg-slate-200" />
+
+          {/* Toggle Vue Générale / Carte */}
+          <div className="flex items-center p-0.5 rounded-xl bg-slate-100 border border-slate-200/80">
             <Link
-              href="/app?view=map"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-              style={{ color: "#1B4F72" }}
+              href="/app"
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                pathname === "/app"
+                  ? "bg-white text-[#0F3B57] shadow-sm"
+                  : "text-slate-600 hover:text-[#0F3B57]"
+              }`}
             >
-              <span>🗺️</span>
-              <span>{t.nav.map}</span>
+              <LayoutDashboard size={13} className="text-[#164E73]" />
+              <span className="hidden sm:inline">Vue Générale</span>
+            </Link>
+
+            {isOnHome ? (
+              <button
+                onClick={onShowMap}
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#0F3B57] hover:bg-white/60 transition-all cursor-pointer"
+              >
+                <MapIcon size={13} className="text-[#0284C7]" />
+                <span>Carte</span>
+              </button>
+            ) : (
+              <Link
+                href="/app?view=map"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 hover:text-[#0F3B57] hover:bg-white/60 transition-all"
+              >
+                <MapIcon size={13} className="text-[#0284C7]" />
+                <span>Carte</span>
+              </Link>
+            )}
+          </div>
+
+          {/* Bouton Admin */}
+          {session && ["admin", "editor"].includes(session.user?.role) && (
+            <Link
+              href="/admin"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-[#0F3B57] hover:bg-[#0F3B57] hover:text-white shadow-sm transition-all"
+            >
+              <Settings size={13} />
+              <span className="hidden sm:inline">{t.nav.admin}</span>
             </Link>
           )}
 
+          {/* Profil utilisateur */}
           {session ? (
-            <>
-              {["admin", "editor"].includes(session.user.role) && (
-                <Link href="/admin"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors"
-                  style={{ color: "#1B4F72" }}>
-                  <Settings size={16} />
-                  <span>{t.nav.admin}</span>
-                </Link>
-              )}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 text-sm"
-                style={{ color: "#5B8FB9" }}>
-                <User size={16} />
-                <span className="hidden sm:inline">{session.user.name || session.user.email}</span>
+            <div className="flex items-center gap-1.5 pl-1 border-l border-slate-200">
+              <div className="flex items-center gap-2 px-2 py-1 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px] text-white bg-gradient-to-tr from-[#0F3B57] to-[#164E73] shadow-sm">
+                  {userInitials}
+                </div>
+                <span className="hidden sm:inline text-xs font-bold text-slate-800">
+                  {userName}
+                </span>
               </div>
-              <button onClick={() => signOut()}
-                className="flex items-center gap-1.5 px-2 py-1.5 rounded text-sm transition-colors"
-                style={{ color: "#5B8FB9", background: "none", border: "none", cursor: "pointer" }}>
-                <LogOut size={16} />
+
+              <button
+                onClick={() => signOut()}
+                title="Se déconnecter"
+                className="w-7 h-7 rounded-xl flex items-center justify-center text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all cursor-pointer"
+              >
+                <LogOut size={14} />
               </button>
-            </>
+            </div>
           ) : (
-            <Link href="/login"
-              className="px-4 py-1.5 rounded text-sm font-bold transition-colors hover:opacity-90"
-              style={{ backgroundColor: "#0F3B57", color: "#ffffff" }}>
+            <Link
+              href="/login"
+              className="px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-[#0F3B57] hover:bg-[#164E73] shadow-md transition-all"
+            >
               {t.nav.login}
             </Link>
           )}
         </div>
       </div>
-    </nav>
+    </header>
   )
 }
