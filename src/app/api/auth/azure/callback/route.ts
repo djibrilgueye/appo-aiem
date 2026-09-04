@@ -36,8 +36,10 @@ export async function GET(req: NextRequest) {
   const state = url.searchParams.get("state")
   const err = url.searchParams.get("error")
 
-  const fail = (reason: string) =>
-    NextResponse.redirect(`${APP_URL}/login?error=${encodeURIComponent(reason)}`)
+  const fail = (reason: string, extra?: Record<string, unknown>) => {
+    console.error(`[azure sso] fail: ${reason}`, extra ?? {})
+    return NextResponse.redirect(`${APP_URL}/?error=${encodeURIComponent(reason)}`)
+  }
 
   if (err) return fail(err)
   if (!code) return fail("sso_no_code")
@@ -135,7 +137,8 @@ export async function GET(req: NextRequest) {
     status: "success",
   }).catch(() => {})
 
-  const res = NextResponse.redirect(`${APP_URL}/`)
+  console.log(`[azure sso] success: ${email} → session cookie set`)
+  const res = NextResponse.redirect(`${APP_URL}/app`)
   res.cookies.set(cookieName, nextAuthJwt, {
     httpOnly: true,
     secure: isProd,

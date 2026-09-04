@@ -52,7 +52,7 @@ export interface GraphMailOptions {
   html: string
   text?: string
   replyTo?: string
-  /** Nom d'affichage de l'expéditeur. Défaut : "AIEM Portal". */
+  /** Nom d'affichage de l'expéditeur. Défaut : SMTP_FROM_NAME (env) ou "APPO AIEM". */
   fromName?: string
 }
 
@@ -64,7 +64,7 @@ export async function sendMailViaGraph(opts: GraphMailOptions): Promise<boolean>
   if (!isGraphMailConfigured()) return false
   try {
     const token = await getAppToken()
-    const senderName = opts.fromName || "AIEM Portal"
+    const senderName = opts.fromName || process.env.SMTP_FROM_NAME || "APPO AIEM"
 
     const message: Record<string, unknown> = {
       subject: opts.subject,

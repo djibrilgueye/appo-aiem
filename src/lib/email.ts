@@ -6,8 +6,8 @@ const EMAIL_SERVICE_API_KEY = process.env.EMAIL_SERVICE_API_KEY ?? "appo-email-s
 
 // Sender display name shown in the recipient's inbox.
 // Plumbed per request via the `fromName` body field on the Python service and
-// via the `fromName` option of the Graph transport.
-const FROM_NAME = "AIEM Portal"
+// via the `fromName` option of the Graph transport. Overridable via env.
+const FROM_NAME = process.env.SMTP_FROM_NAME || "APPO AIEM"
 
 /** Check if the Python email service is reachable */
 async function isPythonServiceAvailable(): Promise<boolean> {
@@ -138,7 +138,7 @@ export async function sendOtpEmail(
 
 function buildOtpHtml(otp: string, userName?: string | null): string {
   const name = userName ?? "User"
-  const spaced = otp.split("").join("  ")
+  const spaced = otp
   return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
