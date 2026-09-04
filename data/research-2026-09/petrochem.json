@@ -1,0 +1,1042 @@
+[
+  {
+    "country": "DZA",
+    "name": "Algerian Omani Fertilizer Co. (AOA) – Arzew/Mers El Hadjadj complex",
+    "city": "Mers El Hadjadj, Arzew (Oran)",
+    "lat": 35.78,
+    "lon": -0.17,
+    "operator": "AOA (Suhail Bahwan Group 51%, Sonatrach 49%)",
+    "products": "ammonia, granular urea",
+    "capacity": "2×2,000 tpd ammonia (4,000 tpd, ~1.3 mtpa); 2×3,500 tpd urea (7,000 tpd, ~2.3 mtpa); +50% expansion agreed 2026",
+    "year": 2017,
+    "status": "operational",
+    "source": {
+      "name": "Arab Fertilizer Association – Algerian Omani Fertilizers Company",
+      "url": "https://arabfertilizer.org/companies/algerian-omani-fertilizers-company",
+      "table_or_page": "Member profile",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Commercial operations Dec 2017 (AFA); Algerian Ministry lists 1.3 mtpa NH3 / 2.3 mtpa urea. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "CP1K Skikda – ethylene & derivatives complex",
+    "city": "Skikda",
+    "lat": 36.87,
+    "lon": 6.95,
+    "operator": "Sonatrach (ex-ENIP)",
+    "products": "ethylene, LDPE, PVC, caustic soda",
+    "capacity": "120 ktpa ethylene (design)",
+    "year": 1978,
+    "status": "offline",
+    "source": {
+      "name": "Oil & Gas Journal – Algeria lets contracts for refining, petrochemical units",
+      "url": "https://www.ogj.com/refining-processing/article/17250508/algeria-lets-contracts-for-refining-petrochemical-units",
+      "table_or_page": "Article (Sonatrach statements)",
+      "published": "2017"
+    },
+    "confidence": "medium",
+    "notes": "Cracker idle since ~2013; rehabilitation study with Engineers India (2017), restart not confirmed. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "CP1Z Arzew – methanol & resins complex",
+    "city": "Arzew (Oran)",
+    "lat": 35.83,
+    "lon": -0.29,
+    "operator": "Sonatrach (ex-ENIP)",
+    "products": "methanol, formaldehyde, resins",
+    "capacity": "113–152 ktpa methanol",
+    "year": 1975,
+    "status": "operational",
+    "source": {
+      "name": "Sonatrach – Refining & Petrochemicals",
+      "url": "https://sonatrach.com/en/refining-petrochemicals/",
+      "table_or_page": "Petrochemical complexes",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Sonatrach quotes 152 ktpa; Ministry of Hydrocarbons quotes 113 ktpa methanol. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "CP2K Skikda – HDPE plant",
+    "city": "Skikda",
+    "lat": 36.87,
+    "lon": 6.96,
+    "operator": "Sonatrach",
+    "products": "high-density polyethylene",
+    "capacity": "130 ktpa HDPE",
+    "year": 2005,
+    "status": "operational",
+    "source": {
+      "name": "Sonatrach – Refining & Petrochemicals",
+      "url": "https://sonatrach.com/en/refining-petrochemicals/",
+      "table_or_page": "Petrochemical complexes",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Runs on imported ethylene when CP1K is down. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "Fertial – Annaba ammonia/fertilizer plant",
+    "city": "Annaba",
+    "lat": 36.87,
+    "lon": 7.75,
+    "operator": "Fertial SpA (Asmidal/Sonatrach & Grupo Villar Mir)",
+    "products": "ammonia, nitric acid, ammonium nitrate, NPK, SSP/TSP",
+    "capacity": "1 ammonia unit (KBR) ~300 ktpa NH3, target 400 ktpa",
+    "year": 1972,
+    "status": "operational",
+    "source": {
+      "name": "IDOM – PMC 3 ammonia plants for Fertial",
+      "url": "https://www.idom.com/en/project/pmc-3-ammonia-plants/",
+      "table_or_page": "Project page",
+      "published": "2024"
+    },
+    "confidence": "medium",
+    "notes": "Combined Fertial ammonia capacity ~1 mtpa quoted by group. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "Fertial – Arzew ammonia/fertilizer plant",
+    "city": "Arzew (Oran)",
+    "lat": 35.85,
+    "lon": -0.3,
+    "operator": "Fertial SpA (Asmidal/Sonatrach & Grupo Villar Mir)",
+    "products": "ammonia, nitric acid, ammonium nitrate, UAN, NPK",
+    "capacity": "2 ammonia units (KBR + Chemico) ~300 ktpa NH3 pre-revamp, target 450 ktpa (ICIS 2015)",
+    "year": 1970,
+    "status": "operational",
+    "source": {
+      "name": "KBR – Licensing/design services for two ammonia plants in Algeria (Fertial)",
+      "url": "https://www.kbr.com/en/insights-news/press-release/kbr-wins-contract-licensing-design-services-two-ammonia-plants-algeria",
+      "table_or_page": "Press release",
+      "published": "2014"
+    },
+    "confidence": "medium",
+    "notes": "Fertial site unreachable; capacities from ICIS quoting Fertial (2015) and IDOM PMC page. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "STEP Polymers – Arzew PDH-PP complex",
+    "city": "Arzew (Oran)",
+    "lat": 35.82,
+    "lon": -0.3,
+    "operator": "STEP Polymers SpA (Sonatrach)",
+    "products": "propylene (PDH), polypropylene",
+    "capacity": "550 ktpa PP",
+    "year": null,
+    "status": "under construction",
+    "source": {
+      "name": "Oil & Gas Journal – Sonatrach lets contract for greenfield petrochemical complex",
+      "url": "https://www.ogj.com/refining-processing/petrochemicals/article/14295171/sonatrach-lets-contract-for-greenfield-petrochemical-complex",
+      "table_or_page": "Article (Petrofac/Sonatrach EPC award)",
+      "published": "2023-06"
+    },
+    "confidence": "high",
+    "notes": "US$1.5bn EPC to Petrofac/HQC signed 11 Jun 2023, 42-month schedule (~2026-27). Originally a TotalEnergies-Sonatrach JV concept (2018); now 100% Sonatrach. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "Sonatrach planned Skikda ethane cracker / methanol / PTA-PET projects",
+    "city": "Skikda / Arzew",
+    "lat": 36.87,
+    "lon": 6.95,
+    "operator": "Sonatrach (partnership projects)",
+    "products": "ethylene (1 mtpa), methanol (1 mtpa), PTA/PET (320/656 ktpa), MTBE, LAB",
+    "capacity": "1 mtpa ethylene cracker; 1 mtpa methanol; 320 ktpa PTA / 656 ktpa PET",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "Algerian Ministry of Hydrocarbons & Mines – Produits pétroliers / pétrochimie",
+      "url": "https://www.oilmines.gov.dz/?rubrique=produits-petroliers",
+      "table_or_page": "Projets de développement",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Listed in ministry development plan; no FID/EPC. Coordinates approx."
+  },
+  {
+    "country": "DZA",
+    "name": "Sorfert Algérie – Arzew ammonia/urea complex",
+    "city": "Arzew (Oran)",
+    "lat": 35.82,
+    "lon": -0.28,
+    "operator": "Sorfert Algérie (Fertiglobe/OCI 51%, Sonatrach 49%)",
+    "products": "ammonia, granular urea",
+    "capacity": "1.6 mtpa gross ammonia (0.8 mtpa merchant); 1.26–1.4 mtpa urea",
+    "year": 2013,
+    "status": "operational",
+    "source": {
+      "name": "Fertiglobe – Production facilities (Sorfert)",
+      "url": "https://fertiglobe.com/our-business/production-facilities/",
+      "table_or_page": "Sorfert",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Capacities per OCI figures quoted by ICIS (16 Jul 2013) and Algerian Ministry (1.5 mtpa NH3 / 1.1 mtpa urea). Coordinates approx."
+  },
+  {
+    "country": "AGO",
+    "name": "Amufert – Soyo ammonia/urea plant",
+    "city": "Soyo (Zaire province)",
+    "lat": -6.13,
+    "lon": 12.37,
+    "operator": "Amufert S.A. (OPAIA Group; gas via Sonagas)",
+    "products": "ammonia, granular urea",
+    "capacity": "4,000 tpd urea (~1.3 mtpa); ammonia ~2,300 tpd",
+    "year": null,
+    "status": "under construction",
+    "source": {
+      "name": "Afreximbank – Afreximbank and OPAIA Group partner in historic deal to construct fertilizer plant in Angola",
+      "url": "https://www.afreximbank.com/afreximbank-and-opaia-group-partner-in-historic-deal-to-construct-fertilizer-plant-in-angola/",
+      "table_or_page": "Press release",
+      "published": "2024-12"
+    },
+    "confidence": "medium",
+    "notes": "US$2bn project; US$1.4bn EPC (KBR/TOYO/Wuhuan/WeDO) signed 20 Nov 2024; construction from 2025, start-up targeted 2027. Supersedes earlier 'Angola Fertilizantes' Soyo concept. Coordinates approx."
+  },
+  {
+    "country": "COG",
+    "name": "Pointe-Noire gas-based fertilizer project (Lukoil proposal)",
+    "city": "Pointe-Noire",
+    "lat": -4.78,
+    "lon": 11.86,
+    "operator": "Republic of Congo / Lukoil (proposal)",
+    "products": "chemical fertilizers (ammonia/urea)",
+    "capacity": "not defined",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "Ministère des Hydrocarbures (Congo) – Lukoil cooperation",
+      "url": "https://www.hydrocarbures.gouv.cg/",
+      "table_or_page": "Actualités (June 2026 meeting)",
+      "published": "2026-06"
+    },
+    "confidence": "low",
+    "notes": "Earlier Haldor Topsoe / Chinese Pointe-Noire urea proposals (2010s) not found on any institutional page – treat as lapsed. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "ANRPC – Alexandria aromatics / ammonia project",
+    "city": "Ameriya, Alexandria",
+    "lat": 31.1,
+    "lon": 29.85,
+    "operator": "Alexandria National Refining & Petrochemicals Co.",
+    "products": "reformate/aromatics (refinery-based); planned 160 ktpa ammonia",
+    "capacity": "160 ktpa ammonia (planned)",
+    "year": null,
+    "status": "proposed",
+    "source": {
+      "name": "Egypt Oil & Gas – Egypt's Petrochemical Renaissance on the Horizon",
+      "url": "https://egyptoil-gas.com/features/egypts-petrochemical-renaissance-on-the-horizon/",
+      "table_or_page": "Feature (ECHEM masterplan)",
+      "published": "2016"
+    },
+    "confidence": "low",
+    "notes": "Refinery-linked; ammonia project not confirmed built. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Abu Qir Fertilizers – Abu Qir 1/2/3 complex",
+    "city": "Abu Qir, Alexandria",
+    "lat": 31.3,
+    "lon": 30.1,
+    "operator": "Abu Qir Fertilizers & Chemical Industries Co. (AFC)",
+    "products": "ammonia, urea (prilled & granular), ammonium nitrate, nitric acid, UAN",
+    "capacity": "Abu Qir 1 (1979): 1,100 tpd NH3, 1,550 tpd urea; Abu Qir 2 (1991): 1,000 tpd NH3, 1,800 tpd nitric acid/AN; Abu Qir 3 (1988): 1,200 tpd NH3, 1,750 tpd granular urea (+140/+100 tpd 2026); >1.8 mtpa products",
+    "year": 1979,
+    "status": "operational",
+    "source": {
+      "name": "Abu Qir Fertilizers – Production facility Abu Qir 1",
+      "url": "https://abuqir.net/production-facility/abuqir-1/",
+      "table_or_page": "Production facilities",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Coordinates approx. (Abu Qir Bay, 20 km E of Alexandria)."
+  },
+  {
+    "country": "EGY",
+    "name": "AlexFert – Alexandria Fertilizers Co. (Abu Qir)",
+    "city": "Abu Qir, Alexandria",
+    "lat": 31.31,
+    "lon": 30.1,
+    "operator": "Alexandria Fertilizers Co. (AlexFert)",
+    "products": "ammonia, granular urea, ammonium sulphate",
+    "capacity": "1,200 tpd NH3 (~400 ktpa); 1,750 tpd urea (~635 ktpa); 720 tpd AS",
+    "year": 2006,
+    "status": "operational",
+    "source": {
+      "name": "AlexFert – official site",
+      "url": "https://www.alexfert.com/",
+      "table_or_page": "About",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Company founded 2003; plant start-up ~2006. Capacity figures from AlexFert/industry profiles; subject to gas-curtailment outages (2024). Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Delta Fertilizers & Chemical Industries – Talkha complex",
+    "city": "Talkha (Dakahlia)",
+    "lat": 31.05,
+    "lon": 31.37,
+    "operator": "El Delta Co. for Fertilizers & Chemical Industries (Chemical Industries Holding)",
+    "products": "ammonia, urea",
+    "capacity": "1,275→1,400 tpd NH3 (revamp); urea to 2,250 tpd",
+    "year": 1980,
+    "status": "offline",
+    "source": {
+      "name": "thyssenkrupp Uhde – agreement with Delta Company for Fertilizer to recommission ammonia plant, Dakahlia",
+      "url": "https://www.thyssenkrupp-uhde.com/en/media/press-releases/press-detail/thyssenkrupp-uhde-signs-agreement-with-delta-company-for-fertilizer-and-chemical-industries-to-recommission-an-ammonia-plant-in-dakahlia-egypt-251390",
+      "table_or_page": "Press release",
+      "published": "2024-02"
+    },
+    "confidence": "medium",
+    "notes": "Shut since April 2020 fire; recommissioning/revamp underway (Uhde ammonia, Stamicarbon urea), restart targeted end-2026. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "E-Styrenics – Alexandria polystyrene plant",
+    "city": "El-Dekheila, Alexandria",
+    "lat": 31.13,
+    "lon": 29.8,
+    "operator": "Egyptian Styrenics Production Co. (ECHEM, NIB, Enppi, Petrojet)",
+    "products": "GPPS, HIPS polystyrene",
+    "capacity": "~200 ktpa polystyrene",
+    "year": 2010,
+    "status": "operational",
+    "source": {
+      "name": "E-Styrenics – official site",
+      "url": "https://www.estyrenics.com/",
+      "table_or_page": "About",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Imported styrene feed (not gas-based). Company est. 2005, INEOS/Lummus technology; capacity not stated on site – verify. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "ELAB – Egyptian Linear Alkyl Benzene Co.",
+    "city": "Ameriya, Alexandria",
+    "lat": 31.06,
+    "lon": 29.8,
+    "operator": "Egyptian Linear Alkyl Benzene Co. (ECHEM et al.)",
+    "products": "linear alkyl benzene (LAB), heavy alkylate",
+    "capacity": "~100 ktpa LAB (+25% expansion due Q1 2026)",
+    "year": 2010,
+    "status": "operational",
+    "source": {
+      "name": "ECHEM – Egyptian Petrochemicals Holding Co.",
+      "url": "https://www.echem-eg.com/",
+      "table_or_page": "Affiliated companies / projects",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Kerosene-based (refinery, not gas-based). Company est. 2003, UOP licence; capacity figure not on operator site – verify. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "EPPC – Egyptian Propylene & Polypropylene Co. (Port Said)",
+    "city": "Port Said (Al-Gamil industrial area)",
+    "lat": 31.24,
+    "lon": 32.24,
+    "operator": "Egyptian Propylene & Polypropylene Co.",
+    "products": "propylene (PDH), polypropylene",
+    "capacity": "400 ktpa propylene; 350–400 ktpa PP",
+    "year": 2010,
+    "status": "operational",
+    "source": {
+      "name": "MEED – EPPC selects Uhde for Port Said plant",
+      "url": "https://www.meed.com/eppc-selects-uhde-for-port-said-plant/",
+      "table_or_page": "Article (EPPC statements)",
+      "published": "2006-05"
+    },
+    "confidence": "medium",
+    "notes": "Uhde STAR PDH + Spheripol PP; commercial ops ~2010. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Egypt Basic Industries Corp. (EBIC) – Ain Sokhna ammonia plant",
+    "city": "Ain Sokhna (Suez)",
+    "lat": 29.62,
+    "lon": 32.33,
+    "operator": "Fertiglobe / OCI (EBIC)",
+    "products": "merchant ammonia",
+    "capacity": "~0.7 mtpa ammonia (2,000 tpd)",
+    "year": 2009,
+    "status": "operational",
+    "source": {
+      "name": "Fertiglobe – Production facilities (EBIC)",
+      "url": "https://fertiglobe.com/our-business/production-facilities/",
+      "table_or_page": "EBIC",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Fertiglobe page confirms site/products but not capacity; 2,000 tpd design widely quoted by OCI. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Egypt Hydrocarbon Corp. (EHC) – Ain Sokhna ammonium nitrate plant",
+    "city": "Ain Sokhna (Suez)",
+    "lat": 29.65,
+    "lon": 32.3,
+    "operator": "Egypt Hydrocarbon Corp. (Carbon Holdings)",
+    "products": "low-density ammonium nitrate, nitric acid",
+    "capacity": "350 ktpa LDAN; 300 ktpa nitric acid",
+    "year": 2017,
+    "status": "operational",
+    "source": {
+      "name": "Hassan Allam – EHC Ammonium Nitrate Plant",
+      "url": "https://www.hassanallam.com/projects/ehcs-ammonium-nitrate-plant",
+      "table_or_page": "Project page",
+      "published": "2020"
+    },
+    "confidence": "medium",
+    "notes": "Uses purchased ammonia (EBIC); construction completed 2014, commercial production 2017. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Egyptian Fertilizers Co. (EFC) – Ain Sokhna urea complex",
+    "city": "Ain Sokhna (Suez)",
+    "lat": 29.62,
+    "lon": 32.34,
+    "operator": "Fertiglobe / OCI (EFC)",
+    "products": "granular urea, UAN, DEF",
+    "capacity": "1.65 mtpa urea (2 lines); 325 ktpa UAN",
+    "year": 2000,
+    "status": "operational",
+    "source": {
+      "name": "EBRD – EBRD supports growth of fertiliser industry in Egypt",
+      "url": "https://www.ebrd.com/home/news-and-events/news/2018/ebrd-supports-growth-of-fertiliser-industry-in-egypt.html",
+      "table_or_page": "Press release",
+      "published": "2018-05"
+    },
+    "confidence": "high",
+    "notes": "Line 1 2000, Line 2 2006. Coordinates approx. (SIDC industrial park)."
+  },
+  {
+    "country": "EGY",
+    "name": "Egyptian Methanex (EMethanex) – Damietta methanol plant",
+    "city": "New Damietta",
+    "lat": 31.47,
+    "lon": 31.77,
+    "operator": "Methanex Corp. (50%) / EGPC-ECHEM-EGAS-APICORP (50%)",
+    "products": "methanol",
+    "capacity": "1.3 mtpa methanol",
+    "year": 2011,
+    "status": "operational",
+    "source": {
+      "name": "Methanex – Egypt",
+      "url": "https://www.methanex.com/about-us/global-locations/egypt/",
+      "table_or_page": "Global locations – Egypt",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Operates below nameplate when domestic gas is curtailed. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Egyptian Petrochemicals Co. (EPC) – Ameriya PVC/chlor-alkali complex (\"Alexandria Petrochemicals\")",
+    "city": "Ameriya, Alexandria",
+    "lat": 31.1,
+    "lon": 29.82,
+    "operator": "Egyptian Petrochemicals Co. (ECHEM)",
+    "products": "VCM, PVC, caustic soda, chlorine",
+    "capacity": "~80–200 ktpa PVC (verify)",
+    "year": 1987,
+    "status": "operational",
+    "source": {
+      "name": "ECHEM – Egyptian Petrochemicals Holding Co.",
+      "url": "https://www.echem-eg.com/",
+      "table_or_page": "Affiliated companies (EPC projects)",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Uses ethylene from Sidpec/Ethydco. Capacity not verified on operator site. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Ethydco – Egyptian Ethylene & Derivatives Co.",
+    "city": "Ameriya, Alexandria",
+    "lat": 31.05,
+    "lon": 29.79,
+    "operator": "Egyptian Ethylene & Derivatives Co. (ECHEM/Sidpec/NIB)",
+    "products": "ethylene, polyethylene (HDPE/LLDPE), butadiene, polybutadiene rubber",
+    "capacity": "460 ktpa ethylene; 400 ktpa PE; 20 ktpa butadiene; 36 ktpa PBR",
+    "year": 2016,
+    "status": "operational",
+    "source": {
+      "name": "Egypt Oil & Gas – Petrochemical Sector Update, Ongoing Projects and Fruitful Results (ECHEM)",
+      "url": "https://egyptoil-gas.com/features/petrochemical-sector-update-ongoing-projects-and-fruitful-results/",
+      "table_or_page": "Feature (ECHEM data)",
+      "published": "2018-02"
+    },
+    "confidence": "high",
+    "notes": "Adjacent to Sidpec; merger of the two under study (MEES 2022). Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Helwan Fertilizers Co. (HFC)",
+    "city": "Helwan (El-Tebbin), Cairo",
+    "lat": 29.78,
+    "lon": 31.3,
+    "operator": "Helwan Fertilizers Co.",
+    "products": "granular urea, ammonia",
+    "capacity": "650 ktpa urea; 400 ktpa ammonia",
+    "year": 2009,
+    "status": "operational",
+    "source": {
+      "name": "Helwan Fertilizers Co. – official site",
+      "url": "https://www.hfcegypt.com/?lang=en",
+      "table_or_page": "About us",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Start-up year approx. (plant built 2007-09). Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "KIMA – Aswan ammonia/urea plant (KIMA 2)",
+    "city": "Aswan",
+    "lat": 24.07,
+    "lon": 32.9,
+    "operator": "Egyptian Chemical Industries (KIMA)",
+    "products": "ammonia, granular urea (plus nitric acid/AN legacy)",
+    "capacity": "1,200 tpd NH3 (~396–438 ktpa); 1,575 tpd urea (~530–575 ktpa)",
+    "year": 2019,
+    "status": "operational",
+    "source": {
+      "name": "Orascom Construction – Kima Fertilizer Plant",
+      "url": "https://orascom.com/projects/kima-fertilizer-plant/",
+      "table_or_page": "Project page",
+      "published": "2020"
+    },
+    "confidence": "high",
+    "notes": "Replaced 1960 electrolytic plant; gas-fed. Subject to periodic gas-supply stoppages. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "MOPCO – Damietta ammonia/urea complex (3 trains)",
+    "city": "New Damietta (Damietta Free Zone)",
+    "lat": 31.47,
+    "lon": 31.75,
+    "operator": "Misr Fertilizers Production Co. (MOPCO)",
+    "products": "ammonia, granular urea",
+    "capacity": "2.0 mtpa urea; 1.2 mtpa ammonia (3 trains: 2008, 2015, 2016)",
+    "year": 2008,
+    "status": "operational",
+    "source": {
+      "name": "Arab Fertilizer Association – Misr Fertilizers Production Company",
+      "url": "https://arabfertilizer.org/companies/misr-fertilizers-production-company",
+      "table_or_page": "Member profile",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Capacities per MOPCO (Ammonia Energy/EPROM profiles). CO2-capture debottleneck (+10% urea) due Q4 2026 per ECHEM. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Red Sea National Petrochemicals Complex",
+    "city": "Ain Sokhna (SCZone)",
+    "lat": 29.65,
+    "lon": 32.3,
+    "operator": "Red Sea National Petrochemicals Co. (ECHEM/EGPC-led; CNCEC, Enppi, Petrojet JV)",
+    "products": "refinery + steam cracker: ethylene, propylene, polymers",
+    "capacity": "phase 1 under design (1.5 mtpa petrochemicals concept)",
+    "year": null,
+    "status": "proposed",
+    "source": {
+      "name": "Egypt Oil & Gas – Egyptian-Chinese JV established for first phase of Red Sea Petrochemicals Complex",
+      "url": "https://egyptoil-gas.com/news/egyptian-chinese-jv-established-for-first-phase-of-red-sea-petrochemicals-complex-in-ain-sokhna/",
+      "table_or_page": "News (Ministry of Petroleum statement)",
+      "published": "2025-04"
+    },
+    "confidence": "medium",
+    "notes": "5 km² site secured, Axens licence 2021, construction targeted from 2026; crude/naphtha-based. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Sidpec – Sidi Kerir Petrochemicals ethylene/PE complex",
+    "city": "Ameriya, Alexandria",
+    "lat": 31.05,
+    "lon": 29.8,
+    "operator": "Sidi Kerir Petrochemicals Co. (ECHEM et al.)",
+    "products": "ethylene, polyethylene (HDPE/LLDPE), butene-1; PDH/PP expansion",
+    "capacity": "300 ktpa ethylene; 225 ktpa PE; expansion 500 ktpa propylene / 450 ktpa PP (under way)",
+    "year": 2000,
+    "status": "operational",
+    "source": {
+      "name": "Sidpec – official site",
+      "url": "https://www.sidpec.com/PageDetails.aspx?MenuID=54&MenuDID=56",
+      "table_or_page": "Company profile",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Ethane/propane feedstock from Western Desert gas. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Suez Methanol Derivatives Co. (SMD) – Damietta formaldehyde/resins",
+    "city": "New Damietta",
+    "lat": 31.46,
+    "lon": 31.77,
+    "operator": "Suez Methanol Derivatives Co. (ECHEM et al.)",
+    "products": "formaldehyde, UFC-85, UF/MUF resins",
+    "capacity": "140 ktpa derivatives (58.4 ktpa methanol feed)",
+    "year": 2025,
+    "status": "under construction",
+    "source": {
+      "name": "Methanex – Methanex Egypt completes pipeline to Suez Methanol Derivatives Co.",
+      "url": "https://www.methanex.com/news/update/methanex-egypt-successfully-completes-the-pipeline-construction-to-facilitate-the-delivery-of-methanol-to-suez-methanol-derivatives-company/",
+      "table_or_page": "News update",
+      "published": "2025-04"
+    },
+    "confidence": "medium",
+    "notes": "Start-up expected Oct 2025; adjacent to Methanex plant. Coordinates approx."
+  },
+  {
+    "country": "EGY",
+    "name": "Tahrir Petrochemicals Complex (Carbon Holdings)",
+    "city": "Ain Sokhna (SCZone)",
+    "lat": 29.7,
+    "lon": 32.35,
+    "operator": "Carbon Holdings (Tahrir Petrochemicals Corp.)",
+    "products": "naphtha cracker: ethylene/PE 1.35–1.4 mtpa, propylene 0.9–1 mtpa, PP, butadiene",
+    "capacity": "~4 mtpa naphtha cracker; 1.4 mtpa PE; 0.9 mtpa PP",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "Egypt Oil & Gas – TAHRIR Petrochemicals Complex",
+      "url": "https://egyptoil-gas.com/features/tahrir-petrochemicals-complex/",
+      "table_or_page": "Feature",
+      "published": "2018-01"
+    },
+    "confidence": "medium",
+    "notes": "US$10bn+ naphtha-based project; financing never closed, no construction – stalled. Coordinates approx."
+  },
+  {
+    "country": "GNQ",
+    "name": "AMPCO – Atlantic Methanol Production Co., Punta Europa",
+    "city": "Punta Europa, Malabo (Bioko)",
+    "lat": 3.76,
+    "lon": 8.71,
+    "operator": "AMPCO (ConocoPhillips ex-Marathon 45%, Chevron ex-Noble 45%, GEPetrol 10%)",
+    "products": "methanol",
+    "capacity": "~1.0 mtpa (3,000 tpd nameplate; 2,783 tpd produced 2023)",
+    "year": 2001,
+    "status": "operational",
+    "source": {
+      "name": "Marathon Oil 10-K 2023 (SEC EDGAR)",
+      "url": "https://www.sec.gov/Archives/edgar/data/101778/000010177824000023/mro-20231231.htm",
+      "table_or_page": "Item 1 – International E&P, Equatorial Guinea",
+      "published": "2024-02"
+    },
+    "confidence": "high",
+    "notes": "Alba-field gas; part of gas being redirected to EG LNG from 2024. Alba Plant LLC (LPG/condensate, 52% Marathon) co-located. Coordinates approx."
+  },
+  {
+    "country": "GNQ",
+    "name": "Punta Europa urea/ammonia project (concept)",
+    "city": "Punta Europa (Bioko)",
+    "lat": 3.76,
+    "lon": 8.7,
+    "operator": "Ministry of Mines & Hydrocarbons / GEPetrol (concept)",
+    "products": "ammonia, urea",
+    "capacity": "not defined",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "Marathon Oil 10-K 2023 (SEC EDGAR) – Gas Mega Hub",
+      "url": "https://www.sec.gov/Archives/edgar/data/101778/000010177824000023/mro-20231231.htm",
+      "table_or_page": "Equatorial Guinea – Gas Mega Hub",
+      "published": "2024-02"
+    },
+    "confidence": "low",
+    "notes": "Only the Gas Mega Hub (LNG/methanol) is documented institutionally; no urea project agreement found. Included for completeness."
+  },
+  {
+    "country": "GHA",
+    "name": "Petroleum Hub – Jomoro (PHDC) refinery & petrochemical hub",
+    "city": "Bonyere/Jomoro (Western Region)",
+    "lat": 5.02,
+    "lon": -2.8,
+    "operator": "Petroleum Hub Development Corporation (Government of Ghana)",
+    "products": "planned refineries, petrochemical plants, storage",
+    "capacity": "US$60bn concept; 3 refineries × 300 kb/d + petrochem (concept)",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "PHDC – Petroleum Hub Development Corporation",
+      "url": "https://phdc.gov.gh/",
+      "table_or_page": "Home / Project overview",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Phase-1 MoU with TCP-UIC consortium (2024); no construction. Coordinates approx."
+  },
+  {
+    "country": "LBY",
+    "name": "Abu Kammash petrochemical complex (PVC/chlor-alkali)",
+    "city": "Abu Kammash (Zuwara)",
+    "lat": 33.07,
+    "lon": 11.72,
+    "operator": "General Company for Chemical Industries (NOC)",
+    "products": "PVC, VCM, caustic soda (ethylene-based)",
+    "capacity": "historic ~60 ktpa PVC",
+    "year": 1980,
+    "status": "decommissioned",
+    "source": {
+      "name": "National Oil Corporation Libya",
+      "url": "https://noc.ly/index.php/en/",
+      "table_or_page": "Corporate site (no active listing)",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Closed 2000s with environmental legacy; not listed among active NOC subsidiaries. Coordinates approx."
+  },
+  {
+    "country": "LBY",
+    "name": "LIFECO – Marsa El Brega ammonia/urea complex (ex-Sirte Oil fertilizer plants)",
+    "city": "Marsa El Brega",
+    "lat": 30.41,
+    "lon": 19.58,
+    "operator": "Libyan Fertilizer Co. – LIFECO (NOC & LIA; Yara exited Dec 2020)",
+    "products": "ammonia, granular urea",
+    "capacity": "2 ammonia + 2 urea trains (historic design ~2×1,000 tpd NH3, ~2×1,000 tpd urea; operator does not publish)",
+    "year": 1978,
+    "status": "operational",
+    "source": {
+      "name": "LIFECO – official site (NOC subsidiary)",
+      "url": "https://lifeco.com.ly/",
+      "table_or_page": "About / production news",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Operating intermittently (Urea II production news 2025). Yara sale to NOC/LIA: yara.com release 4 Jan 2021. Coordinates approx."
+  },
+  {
+    "country": "LBY",
+    "name": "Marsa El Brega methanol plants (Sirte Oil Co.)",
+    "city": "Marsa El Brega",
+    "lat": 30.42,
+    "lon": 19.57,
+    "operator": "Sirte Oil Co. (NOC)",
+    "products": "methanol",
+    "capacity": "historic 2 units (~660 ktpa combined design)",
+    "year": 1978,
+    "status": "offline",
+    "source": {
+      "name": "National Oil Corporation Libya – subsidiaries",
+      "url": "https://noc.ly/index.php/en/companies",
+      "table_or_page": "Subsidiaries list",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Sirte Oil website unreachable; methanol units reported non-operational for years. Verify. Coordinates approx."
+  },
+  {
+    "country": "LBY",
+    "name": "Ras Lanuf petrochemical complex (ethylene & polyethylene) – RASCO",
+    "city": "Ras Lanuf",
+    "lat": 30.5,
+    "lon": 18.55,
+    "operator": "Ras Lanuf Oil & Gas Processing Co. (NOC)",
+    "products": "ethylene, LLDPE/HDPE (refinery naphtha-based)",
+    "capacity": "~330 ktpa ethylene; ~160 ktpa PE (design)",
+    "year": 1987,
+    "status": "offline",
+    "source": {
+      "name": "NOC Libya – news: works to restart the polyethylene and ethylene plants at Ras Lanuf",
+      "url": "https://noc.ly/الاعمال-الجارية-لإعادة-تشغيل-مصنعي-البولي/",
+      "table_or_page": "News item",
+      "published": "2021-03"
+    },
+    "confidence": "low",
+    "notes": "Idle since 2011 conflict; NOC restart preparations 2018-2023, no confirmed restart. Design capacities historical – verify. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Brass Fertilizer & Petrochemical Co. – Brass methanol / industrial park",
+    "city": "Odioama, Brass Island (Bayelsa)",
+    "lat": 4.32,
+    "lon": 6.24,
+    "operator": "Brass Fertilizer & Petrochemical Co. Ltd (DSV Engineering / NNPC / NCDMB)",
+    "products": "methanol (fertilizer/petrochem derivatives planned)",
+    "capacity": "10,000 tpd methanol (~3.3 mtpa); 270 mmscfd gas supply",
+    "year": null,
+    "status": "proposed",
+    "source": {
+      "name": "World Oil – Nigeria signs deal to supply gas to $3.3 billion methanol plant",
+      "url": "https://worldoil.com/news/2024/10/11/nigeria-signs-deal-to-supply-gas-to-3-3-billion-methanol-plant/",
+      "table_or_page": "News article (NNPC/Ministry statements)",
+      "published": "2024-10"
+    },
+    "confidence": "medium",
+    "notes": "FID declared Jan 2021; GSPA with NNPC/Shell/TotalEnergies/Eni signed 11 Oct 2024; CRBC project agreements Sept 2024. No physical construction confirmed as of 2025 – classed proposed (pre-construction). Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Dangote Fertiliser – Lekki urea complex",
+    "city": "Ibeju-Lekki, Lagos (Lekki Free Zone)",
+    "lat": 6.43,
+    "lon": 3.95,
+    "operator": "Dangote Fertiliser Ltd (Dangote Industries)",
+    "products": "granular urea, ammonia",
+    "capacity": "3.0 mtpa urea (2 trains)",
+    "year": 2022,
+    "status": "operational",
+    "source": {
+      "name": "Dangote Fertiliser – official site",
+      "url": "https://fertiliser.dangote.com/",
+      "table_or_page": "Home / About the plant",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Commissioned 22 Mar 2022 (NIPC/Dangote release). Coordinates approx. (LFZ site)."
+  },
+  {
+    "country": "NGA",
+    "name": "Dangote Petrochemicals – Lekki polypropylene plant",
+    "city": "Ibeju-Lekki, Lagos (Lekki Free Zone)",
+    "lat": 6.44,
+    "lon": 3.98,
+    "operator": "Dangote Industries Ltd",
+    "products": "polypropylene (77 grades)",
+    "capacity": "900 ktpa PP (two units 500 + 330 ktpa per S&P; 830–900 ktpa quoted)",
+    "year": 2025,
+    "status": "operational",
+    "source": {
+      "name": "Dangote Group – $2bn petrochemical plant to produce 77 grades of polypropylene",
+      "url": "https://www.dangote.com/dangotes-2-billion-petrochemical-plant-to-produce-77-grades-of-polypropylene/",
+      "table_or_page": "Press release",
+      "published": "2025-03"
+    },
+    "confidence": "high",
+    "notes": "Propylene feed from the 650 kb/d Dangote refinery RFCC (refinery-based, not gas-based). Production started March–May 2025. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Indorama Eleme Fertilizer & Chemicals (IEFCL) – urea Lines 1 & 2 (+ Line 3 planned)",
+    "city": "Eleme, Port Harcourt (Rivers)",
+    "lat": 4.795,
+    "lon": 7.12,
+    "operator": "Indorama Eleme Fertilizer & Chemicals Ltd",
+    "products": "urea, ammonia",
+    "capacity": "2.8 mtpa urea (Line 1 1.4 mtpa 2016; Line 2 1.4 mtpa 2021); Line 3 +1.4 mtpa planned (4.2 mtpa total)",
+    "year": 2016,
+    "status": "operational",
+    "source": {
+      "name": "IFC Disclosure – Indorama Eleme Fertilizer-III (Project 47723)",
+      "url": "https://disclosures.ifc.org/project-detail/SII/47723/indorama-eleme-fertilizer-iii",
+      "table_or_page": "Project description",
+      "published": "2023-07"
+    },
+    "confidence": "high",
+    "notes": "Line 3 (US$1.25bn, IFC-financed, first disbursement Aug 2024) is under construction on the same site. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Indorama Eleme Petrochemicals (IEPL) – olefins/polymers complex (ex-NNPC Eleme Petrochemicals)",
+    "city": "Eleme, Port Harcourt (Rivers)",
+    "lat": 4.795,
+    "lon": 7.115,
+    "operator": "Indorama Eleme Petrochemicals Ltd (Indorama Corp.)",
+    "products": "ethylene, polyethylene (HDPE/LLDPE), polypropylene",
+    "capacity": "360 ktpa PE; 120 ktpa PP",
+    "year": 1995,
+    "status": "operational",
+    "source": {
+      "name": "Indorama Eleme – Products & Services",
+      "url": "https://indoramaeleme.com/products-&-services",
+      "table_or_page": "Products & Services page",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Original NNPC Eleme Petrochemicals complex (commissioned mid-1990s), privatised to Indorama in 2006; this entry covers the 'old NNPC Eleme' asset. Coordinates approx. (Eleme LGA site)."
+  },
+  {
+    "country": "NGA",
+    "name": "Kaduna Refining & Petrochemical Co. (KRPC) – linear alkyl benzene unit",
+    "city": "Kaduna",
+    "lat": 10.45,
+    "lon": 7.4,
+    "operator": "NNPC Ltd (KRPC)",
+    "products": "linear alkyl benzene (LAB)",
+    "capacity": "~30 ktpa LAB (design)",
+    "year": 1988,
+    "status": "offline",
+    "source": {
+      "name": "NNPC Group – corporate site",
+      "url": "https://nnpcgroup.com/",
+      "table_or_page": "Subsidiaries (KRPC)",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Refinery-based petrochemical unit, long idle. Design figure historical; NNPC subsidiary site offline – verify. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Notore Chemical Industries – Onne fertilizer plant (ex-NAFCON)",
+    "city": "Onne (Rivers)",
+    "lat": 4.72,
+    "lon": 7.15,
+    "operator": "Notore Chemical Industries Plc",
+    "products": "urea, ammonia, NPK",
+    "capacity": "1,500 tpd urea (~0.5 mtpa); 1,000 tpd ammonia (~0.33 mtpa)",
+    "year": 1987,
+    "status": "operational",
+    "source": {
+      "name": "Notore – Our Businesses",
+      "url": "https://notore.com/our-businesses/",
+      "table_or_page": "Our Businesses",
+      "published": "2024"
+    },
+    "confidence": "medium",
+    "notes": "Original NAFCON plant (1987), acquired by Notore 2005 and restarted 2009 (NGX listing memorandum). Plant has run intermittently with turnaround/utilisation issues. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Ogidigben Gas Revolution Industrial Park (GRIP)",
+    "city": "Ogidigben, Escravos (Delta)",
+    "lat": 5.55,
+    "lon": 5.15,
+    "operator": "NNPC / Federal Government (Gas Revolution Industrial Park)",
+    "products": "planned fertilizer, methanol, petrochemicals, aluminium",
+    "capacity": "not defined (concept: multiple gas-based plants)",
+    "year": null,
+    "status": "concept",
+    "source": {
+      "name": "NNPC Group – corporate site",
+      "url": "https://nnpcgroup.com/",
+      "table_or_page": "Gas & Power / GRIP",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Ground-broken 2015; no project-level FID. Included as concept only. Coordinates approx."
+  },
+  {
+    "country": "NGA",
+    "name": "Warri Refining & Petrochemical Co. (WRPC) – polypropylene & carbon black units",
+    "city": "Ekpan, Warri (Delta)",
+    "lat": 5.55,
+    "lon": 5.72,
+    "operator": "NNPC Ltd (WRPC)",
+    "products": "polypropylene, carbon black",
+    "capacity": "~35 ktpa PP; ~18 ktpa carbon black (design)",
+    "year": 1988,
+    "status": "offline",
+    "source": {
+      "name": "NNPC Group – corporate site",
+      "url": "https://nnpcgroup.com/",
+      "table_or_page": "Subsidiaries (WRPC)",
+      "published": "2025"
+    },
+    "confidence": "low",
+    "notes": "Refinery-based (propylene from FCC), not gas-based. Petrochemical units idle for many years; NNPC subsidiary pages unreachable so capacities are historical design figures – verify. Coordinates approx."
+  },
+  {
+    "country": "SEN",
+    "name": "Industries Chimiques du Sénégal (ICS) – Mbao/Darou Khoudoss (phosphate-based, NOT gas-based)",
+    "city": "Mbao (Dakar) / Darou Khoudoss (Thiès)",
+    "lat": 14.73,
+    "lon": -17.33,
+    "operator": "ICS (Indorama)",
+    "products": "phosphoric acid, phosphate/NPK fertilizers",
+    "capacity": ">2 mtpa phosphate rock; >600 ktpa phosphoric acid; >250 ktpa fertilizers",
+    "year": 1984,
+    "status": "operational",
+    "source": {
+      "name": "ICS – official site",
+      "url": "https://www.ics.com.sn/",
+      "table_or_page": "Our activities",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Optional entry: phosphate/sulphur-based with imported ammonia; included only for context. No gas-based petrochemical plant exists in Senegal (GTA gas-to-petrochem is concept only). Coordinates approx."
+  },
+  {
+    "country": "ZAF",
+    "name": "Safripol – Durban PET plant (ex-Hosaf)",
+    "city": "Jacobs, Durban",
+    "lat": -29.93,
+    "lon": 30.98,
+    "operator": "Safripol (KAP Ltd)",
+    "products": "PET resin",
+    "capacity": "240 ktpa PET",
+    "year": 1996,
+    "status": "operational",
+    "source": {
+      "name": "Safripol – official site",
+      "url": "https://www.safripol.com/",
+      "table_or_page": "Locations",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Imported PTA/MEG feed (not gas-based); upgraded 2017. Coordinates approx."
+  },
+  {
+    "country": "ZAF",
+    "name": "Safripol – Sasolburg HDPE/PP plant",
+    "city": "Sasolburg",
+    "lat": -26.83,
+    "lon": 27.84,
+    "operator": "Safripol (KAP Ltd)",
+    "products": "HDPE, polypropylene",
+    "capacity": "160 ktpa HDPE; 120 ktpa PP",
+    "year": 1972,
+    "status": "operational",
+    "source": {
+      "name": "Safripol – official site",
+      "url": "https://www.safripol.com/",
+      "table_or_page": "Locations / Products",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Ethylene/propylene feed from Sasol. Coordinates approx."
+  },
+  {
+    "country": "ZAF",
+    "name": "Sasol Sasolburg Operations (gas-to-chemicals, ammonia, Sasol Polymers Sasolburg)",
+    "city": "Sasolburg (Free State)",
+    "lat": -26.82,
+    "lon": 27.85,
+    "operator": "Sasol Ltd",
+    "products": "ammonia, methanol, ethylene (from Secunda), LDPE/LLDPE, PVC, waxes, solvents",
+    "capacity": "ammonia ~0.6 mtpa; polymers ~0.4 mtpa (verify)",
+    "year": 1955,
+    "status": "operational",
+    "source": {
+      "name": "Sasol – Our businesses",
+      "url": "https://www.sasol.com/our-businesses",
+      "table_or_page": "Chemicals business",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Reformers converted from coal to Mozambique natural gas in 2004 – gas-based. Unit capacities not on operator site; verify with Sasol Integrated Report. Coordinates approx."
+  },
+  {
+    "country": "ZAF",
+    "name": "Sasol Secunda Operations (synfuels & chemicals, incl. Sasol Polymers Secunda)",
+    "city": "Secunda (Mpumalanga)",
+    "lat": -26.55,
+    "lon": 29.17,
+    "operator": "Sasol Ltd",
+    "products": "synthetic fuels, ethylene, propylene, polyethylene, polypropylene, ammonia, alcohols, solvents",
+    "capacity": "~150,000 b/d synfuels equivalent (coal + Mozambique gas); polymers c. 0.5–0.6 mtpa (verify)",
+    "year": 1980,
+    "status": "operational",
+    "source": {
+      "name": "Sasol – Our businesses",
+      "url": "https://www.sasol.com/our-businesses",
+      "table_or_page": "Chemicals / Energy business",
+      "published": "2025"
+    },
+    "confidence": "medium",
+    "notes": "Feedstock is mainly coal gasification supplemented by Mozambique natural gas (partly gas-based). Sasol web pages do not publish unit capacities; figures indicative. Coordinates approx."
+  }
+]

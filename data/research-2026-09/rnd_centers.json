@@ -1,0 +1,902 @@
+[
+  {
+    "country": "DZA",
+    "name": "CREDEG – Centre de Recherche et de Développement de l'Électricité et du Gaz (Sonelgaz)",
+    "city": "Algiers",
+    "lat": null,
+    "lon": null,
+    "parent": "Sonelgaz",
+    "founded": null,
+    "focus": "R&D, essais et expertise pour les réseaux électriques et gaziers du groupe Sonelgaz",
+    "website": "https://www.credeg.dz",
+    "status": "unknown",
+    "source": {
+      "name": "Sonelgaz – site officiel (filiales)",
+      "url": "https://www.sonelgaz.dz/fr/filiales"
+    },
+    "confidence": "low",
+    "notes": "credeg.dz did not resolve and CREDEG is not listed among the 11 subsidiaries on Sonelgaz's current 'filiales' page; status may have changed (possible integration into Sonelgaz-Services). Location and founding year unverified."
+  },
+  {
+    "country": "DZA",
+    "name": "Centre de Développement des Énergies Renouvelables (CDER)",
+    "city": "Algiers (Bouzaréah)",
+    "lat": 36.79,
+    "lon": 3.02,
+    "parent": "Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (DGRSDT)",
+    "founded": 1988,
+    "focus": "Solaire thermique et thermodynamique, géothermie, photovoltaïque, éolien, bioénergie et environnement, hydrogène renouvelable; unités UDES (Bou Ismaïl), URAER (Ghardaïa), URERMS (Adrar); filiale ER2",
+    "website": "https://www.cder.dz",
+    "status": "operational",
+    "source": {
+      "name": "CDER – L'EPST CDER",
+      "url": "https://www.cder.dz/spip.php?rubrique225"
+    },
+    "confidence": "high",
+    "notes": "Created 22 March 1988 from the restructuring of the Haut Commissariat à la Recherche; EPST status. Address BP 62 Route de l'Observatoire, Bouzaréah 16340. Site reachable only with TLS verification disabled. coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "Sonatrach – Direction Centrale Recherche & Développement / Centre de Recherche et Développement (CRD)",
+    "city": "Boumerdès",
+    "lat": 36.76,
+    "lon": 3.47,
+    "parent": "Sonatrach",
+    "founded": null,
+    "focus": "8 axes: raffinage et pétrochimie; EOR/IOR; biotechnologie pétrolière et environnement; matériaux, corrosion et inspection; modélisation, simulation et optimisation; forage, production et ingénierie de réservoir; expertise et développement technologique; caractérisation des réservoirs",
+    "website": "https://sonatrach.com/en/research-and-development/",
+    "status": "operational",
+    "source": {
+      "name": "SONATRACH – Research and Development",
+      "url": "https://sonatrach.com/en/research-and-development/"
+    },
+    "confidence": "high",
+    "notes": "Located Avenue du 1er Novembre, Boumerdès. Founding year not stated on official pages. Cooperation agreements with ALGERAC and CRAAG reference the 'Direction Centrale R&D (DCRD)'. Former CRD laboratories operate as 'Division Laboratoires'. coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "UDES – Unité de Développement des Équipements Solaires (CDER)",
+    "city": "Bou Ismaïl",
+    "lat": 36.64,
+    "lon": 2.69,
+    "parent": "CDER",
+    "founded": null,
+    "focus": "Développement d'équipements solaires (thermique, PV, dessalement)",
+    "website": "http://udes.cder.dz/",
+    "status": "operational",
+    "source": {
+      "name": "CDER – L'EPST CDER",
+      "url": "https://www.cder.dz/spip.php?rubrique225"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "URAER – Unité de Recherche Appliquée en Énergies Renouvelables (CDER)",
+    "city": "Ghardaïa",
+    "lat": 32.49,
+    "lon": 3.67,
+    "parent": "CDER",
+    "founded": null,
+    "focus": "Recherche appliquée en énergies renouvelables en milieu saharien (PV, solaire thermique)",
+    "website": "https://www.cder.dz/spip.php?rubrique229",
+    "status": "operational",
+    "source": {
+      "name": "CDER – Unités de recherche",
+      "url": "https://www.cder.dz/spip.php?rubrique229"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "URERMS – Unité de Recherche en Énergies Renouvelables en Milieu Saharien (CDER)",
+    "city": "Adrar",
+    "lat": 27.87,
+    "lon": -0.29,
+    "parent": "CDER",
+    "founded": null,
+    "focus": "Énergies renouvelables en milieu saharien (solaire, éolien, applications rurales)",
+    "website": "https://www.cder.dz/spip.php?rubrique229",
+    "status": "operational",
+    "source": {
+      "name": "CDER – Unités de recherche",
+      "url": "https://www.cder.dz/spip.php?rubrique229"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre)"
+  },
+  {
+    "country": "AGO",
+    "name": "Centro Nacional de Investigação Científica (CNIC)",
+    "city": "Luanda",
+    "lat": -8.8273,
+    "lon": 13.244,
+    "parent": "Ministério do Ensino Superior, Ciência, Tecnologia e Inovação (MESCTI)",
+    "founded": null,
+    "focus": "Applied science laboratories (isotope hydrology, radiometric techniques, applied chemistry, biotechnology, mechatronics); recent work on biofuels and energy transition",
+    "website": "https://www.cnic.gov.ao",
+    "status": "operational",
+    "source": {
+      "name": "CNIC – site oficial",
+      "url": "https://www.cnic.gov.ao"
+    },
+    "confidence": "medium",
+    "notes": "Founding year and street address not on official site (null); coordinates approximate (Luanda city centre). Not hydrocarbon-specific."
+  },
+  {
+    "country": "AGO",
+    "name": "Centro de Ciências da Terra e Sustentabilidade – Universidade Agostinho Neto",
+    "city": "Luanda",
+    "lat": -8.808,
+    "lon": 13.2388,
+    "parent": "Universidade Agostinho Neto",
+    "founded": null,
+    "focus": "Earth sciences and sustainability research (geosciences)",
+    "website": "https://www.uan.ao",
+    "status": "operational",
+    "source": {
+      "name": "Universidade Agostinho Neto – centros de investigação",
+      "url": "https://www.uan.ao"
+    },
+    "confidence": "low",
+    "notes": "Only named on the UAN homepage; no dedicated page retrieved. Coordinates approximate (UAN campus)."
+  },
+  {
+    "country": "BEN",
+    "name": "Office Béninois de Recherches Géologiques et Minières (OBRGM)",
+    "city": "Cotonou",
+    "lat": 6.3654,
+    "lon": 2.4183,
+    "parent": "Ministère de l'Énergie, de l'Eau et des Mines",
+    "founded": null,
+    "focus": "Recherche et cartographie géologiques, inventaire des ressources minérales et bases de données géoscientifiques du Bénin.",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "Gouvernement du Bénin – Ministères (MEEM)",
+      "url": "https://www.gouv.bj/ministeres/"
+    },
+    "confidence": "low",
+    "notes": "No official OBRGM site found (obrgm.bj did not resolve); MEEM site returned 503. Geology-focused rather than hydrocarbon R&D; founding year not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "CMR",
+    "name": "Institut de Recherches Géologiques et Minières (IRGM)",
+    "city": "Yaoundé",
+    "lat": 3.869,
+    "lon": 11.5213,
+    "parent": "Ministère de la Recherche Scientifique et de l'Innovation (MINRESI)",
+    "founded": 1979,
+    "focus": "Geological, mining and environmental information; hydrological and energy research; natural risks; Laboratoire d'Analyse Géochimique des Eaux (LAGE)",
+    "website": "https://irgm-cameroun.org",
+    "status": "operational",
+    "source": {
+      "name": "IRGM – Cadre juridique et institutionnel",
+      "url": "https://irgm-cameroun.org/presentation/cadre-juridique-et-institutionnel"
+    },
+    "confidence": "high",
+    "notes": "Created by décret 79/495 of 4 Dec 1979. Address Rue Mgr Vogt, BP 4110 Yaoundé — coordinates approximate (city centre)."
+  },
+  {
+    "country": "CMR",
+    "name": "Laboratoire informatique de géosciences pétrolières SNH–Schlumberger (Université de Douala)",
+    "city": "Douala",
+    "lat": 4.0586,
+    "lon": 9.7019,
+    "parent": "Société Nationale des Hydrocarbures / Université de Douala",
+    "founded": null,
+    "focus": "Petroleum geosciences computing laboratory for training and research; SNH plans extensions to Earth-science departments of Yaoundé I, Dschang, Buea, Bamenda, Maroua (mines & petroleum) and Ngaoundéré (geology & mining)",
+    "website": "https://www.snh.cm/education/",
+    "status": "operational",
+    "source": {
+      "name": "SNH – Éducation",
+      "url": "https://www.snh.cm/education/"
+    },
+    "confidence": "medium",
+    "notes": "Creation year not stated (null). Coordinates approximate (Université de Douala campus)."
+  },
+  {
+    "country": "TCD",
+    "name": "Centre National de Recherche pour le Développement (CNRD)",
+    "city": "N'Djamena",
+    "lat": 12.1348,
+    "lon": 15.0557,
+    "parent": "Ministère de l'Enseignement Supérieur, de la Recherche Scientifique et de la Formation Professionnelle",
+    "founded": null,
+    "focus": "Centre national de recherche multidisciplinaire (ressources naturelles, géosciences, énergie, environnement).",
+    "website": "https://cnrd.td",
+    "status": "unknown",
+    "source": {
+      "name": "CNRD – domaine officiel (page d'hébergement par défaut au moment de la vérification)",
+      "url": "https://cnrd.td"
+    },
+    "confidence": "low",
+    "notes": "cnrd.td shows only a hosting placeholder; founding year, hydrocarbon activity and current status not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "COD",
+    "name": "Centre de Recherches Géologiques et Minières (CRGM)",
+    "city": "Kinshasa",
+    "lat": -4.325,
+    "lon": 15.322,
+    "parent": "Ministère de la Recherche Scientifique et Innovation Technologique",
+    "founded": null,
+    "focus": "Recherche géologique et minière (cartographie, géophysique, laboratoires d'analyse) en appui aux secteurs minier et des hydrocarbures.",
+    "website": "https://www.crgm.cd",
+    "status": "operational",
+    "source": {
+      "name": "CRGM – site officiel (host resolves but timed out at time of check)",
+      "url": "https://www.crgm.cd"
+    },
+    "confidence": "low",
+    "notes": "Site unreachable; founding year and hydrocarbon-specific activity not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "CIV",
+    "name": "Centre d'Analyses et de Recherche (CAR) – PETROCI",
+    "city": "Abidjan",
+    "lat": 5.3352,
+    "lon": -4.0758,
+    "parent": "PETROCI Holding",
+    "founded": 1986,
+    "focus": "Sédimentologie, biostratigraphie (micropaléontologie, palynologie, nannofossiles), géochimie organique (roches mères, huiles et gaz, chromatographie/spectrométrie), stratigraphie séquentielle; carothèque; analyses de produits pétroliers. Couvre le bassin ivoirien, la sous-région (Liberia, Ghana, Bénin), le Congo et le Brésil (partenariat Core Laboratories).",
+    "website": "https://www.petroci.ci/car/",
+    "status": "operational",
+    "source": {
+      "name": "PETROCI – Centre d'Analyses et de Recherche",
+      "url": "https://www.petroci.ci/car/"
+    },
+    "confidence": "high",
+    "notes": "Created 1986; grew from a 6-person geology division to a 58-staff directorate. Located in Yopougon; coordinates approximate (Yopougon commune centre)."
+  },
+  {
+    "country": "EGY",
+    "name": "Egyptian Petroleum Research Institute (EPRI)",
+    "city": "Cairo (Nasr City)",
+    "lat": 30.066,
+    "lon": 31.345,
+    "parent": "Ministry of Higher Education and Scientific Research (Council of Research Centres and Institutes)",
+    "founded": 1974,
+    "focus": "Recherche appliquée pétrole et gaz: exploration/géologie, production, raffinage, pétrochimie, analyse et évaluation, corrosion, environnement; centres de services et centre de formation; édite l'Egyptian Journal of Petroleum depuis 1991",
+    "website": "http://www.epri.sci.eg",
+    "status": "operational",
+    "source": {
+      "name": "EPRI – official site",
+      "url": "http://www.epri.sci.eg/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year 1974 (Presidential Decree 541) is from secondary sources; official site is JavaScript-rendered and does not expose it. NRC confirms EPRI grew out of an NRC department. Address 1 Ahmed El-Zomor St., Nasr City. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "National Research Centre (NRC) – petroleum and petrochemicals research",
+    "city": "Giza (Dokki)",
+    "lat": 30.038,
+    "lon": 31.203,
+    "parent": "Ministry of Higher Education and Scientific Research",
+    "founded": 1956,
+    "focus": "Plus grand centre de recherche public d'Égypte; divisions de recherche en génie chimique, pétrochimie et applications pétrolières; le département pétrole de l'NRC a donné naissance à l'EPRI",
+    "website": "https://www.nrc.sci.eg",
+    "status": "operational",
+    "source": {
+      "name": "NRC – About us",
+      "url": "https://www.nrc.sci.eg/about-us"
+    },
+    "confidence": "medium",
+    "notes": "NRC founded 1956 as an independent public organisation; site (Arabic) confirms that a petroleum research department spun off as an independent institute. Current petroleum-related department names not verified. coordinates approximate (city centre)"
+  },
+  {
+    "country": "GAB",
+    "name": "Centre National de la Recherche Scientifique et Technologique (CENAREST)",
+    "city": "Libreville",
+    "lat": 0.4087,
+    "lon": 9.4419,
+    "parent": "Ministère de l'Enseignement Supérieur et de la Recherche Scientifique (Gabon)",
+    "founded": null,
+    "focus": "National research body with five institutes: IRT (technology), IRET (tropical ecology), IRAF (agronomy & forestry), IRSH (human sciences), IPHAMETRA (pharmacopoeia & traditional medicine)",
+    "website": "https://cenarest-gabon.org",
+    "status": "operational",
+    "source": {
+      "name": "CENAREST – site officiel",
+      "url": "https://cenarest-gabon.org/"
+    },
+    "confidence": "medium",
+    "notes": "Creation decree and parent ministry not stated on site (parent given as commonly reported; verify). Address BP 842 Libreville — coordinates approximate (city centre). No hydrocarbon-specific unit identified."
+  },
+  {
+    "country": "GAB",
+    "name": "Laboratoire de Génie des Procédés & Laboratoire de Géotechnique – E3MG",
+    "city": "Moanda",
+    "lat": -1.5548,
+    "lon": 13.2219,
+    "parent": "École des Mines et de la Métallurgie de Moanda",
+    "founded": null,
+    "focus": "Pilot units for industrial and metallurgical processes (heat exchangers, distillation, reactors, separation, grinding, filtration); geotechnical testing and materials quality control",
+    "website": "https://www.e3mg.ga/lab-genie-procede",
+    "status": "operational",
+    "source": {
+      "name": "E3MG – Lab de Génie des Procédés",
+      "url": "https://www.e3mg.ga/lab-genie-procede"
+    },
+    "confidence": "medium",
+    "notes": "Training/applied-research laboratories, mining-oriented rather than hydrocarbons. Coordinates approximate (Moanda town centre)."
+  },
+  {
+    "country": "GHA",
+    "name": "CSIR – Institute of Industrial Research (IIR)",
+    "city": "Accra",
+    "lat": 5.60537,
+    "lon": -0.18331,
+    "parent": "Council for Scientific and Industrial Research (CSIR) Ghana",
+    "founded": null,
+    "focus": "Industrial and engineering research including energy technologies, materials and process engineering",
+    "website": "https://www.iir.csir.org.gh/",
+    "status": "operational",
+    "source": {
+      "name": "CSIR-IIR – official site",
+      "url": "https://www.iir.csir.org.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Site reachable but has a certificate mismatch and little extractable text; founding year not verified. Coordinates approximate (Airport Residential Area, Accra)."
+  },
+  {
+    "country": "GHA",
+    "name": "Energy Commission of Ghana (energy planning and renewable-energy research programmes)",
+    "city": "Accra",
+    "lat": 5.59786,
+    "lon": -0.1829,
+    "parent": "Government of Ghana",
+    "founded": 1997,
+    "focus": "Energy planning, statistics, renewable energy and natural gas regulation; applied programmes (Drive Electric Initiative, energy efficiency)",
+    "website": "https://www.energycom.gov.gh/",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission – official site",
+      "url": "https://www.energycom.gov.gh/"
+    },
+    "confidence": "high",
+    "notes": "Established by Energy Commission Act 1997 (Act 541). Regulatory/planning body rather than R&D laboratory. Coordinates from OpenStreetMap entry for the Commission (Airport Residential Area)."
+  },
+  {
+    "country": "GHA",
+    "name": "GNPC Research & Technology Division",
+    "city": "Tema",
+    "lat": 5.63409,
+    "lon": -0.00216,
+    "parent": "Ghana National Petroleum Corporation",
+    "founded": null,
+    "focus": "Research and technology for the corporation's exploration, development and production activities",
+    "website": "https://www.gnpcghana.com/about-us/divisions",
+    "status": "operational",
+    "source": {
+      "name": "GNPC – Divisions",
+      "url": "https://www.gnpcghana.com/about-us/divisions"
+    },
+    "confidence": "medium",
+    "notes": "Listed among GNPC divisions without description or founding year. Coordinates: Petroleum House, Tema."
+  },
+  {
+    "country": "GHA",
+    "name": "Ghana Atomic Energy Commission (GAEC)",
+    "city": "Accra (Kwabenya)",
+    "lat": 5.68902,
+    "lon": -0.24575,
+    "parent": "Government of Ghana",
+    "founded": 1963,
+    "focus": "Nuclear and energy research through its institutes (National Nuclear Research Institute, Nuclear Power Institute, Radiation Protection Institute, Ghana Space Science and Technology Institute)",
+    "website": "https://gaec.gov.gh/",
+    "status": "operational",
+    "source": {
+      "name": "GAEC – official site",
+      "url": "https://gaec.gov.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Official site copyright line '1963–2022' and institute list; site certificate expired during this session. Hydrocarbon relevance indirect (energy/nuclear). Coordinates approximate (Kwabenya)."
+  },
+  {
+    "country": "GHA",
+    "name": "Petroleum Commission – research and capacity-building programmes",
+    "city": "Accra",
+    "lat": 5.62059,
+    "lon": -0.18472,
+    "parent": "Petroleum Commission Ghana",
+    "founded": null,
+    "focus": "Support to university teaching and research in petroleum (e.g. 2026 US$15m Halliburton–Petroleum Commission deal to strengthen teaching and research at KNUST); local-content capacity programmes",
+    "website": "https://www.petrocom.gov.gh/",
+    "status": "operational",
+    "source": {
+      "name": "Petroleum Commission – news (July 2026)",
+      "url": "https://petrocom.gov.gh/2026/07/29/petroleum-commission-and-halliburton-ghana-operations-sign-us15-million-deal-to-strengthen-teaching-and-research-at-knust/"
+    },
+    "confidence": "medium",
+    "notes": "The Commission is a regulator, not a laboratory; listed as a research-programme sponsor. Coordinates approximate (George Bush Highway, Accra)."
+  },
+  {
+    "country": "GHA",
+    "name": "The Brew-Hammond Energy Centre (TBHEC), KNUST",
+    "city": "Kumasi",
+    "lat": 6.67851,
+    "lon": -1.57542,
+    "parent": "Kwame Nkrumah University of Science and Technology",
+    "founded": null,
+    "focus": "Energy research, policy and training including oil and gas, renewable energy and energy access",
+    "website": "https://tbhec.knust.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "KNUST – official site (centre site did not resolve)",
+      "url": "https://www.knust.edu.gh/"
+    },
+    "confidence": "low",
+    "notes": "Centre website (tbhec.knust.edu.gh) did not resolve; founding year (established 2006 as The Energy Center per secondary sources) not verified, hence null. Coordinates from OpenStreetMap entry for the KNUST campus."
+  },
+  {
+    "country": "LBY",
+    "name": "Centre for Solar Energy Research and Studies (CSERS)",
+    "city": "Tripoli (Tajoura)",
+    "lat": 32.8834,
+    "lon": 13.3525,
+    "parent": "Libyan Authority for Scientific Research (unverified)",
+    "founded": null,
+    "focus": "Énergie solaire (mesure du rayonnement, PV, thermique), systèmes énergétiques durables; édite le Journal of Solar Energy and Sustainable Development (ISSN 2411-9636)",
+    "website": "https://csers.ly",
+    "status": "operational",
+    "source": {
+      "name": "CSERS – official site",
+      "url": "https://csers.ly/en/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year and parent body not stated on site (P.O. Box 12932, Tripoli). coordinates approximate (city centre)"
+  },
+  {
+    "country": "LBY",
+    "name": "Libyan Petroleum Institute (LPI) – Petroleum Research Centre",
+    "city": "Tripoli",
+    "lat": 32.8753,
+    "lon": 13.1312,
+    "parent": "National Oil Corporation",
+    "founded": 1977,
+    "focus": "Laboratoires et recherche appliquée pour l'industrie pétrolière: géologie/géochimie, réservoir, produits pétroliers, corrosion, environnement; normalisation et essais",
+    "website": "https://www.lpilibya.com",
+    "status": "operational",
+    "source": {
+      "name": "NOC – subsidiary companies (Petroleum Research Center)",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Official site did not resolve; founding year (1977, as Petroleum Research Centre) from the former official site's indexed text. Coordinates approximate (Gargaresh district)."
+  },
+  {
+    "country": "NAM",
+    "name": "Geological Survey of Namibia (Ministry of Mines and Energy)",
+    "city": "Windhoek",
+    "lat": -22.5997,
+    "lon": 17.0829,
+    "parent": "Ministry of Mines and Energy",
+    "founded": null,
+    "focus": "Cartographie géologique, géophysique et géochimie nationales; publications (Communications of the Geological Survey) diffusées via le Petroleum Data Centre de NAMCOR; données de base pour l'exploration pétrolière et minière.",
+    "website": "https://www.mme.gov.na",
+    "status": "operational",
+    "source": {
+      "name": "NAMCOR – Petroleum Data Centre (mentions Geological Survey publications)",
+      "url": "https://www.namcor.com.na/petroleum-data-centre/"
+    },
+    "confidence": "medium",
+    "notes": "MME site did not resolve at time of check. Located on Aviation Road, Windhoek; coordinates approximate. Founding year not verified."
+  },
+  {
+    "country": "NAM",
+    "name": "NAMCOR Petroleum Data Centre",
+    "city": "Windhoek",
+    "lat": -22.5997,
+    "lon": 17.0829,
+    "parent": "NAMCOR",
+    "founded": null,
+    "focus": "Dépôt national des données pétrolières (rapports, données E&P, publications du Geological Survey et du Ministry of Mines and Energy), bibliothèque de géologie et d'ingénierie pétrolières en accès gratuit, portail SIG (gisportal.namcor.com.na).",
+    "website": "https://www.namcor.com.na/petroleum-data-centre/",
+    "status": "operational",
+    "source": {
+      "name": "NAMCOR – Petroleum Data Centre",
+      "url": "https://www.namcor.com.na/petroleum-data-centre/"
+    },
+    "confidence": "high",
+    "notes": "Located at Petroleum House, 1 Aviation Road, Windhoek. Founding date not stated."
+  },
+  {
+    "country": "NAM",
+    "name": "Namibia Energy Institute (NEI) – NUST",
+    "city": "Windhoek",
+    "lat": -22.5658,
+    "lon": 17.0772,
+    "parent": "Namibia University of Science and Technology",
+    "founded": null,
+    "focus": "Quatre centres: pétrole et gaz, énergies renouvelables et efficacité énergétique, électricité, sciences nucléaires; base nationale d'information sur l'énergie durable; projets SOLTRAIN+, coopération avec Tshwane University of Technology.",
+    "website": "https://nei.nust.na",
+    "status": "operational",
+    "source": {
+      "name": "Namibia Energy Institute – site officiel",
+      "url": "https://nei.nust.na"
+    },
+    "confidence": "high",
+    "notes": "Address: 17 Brahm Street, Windhoek; coordinates given are the NUST main campus (approximate). Founding year not stated."
+  },
+  {
+    "country": "NER",
+    "name": "Centre National d'Énergie Solaire (CNES)",
+    "city": "Niamey",
+    "lat": 13.5127,
+    "lon": 2.1128,
+    "parent": "Ministère de l'Énergie",
+    "founded": null,
+    "focus": "Recherche appliquée et développement d'équipements solaires (thermique, photovoltaïque) et d'efficacité énergétique.",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "no reachable official site found",
+      "url": ""
+    },
+    "confidence": "low",
+    "notes": "Not hydrocarbon-specific; no official site found and founding year (ex-ONERSOL) not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "NGA",
+    "name": "Africa Centre of Excellence in Oilfield Chemicals Research (ACE-CEFOR), University of Port Harcourt",
+    "city": "Port Harcourt",
+    "lat": 4.89407,
+    "lon": 6.91587,
+    "parent": "University of Port Harcourt / World Bank Africa Centres of Excellence",
+    "founded": 2013,
+    "focus": "Oilfield chemicals research, petroleum engineering; PhD and MSc programmes with industry-relevant research",
+    "website": "https://aceceforuniport.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "ACE-CEFOR – official site",
+      "url": "https://aceceforuniport.edu.ng/"
+    },
+    "confidence": "high",
+    "notes": "Official site: established 2013 as one of 22 World Bank-funded Centres of Excellence; located in the UNIPORT innovation park, Choba. Coordinates from OpenStreetMap entry for the Choba campus (IPS)."
+  },
+  {
+    "country": "NGA",
+    "name": "NCDMB Research and Development (Nigerian Content Research and Development Council)",
+    "city": "Yenagoa",
+    "lat": 4.93347,
+    "lon": 6.27478,
+    "parent": "Nigerian Content Development and Monitoring Board",
+    "founded": null,
+    "focus": "Sponsored oil and gas R&D projects, R&D intervention fund (US$50m), planned Centres of Excellence; prototypes such as gas-leak detectors and pipeline leak-detection modelling",
+    "website": "https://ncdmb.gov.ng/",
+    "status": "operational",
+    "source": {
+      "name": "NCDMB – Research & Development",
+      "url": "https://www.ncdmb.gov.ng/research-development/"
+    },
+    "confidence": "medium",
+    "notes": "Council chaired by the NCDMB Executive Secretary; founding year of the council/division not stated. Coordinates approximate (Yenagoa city centre; Nigerian Content Tower)."
+  },
+  {
+    "country": "NGA",
+    "name": "NNPC Research, Technology and Innovation (RTI) Division",
+    "city": "Abuja",
+    "lat": 9.05211,
+    "lon": 7.4858,
+    "parent": "NNPC Ltd",
+    "founded": 2020,
+    "focus": "Coordination of NNPC research; productive research into innovation ideas; technology development and deployment; sustainable innovation for the energy industry",
+    "website": "https://nnpcgroup.com/research-technology-and-innovation-rti",
+    "status": "operational",
+    "source": {
+      "name": "NNPC Ltd – Research Technology and Innovation (RTI)",
+      "url": "https://nnpcgroup.com/research-technology-and-innovation-rti"
+    },
+    "confidence": "high",
+    "notes": "Official page: established 16 March 2020; RTI Nexus Building, Plot 769 Samuel Ademulegun Avenue, CBD Abuja. The former NNPC Research & Development Division was based in Port Harcourt; the current official address is Abuja. Coordinates approximate (Abuja CBD)."
+  },
+  {
+    "country": "NGA",
+    "name": "National Centre for Energy Efficiency and Conservation (NCEEC), University of Lagos",
+    "city": "Lagos",
+    "lat": 6.51203,
+    "lon": 3.39353,
+    "parent": "Energy Commission of Nigeria",
+    "founded": null,
+    "focus": "Energy efficiency and conservation research",
+    "website": "https://energy.gov.ng/research-centers.html",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission of Nigeria – Energy Research Centres",
+      "url": "https://energy.gov.ng/research-centers.html"
+    },
+    "confidence": "high",
+    "notes": "Founding year not given on ECN page. Coordinates from OpenStreetMap entry for UNILAG Akoka campus."
+  },
+  {
+    "country": "NGA",
+    "name": "National Centre for Energy Research and Development (NCERD), University of Nigeria Nsukka",
+    "city": "Nsukka",
+    "lat": 6.8641,
+    "lon": 7.40974,
+    "parent": "Energy Commission of Nigeria",
+    "founded": null,
+    "focus": "Solar and renewable energy research",
+    "website": "https://energy.gov.ng/research-centers.html",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission of Nigeria – Energy Research Centres",
+      "url": "https://energy.gov.ng/research-centers.html"
+    },
+    "confidence": "high",
+    "notes": "Founding year not given on ECN page. Coordinates from OpenStreetMap entry for UNN campus."
+  },
+  {
+    "country": "NGA",
+    "name": "National Centre for Energy and Environment (NCEE), University of Benin",
+    "city": "Benin City",
+    "lat": 6.33441,
+    "lon": 5.59983,
+    "parent": "Energy Commission of Nigeria",
+    "founded": null,
+    "focus": "Energy and environment research",
+    "website": "https://energy.gov.ng/research-centers.html",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission of Nigeria – Energy Research Centres",
+      "url": "https://energy.gov.ng/research-centers.html"
+    },
+    "confidence": "high",
+    "notes": "Founding year not given on ECN page. Coordinates from OpenStreetMap entry for UNIBEN."
+  },
+  {
+    "country": "NGA",
+    "name": "National Centre for Petroleum Research and Development (NCPRD), Abubakar Tafawa Balewa University",
+    "city": "Bauchi",
+    "lat": 10.31687,
+    "lon": 9.84102,
+    "parent": "Energy Commission of Nigeria",
+    "founded": null,
+    "focus": "Petroleum research (Energy Commission of Nigeria energy research centre)",
+    "website": "https://energy.gov.ng/research-centers.html",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission of Nigeria – Energy Research Centres",
+      "url": "https://energy.gov.ng/research-centers.html"
+    },
+    "confidence": "high",
+    "notes": "ECN page lists NCPRD 'located at the Abubakar Tafawa Balewa University, Bauchi. Responsible for research in petroleum'; founding year not given. Coordinates approximate (Bauchi city centre)."
+  },
+  {
+    "country": "NGA",
+    "name": "Nigerian Institute of Science Laboratory Technology (NISLT)",
+    "city": "Ibadan",
+    "lat": 7.43065,
+    "lon": 3.90814,
+    "parent": "Federal Ministry of Science, Technology and Innovation",
+    "founded": 2003,
+    "focus": "Laboratory analysis and testing, laboratory research support, equipment services and professional certification (multi-purpose science laboratory)",
+    "website": "https://nislt.gov.ng/",
+    "status": "operational",
+    "source": {
+      "name": "NISLT – official site",
+      "url": "https://nislt.gov.ng/"
+    },
+    "confidence": "medium",
+    "notes": "Established by Act 2003 (official site). Hydrocarbon relevance is indirect (analytical laboratory services). Coordinates approximate (Samonda, Ibadan)."
+  },
+  {
+    "country": "NGA",
+    "name": "PTDF research support (professorial chairs, Centres of Excellence and supported research projects)",
+    "city": "Abuja",
+    "lat": 9.06433,
+    "lon": 7.4893,
+    "parent": "Petroleum Technology Development Fund",
+    "founded": 1973,
+    "focus": "Funding and coordination of oil and gas research in Nigerian universities; technology acquisition; PhD programmes (e.g. CPESK with Robert Gordon University)",
+    "website": "https://ptdf.gov.ng/",
+    "status": "operational",
+    "source": {
+      "name": "PTDF – official site",
+      "url": "https://ptdf.gov.ng/"
+    },
+    "confidence": "medium",
+    "notes": "PTDF is a fund rather than a laboratory; listed here because it 'funds and supports research initiatives' per the official site. 1973 = PTDF Decree (not displayed on site). Coordinates approximate (Abuja CBD)."
+  },
+  {
+    "country": "NGA",
+    "name": "Raw Materials Research and Development Council (RMRDC)",
+    "city": "Abuja",
+    "lat": 9.08051,
+    "lon": 7.4969,
+    "parent": "Federal Ministry of Science, Technology and Innovation",
+    "founded": null,
+    "focus": "Research and development on industrial raw materials, including petrochemical and energy feedstocks",
+    "website": "https://rmrdc.gov.ng/",
+    "status": "operational",
+    "source": {
+      "name": "RMRDC – official site (HTTP 403 to automated fetch)",
+      "url": "https://rmrdc.gov.ng/"
+    },
+    "confidence": "low",
+    "notes": "Official site blocked automated access; founding year (Decree 39 of 1987 per secondary sources) not verified, hence null. Coordinates approximate (Maitama, Abuja)."
+  },
+  {
+    "country": "NGA",
+    "name": "Sokoto Energy Research Centre (SERC), Usmanu Danfodiyo University",
+    "city": "Sokoto",
+    "lat": 13.12657,
+    "lon": 5.20839,
+    "parent": "Energy Commission of Nigeria",
+    "founded": null,
+    "focus": "Solar and renewable energy research",
+    "website": "https://energy.gov.ng/research-centers.html",
+    "status": "operational",
+    "source": {
+      "name": "Energy Commission of Nigeria – Energy Research Centres",
+      "url": "https://energy.gov.ng/research-centers.html"
+    },
+    "confidence": "high",
+    "notes": "Founding year not given on ECN page. Coordinates from OpenStreetMap entry for UDUS campus."
+  },
+  {
+    "country": "SEN",
+    "name": "Centre d'Études et de Recherches sur les Énergies Renouvelables (CERER) – UCAD",
+    "city": "Dakar",
+    "lat": 14.7167,
+    "lon": -17.4333,
+    "parent": "Université Cheikh Anta Diop",
+    "founded": null,
+    "focus": "Recherche sur les énergies renouvelables (solaire thermique et photovoltaïque, biomasse, efficacité énergétique) et appui aux politiques énergétiques.",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "UCAD – site officiel (institute list not itemised)",
+      "url": "https://ucad.sn"
+    },
+    "confidence": "low",
+    "notes": "No dedicated CERER site reachable (cerer.ucad.sn did not resolve); founding year not verified. Not hydrocarbon-specific. Coordinates approximate (Hann, Dakar)."
+  },
+  {
+    "country": "ZAF",
+    "name": "CSIR Energy Centre (Energy research area)",
+    "city": "Pretoria",
+    "lat": -25.76419,
+    "lon": 28.27652,
+    "parent": "Council for Scientific and Industrial Research (CSIR)",
+    "founded": null,
+    "focus": "Energy research within the CSIR Natural Environment portfolio: renewable energy, grid integration, energy planning and modelling",
+    "website": "https://www.csir.co.za/",
+    "status": "operational",
+    "source": {
+      "name": "CSIR – official site",
+      "url": "https://www.csir.co.za/"
+    },
+    "confidence": "medium",
+    "notes": "CSIR established by Act of Parliament in 1945 (official site); the Energy Centre's own founding year is not shown, hence null. Coordinates: CSIR campus, Meiring Naudé Road, Pretoria."
+  },
+  {
+    "country": "ZAF",
+    "name": "Centre for Renewable and Sustainable Energy Studies (CRSES), Stellenbosch University",
+    "city": "Stellenbosch",
+    "lat": -33.93262,
+    "lon": 18.86506,
+    "parent": "Stellenbosch University",
+    "founded": 2007,
+    "focus": "Renewable and sustainable energy research, energy and grid modelling (CRSES NEXT), hydrogen generation (H2GEN), water-waste-energy-food nexus; postgraduate programmes and CPD short courses",
+    "website": "https://www.crses.sun.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "CRSES – official site",
+      "url": "https://www.crses.sun.ac.za/"
+    },
+    "confidence": "high",
+    "notes": "Address: 4th Floor Knowledge Centre, c/o Banghoek and Joubert Street, Stellenbosch. Coordinates from OpenStreetMap entry for the university."
+  },
+  {
+    "country": "ZAF",
+    "name": "Council for Geoscience (CGS)",
+    "city": "Pretoria",
+    "lat": -25.72833,
+    "lon": 28.30472,
+    "parent": "Department of Mineral Resources and Energy",
+    "founded": 1993,
+    "focus": "National geoscience research and mapping, mineral and energy resources, geological carbon storage, seismic monitoring, national geoscience data",
+    "website": "https://www.geoscience.org.za/",
+    "status": "operational",
+    "source": {
+      "name": "Council for Geoscience – official site",
+      "url": "https://www.geoscience.org.za/"
+    },
+    "confidence": "high",
+    "notes": "Established by the Geoscience Act 1993; successor to the Geological Survey of South Africa (1912). Address: 280 Pretoria Street, Silverton, Pretoria. Coordinates approximate (Silverton)."
+  },
+  {
+    "country": "ZAF",
+    "name": "Energy Systems Research Group (ESRG, formerly Energy Research Centre), University of Cape Town",
+    "city": "Cape Town",
+    "lat": -33.95676,
+    "lon": 18.46758,
+    "parent": "University of Cape Town",
+    "founded": null,
+    "focus": "Energy systems modelling, energy policy, climate mitigation and transition analysis",
+    "website": "https://www.uct.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "UCT – official site (group site did not resolve)",
+      "url": "https://www.uct.ac.za/"
+    },
+    "confidence": "low",
+    "notes": "Group website (esrg.uct.ac.za) did not resolve during this session; founding year unverified. Coordinates from OpenStreetMap entry for UCT."
+  },
+  {
+    "country": "ZAF",
+    "name": "Mintek",
+    "city": "Randburg, Johannesburg",
+    "lat": -26.10989,
+    "lon": 27.98992,
+    "parent": "Department of Mineral Resources and Energy",
+    "founded": 1934,
+    "focus": "Mineral processing, extractive metallurgy, materials and automation; hydrogen and energy-materials research",
+    "website": "https://www.mintek.co.za/",
+    "status": "operational",
+    "source": {
+      "name": "Mintek – official site",
+      "url": "https://www.mintek.co.za/"
+    },
+    "confidence": "high",
+    "notes": "Hydrocarbon relevance indirect (minerals/energy materials). Address: 200 Malibongwe Drive, Randburg. Coordinates from OpenStreetMap (Malibongwe Drive)."
+  },
+  {
+    "country": "ZAF",
+    "name": "PetroSA gas-to-liquids technology and R&D (Mossel Bay)",
+    "city": "Mossel Bay",
+    "lat": -34.1832,
+    "lon": 22.15362,
+    "parent": "PetroSA / CEF",
+    "founded": null,
+    "focus": "Gas-to-liquids (GTL) process technology, synthetic fuels, low-temperature Fischer-Tropsch development at the Mossel Bay GTL refinery",
+    "website": "https://www.petrosa.co.za/",
+    "status": "operational",
+    "source": {
+      "name": "PetroSA – official site",
+      "url": "https://www.petrosa.co.za/"
+    },
+    "confidence": "low",
+    "notes": "The official site describes the GTL refinery (world's largest commercial GTL refinery at commissioning) but no dedicated R&D centre page was found; founding year null. Coordinates approximate (Mossel Bay town)."
+  },
+  {
+    "country": "ZAF",
+    "name": "Sasol Research & Technology",
+    "city": "Sasolburg",
+    "lat": -26.81028,
+    "lon": 27.82139,
+    "parent": "Sasol Ltd (private)",
+    "founded": null,
+    "focus": "Fischer-Tropsch synthesis, gas-to-liquids and coal-to-liquids technology, catalysts, fuels and chemicals R&D",
+    "website": "https://www.sasol.com/",
+    "status": "operational",
+    "source": {
+      "name": "Sasol – official site",
+      "url": "https://www.sasol.com/"
+    },
+    "confidence": "medium",
+    "notes": "Private company (state-founded 1950); dedicated R&T page could not be retrieved, so founding year of the Sasolburg research campus is null. Coordinates approximate (Sasolburg town)."
+  },
+  {
+    "country": "ZAF",
+    "name": "South African National Energy Development Institute (SANEDI)",
+    "city": "Sandton, Johannesburg",
+    "lat": -26.10455,
+    "lon": 28.05451,
+    "parent": "Department of Mineral Resources and Energy / Department of Science and Innovation",
+    "founded": 2008,
+    "focus": "Applied energy research; energy efficiency and demand-side management; cleaner fuels and related technologies; smart grids; carbon capture, utilisation and storage (CCUS)",
+    "website": "https://www.sanedi.org.za/",
+    "status": "operational",
+    "source": {
+      "name": "SANEDI – official site",
+      "url": "https://www.sanedi.org.za/"
+    },
+    "confidence": "high",
+    "notes": "Established under the National Energy Act 34 of 2008; operational from 2011 (official site). Coordinates approximate (Sandton)."
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "Pipeline": {
+    "Niger–Benin Crude Export Pipeline (Agadem–Sèmè / WAPCO pipeline)": "Niger–Benin Export Pipeline",
+    "Medgaz (Hassi R'Mel–Beni Saf–Almería)": "Medgaz",
+    "Maghreb–Europe Gas Pipeline (GME / Pedro Durán Farell)": "Maghreb–Europe Gas Pipeline (African section)",
+    "Greenstream (Mellitah–Gela)": "Greenstream (African section)",
+    "GR5 Reggane/Timimoun–Hassi R'Mel gas trunk line": "GR-5 Pipeline (Reggane/Adrar – Hassi R'Mel)",
+    "OZ1/OZ2 Haoud El Hamra–Arzew crude pipelines": "Haoud El Hamra – Arzew Crude Oil Pipeline (OZ)"
+  },
+  "Basin": {
+    "Termit / Agadem Rift Basin": "Termit Basin",
+    "Lower Congo Basin (Congo Fan / Cabinda–Congo coastal)": "Lower Congo Basin",
+    "Tano / Cape Three Points Basin": "Tano Basin",
+    "Gabon Coastal Basin (North & South Gabon sub-basins)": "Gabon Basin",
+    "Cuvette Centrale (Congo Basin)": "Congo Basin",
+    "Oued Mya / Triassic Province (Hassi Messaoud – Hassi R'Mel)": "Hassi Messaoud",
+    "Western Desert (Abu Gharadig, Shushan/Matruh, Faghur)": "Western Desert Basin",
+    "Outeniqua Basin (Bredasdorp, Pletmos, Gamtoos, Algoa)": "Bredasdorp Basin"
+  }
+}

@@ -1,0 +1,6420 @@
+[
+ {
+  "country": "DZA",
+  "year": 2021,
+  "oilIntraKbD": null,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 29622.0,
+  "gasoilM3": 91263.0,
+  "gplTM": 267568.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Lithuania",
+    "hydro": "gasoline",
+    "qty": 22311.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Uganda",
+    "hydro": "gasoline",
+    "qty": 4537.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoline",
+    "qty": 1270.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 23137.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 13269.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 8553.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kazakhstan",
+    "hydro": "lpg",
+    "qty": 259523.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "lpg",
+    "qty": 8031.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 11.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS271111 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; no partner breakdown available → whole total placed in extra-Africa (intra unknown, set null). LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. essenceM3: JODI reports 0 but UN Comtrade mirror shows 29622.0 m3 → Comtrade used. gasoilM3: JODI reports 0 but UN Comtrade mirror shows 91263.0 m3 → Comtrade used. gplTM: JODI reports 0 but UN Comtrade mirror shows 267568.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 21 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "DZA",
+  "year": 2022,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 25241.0,
+  "gasoilM3": 95448.0,
+  "gplTM": 197405.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Uganda",
+    "hydro": "gasoline",
+    "qty": 21334.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoline",
+    "qty": 2127.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 1147.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 43011.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 10957.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 10672.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kazakhstan",
+    "hydro": "lpg",
+    "qty": 197404.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Germany",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. essenceM3: JODI reports 0 but UN Comtrade mirror shows 25241.0 m3 → Comtrade used. gasoilM3: JODI reports 0 but UN Comtrade mirror shows 95448.0 m3 → Comtrade used. gplTM: JODI reports 0 but UN Comtrade mirror shows 197405.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 11 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "DZA",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 30831.0,
+  "gasoilM3": 90996.0,
+  "gplTM": 151432.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Uganda",
+    "hydro": "gasoline",
+    "qty": 27529.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 1448.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoline",
+    "qty": 716.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 33983.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 11358.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 8513.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kazakhstan",
+    "hydro": "lpg",
+    "qty": 144512.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 6913.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 7.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; UN Comtrade HS271111 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. essenceM3: JODI reports 0 but UN Comtrade mirror shows 30831.0 m3 → Comtrade used. gasoilM3: JODI reports 0 but UN Comtrade mirror shows 90996.0 m3 → Comtrade used. gplTM: JODI reports 0 but UN Comtrade mirror shows 151432.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 3 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "DZA",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": 1,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 433.0,
+  "gasoilM3": 76261.0,
+  "gplTM": 90.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "China",
+    "hydro": "gasoline",
+    "qty": 163.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 145.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 51.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 8905.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bulgaria",
+    "hydro": "gasoil",
+    "qty": 8767.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bahamas",
+    "hydro": "gasoil",
+    "qty": 8053.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 80.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "lpg",
+    "qty": 7.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 3.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude total 1 kb/d from OPEC ASB 2025 Table 5.6; UN Comtrade reporter partners cover only 0.0 kb/d (<50%), so the intra/extra split is not derived from them: intra null, total placed in extra. Crude partner list omitted: Comtrade quantities cover <10% of the headline total (confidential/'Areas, nes' reporting). Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 12 kb/d (cross-check)."
+ },
+ {
+  "country": "DZA",
+  "year": 2025,
+  "oilIntraKbD": null,
+  "oilExtraKbD": 1.5,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 80531.0,
+  "gasoilM3": 405034.0,
+  "gplTM": 0.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Egypt",
+    "hydro": "gasoline",
+    "qty": 76507.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 1351.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 1070.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 561927.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 161470.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoil",
+    "qty": 80369.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS271111 mirror; UN Comtrade HS271012 mirror; JODI-Oil secondary. Crude total 1.5 kb/d from JODI-Oil primary (12-month average); no partner breakdown available → whole total placed in extra-Africa (intra unknown, set null). LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. essenceM3: JODI reports 0 but UN Comtrade mirror shows 80531.0 m3 → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete. QA flag: gasoilM3 (405,034) is >3x the median of this country's other years (91,130); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "AGO",
+  "year": 2021,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1067078.0,
+  "gasoilM3": 1776218.0,
+  "gplTM": 134.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 1015670.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Malta",
+    "hydro": "gasoline",
+    "qty": 301838.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 106651.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 19024.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Portugal",
+    "hydro": "gasoil",
+    "qty": 5519.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 5363.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 88.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "lpg",
+    "qty": 21.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 12.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271112/271113 reporter; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); intra-Africa share = African partners in UN Comtrade reporter data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. gplTM: JODI reports 0 but UN Comtrade reporter shows 134.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 55 kb/d (cross-check). QA flag: gasoilM3 (1,776,218) is >3x the median of this country's other years (61,236); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "AGO",
+  "year": 2022,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1528664.0,
+  "gasoilM3": 2772138.0,
+  "gplTM": 42.0,
+  "jetFuelTM": 23600.0,
+  "partners": [
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 1303679.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 135044.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 60994.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 29216.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 9333.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "gasoil",
+    "qty": 8288.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Portugal",
+    "hydro": "lpg",
+    "qty": 21.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 20.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271112/271113 reporter; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); intra-Africa share = African partners in UN Comtrade reporter data (0.0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. gplTM: JODI reports 0 but UN Comtrade reporter shows 42.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 67 kb/d (cross-check). QA flag: gasoilM3 (2,772,138) is >3x the median of this country's other years (61,236); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "AGO",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1616495.0,
+  "gasoilM3": 57647.0,
+  "gplTM": 79.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 592409.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 461520.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 278121.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 18366.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 7675.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 7395.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 67.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 10.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Portugal",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 94 kb/d (cross-check)."
+ },
+ {
+  "country": "AGO",
+  "year": 2024,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1251967.0,
+  "gasoilM3": 63702.0,
+  "gplTM": 66.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 516119.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 457788.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoline",
+    "qty": 102029.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 20175.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Portugal",
+    "hydro": "gasoil",
+    "qty": 9809.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 6465.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 26.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 20.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 8.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 88 kb/d (cross-check)."
+ },
+ {
+  "country": "AGO",
+  "year": 2025,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 996414.0,
+  "gasoilM3": 58771.0,
+  "gplTM": 127.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 481366.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 251698.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 208897.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 20060.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "gasoil",
+    "qty": 9270.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 6797.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 44.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 41.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Portugal",
+    "hydro": "lpg",
+    "qty": 26.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete."
+ },
+ {
+  "country": "BEN",
+  "year": 2021,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 213271.0,
+  "gasoilM3": 655060.0,
+  "gplTM": 26349.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 51928.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 36389.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 34756.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 209554.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 102264.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 94081.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 19744.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 6392.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "lpg",
+    "qty": 194.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271121 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "BEN",
+  "year": 2022,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 160172.0,
+  "gasoilM3": 713629.0,
+  "gplTM": 16401.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 46644.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 37409.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 23860.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 168554.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 112111.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 105935.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 8560.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 2797.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 2381.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "BEN",
+  "year": 2023,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 229867.0,
+  "gasoilM3": 538011.0,
+  "gplTM": 20515.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 96664.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 36715.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 27910.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 133388.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 92911.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 68423.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 13215.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 3602.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 2460.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "BEN",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 174602.0,
+  "gasoilM3": 500146.0,
+  "gplTM": 25081.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 67699.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 35745.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 17920.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 303443.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 73742.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 51184.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 22543.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Canada",
+    "hydro": "lpg",
+    "qty": 2296.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 242.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271121 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "CMR",
+  "year": 2021,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 987836.0,
+  "gasoilM3": 1386052.0,
+  "gplTM": 143551.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Singapore",
+    "hydro": "gasoline",
+    "qty": 226662.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 160525.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 110065.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 474656.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Rep. of Korea",
+    "hydro": "gasoil",
+    "qty": 170507.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 135715.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 135425.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "lpg",
+    "qty": 7876.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 240.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "CMR",
+  "year": 2022,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 830142.0,
+  "gasoilM3": 1327932.0,
+  "gplTM": 132883.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 180196.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 146241.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 115747.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 439602.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Rep. of Korea",
+    "hydro": "gasoil",
+    "qty": 176584.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Malaysia",
+    "hydro": "gasoil",
+    "qty": 142037.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 60290.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 53064.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "lpg",
+    "qty": 6324.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "CMR",
+  "year": 2023,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.02,
+  "essenceM3": 1045465.0,
+  "gasoilM3": 1498348.0,
+  "gplTM": 102134.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Switzerland",
+    "hydro": "gas",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 246311.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 162265.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoline",
+    "qty": 130890.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 381355.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 177652.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 131629.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 84874.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 8700.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Argentina",
+    "hydro": "lpg",
+    "qty": 6020.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.01 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "CMR",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 67230.0,
+  "gasoilM3": 562375.0,
+  "gplTM": 259.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 66263.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoline",
+    "qty": 365.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Namibia",
+    "hydro": "gasoline",
+    "qty": 259.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 302002.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 160300.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Brazil",
+    "hydro": "gasoil",
+    "qty": 50446.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 179.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Germany",
+    "hydro": "lpg",
+    "qty": 80.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271121 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271121 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "TCD",
+  "year": 2021,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 9386.0,
+  "gasoilM3": 19259.0,
+  "gplTM": 193.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoline",
+    "qty": 9321.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 58.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Canada",
+    "hydro": "gasoline",
+    "qty": 6.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 12307.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "gasoil",
+    "qty": 3217.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Niger",
+    "hydro": "gasoil",
+    "qty": 1754.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Niger",
+    "hydro": "lpg",
+    "qty": 175.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 17.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "TCD",
+  "year": 2022,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 3264.0,
+  "gasoilM3": 30219.0,
+  "gplTM": null,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoline",
+    "qty": 3116.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 103.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 30.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 17588.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 5125.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Niger",
+    "hydro": "gasoil",
+    "qty": 3570.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "low",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "TCD",
+  "year": 2023,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 1675.0,
+  "gasoilM3": 36997.0,
+  "gplTM": 3.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoline",
+    "qty": 1495.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 115.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 42.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 18734.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Niger",
+    "hydro": "gasoil",
+    "qty": 8120.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoil",
+    "qty": 4288.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "lpg",
+    "qty": 2.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "TCD",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 107.0,
+  "gasoilM3": 145332.0,
+  "gplTM": null,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Niger",
+    "hydro": "gasoline",
+    "qty": 33.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 31.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 28.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Niger",
+    "hydro": "gasoil",
+    "qty": 141323.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 1341.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "gasoil",
+    "qty": 1215.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "low",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "COD",
+  "year": 2021,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 192774.0,
+  "gasoilM3": 225324.0,
+  "gplTM": 1076.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 95672.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 21397.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "gasoline",
+    "qty": 16610.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 77956.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 44243.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 23370.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 1012.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "lpg",
+    "qty": 24.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Mozambique",
+    "hydro": "lpg",
+    "qty": 22.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "COD",
+  "year": 2022,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 981687.0,
+  "gasoilM3": 1698838.0,
+  "gplTM": 2534.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 205041.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "gasoline",
+    "qty": 142650.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 136843.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 366249.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bahrain",
+    "hydro": "gasoil",
+    "qty": 236200.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 219630.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 1904.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "lpg",
+    "qty": 624.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 6.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. QA flag: essenceM3 (981,687) is >3x the median of this country's other years (192,774); source switch or partner reporting anomaly possible — treat with caution. QA flag: gasoilM3 (1,698,838) is >3x the median of this country's other years (225,324); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "COD",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.01,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 3864097.0,
+  "gasoilM3": 5138526.0,
+  "gplTM": 1628.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Ghana",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 921308.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 539006.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoline",
+    "qty": 345145.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 1285527.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bahrain",
+    "hydro": "gasoil",
+    "qty": 723191.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 562676.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "lpg",
+    "qty": 1494.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 75.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 27.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. QA flag: essenceM3 (3,864,097) is >3x the median of this country's other years (192,774); source switch or partner reporting anomaly possible — treat with caution. QA flag: gasoilM3 (5,138,526) is >3x the median of this country's other years (225,324); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "COD",
+  "year": 2024,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.1,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 103348.0,
+  "gasoilM3": 188464.0,
+  "gplTM": 2378.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Angola",
+    "hydro": "lng",
+    "qty": 0.1,
+    "unit": "bcm"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoline",
+    "qty": 88074.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 13255.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Namibia",
+    "hydro": "gasoline",
+    "qty": 1885.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Singapore",
+    "hydro": "gasoil",
+    "qty": 83042.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 50416.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kenya",
+    "hydro": "gasoil",
+    "qty": 22797.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "lpg",
+    "qty": 2287.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Uganda",
+    "hydro": "lpg",
+    "qty": 47.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 35.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 mirror; UN Comtrade HS271111 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude from UN Comtrade mirror data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. LNG (HS 271111) from UN Comtrade mirror data: 0.1 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "COG",
+  "year": 2021,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 34032.0,
+  "gasoilM3": 45978.0,
+  "gplTM": 37.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 24428.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Dem. Rep. of the Congo",
+    "hydro": "gasoline",
+    "qty": 9257.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 307.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Dem. Rep. of the Congo",
+    "hydro": "gasoil",
+    "qty": 19522.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 10412.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Gabon",
+    "hydro": "gasoil",
+    "qty": 4744.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 23.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "lpg",
+    "qty": 14.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 mirror; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 0 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "COG",
+  "year": 2022,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 625.0,
+  "gasoilM3": 34121.0,
+  "gplTM": 4004.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "China",
+    "hydro": "gasoline",
+    "qty": 404.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Tunisia",
+    "hydro": "gasoline",
+    "qty": 175.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 17.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 17424.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Gabon",
+    "hydro": "gasoil",
+    "qty": 4957.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 4019.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 4000.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "lpg",
+    "qty": 4.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 0 kb/d (cross-check)."
+ },
+ {
+  "country": "COG",
+  "year": 2023,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 7685.0,
+  "gasoilM3": 336382.0,
+  "gplTM": 21.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Dem. Rep. of the Congo",
+    "hydro": "gasoline",
+    "qty": 7288.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 326.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "gasoline",
+    "qty": 35.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 277670.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Gabon",
+    "hydro": "gasoil",
+    "qty": 14827.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 13053.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "lpg",
+    "qty": 10.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "lpg",
+    "qty": 10.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 0 kb/d (cross-check). QA flag: gasoilM3 (336,382) is >3x the median of this country's other years (34,121); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "COG",
+  "year": 2024,
+  "oilIntraKbD": 38.9,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 1672110.0,
+  "gasoilM3": 16898.0,
+  "gplTM": 1121.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Algeria",
+    "hydro": "crude",
+    "qty": 38.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "gasoline",
+    "qty": 1671240.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "gasoline",
+    "qty": 467.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Lebanon",
+    "hydro": "gasoline",
+    "qty": 186.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 7533.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kenya",
+    "hydro": "gasoil",
+    "qty": 1960.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 1681.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Rep. of Tanzania",
+    "hydro": "lpg",
+    "qty": 1060.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 52.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 9.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude from UN Comtrade mirror data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 38.9 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 0 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. QA flag: essenceM3 (1,672,110) is >3x the median of this country's other years (7,685); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "CIV",
+  "year": 2021,
+  "oilIntraKbD": 44.4,
+  "oilExtraKbD": 8.4,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1146546.0,
+  "gasoilM3": 78189.0,
+  "gplTM": 487941.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 44.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ecuador",
+    "hydro": "crude",
+    "qty": 4.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 4.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 496278.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Areas, nes",
+    "hydro": "gasoline",
+    "qty": 371479.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 52024.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 16972.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 16367.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 10981.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 445329.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "lpg",
+    "qty": 19891.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 18312.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 52.8 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "CIV",
+  "year": 2022,
+  "oilIntraKbD": 54.6,
+  "oilExtraKbD": 8.6,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 2139570.0,
+  "gasoilM3": 124786.0,
+  "gplTM": 532572.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 54.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 8.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 783453.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 565376.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoline",
+    "qty": 128806.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 30114.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 27500.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 16984.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 435212.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "lpg",
+    "qty": 72025.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 12128.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 63.2 kb/d. LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "CIV",
+  "year": 2023,
+  "oilIntraKbD": 71.4,
+  "oilExtraKbD": 11.3,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1896815.0,
+  "gasoilM3": 251367.0,
+  "gplTM": 618784.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 71.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 9.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ecuador",
+    "hydro": "crude",
+    "qty": 2.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 712321.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoline",
+    "qty": 484355.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 195268.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 160540.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 30402.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 12933.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 549522.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "lpg",
+    "qty": 34079.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 22961.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 82.7 kb/d. LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "CIV",
+  "year": 2024,
+  "oilIntraKbD": 65.6,
+  "oilExtraKbD": 8.9,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 2425920.0,
+  "gasoilM3": 377970.0,
+  "gplTM": 647963.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 65.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 8.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 1106129.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoline",
+    "qty": 332039.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 108690.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 301721.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 23497.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 9577.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 586919.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "lpg",
+    "qty": 59782.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Albania",
+    "hydro": "lpg",
+    "qty": 978.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 74.5 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "CIV",
+  "year": 2025,
+  "oilIntraKbD": 51.8,
+  "oilExtraKbD": 8.6,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 3454545.0,
+  "gasoilM3": 299987.0,
+  "gplTM": 800490.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 51.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 8.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 742484.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Egypt",
+    "hydro": "gasoline",
+    "qty": 505284.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoline",
+    "qty": 400212.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 197342.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 38485.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 12111.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 748405.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 33634.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 13497.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 60.4 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete."
+ },
+ {
+  "country": "EGY",
+  "year": 2021,
+  "oilIntraKbD": 5.2,
+  "oilExtraKbD": 148.8,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 4.11,
+  "essenceM3": 2984313.0,
+  "gasoilM3": 4493917.0,
+  "gplTM": 2047000.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 80.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "crude",
+    "qty": 31.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "crude",
+    "qty": 17.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "crude",
+    "qty": 12.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Morocco",
+    "hydro": "crude",
+    "qty": 5.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Areas, nes",
+    "hydro": "lng",
+    "qty": 2.97,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 3540180.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 1016694.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 544086.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 72107.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 28337.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Other Europe, nes",
+    "hydro": "gasoil",
+    "qty": 22273.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 1033801.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "lpg",
+    "qty": 484352.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 138499.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271111 reporter; OPEC ASB 2025 Table 9.3/9.4; JODI-Oil secondary. JODI crude imports 153.96 kb/d (cross-check). Crude total 154 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (5.2 kb/d); extra = total − intra. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 2.97 bcm. Gas headline total 4.11 bcm taken from OPEC ASB 2025 Table 9.4 because partner-level sources (GIIGNL LNG + Comtrade pipeline) only account for 2.97 bcm; extra = OPEC total − intra (African partners). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 203 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "EGY",
+  "year": 2022,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 118,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 6.5,
+  "essenceM3": 2685616.0,
+  "gasoilM3": 3808384.0,
+  "gplTM": 1697000.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 62.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "crude",
+    "qty": 57.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "crude",
+    "qty": 3.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Israel",
+    "hydro": "lng",
+    "qty": 2.24,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 2263232.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 938612.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 906946.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 163117.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 123438.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 14380.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 788288.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "lpg",
+    "qty": 533129.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "lpg",
+    "qty": 88967.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271111 reporter; OPEC ASB 2025 Table 9.3/9.4; JODI-Oil secondary. JODI crude imports 117.73 kb/d (cross-check). Crude total 118 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (0 kb/d); extra = total − intra. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 2.24 bcm. Gas headline total 6.50 bcm taken from OPEC ASB 2025 Table 9.4 because partner-level sources (GIIGNL LNG + Comtrade pipeline) only account for 2.24 bcm; extra = OPEC total − intra (African partners). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 184 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "EGY",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 59,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 8.59,
+  "essenceM3": 2880765.0,
+  "gasoilM3": 5789076.0,
+  "gplTM": 1621000.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Kuwait",
+    "hydro": "crude",
+    "qty": 27.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 22.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "crude",
+    "qty": 5.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Israel",
+    "hydro": "lng",
+    "qty": 4.79,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 2930733.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 1841742.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 707617.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 142818.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 14573.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Pakistan",
+    "hydro": "gasoil",
+    "qty": 12026.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 1011529.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "lpg",
+    "qty": 170759.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 121054.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "high",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271111 reporter; OPEC ASB 2025 Table 9.3/9.4; JODI-Oil secondary. JODI crude imports 59.13 kb/d (cross-check). Crude total 59 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (0 kb/d); extra = total − intra. LNG (HS 271111) from UN Comtrade reporter data: 4.79 bcm. Gas headline total 8.59 bcm taken from OPEC ASB 2025 Table 9.4 because partner-level sources (GIIGNL LNG + Comtrade pipeline) only account for 4.79 bcm; extra = OPEC total − intra (African partners). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 210 kb/d (cross-check)."
+ },
+ {
+  "country": "EGY",
+  "year": 2024,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 25,
+  "gasIntraBcm": 0.41,
+  "gasExtraBcm": 13.88,
+  "essenceM3": 2818370.0,
+  "gasoilM3": 7438862.0,
+  "gplTM": 2053000.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 23.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "crude",
+    "qty": 2.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "crude",
+    "qty": 0.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United States",
+    "hydro": "lng",
+    "qty": 2.72,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lng",
+    "qty": 0.27,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lng",
+    "qty": 0.14,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 5193431.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 1168210.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 778045.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 660950.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 157082.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "gasoil",
+    "qty": 121723.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 1486429.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "lpg",
+    "qty": 155601.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 120839.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; GIIGNL Annual Report 2025; UN Comtrade HS271121 mirror; OPEC ASB 2025 Table 9.3/9.4; JODI-Oil secondary. JODI crude imports 25.33 kb/d (cross-check). Crude total 25 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (0 kb/d); extra = total − intra. LNG imports 2.3 Mt by origin from GIIGNL Annual Report 2025 importer row. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Gas headline total 14.28 bcm taken from OPEC ASB 2025 Table 9.4 because partner-level sources (GIIGNL LNG + Comtrade pipeline) only account for 3.13 bcm; extra = OPEC total − intra (African partners). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 301 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "EGY",
+  "year": 2025,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 54.7,
+  "gasIntraBcm": 0.62,
+  "gasExtraBcm": 18.02,
+  "essenceM3": 12532740.0,
+  "gasoilM3": 1087528.0,
+  "gplTM": 1602994.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 48.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 5.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "crude",
+    "qty": 0.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lng",
+    "qty": 12.6,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Israel",
+    "hydro": "lng",
+    "qty": 4.77,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "lng",
+    "qty": 0.34,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Trinidad and Tobago",
+    "hydro": "lng",
+    "qty": 0.31,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 6921802.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Kuwait",
+    "hydro": "gasoline",
+    "qty": 1536021.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoline",
+    "qty": 1209587.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 922119.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 54890.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 19415.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 1574596.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "lpg",
+    "qty": 28398.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 54.7 kb/d. LNG (HS 271111) from UN Comtrade reporter data: 18.63 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete. QA flag: essenceM3 (12,532,740) is >3x the median of this country's other years (2,849,568); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "GNQ",
+  "year": 2021,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 90406.0,
+  "gasoilM3": 117300.0,
+  "gplTM": 0.0,
+  "jetFuelTM": 39400.0,
+  "partners": [
+   {
+    "partner": "USA",
+    "hydro": "gasoline",
+    "qty": 88.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Uganda",
+    "hydro": "gasoline",
+    "qty": 48.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Gabon",
+    "hydro": "gasoline",
+    "qty": 2.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 1005.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Spain",
+    "hydro": "gasoil",
+    "qty": 880.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 863.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 mirror; UN Comtrade HS271112/271113 mirror; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. gplTM: JODI reports 0 but UN Comtrade mirror shows 0.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 4 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "GNQ",
+  "year": 2022,
+  "oilIntraKbD": null,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 99433.0,
+  "gasoilM3": 106744.0,
+  "gplTM": 0.0,
+  "jetFuelTM": 50800.0,
+  "partners": [
+   {
+    "partner": "Gabon",
+    "hydro": "gasoline",
+    "qty": 181.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 5.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Burundi",
+    "hydro": "gasoline",
+    "qty": 5.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 4292.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoil",
+    "qty": 1940.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 1210.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS271121 mirror; UN Comtrade HS271112/271113 mirror; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); no partner breakdown available → whole total placed in extra-Africa (intra unknown, set null). Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). gplTM: JODI reports 0 but UN Comtrade mirror shows 0.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "GNQ",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 90538.0,
+  "gasoilM3": 132125.0,
+  "gplTM": 0.0,
+  "jetFuelTM": 47000.0,
+  "partners": [
+   {
+    "partner": "Gabon",
+    "hydro": "gasoline",
+    "qty": 35.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cameroon",
+    "hydro": "gasoline",
+    "qty": 11.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 9.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 1776.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 1776.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "gasoil",
+    "qty": 1005.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 mirror; UN Comtrade HS271121 mirror; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "GNQ",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 5239.0,
+  "gasoilM3": 9172.0,
+  "gplTM": null,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoline",
+    "qty": 5226.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 12.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 6335.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "gasoil",
+    "qty": 780.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 368.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271111 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271111 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "GAB",
+  "year": 2021,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.01,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 22509.0,
+  "gasoilM3": 170573.0,
+  "gplTM": 43798.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 22182.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 124.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 99.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 139752.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 11651.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 4678.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 20471.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "lpg",
+    "qty": 8721.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 5346.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 6 kb/d (cross-check). QA flag: gplTM (43,798) is >3x the median of this country's other years (6,650); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "GAB",
+  "year": 2022,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 6262.0,
+  "gasoilM3": 71798.0,
+  "gplTM": 6650.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Togo",
+    "hydro": "gasoline",
+    "qty": 6021.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Areas, nes",
+    "hydro": "gasoline",
+    "qty": 94.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 36.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 31032.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "gasoil",
+    "qty": 13080.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 7894.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "lpg",
+    "qty": 6597.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 52.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check)."
+ },
+ {
+  "country": "GAB",
+  "year": 2023,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 81246.0,
+  "gasoilM3": 391276.0,
+  "gplTM": 43200.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 21485.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Poland",
+    "hydro": "gasoline",
+    "qty": 48.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 31.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 51638.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 45000.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Other Asia, nes",
+    "hydro": "gasoil",
+    "qty": 17759.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 19961.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "lpg",
+    "qty": 2597.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "lpg",
+    "qty": 2568.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; JODI-Oil secondary. Crude total 0.0 kb/d from JODI-Oil primary (12-month average); intra-Africa share = African partners in UN Comtrade reporter data (0.0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check). QA flag: gasoilM3 (391,276) is >3x the median of this country's other years (89,246); source switch or partner reporting anomaly possible — treat with caution. QA flag: gplTM (43,200) is >3x the median of this country's other years (6,650); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "GAB",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 401.0,
+  "gasoilM3": 89246.0,
+  "gplTM": 18.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 138.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoline",
+    "qty": 135.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 103.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 36503.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 11621.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "gasoil",
+    "qty": 11438.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "lpg",
+    "qty": 17.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 5 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "GHA",
+  "year": 2021,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.01,
+  "essenceM3": 4074815.0,
+  "gasoilM3": 163441.0,
+  "gplTM": 177887.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Switzerland",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 1250619.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "gasoline",
+    "qty": 1157940.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 399627.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 37643.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "gasoil",
+    "qty": 36936.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 30700.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 141271.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 19025.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 10835.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "GHA",
+  "year": 2022,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 5199905.0,
+  "gasoilM3": 99565.0,
+  "gplTM": 183648.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 2183034.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 1304324.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "gasoline",
+    "qty": 653909.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 29250.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 22478.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Morocco",
+    "hydro": "gasoil",
+    "qty": 9968.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 123727.0,
+    "unit": "t"
+   },
+   {
+    "partner": "France",
+    "hydro": "lpg",
+    "qty": 33158.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 20185.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "GHA",
+  "year": 2023,
+  "oilIntraKbD": 0.3,
+  "oilExtraKbD": 3.9,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 7943241.0,
+  "gasoilM3": 108131.0,
+  "gplTM": 266417.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 2.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Kazakhstan",
+    "hydro": "crude",
+    "qty": 1.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 0.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 2100669.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoline",
+    "qty": 1677211.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 607282.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 44998.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 17628.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Morocco",
+    "hydro": "gasoil",
+    "qty": 10248.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 108298.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 85762.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 18833.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 4.2 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "GHA",
+  "year": 2024,
+  "oilIntraKbD": 1.3,
+  "oilExtraKbD": 5.8,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 3012532.0,
+  "gasoilM3": 3217981.0,
+  "gplTM": 194272.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "crude",
+    "qty": 4.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "crude",
+    "qty": 1.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 1.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "crude",
+    "qty": 0.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 0.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Marshall Isds",
+    "hydro": "crude",
+    "qty": 0.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoline",
+    "qty": 1376220.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 423632.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 365385.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 1245082.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "gasoil",
+    "qty": 518691.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bahrain",
+    "hydro": "gasoil",
+    "qty": 395006.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 154576.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 23807.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Argentina",
+    "hydro": "lpg",
+    "qty": 11445.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 7.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code. QA flag: gasoilM3 (3,217,981) is >3x the median of this country's other years (135,786); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "GHA",
+  "year": 2025,
+  "oilIntraKbD": 16.6,
+  "oilExtraKbD": 0.9,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 4172138.0,
+  "gasoilM3": 4612199.0,
+  "gplTM": 240782.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 5.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 4.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Morocco",
+    "hydro": "crude",
+    "qty": 4.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "crude",
+    "qty": 2.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "crude",
+    "qty": 0.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "crude",
+    "qty": 0.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 1099684.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 1068986.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 402010.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 1064401.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 866239.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bahrain",
+    "hydro": "gasoil",
+    "qty": 649608.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 178712.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 50804.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Senegal",
+    "hydro": "lpg",
+    "qty": 11258.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 17.5 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete. QA flag: gasoilM3 (4,612,199) is >3x the median of this country's other years (135,786); source switch or partner reporting anomaly possible — treat with caution. QA flag: oilIntraKbD (17) is >3x the median of this country's other years (1); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "LBY",
+  "year": 2021,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 3250509.0,
+  "gasoilM3": 1831210.0,
+  "gplTM": 0.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 1151734.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoline",
+    "qty": 997217.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 420972.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 1255183.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 181516.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 122982.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 mirror; UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude from UN Comtrade mirror data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 160 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "LBY",
+  "year": 2022,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 4471600.0,
+  "gasoilM3": 2270861.0,
+  "gplTM": null,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 1393838.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 1258223.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoline",
+    "qty": 1034339.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 1209855.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 543744.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 221768.0,
+    "unit": "m3"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "low",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 185 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "LBY",
+  "year": 2023,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 3973179.0,
+  "gasoilM3": 2921460.0,
+  "gplTM": 37.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 1388853.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cyprus",
+    "hydro": "gasoline",
+    "qty": 984768.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoline",
+    "qty": 646464.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 1699071.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 849189.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 150492.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 37.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 193 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "LBY",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 4474252.0,
+  "gasoilM3": 2104165.0,
+  "gplTM": 1.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 1561567.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Cyprus",
+    "hydro": "gasoline",
+    "qty": 1244892.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoline",
+    "qty": 835994.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Greece",
+    "hydro": "gasoil",
+    "qty": 917232.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoil",
+    "qty": 697580.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 226990.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 mirror"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 mirror; UN Comtrade HS271019 mirror; UN Comtrade HS271112/271113 mirror. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. OPEC ASB 2025 Table 5.7 total petroleum-product imports: 224 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "NAM",
+  "year": 2021,
+  "oilIntraKbD": 0.3,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.01,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 3058072.0,
+  "gasoilM3": 4861.0,
+  "gplTM": 8940.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "South Africa",
+    "hydro": "crude",
+    "qty": 0.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 1196455.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 487709.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 378870.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 2994.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Singapore",
+    "hydro": "gasoil",
+    "qty": 715.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 479.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lpg",
+    "qty": 8939.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.3 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "NAM",
+  "year": 2022,
+  "oilIntraKbD": 0.2,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.01,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1589677.0,
+  "gasoilM3": 4360.0,
+  "gplTM": 9953.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "South Africa",
+    "hydro": "crude",
+    "qty": 0.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lng",
+    "qty": 0.01,
+    "unit": "bcm"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 287503.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 264915.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 264563.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 3013.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 543.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 421.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lpg",
+    "qty": 9827.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 125.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.2 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.01 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "NAM",
+  "year": 2023,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1817612.0,
+  "gasoilM3": 8898.0,
+  "gplTM": 9995.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 547025.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 289969.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 252415.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 4279.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 2806.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Germany",
+    "hydro": "gasoil",
+    "qty": 616.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lpg",
+    "qty": 9847.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 147.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 1.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "NAM",
+  "year": 2024,
+  "oilIntraKbD": 0.0,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1964491.0,
+  "gasoilM3": 9606.0,
+  "gplTM": 8735.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 334107.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 322472.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 266493.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "gasoil",
+    "qty": 4202.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 3652.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 390.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "South Africa",
+    "hydro": "lpg",
+    "qty": 8319.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "lpg",
+    "qty": 412.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Rep. of Korea",
+    "hydro": "lpg",
+    "qty": 3.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 0.0 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "NER",
+  "year": 2021,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 978.0,
+  "gasoilM3": 79959.0,
+  "gplTM": 8041.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 318.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 255.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 188.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 38176.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "gasoil",
+    "qty": 13019.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 8114.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 5067.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 2825.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "lpg",
+    "qty": 72.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "NER",
+  "year": 2022,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 32597.0,
+  "gasoilM3": 69725.0,
+  "gplTM": 32452.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 11060.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 9516.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 5388.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 37205.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 7398.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 6447.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 32349.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 102.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271012 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "NER",
+  "year": 2023,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 26451.0,
+  "gasoilM3": 75821.0,
+  "gplTM": 28232.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 16583.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Malaysia",
+    "hydro": "gasoline",
+    "qty": 3805.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoline",
+    "qty": 2817.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 34894.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 13337.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 12903.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 26568.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 948.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Benin",
+    "hydro": "lpg",
+    "qty": 487.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271121 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "NER",
+  "year": 2024,
+  "oilIntraKbD": null,
+  "oilExtraKbD": null,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 47815.0,
+  "gasoilM3": 64981.0,
+  "gplTM": 24334.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoline",
+    "qty": 34413.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoline",
+    "qty": 6143.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "gasoline",
+    "qty": 3198.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 26647.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 6577.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "gasoil",
+    "qty": 5251.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Nigeria",
+    "hydro": "lpg",
+    "qty": 23302.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 919.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Argentina",
+    "hydro": "lpg",
+    "qty": 92.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS271121 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS271121 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude: no quantity found in OPEC ASB, JODI or UN Comtrade (reporter/mirror) → null. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "NGA",
+  "year": 2021,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 21690301.0,
+  "gasoilM3": 4490596.0,
+  "gplTM": 415700.0,
+  "jetFuelTM": 806400.0,
+  "partners": [
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 3438.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 1402.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 776.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 20562.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 18856.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 8515.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 4909.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 22.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Germany",
+    "hydro": "lpg",
+    "qty": 19.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; UN Comtrade HS271121 reporter; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 488 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "NGA",
+  "year": 2022,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 23162412.0,
+  "gasoilM3": 4019618.0,
+  "gplTM": 320600.0,
+  "jetFuelTM": 670500.0,
+  "partners": [
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 5734104.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 5675840.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 1840520.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Rep. of Korea",
+    "hydro": "gasoil",
+    "qty": 38182.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 36383.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 35477.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "lpg",
+    "qty": 125.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 19.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 18.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Comtrade partner sum (0.0 kb/d) differs >25% from headline total; partner quantities shown as reported. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 525 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "NGA",
+  "year": 2023,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 19996624.0,
+  "gasoilM3": 4980313.0,
+  "gplTM": 528900.0,
+  "jetFuelTM": 608000.0,
+  "partners": [
+   {
+    "partner": "Senegal",
+    "hydro": "crude",
+    "qty": 0.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 6595388.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 3313624.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 1073061.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 11374.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 10647.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 4345.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 120.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 30.0,
+    "unit": "t"
+   },
+   {
+    "partner": "China",
+    "hydro": "lpg",
+    "qty": 5.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; UN Comtrade HS271121 reporter; UN Comtrade HS271111 mirror; JODI-Oil secondary. JODI crude imports 0.0 kb/d (cross-check). Crude total 0 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0.1 kb/d); extra = total − intra. Comtrade partner sum (0.1 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 476 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "NGA",
+  "year": 2024,
+  "oilIntraKbD": 0,
+  "oilExtraKbD": 41,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 17167899.0,
+  "gasoilM3": 4471738.0,
+  "gplTM": 507700.0,
+  "jetFuelTM": 459200.0,
+  "partners": [
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 47.8,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 6300470.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 1183188.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Spain",
+    "hydro": "gasoline",
+    "qty": 875212.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 12858.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 9258.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 2734.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 427.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Equatorial Guinea",
+    "hydro": "lpg",
+    "qty": 70.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "lpg",
+    "qty": 18.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 mirror; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; JODI-Oil secondary. JODI crude imports 24.33 kb/d (cross-check). Crude total 41 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade mirror data (0 kb/d); extra = total − intra. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 394 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "NGA",
+  "year": 2025,
+  "oilIntraKbD": null,
+  "oilExtraKbD": 119.2,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 13215277.0,
+  "gasoilM3": 4629363.0,
+  "gplTM": 556900.0,
+  "jetFuelTM": 192500.0,
+  "partners": [
+   {
+    "partner": "Colombia",
+    "hydro": "crude",
+    "qty": 20.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 6.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Brazil",
+    "hydro": "crude",
+    "qty": 5.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "crude",
+    "qty": 5.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 2984378.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 2812474.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 330542.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 17620.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoil",
+    "qty": 10895.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Türkiye",
+    "hydro": "gasoil",
+    "qty": 3123.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 80.0,
+    "unit": "t"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 63.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "lpg",
+    "qty": 10.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "JODI-Oil World Database (primary & secondary)",
+   "url": "https://www.jodidata.org/oil/database/data-downloads.aspx",
+   "published": "2026-08-19 (bulk CSV)",
+   "table_or_page": "JODI-Oil primary (12-month average)"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: JODI-Oil primary (12-month average); UN Comtrade HS2709 mirror; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; JODI-Oil secondary. Excluded outlier crude partner(s) inconsistent with the headline total (likely partner reporting/unit error): USA 131.3 kb/d. Crude total 119.17 kb/d from JODI-Oil primary (12-month average); UN Comtrade mirror partners cover only 36.8 kb/d (<50%), so the intra/extra split is not derived from them: intra null, total placed in extra. Comtrade partner sum (36.8 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.0 bcm. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. Comtrade call hit 500-row cap; combo re-pulled per HS code. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete."
+ },
+ {
+  "country": "SEN",
+  "year": 2021,
+  "oilIntraKbD": 20.4,
+  "oilExtraKbD": 0.2,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 593930.0,
+  "gasoilM3": 2821822.0,
+  "gplTM": 211980.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 20.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "crude",
+    "qty": 0.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 201125.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 63437.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Malaysia",
+    "hydro": "gasoline",
+    "qty": 54191.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 715393.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 564460.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Spain",
+    "hydro": "gasoil",
+    "qty": 361996.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 88441.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "lpg",
+    "qty": 33412.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "lpg",
+    "qty": 25581.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 20.6 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "SEN",
+  "year": 2022,
+  "oilIntraKbD": 10.1,
+  "oilExtraKbD": 0,
+  "gasIntraBcm": null,
+  "gasExtraBcm": null,
+  "essenceM3": 597493.0,
+  "gasoilM3": 3313985.0,
+  "gplTM": 211618.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 10.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 317245.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoline",
+    "qty": 100276.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 70482.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 691296.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 628584.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 554619.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 62571.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "lpg",
+    "qty": 32534.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Switzerland",
+    "hydro": "lpg",
+    "qty": 16320.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 10.1 kb/d. Gas: no trade quantity found (GIIGNL/OPEC/Comtrade) → null. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null."
+ },
+ {
+  "country": "SEN",
+  "year": 2023,
+  "oilIntraKbD": 26.5,
+  "oilExtraKbD": 0.0,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 563505.0,
+  "gasoilM3": 2686756.0,
+  "gplTM": 226144.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 26.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 246159.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoline",
+    "qty": 80185.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bulgaria",
+    "hydro": "gasoline",
+    "qty": 64095.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 872722.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 838068.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 374806.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 61157.0,
+    "unit": "t"
+   },
+   {
+    "partner": "United Kingdom",
+    "hydro": "lpg",
+    "qty": 21334.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "lpg",
+    "qty": 16393.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 mirror; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 26.5 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade mirror data: 0.0 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "SEN",
+  "year": 2024,
+  "oilIntraKbD": 13.0,
+  "oilExtraKbD": 10.6,
+  "gasIntraBcm": 0.0,
+  "gasExtraBcm": 0.09,
+  "essenceM3": 589338.0,
+  "gasoilM3": 3337366.0,
+  "gplTM": 227282.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 13.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Nicaragua",
+    "hydro": "crude",
+    "qty": 10.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lng",
+    "qty": 0.09,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoline",
+    "qty": 266417.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Norway",
+    "hydro": "gasoline",
+    "qty": 77391.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Bulgaria",
+    "hydro": "gasoline",
+    "qty": 63835.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "gasoil",
+    "qty": 1353434.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 859939.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Belgium",
+    "hydro": "gasoil",
+    "qty": 364820.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 69478.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "lpg",
+    "qty": 37078.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Italy",
+    "hydro": "lpg",
+    "qty": 28665.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 23.6 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 0.0 bcm (m³ where reported, else t×1.36 bcm/Mt). LNG (HS 271111) from UN Comtrade reporter data: 0.09 bcm. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data."
+ },
+ {
+  "country": "ZAF",
+  "year": 2021,
+  "oilIntraKbD": 33.3,
+  "oilExtraKbD": 145.7,
+  "gasIntraBcm": 4.3,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 501811.0,
+  "gasoilM3": 4289918.0,
+  "gplTM": 10000.0,
+  "jetFuelTM": 36000.0,
+  "partners": [
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 89.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "crude",
+    "qty": 19.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 13.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 7.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "crude",
+    "qty": 2.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "India",
+    "hydro": "crude",
+    "qty": 1.0,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 4871851.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 3302329.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 3281991.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 12039.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 9328.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Rep. of Korea",
+    "hydro": "gasoil",
+    "qty": 9213.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 167179.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Chile",
+    "hydro": "lpg",
+    "qty": 85259.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Russian Federation",
+    "hydro": "lpg",
+    "qty": 23485.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 mirror; UN Comtrade HS271111 reporter; JODI-Oil secondary. Excluded outlier crude partner(s) inconsistent with the headline total (likely partner reporting/unit error): Nigeria 99.7 kb/d. JODI crude imports 179.04 kb/d (cross-check). Crude total 179 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (33.3 kb/d); extra = total − intra. Comtrade partner sum (133.3 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade mirror data: 103.17 bcm (m³ where reported, else t×1.36 bcm/Mt). South Africa reports Mozambican ROMPCO pipeline gas under HS 271111; reclassified here as pipeline gas (intra-Africa). LNG (HS 271111) from UN Comtrade reporter data: 3.92 bcm. Comtrade-derived gas total (107.09 bcm) exceeds OPEC ASB 2025 total (4.30 bcm) by >50% (unit/reporting error in Comtrade); OPEC total used, split intra/extra by the Comtrade partner share (100% African); gas partner quantities dropped. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 86 kb/d (cross-check). MIRROR DATA: some partner quantities are partner-reported (imports CIF / exports FOB of the counterpart), not reporter data. Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "ZAF",
+  "year": 2022,
+  "oilIntraKbD": 78.7,
+  "oilExtraKbD": 68.3,
+  "gasIntraBcm": 3.83,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1425780.0,
+  "gasoilM3": 5354984.0,
+  "gplTM": 9000.0,
+  "jetFuelTM": 36000.0,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 58.6,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 44.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 13.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "crude",
+    "qty": 2.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Congo",
+    "hydro": "crude",
+    "qty": 2.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "crude",
+    "qty": 1.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Mozambique",
+    "hydro": "gas",
+    "qty": 3.84,
+    "unit": "bcm"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 5557078.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 4563069.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 3518034.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 28195.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Singapore",
+    "hydro": "gasoil",
+    "qty": 18814.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 13980.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 278009.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "lpg",
+    "qty": 50361.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Japan",
+    "hydro": "lpg",
+    "qty": 17941.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "high",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; JODI-Oil secondary. JODI crude imports 147.2 kb/d (cross-check). Crude total 147 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (78.7 kb/d); extra = total − intra. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.01 bcm (m³ where reported, else t×1.36 bcm/Mt). South Africa reports Mozambican ROMPCO pipeline gas under HS 271111; reclassified here as pipeline gas (intra-Africa). LNG (HS 271111) from UN Comtrade reporter data: 3.83 bcm. OPEC ASB 2025 Table 9.4 total natural-gas imports: 4.20 bcm (cross-check). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 120 kb/d (cross-check). Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "ZAF",
+  "year": 2023,
+  "oilIntraKbD": 91.8,
+  "oilExtraKbD": 105.2,
+  "gasIntraBcm": 4.05,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 1100532.0,
+  "gasoilM3": 6806701.0,
+  "gplTM": 37000.0,
+  "jetFuelTM": 79000.0,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 67.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 34.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 11.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 10.3,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "crude",
+    "qty": 5.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Algeria",
+    "hydro": "crude",
+    "qty": 5.2,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Mozambique",
+    "hydro": "gas",
+    "qty": 4.04,
+    "unit": "bcm"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 6089515.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 4683747.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 4443479.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 30024.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoil",
+    "qty": 15586.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 14453.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 419364.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Togo",
+    "hydro": "lpg",
+    "qty": 18702.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Japan",
+    "hydro": "lpg",
+    "qty": 17363.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "high",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; JODI-Oil secondary. JODI crude imports 197.18 kb/d (cross-check). Crude total 197 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (91.8 kb/d); extra = total − intra. Comtrade partner sum (145.8 kb/d) differs >25% from headline total; partner quantities shown as reported. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.01 bcm (m³ where reported, else t×1.36 bcm/Mt). South Africa reports Mozambican ROMPCO pipeline gas under HS 271111; reclassified here as pipeline gas (intra-Africa). LNG (HS 271111) from UN Comtrade reporter data: 4.03 bcm. OPEC ASB 2025 Table 9.4 total natural-gas imports: 4.30 bcm (cross-check). Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 143 kb/d (cross-check). Comtrade call hit 500-row cap; combo re-pulled per HS code."
+ },
+ {
+  "country": "ZAF",
+  "year": 2024,
+  "oilIntraKbD": 119.4,
+  "oilExtraKbD": 55.6,
+  "gasIntraBcm": 4.03,
+  "gasExtraBcm": 1.68,
+  "essenceM3": 2368334.0,
+  "gasoilM3": 4829567.0,
+  "gplTM": 589467.0,
+  "jetFuelTM": 0.0,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 78.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 29.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 25.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 12.4,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Ghana",
+    "hydro": "crude",
+    "qty": 10.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Côte d'Ivoire",
+    "hydro": "crude",
+    "qty": 2.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Mozambique",
+    "hydro": "gas",
+    "qty": 4.03,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 5622690.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoline",
+    "qty": 4714961.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 4650139.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "France",
+    "hydro": "gasoil",
+    "qty": 38491.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoil",
+    "qty": 23855.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 20298.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 505788.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Areas, nes",
+    "hydro": "lpg",
+    "qty": 36792.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "lpg",
+    "qty": 12682.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+   "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+   "published": "2025-07-02",
+   "table_or_page": "Table 5.6"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: OPEC ASB 2025 Table 5.6; UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; OPEC ASB 2025 Table 9.3/9.4; UN Comtrade HS271112/271113 reporter; JODI-Oil secondary. JODI crude imports 177.17 kb/d (cross-check). Crude total 175 kb/d from OPEC ASB 2025 Table 5.6; intra-Africa share = African partners in UN Comtrade reporter data (119.4 kb/d); extra = total − intra. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.01 bcm (m³ where reported, else t×1.36 bcm/Mt). South Africa reports Mozambican ROMPCO pipeline gas under HS 271111; reclassified here as pipeline gas (intra-Africa). LNG (HS 271111) from UN Comtrade reporter data: 4.02 bcm. Gas headline total 5.70 bcm taken from OPEC ASB 2025 Table 9.4 because partner-level sources (GIIGNL LNG + Comtrade pipeline) only account for 4.03 bcm; extra = OPEC total − intra (African partners). gplTM: JODI reports 0 but UN Comtrade reporter shows 589467.0 t → Comtrade used. Refined products: JODI-Oil secondary (12-month totals; kt→m³ with gasoline 8.35 bbl/t, gasoil 7.46 bbl/t, 1 bbl=0.158987 m³; LPG and jet kerosene in t); product partners from UN Comtrade (HS 271012 light oils incl. naphtha; 271019 other oils incl. gasoil/jet/fuel oil; 271112+271113 LPG). OPEC ASB 2025 Table 5.7 total petroleum-product imports: 134 kb/d (cross-check). Comtrade call hit 500-row cap; combo re-pulled per HS code. QA flag: gplTM (589,467) is >3x the median of this country's other years (23,500); source switch or partner reporting anomaly possible — treat with caution."
+ },
+ {
+  "country": "ZAF",
+  "year": 2025,
+  "oilIntraKbD": 88.4,
+  "oilExtraKbD": 58.9,
+  "gasIntraBcm": 3.77,
+  "gasExtraBcm": 0.0,
+  "essenceM3": 26076379.0,
+  "gasoilM3": 423342.0,
+  "gplTM": 683021.0,
+  "jetFuelTM": null,
+  "partners": [
+   {
+    "partner": "Nigeria",
+    "hydro": "crude",
+    "qty": 51.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Angola",
+    "hydro": "crude",
+    "qty": 30.9,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "USA",
+    "hydro": "crude",
+    "qty": 20.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "crude",
+    "qty": 19.7,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Brazil",
+    "hydro": "crude",
+    "qty": 8.5,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "crude",
+    "qty": 4.1,
+    "unit": "kb/d"
+   },
+   {
+    "partner": "Mozambique",
+    "hydro": "gas",
+    "qty": 3.77,
+    "unit": "bcm"
+   },
+   {
+    "partner": "Oman",
+    "hydro": "gasoline",
+    "qty": 7073016.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "India",
+    "hydro": "gasoline",
+    "qty": 4470856.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Saudi Arabia",
+    "hydro": "gasoline",
+    "qty": 4455929.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "Netherlands",
+    "hydro": "gasoil",
+    "qty": 80277.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "gasoil",
+    "qty": 66815.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "United Arab Emirates",
+    "hydro": "gasoil",
+    "qty": 62958.0,
+    "unit": "m3"
+   },
+   {
+    "partner": "USA",
+    "hydro": "lpg",
+    "qty": 523800.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Areas, nes",
+    "hydro": "lpg",
+    "qty": 70006.0,
+    "unit": "t"
+   },
+   {
+    "partner": "Iraq",
+    "hydro": "lpg",
+    "qty": 32774.0,
+    "unit": "t"
+   }
+  ],
+  "source": {
+   "name": "UN Comtrade (public preview API, HS)",
+   "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+   "published": "accessed 2026-09-04",
+   "table_or_page": "UN Comtrade HS2709 reporter"
+  },
+  "confidence": "medium",
+  "notes": "Sources used: UN Comtrade HS2709 reporter; UN Comtrade HS271121 reporter; UN Comtrade HS271111 reporter; UN Comtrade HS271012 reporter; UN Comtrade HS271019 reporter; UN Comtrade HS271112/271113 reporter. Crude from UN Comtrade reporter data (HS 2709 net weight, t×7.33 bbl/t ÷365): total 147.3 kb/d. Pipeline/gaseous-state gas (HS 271121) from UN Comtrade reporter data: 0.02 bcm (m³ where reported, else t×1.36 bcm/Mt). South Africa reports Mozambican ROMPCO pipeline gas under HS 271111; reclassified here as pipeline gas (intra-Africa). LNG (HS 271111) from UN Comtrade reporter data: 3.75 bcm. South Africa's HS 271012 line absorbs most diesel as well as gasoline (national classification), so essenceM3 is overstated and gasoilM3 understated here; JODI not complete for this year. Refined products from UN Comtrade HS6: essence=HS271012 (light oils & preparations: gasoline + naphtha), gasoil=HS271019 (medium/heavy oils: gasoil + jet/kerosene + fuel oil + lubricants); jet fuel cannot be isolated at HS6 → null. Comtrade call hit 500-row cap; combo re-pulled per HS code. 2025: included because full-year data exists (JODI 12 months and/or Comtrade annual reporter data); mirror data for 2025 may be incomplete. QA flag: essenceM3 (26,076,379) is >3x the median of this country's other years (1,263,156); source switch or partner reporting anomaly possible — treat with caution. QA flag: gplTM (683,021) is >3x the median of this country's other years (23,500); source switch or partner reporting anomaly possible — treat with caution."
+ }
+]

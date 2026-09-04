@@ -1,0 +1,1352 @@
+[
+  {
+    "country": "DZA",
+    "year": 2021,
+    "oil": 12.2,
+    "gas": 159.06,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 12,200 million barrels at year-end 2021 -> 12.2 Gbbl (÷1000). Gas: OPEC 4,504 bn standard m³ -> 159.06 Tcf (×0.0353147). EI Statistical Review 2023 (end-2021, via OWID): oil 12.2 Gbbl, gas 159.05 Tcf (lower-priority source, differs). Confirmed by OAPEC ASR 2024 Tables 1/4 (12.2 bn bbl, 4504 bcm)."
+  },
+  {
+    "country": "DZA",
+    "year": 2022,
+    "oil": 12.2,
+    "gas": 159.06,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 12,200 million barrels at year-end 2022 -> 12.2 Gbbl (÷1000). Gas: OPEC 4,504 bn standard m³ -> 159.06 Tcf (×0.0353147). Confirmed by OAPEC ASR 2024 Tables 1/4 (12.2 bn bbl, 4504 bcm)."
+  },
+  {
+    "country": "DZA",
+    "year": 2023,
+    "oil": 12.2,
+    "gas": 159.06,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 12,200 million barrels at year-end 2023 -> 12.2 Gbbl (÷1000). Gas: OPEC 4,504 bn standard m³ -> 159.06 Tcf (×0.0353147). Confirmed by OAPEC ASR 2024 Tables 1/4 (12.2 bn bbl, 4504 bcm)."
+  },
+  {
+    "country": "DZA",
+    "year": 2024,
+    "oil": 12.2,
+    "gas": 159.06,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 12,200 million barrels at year-end 2024 -> 12.2 Gbbl (÷1000). Gas: OPEC 4,504 bn standard m³ -> 159.06 Tcf (×0.0353147)."
+  },
+  {
+    "country": "DZA",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "AGO",
+    "year": 2021,
+    "oil": 2.516,
+    "gas": 10.63,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,516 million barrels at year-end 2021 -> 2.516 Gbbl (÷1000). Gas: OPEC 301 bn standard m³ -> 10.63 Tcf (×0.0353147). OPEC cut Angola oil from 7,231 mb (2020) to 2,516 mb (2021); EI end-2021 (via OWID) still shows 7.783 Gbbl / 12.11 Tcf. EI Statistical Review 2023 (end-2021, via OWID): oil 7.783 Gbbl, gas 12.11 Tcf (lower-priority source, differs)."
+  },
+  {
+    "country": "AGO",
+    "year": 2022,
+    "oil": 2.55,
+    "gas": 4.56,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,550 million barrels at year-end 2022 -> 2.55 Gbbl (÷1000). Gas: OPEC 129 bn standard m³ -> 4.56 Tcf (×0.0353147)."
+  },
+  {
+    "country": "AGO",
+    "year": 2023,
+    "oil": 2.55,
+    "gas": 1.94,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,550 million barrels at year-end 2023 -> 2.55 Gbbl (÷1000). Gas: OPEC 55 bn standard m³ -> 1.94 Tcf (×0.0353147). OPEC ASB 2025 revises the 2023 gas figure to 129 bcm (4.56 Tcf); first-published edition kept per vintage rule."
+  },
+  {
+    "country": "AGO",
+    "year": 2024,
+    "oil": 2.55,
+    "gas": 4.56,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,550 million barrels at year-end 2024 -> 2.55 Gbbl (÷1000). Gas: OPEC 129 bn standard m³ -> 4.56 Tcf (×0.0353147). Consistent with EIA Country Analysis Brief Angola (updated 26 Feb 2025, citing Oil & Gas Journal): 2.6 bn bbl oil and 4.6 Tcf gas at beginning of 2025."
+  },
+  {
+    "country": "AGO",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "BEN",
+    "year": 2021,
+    "oil": 0.008,
+    "gas": 0.04,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Benin is not itemised by OPEC (in 'Others' Africa) and has no regulator-published proved-reserves series; the only field is Sèmè (shut-in)."
+  },
+  {
+    "country": "BEN",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Benin is not itemised by OPEC (in 'Others' Africa) and has no regulator-published proved-reserves series; the only field is Sèmè (shut-in)."
+  },
+  {
+    "country": "BEN",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Benin is not itemised by OPEC (in 'Others' Africa) and has no regulator-published proved-reserves series; the only field is Sèmè (shut-in)."
+  },
+  {
+    "country": "BEN",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Benin is not itemised by OPEC (in 'Others' Africa) and has no regulator-published proved-reserves series; the only field is Sèmè (shut-in)."
+  },
+  {
+    "country": "BEN",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "CMR",
+    "year": 2021,
+    "oil": 0.2,
+    "gas": 6.32,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "medium",
+    "notes": "Oil: Cameroon not itemised in OPEC Table 3.1 (in 'Others'); no institutional annual proved-oil figure found for this year. EI end-2021 (via OWID) gives 0.2 Gbbl, recorded here as the oil value. Gas: OPEC 179 bn standard m³ -> 6.32 Tcf (×0.0353147). OPEC ASB 2025 revises the 2021 gas figure to 176 bcm (6.22 Tcf); first-published edition kept per vintage rule. EI Statistical Review 2023 (end-2021, via OWID): oil 0.2 Gbbl, gas 4.77 Tcf (lower-priority source, differs)."
+  },
+  {
+    "country": "CMR",
+    "year": 2022,
+    "oil": null,
+    "gas": 6.22,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: Cameroon not itemised in OPEC Table 3.1 (in 'Others'); no institutional annual proved-oil figure found for this year. Gas: OPEC 176 bn standard m³ -> 6.22 Tcf (×0.0353147). OPEC ASB 2025 revises the 2022 gas figure to 173 bcm (6.11 Tcf); first-published edition kept per vintage rule."
+  },
+  {
+    "country": "CMR",
+    "year": 2023,
+    "oil": null,
+    "gas": 6.11,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: Cameroon not itemised in OPEC Table 3.1 (in 'Others'); no institutional annual proved-oil figure found for this year. Gas: OPEC 173 bn standard m³ -> 6.11 Tcf (×0.0353147). OPEC ASB 2025 revises the 2023 gas figure to 170 bcm (6.0 Tcf); first-published edition kept per vintage rule."
+  },
+  {
+    "country": "CMR",
+    "year": 2024,
+    "oil": null,
+    "gas": 6.0,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: Cameroon not itemised in OPEC Table 3.1 (in 'Others'); no institutional annual proved-oil figure found for this year. Gas: OPEC 170 bn standard m³ -> 6.0 Tcf (×0.0353147)."
+  },
+  {
+    "country": "CMR",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "TCD",
+    "year": 2021,
+    "oil": 1.5,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Chad is not itemised by OPEC ('Others'); SHT/Ministry publish no annual proved-reserves series. EI end-2021 value (1.5 Gbbl) is an OGJ-type estimate carried unchanged for years. EI reports no proved gas reserves for this country (blank/zero) -> null."
+  },
+  {
+    "country": "TCD",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Chad is not itemised by OPEC ('Others'); SHT/Ministry publish no annual proved-reserves series. EI end-2021 value (1.5 Gbbl) is an OGJ-type estimate carried unchanged for years."
+  },
+  {
+    "country": "TCD",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Chad is not itemised by OPEC ('Others'); SHT/Ministry publish no annual proved-reserves series. EI end-2021 value (1.5 Gbbl) is an OGJ-type estimate carried unchanged for years."
+  },
+  {
+    "country": "TCD",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Chad is not itemised by OPEC ('Others'); SHT/Ministry publish no annual proved-reserves series. EI end-2021 value (1.5 Gbbl) is an OGJ-type estimate carried unchanged for years."
+  },
+  {
+    "country": "TCD",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "COD",
+    "year": 2021,
+    "oil": 0.18,
+    "gas": 0.035,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). DR Congo is not itemised by OPEC ('Others'); no regulator series (Muanda/Perenco onshore-offshore only)."
+  },
+  {
+    "country": "COD",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). DR Congo is not itemised by OPEC ('Others'); no regulator series (Muanda/Perenco onshore-offshore only)."
+  },
+  {
+    "country": "COD",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). DR Congo is not itemised by OPEC ('Others'); no regulator series (Muanda/Perenco onshore-offshore only)."
+  },
+  {
+    "country": "COD",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). DR Congo is not itemised by OPEC ('Others'); no regulator series (Muanda/Perenco onshore-offshore only)."
+  },
+  {
+    "country": "COD",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "COG",
+    "year": 2021,
+    "oil": 1.811,
+    "gas": 10.03,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,811 million barrels at year-end 2021 -> 1.811 Gbbl (÷1000). Gas: OPEC 284 bn standard m³ -> 10.03 Tcf (×0.0353147). EI Statistical Review 2023 (end-2021, via OWID): oil 2.882 Gbbl, gas 10.03 Tcf (lower-priority source, differs)."
+  },
+  {
+    "country": "COG",
+    "year": 2022,
+    "oil": 1.811,
+    "gas": 10.03,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,811 million barrels at year-end 2022 -> 1.811 Gbbl (÷1000). Gas: OPEC 284 bn standard m³ -> 10.03 Tcf (×0.0353147)."
+  },
+  {
+    "country": "COG",
+    "year": 2023,
+    "oil": 1.811,
+    "gas": 10.03,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,811 million barrels at year-end 2023 -> 1.811 Gbbl (÷1000). Gas: OPEC 284 bn standard m³ -> 10.03 Tcf (×0.0353147)."
+  },
+  {
+    "country": "COG",
+    "year": 2024,
+    "oil": 1.811,
+    "gas": 10.03,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,811 million barrels at year-end 2024 -> 1.811 Gbbl (÷1000). Gas: OPEC 284 bn standard m³ -> 10.03 Tcf (×0.0353147)."
+  },
+  {
+    "country": "COG",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "CIV",
+    "year": 2021,
+    "oil": 0.1,
+    "gas": 1.0,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Côte d'Ivoire is not itemised by OPEC ('Others'); Petroci/Ministry publish no annual proved-reserves series. Baleine (Eni) figures in the press are resources-in-place (~2.5 bn bbl, 3.3 Tcf), not proved reserves — not used."
+  },
+  {
+    "country": "CIV",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Côte d'Ivoire is not itemised by OPEC ('Others'); Petroci/Ministry publish no annual proved-reserves series. Baleine (Eni) figures in the press are resources-in-place (~2.5 bn bbl, 3.3 Tcf), not proved reserves — not used."
+  },
+  {
+    "country": "CIV",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Côte d'Ivoire is not itemised by OPEC ('Others'); Petroci/Ministry publish no annual proved-reserves series. Baleine (Eni) figures in the press are resources-in-place (~2.5 bn bbl, 3.3 Tcf), not proved reserves — not used."
+  },
+  {
+    "country": "CIV",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Côte d'Ivoire is not itemised by OPEC ('Others'); Petroci/Ministry publish no annual proved-reserves series. Baleine (Eni) figures in the press are resources-in-place (~2.5 bn bbl, 3.3 Tcf), not proved reserves — not used."
+  },
+  {
+    "country": "CIV",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "EGY",
+    "year": 2021,
+    "oil": 3.3,
+    "gas": 78.01,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 3,300 million barrels at year-end 2021 -> 3.3 Gbbl (÷1000). Gas: OPEC 2,209 bn standard m³ -> 78.01 Tcf (×0.0353147). EI Statistical Review 2023 (end-2021, via OWID): oil 3.3 Gbbl, gas 63.0 Tcf (lower-priority source, differs). OAPEC ASR 2024: 3.0 bn bbl, 2209 bcm (differs; OPEC kept). OAPEC Annual Statistical Report 2024, Tables 1 and 4 (https://oapecorg.org/media/2b5842d2-7148-49cb-81ad-54f2b11d6bdb/-465237118/Annual%20Statistical%20Report/2025/Statistical%20Report%202024%20final%20E.pdf)"
+  },
+  {
+    "country": "EGY",
+    "year": 2022,
+    "oil": 3.3,
+    "gas": 78.01,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 3,300 million barrels at year-end 2022 -> 3.3 Gbbl (÷1000). Gas: OPEC 2,209 bn standard m³ -> 78.01 Tcf (×0.0353147). OAPEC ASR 2024: 2.9 bn bbl, 2209 bcm (differs; OPEC kept). OAPEC Annual Statistical Report 2024, Tables 1 and 4 (https://oapecorg.org/media/2b5842d2-7148-49cb-81ad-54f2b11d6bdb/-465237118/Annual%20Statistical%20Report/2025/Statistical%20Report%202024%20final%20E.pdf)"
+  },
+  {
+    "country": "EGY",
+    "year": 2023,
+    "oil": 3.3,
+    "gas": 78.01,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 3,300 million barrels at year-end 2023 -> 3.3 Gbbl (÷1000). Gas: OPEC 2,209 bn standard m³ -> 78.01 Tcf (×0.0353147). OAPEC ASR 2024: 2.9 bn bbl, 2209 bcm (differs; OPEC kept). OAPEC Annual Statistical Report 2024, Tables 1 and 4 (https://oapecorg.org/media/2b5842d2-7148-49cb-81ad-54f2b11d6bdb/-465237118/Annual%20Statistical%20Report/2025/Statistical%20Report%202024%20final%20E.pdf)"
+  },
+  {
+    "country": "EGY",
+    "year": 2024,
+    "oil": 3.3,
+    "gas": 78.01,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 3,300 million barrels at year-end 2024 -> 3.3 Gbbl (÷1000). Gas: OPEC 2,209 bn standard m³ -> 78.01 Tcf (×0.0353147)."
+  },
+  {
+    "country": "EGY",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2021,
+    "oil": 1.1,
+    "gas": 1.38,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,100 million barrels at year-end 2021 -> 1.1 Gbbl (÷1000). Gas: OPEC 39 bn standard m³ -> 1.38 Tcf (×0.0353147). EI Statistical Review 2023 (end-2021, via OWID): oil 1.1 Gbbl, gas 4.91 Tcf (lower-priority source, differs)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2022,
+    "oil": 1.1,
+    "gas": 1.38,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,100 million barrels at year-end 2022 -> 1.1 Gbbl (÷1000). Gas: OPEC 39 bn standard m³ -> 1.38 Tcf (×0.0353147)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2023,
+    "oil": 1.1,
+    "gas": 1.38,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,100 million barrels at year-end 2023 -> 1.1 Gbbl (÷1000). Gas: OPEC 39 bn standard m³ -> 1.38 Tcf (×0.0353147). OPEC ASB 2025 revises the 2023 gas figure to 40 bcm (1.41 Tcf); first-published edition kept per vintage rule."
+  },
+  {
+    "country": "GNQ",
+    "year": 2024,
+    "oil": 1.1,
+    "gas": 1.41,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 1,100 million barrels at year-end 2024 -> 1.1 Gbbl (÷1000). Gas: OPEC 40 bn standard m³ -> 1.41 Tcf (×0.0353147)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "GAB",
+    "year": 2021,
+    "oil": 2.0,
+    "gas": 0.92,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,000 million barrels at year-end 2021 -> 2.0 Gbbl (÷1000). Gas: OPEC 26 bn standard m³ -> 0.92 Tcf (×0.0353147)."
+  },
+  {
+    "country": "GAB",
+    "year": 2022,
+    "oil": 2.0,
+    "gas": 0.92,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,000 million barrels at year-end 2022 -> 2.0 Gbbl (÷1000). Gas: OPEC 26 bn standard m³ -> 0.92 Tcf (×0.0353147)."
+  },
+  {
+    "country": "GAB",
+    "year": 2023,
+    "oil": 2.0,
+    "gas": 0.92,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,000 million barrels at year-end 2023 -> 2.0 Gbbl (÷1000). Gas: OPEC 26 bn standard m³ -> 0.92 Tcf (×0.0353147). OPEC ASB 2025 revises the 2023 gas figure to 27 bcm (0.95 Tcf); first-published edition kept per vintage rule."
+  },
+  {
+    "country": "GAB",
+    "year": 2024,
+    "oil": 2.0,
+    "gas": 0.95,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 2,000 million barrels at year-end 2024 -> 2.0 Gbbl (÷1000). Gas: OPEC 27 bn standard m³ -> 0.95 Tcf (×0.0353147)."
+  },
+  {
+    "country": "GAB",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "GHA",
+    "year": 2021,
+    "oil": 0.66,
+    "gas": 0.8,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Ghana is not itemised by OPEC ('Others'); Petroleum Commission/GNPC/Energy Commission publish production, not an annual national proved-reserves total. Press citations of 660 million bbl trace back to EIA/OGJ."
+  },
+  {
+    "country": "GHA",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Ghana is not itemised by OPEC ('Others'); Petroleum Commission/GNPC/Energy Commission publish production, not an annual national proved-reserves total. Press citations of 660 million bbl trace back to EIA/OGJ."
+  },
+  {
+    "country": "GHA",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Ghana is not itemised by OPEC ('Others'); Petroleum Commission/GNPC/Energy Commission publish production, not an annual national proved-reserves total. Press citations of 660 million bbl trace back to EIA/OGJ."
+  },
+  {
+    "country": "GHA",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Ghana is not itemised by OPEC ('Others'); Petroleum Commission/GNPC/Energy Commission publish production, not an annual national proved-reserves total. Press citations of 660 million bbl trace back to EIA/OGJ."
+  },
+  {
+    "country": "GHA",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "LBY",
+    "year": 2021,
+    "oil": 48.363,
+    "gas": 53.15,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 48,363 million barrels at year-end 2021 -> 48.363 Gbbl (÷1000). Gas: OPEC 1,505 bn standard m³ -> 53.15 Tcf (×0.0353147). EI Statistical Review 2023 (end-2021, via OWID): oil 48.363 Gbbl, gas 53.14 Tcf (lower-priority source, differs). Confirmed by OAPEC ASR 2024 Tables 1/4 (48.4 bn bbl, 1505 bcm)."
+  },
+  {
+    "country": "LBY",
+    "year": 2022,
+    "oil": 48.363,
+    "gas": 53.15,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 48,363 million barrels at year-end 2022 -> 48.363 Gbbl (÷1000). Gas: OPEC 1,505 bn standard m³ -> 53.15 Tcf (×0.0353147). Confirmed by OAPEC ASR 2024 Tables 1/4 (48.4 bn bbl, 1505 bcm)."
+  },
+  {
+    "country": "LBY",
+    "year": 2023,
+    "oil": 48.363,
+    "gas": 53.15,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 48,363 million barrels at year-end 2023 -> 48.363 Gbbl (÷1000). Gas: OPEC 1,505 bn standard m³ -> 53.15 Tcf (×0.0353147). Confirmed by OAPEC ASR 2024 Tables 1/4 (48.4 bn bbl, 1505 bcm). Consistent with EIA Country Analysis Brief Libya (updated 3 Dec 2024, citing Oil & Gas Journal Dec 2023): 48 bn bbl oil and 53 Tcf gas at beginning of 2024."
+  },
+  {
+    "country": "LBY",
+    "year": 2024,
+    "oil": 48.363,
+    "gas": 25.78,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 48,363 million barrels at year-end 2024 -> 48.363 Gbbl (÷1000). Gas: OPEC 730 bn standard m³ -> 25.78 Tcf (×0.0353147). OPEC ASB 2025 cuts Libya gas from 1,505 to 730 bcm for 2024 (change –775); EIA CAB (OGJ) still shows 53 Tcf at beginning of 2024."
+  },
+  {
+    "country": "LBY",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "NAM",
+    "year": 2021,
+    "oil": null,
+    "gas": 2.2,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Namibia has no producing field; NAMCOR cites Kudu 1.3-1.4 Tcf (contingent/proved, not an annual series). Orange Basin discoveries (Venus, Graff, Mopane) are not booked as proved reserves. EI reports 2.2 Tcf gas and no oil for 2021. EI reports no proved oil reserves for this country (blank/zero) -> null."
+  },
+  {
+    "country": "NAM",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Namibia has no producing field; NAMCOR cites Kudu 1.3-1.4 Tcf (contingent/proved, not an annual series). Orange Basin discoveries (Venus, Graff, Mopane) are not booked as proved reserves. EI reports 2.2 Tcf gas and no oil for 2021."
+  },
+  {
+    "country": "NAM",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Namibia has no producing field; NAMCOR cites Kudu 1.3-1.4 Tcf (contingent/proved, not an annual series). Orange Basin discoveries (Venus, Graff, Mopane) are not booked as proved reserves. EI reports 2.2 Tcf gas and no oil for 2021."
+  },
+  {
+    "country": "NAM",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Namibia has no producing field; NAMCOR cites Kudu 1.3-1.4 Tcf (contingent/proved, not an annual series). Orange Basin discoveries (Venus, Graff, Mopane) are not booked as proved reserves. EI reports 2.2 Tcf gas and no oil for 2021."
+  },
+  {
+    "country": "NAM",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "NER",
+    "year": 2021,
+    "oil": 0.15,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Niger is not itemised by OPEC ('Others'); Agadem figures (CNPC/Ministry) are in-place or 'exploitable' estimates, not audited proved reserves. EI end-2021: 0.15 Gbbl oil, no gas figure. EI reports no proved gas reserves for this country (blank/zero) -> null."
+  },
+  {
+    "country": "NER",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Niger is not itemised by OPEC ('Others'); Agadem figures (CNPC/Ministry) are in-place or 'exploitable' estimates, not audited proved reserves. EI end-2021: 0.15 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "NER",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Niger is not itemised by OPEC ('Others'); Agadem figures (CNPC/Ministry) are in-place or 'exploitable' estimates, not audited proved reserves. EI end-2021: 0.15 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "NER",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Niger is not itemised by OPEC ('Others'); Agadem figures (CNPC/Ministry) are in-place or 'exploitable' estimates, not audited proved reserves. EI end-2021: 0.15 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "NER",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "NGA",
+    "year": 2021,
+    "oil": 37.05,
+    "gas": 206.52,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2022",
+      "url": "https://www.opec.org/assets/assetdb/asb-2022.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2022"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 37,050 million barrels at year-end 2021 -> 37.05 Gbbl (÷1000). Gas: OPEC 5,848 bn standard m³ -> 206.52 Tcf (×0.0353147). NUPRC (as at 1 Jan 2022): oil+condensate 37.046 bn bbl, gas 208.62 Tcf. OPEC's Nigeria oil figure corresponds to NUPRC's oil+condensate total, so the 'oil' value ALREADY INCLUDES condensate; 'condensat' is given for information only — do not add it to 'oil'. NUPRC end-2021 figures (37.046 bn bbl; 208.62 Tcf) are cited from press reports of the May 2022 declaration (Leadership quotes ~37.048 / ~208.64 as prior-year comparators) — medium confidence for the NUPRC cross-check only. EI Statistical Review 2023 (end-2021, via OWID): oil 36.89 Gbbl, gas 203.44 Tcf (lower-priority source, differs)."
+  },
+  {
+    "country": "NGA",
+    "year": 2022,
+    "oil": 36.967,
+    "gas": 208.82,
+    "condensat": 5.906,
+    "source": {
+      "name": "OPEC ASB 2023",
+      "url": "https://www.opec.org/assets/assetdb/asb-2023.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2023"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 36,967 million barrels at year-end 2022 -> 36.967 Gbbl (÷1000). Gas: OPEC 5,913 bn standard m³ -> 208.82 Tcf (×0.0353147). NUPRC (as at 1 Jan 2023): oil+condensate 36.966 bn bbl (crude 31.06 + condensate 5.906), gas 208.83 Tcf. OPEC's Nigeria oil figure corresponds to NUPRC's oil+condensate total, so the 'oil' value ALREADY INCLUDES condensate; 'condensat' is given for information only — do not add it to 'oil'."
+  },
+  {
+    "country": "NGA",
+    "year": 2023,
+    "oil": 37.5,
+    "gas": 209.88,
+    "condensat": null,
+    "source": {
+      "name": "OPEC ASB 2024",
+      "url": "https://www.opec.org/assets/assetdb/asb-2024.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2024"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 37,500 million barrels at year-end 2023 -> 37.5 Gbbl (÷1000). Gas: OPEC 5,943 bn standard m³ -> 209.88 Tcf (×0.0353147). OPEC ASB 2025 revises the 2023 gas figure to 5,914 bcm (208.85 Tcf); first-published edition kept per vintage rule. NUPRC (as at 1 Jan 2024): oil+condensate 37.5 bn bbl, gas 209.26 Tcf. OPEC's Nigeria oil figure corresponds to NUPRC's oil+condensate total, so the 'oil' value ALREADY INCLUDES condensate; 'condensat' is given for information only — do not add it to 'oil'."
+  },
+  {
+    "country": "NGA",
+    "year": 2024,
+    "oil": 37.28,
+    "gas": 211.15,
+    "condensat": 5.84,
+    "source": {
+      "name": "OPEC ASB 2025",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.1 (oil, mb, p.22) & Table 9.1 (gas, bn s cu m, p.76)",
+      "published": "2025"
+    },
+    "confidence": "high",
+    "notes": "Oil: OPEC 37,280 million barrels at year-end 2024 -> 37.28 Gbbl (÷1000). Gas: OPEC 5,979 bn standard m³ -> 211.15 Tcf (×0.0353147). NUPRC (as at 1 Jan 2025): oil+condensate 37.28 bn bbl (crude 31.44 + condensate 5.84), gas 210.54 Tcf. OPEC's Nigeria oil figure corresponds to NUPRC's oil+condensate total, so the 'oil' value ALREADY INCLUDES condensate; 'condensat' is given for information only — do not add it to 'oil'. EIA CAB Nigeria (Nov 2025) quotes 'OPEC ASB 2025: 37.5 bn bbl and 211.1 Tcf in 2024'; the ASB 2025 PDF Table 3.1 shows 37,280 mb for 2024 (37,500 is the 2023 column) — 37.28 kept. NUPRC labels its figures 2P."
+  },
+  {
+    "country": "NGA",
+    "year": 2025,
+    "oil": 37.01,
+    "gas": 215.19,
+    "condensat": 5.92,
+    "source": {
+      "name": "NUPRC – Media release on the National Annual Petroleum Reserves Position as at 1st January 2026 (as reported by Nairametrics / Premium Times, 2 Apr 2026)",
+      "url": "https://nairametrics.com/2026/04/02/nuprc-declares-37-billion-barrels-oil-215tcf-gas-reserves-as-of-january-2026/",
+      "table_or_page": "Media release, reserves position as at 1 January 2026",
+      "published": "2026"
+    },
+    "confidence": "medium",
+    "notes": "OPEC ASB 2026 (year-end 2025) not retrievable (opec.org returns 403 for asb-2026.pdf while 2021-2025 download normally) so NUPRC used. Oil = 2P oil+condensate total 37.01 bn bbl (crude 31.09 + condensate 5.92); condensate is INCLUDED in 'oil'. Gas 215.19 Tcf (AG 100.21 + NAG 114.98). NUPRC declares 2P, not strictly 1P proved; –0.74% oil, +2.21% gas vs 1 Jan 2025."
+  },
+  {
+    "country": "SEN",
+    "year": 2021,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "low",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). Senegal: EI reports no proved reserves for 2021 (Sangomar first oil June 2024, GTA first gas 2025). Sangomar Phase 1 ~230 million bbl (Woodside/Petrosen) and GTA ~25 Tcf recoverable resources are project/resource estimates, not a national proved-reserves series — not used. EI reports no proved oil reserves for this country (blank/zero) -> null. EI reports no proved gas reserves for this country (blank/zero) -> null."
+  },
+  {
+    "country": "SEN",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Senegal: EI reports no proved reserves for 2021 (Sangomar first oil June 2024, GTA first gas 2025). Sangomar Phase 1 ~230 million bbl (Woodside/Petrosen) and GTA ~25 Tcf recoverable resources are project/resource estimates, not a national proved-reserves series — not used."
+  },
+  {
+    "country": "SEN",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Senegal: EI reports no proved reserves for 2021 (Sangomar first oil June 2024, GTA first gas 2025). Sangomar Phase 1 ~230 million bbl (Woodside/Petrosen) and GTA ~25 Tcf recoverable resources are project/resource estimates, not a national proved-reserves series — not used."
+  },
+  {
+    "country": "SEN",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). Senegal: EI reports no proved reserves for 2021 (Sangomar first oil June 2024, GTA first gas 2025). Sangomar Phase 1 ~230 million bbl (Woodside/Petrosen) and GTA ~25 Tcf recoverable resources are project/resource estimates, not a national proved-reserves series — not used."
+  },
+  {
+    "country": "SEN",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  },
+  {
+    "country": "ZAF",
+    "year": 2021,
+    "oil": 0.015,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2023 (reserves series, end-2021; retrieved via Our World in Data re-publication)",
+      "url": "https://ourworldindata.org/grapher/oil-proved-reserves ; https://ourworldindata.org/grapher/natural-gas-proved-reserves",
+      "table_or_page": "Oil – proved reserves / Gas – proved reserves (workbook sheets), end-2021",
+      "published": "2023"
+    },
+    "confidence": "medium",
+    "notes": "Not itemised by OPEC ('Others' Africa). Energy Institute end-2021 reserves (last year EI published reserves) taken from OWID's verbatim re-publication because energyinst.org downloads are Cloudflare-gated; oil converted from m³ (÷0.158987) and gas from m³ (×35.3147/1e12). South Africa is not itemised by OPEC ('Others'); PASA/PetroSA publish no annual proved-reserves total. EI end-2021: 0.015 Gbbl oil, no gas figure. EI reports no proved gas reserves for this country (blank/zero) -> null."
+  },
+  {
+    "country": "ZAF",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). South Africa is not itemised by OPEC ('Others'); PASA/PetroSA publish no annual proved-reserves total. EI end-2021: 0.015 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "ZAF",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). South Africa is not itemised by OPEC ('Others'); PASA/PetroSA publish no annual proved-reserves total. EI end-2021: 0.015 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "ZAF",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "No institutional proved-reserves figure found for this year: OPEC lumps the country in 'Others' Africa; Energy Institute stopped updating reserves after end-2021; EIA open data/API/bulk file no longer include oil/gas reserves (only coal). South Africa is not itemised by OPEC ('Others'); PASA/PetroSA publish no annual proved-reserves total. EI end-2021: 0.015 Gbbl oil, no gas figure."
+  },
+  {
+    "country": "ZAF",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "none found",
+      "url": null,
+      "table_or_page": null,
+      "published": null
+    },
+    "confidence": "low",
+    "notes": "Year-end 2025 not yet published by an accessible institutional source (OPEC ASB 2026 not retrievable; Energy Institute no longer updates reserves; EIA open data no longer carries oil/gas reserves)."
+  }
+]

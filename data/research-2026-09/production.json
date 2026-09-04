@@ -1,0 +1,1442 @@
+[
+  {
+    "country": "AGO",
+    "year": 2021,
+    "oil": 1124,
+    "gas": 8820,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5; Angola left OPEC Jan-2024 but remains in world table). Gas = marketed production (Table 9.2). Cross-check EI 2026 crude+condensate = 1130 kb/d. EI does not publish Angola gas separately."
+  },
+  {
+    "country": "AGO",
+    "year": 2022,
+    "oil": 1137,
+    "gas": 5390,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5; Angola left OPEC Jan-2024 but remains in world table). Gas = marketed production (Table 9.2). Cross-check EI 2026 crude+condensate = 1144 kb/d. EI does not publish Angola gas separately."
+  },
+  {
+    "country": "AGO",
+    "year": 2023,
+    "oil": 1098,
+    "gas": 5860,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5; Angola left OPEC Jan-2024 but remains in world table). Gas = marketed production (Table 9.2). Cross-check EI 2026 crude+condensate = 1103 kb/d. EI does not publish Angola gas separately."
+  },
+  {
+    "country": "AGO",
+    "year": 2024,
+    "oil": 1125,
+    "gas": 5750,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5; Angola left OPEC Jan-2024 but remains in world table). Gas = marketed production (Table 9.2). Cross-check EI 2026 crude+condensate = 1130 kb/d. EI does not publish Angola gas separately."
+  },
+  {
+    "country": "AGO",
+    "year": 2025,
+    "oil": 1040,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2026 (75th ed.)",
+      "url": "https://www.energyinst.org/statistical-review (data accessed via Our World in Data ETL mirror: https://catalog.ourworldindata.org/meadow/energy_institute/2026-06-30/statistical_review_of_world_energy/statistical_review_of_world_energy.feather)",
+      "table_or_page": "Sheets 'Oil Production - crude, condensate' (kb/d) and 'Gas Production - bcm'",
+      "published": "2026-06"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil = EI Statistical Review 2026 'crude + condensate' 1,039.7 kb/d (not crude-only; 2024 EI value on same basis = 1,130 vs ASB crude 1,125, so basis difference is small for Angola). National: government/ANPG cite 2025 average ~1.07 mb/d (357.1 M bbl) and Dec-2025 = 1,027,844 b/d (ANPG, via press) - logged, not used. Gas: no 2025 institutional figure (OPEC ASB 2026 not retrievable; EI has no Angola gas line)."
+  },
+  {
+    "country": "BEN",
+    "year": 2021,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)",
+      "url": "https://www.ecofinagency.com/news-industry/0301-51749-benin-delays-restart-of-seme-field-over-technical-setbacks",
+      "table_or_page": "n/a",
+      "published": "2026-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Benin had no oil or gas production in 2021-2025: the only field (Sèmè, offshore) has been shut since 1998; redevelopment drilling started Aug-2025 and first oil was pushed to 2026 (Ecofin/Rex International). Benin is not listed in OPEC ASB or EI tables (falls in 'Other Africa'). 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "BEN",
+    "year": 2022,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)",
+      "url": "https://www.ecofinagency.com/news-industry/0301-51749-benin-delays-restart-of-seme-field-over-technical-setbacks",
+      "table_or_page": "n/a",
+      "published": "2026-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Benin had no oil or gas production in 2021-2025: the only field (Sèmè, offshore) has been shut since 1998; redevelopment drilling started Aug-2025 and first oil was pushed to 2026 (Ecofin/Rex International). Benin is not listed in OPEC ASB or EI tables (falls in 'Other Africa'). 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "BEN",
+    "year": 2023,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)",
+      "url": "https://www.ecofinagency.com/news-industry/0301-51749-benin-delays-restart-of-seme-field-over-technical-setbacks",
+      "table_or_page": "n/a",
+      "published": "2026-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Benin had no oil or gas production in 2021-2025: the only field (Sèmè, offshore) has been shut since 1998; redevelopment drilling started Aug-2025 and first oil was pushed to 2026 (Ecofin/Rex International). Benin is not listed in OPEC ASB or EI tables (falls in 'Other Africa'). 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "BEN",
+    "year": 2024,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)",
+      "url": "https://www.ecofinagency.com/news-industry/0301-51749-benin-delays-restart-of-seme-field-over-technical-setbacks",
+      "table_or_page": "n/a",
+      "published": "2026-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Benin had no oil or gas production in 2021-2025: the only field (Sèmè, offshore) has been shut since 1998; redevelopment drilling started Aug-2025 and first oil was pushed to 2026 (Ecofin/Rex International). Benin is not listed in OPEC ASB or EI tables (falls in 'Other Africa'). 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "BEN",
+    "year": 2025,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)",
+      "url": "https://www.ecofinagency.com/news-industry/0301-51749-benin-delays-restart-of-seme-field-over-technical-setbacks",
+      "table_or_page": "n/a",
+      "published": "2026-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Benin had no oil or gas production in 2021-2025: the only field (Sèmè, offshore) has been shut since 1998; redevelopment drilling started Aug-2025 and first oil was pushed to 2026 (Ecofin/Rex International). Benin is not listed in OPEC ASB or EI tables (falls in 'Other Africa'). 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "CIV",
+    "year": 2021,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Not found: Côte d'Ivoire is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI. Ministry (energie.gouv.ci) 'Statistiques des activités' page only exposes a 2016 table and a flipbook; Petroci publishes no annual series online. Government states 2024 production (16.1 M bbl) was +50% vs 2023 (implies ~10.7 M bbl / ~29 kb/d in 2023) - derived, not recorded. Baleine Phase 1 first oil Aug-2023."
+  },
+  {
+    "country": "CIV",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Not found: Côte d'Ivoire is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI. Ministry (energie.gouv.ci) 'Statistiques des activités' page only exposes a 2016 table and a flipbook; Petroci publishes no annual series online. Government states 2024 production (16.1 M bbl) was +50% vs 2023 (implies ~10.7 M bbl / ~29 kb/d in 2023) - derived, not recorded. Baleine Phase 1 first oil Aug-2023."
+  },
+  {
+    "country": "CIV",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Not found: Côte d'Ivoire is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI. Ministry (energie.gouv.ci) 'Statistiques des activités' page only exposes a 2016 table and a flipbook; Petroci publishes no annual series online. Government states 2024 production (16.1 M bbl) was +50% vs 2023 (implies ~10.7 M bbl / ~29 kb/d in 2023) - derived, not recorded. Baleine Phase 1 first oil Aug-2023."
+  },
+  {
+    "country": "CIV",
+    "year": 2024,
+    "oil": 44.0,
+    "gas": 2400,
+    "condensat": null,
+    "source": {
+      "name": "Gouvernement de Côte d'Ivoire - Conseil des ministres du 1er octobre 2025 (via AIP, agence de presse officielle)",
+      "url": "https://www.aip.ci/257253/aip-la-production-petroliere-en-hausse-de-50-du-1er-janvier-au-31-decembre-2024-gouvernement/",
+      "table_or_page": "Bilan hydrocarbures 2024: 16,1 M bbl (44 000 b/j) pétrole brut; 2,4 Gm3 gaz naturel",
+      "published": "2025-10-01"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: 16.1 M bbl crude in 2024 = 44,000 b/d (Conseil des ministres, 1 Oct 2025, via AIP). Gas: 2.4 bcm natural gas = 2,400 million m3 (same source; basis (gross/marketed) not specified; -3% y/y)."
+  },
+  {
+    "country": "CIV",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No verifiable institutional full-year 2025 figure. Press cites 63,050 b/d for 2025 (+43%) but the underlying government communiqué could not be retrieved (AIP search returned HTTP 500). Conseil des ministres 15-Jan-2025 quoted Baleine Ph.1+2 rates of 75-85 kb/d oil and 80-85 MMcf/d gas (instantaneous, not an annual average) - not used."
+  },
+  {
+    "country": "CMR",
+    "year": 2021,
+    "oil": 70.2,
+    "gas": 2330,
+    "condensat": null,
+    "source": {
+      "name": "SNH Cameroun - Données pétrolières (tableaux récapitulatifs annuels)",
+      "url": "https://www.snh.cm/chiffres-cles/",
+      "table_or_page": "I- PRODUCTION ANNEE: Part SNH/Etat + Part associés, 'Total annuel' (pétrole brut, millions de bls)",
+      "published": "2024-10 (files) / 2026-06 (2025 file)"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: SNH 'Données pétrolières' 2021 (Part SNH/Etat + Part associés, Total annuel) = 25.609 M bbl crude -> 25.609e6/365 = 70.2 kb/d. Neither OPEC ASB nor EI list Cameroon crude separately. Gas: OPEC ASB 2025 Table 9.2 marketed production = 2,330 million m3 (source priority 1); SNH gross gas production = 73.82 bcf = 2,090 million m3 (x28.3168), logged for reference."
+  },
+  {
+    "country": "CMR",
+    "year": 2022,
+    "oil": 68.4,
+    "gas": 2400,
+    "condensat": null,
+    "source": {
+      "name": "SNH Cameroun - Données pétrolières (tableaux récapitulatifs annuels)",
+      "url": "https://www.snh.cm/chiffres-cles/",
+      "table_or_page": "I- PRODUCTION ANNEE: Part SNH/Etat + Part associés, 'Total annuel' (pétrole brut, millions de bls)",
+      "published": "2024-10 (files) / 2026-06 (2025 file)"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: SNH 'Données pétrolières' 2022 (Part SNH/Etat + Part associés, Total annuel) = 24.950 M bbl crude -> 24.950e6/365 = 68.4 kb/d. Neither OPEC ASB nor EI list Cameroon crude separately. Gas: OPEC ASB 2025 Table 9.2 marketed production = 2,400 million m3 (source priority 1); SNH gross gas production = 77.51 bcf = 2,195 million m3 (x28.3168), logged for reference."
+  },
+  {
+    "country": "CMR",
+    "year": 2023,
+    "oil": 65.6,
+    "gas": 2500,
+    "condensat": null,
+    "source": {
+      "name": "SNH Cameroun - Données pétrolières (tableaux récapitulatifs annuels)",
+      "url": "https://www.snh.cm/chiffres-cles/",
+      "table_or_page": "I- PRODUCTION ANNEE: Part SNH/Etat + Part associés, 'Total annuel' (pétrole brut, millions de bls)",
+      "published": "2024-10 (files) / 2026-06 (2025 file)"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: SNH 'Données pétrolières' 2023 (Part SNH/Etat + Part associés, Total annuel) = 23.939 M bbl crude -> 23.939e6/365 = 65.6 kb/d. Neither OPEC ASB nor EI list Cameroon crude separately. Gas: OPEC ASB 2025 Table 9.2 marketed production = 2,500 million m3 (source priority 1); SNH gross gas production = 81.04 bcf = 2,295 million m3 (x28.3168), logged for reference."
+  },
+  {
+    "country": "CMR",
+    "year": 2024,
+    "oil": 58.4,
+    "gas": 2185,
+    "condensat": null,
+    "source": {
+      "name": "SNH Cameroun figures as reported by Investir au Cameroun / News du Camer",
+      "url": "https://www.newsducamer.com/hydrocarbures-la-production-petroliere-tombe-a-194-millions-de-barils-en-2025/",
+      "table_or_page": "Production nationale de pétrole brut 2025 = 19,374 M bbl; 2024 = 21,377 M bbl (SNH)",
+      "published": "2026"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: SNH national crude production 2024 = 21.377 M bbl (as quoted by Investir au Cameroun / News du Camer from SNH) -> 21.377e6/366 = 58.4 kb/d. SNH 2024 xlsx on snh.cm covers only Q1-Q2 (SNH+associates H1 = 11.53 M bbl). Gas: OPEC ASB 2025 Table 9.2 = 2,185 million m3."
+  },
+  {
+    "country": "CMR",
+    "year": 2025,
+    "oil": 53.1,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "SNH Cameroun figures as reported by Investir au Cameroun / News du Camer",
+      "url": "https://www.newsducamer.com/hydrocarbures-la-production-petroliere-tombe-a-194-millions-de-barils-en-2025/",
+      "table_or_page": "Production nationale de pétrole brut 2025 = 19,374 M bbl; 2024 = 21,377 M bbl (SNH)",
+      "published": "2026"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: SNH national crude production 2025 = 19.374 M bbl (-9.37% y/y; SNH figures reported by News du Camer / Investir au Cameroun; SNH's own 'Donnees-petrolieres-2025.pdf' at snh.cm is image-only and could not be parsed) -> 19.374e6/365 = 53.1 kb/d. Gas: no 2025 institutional figure found (OPEC ASB 2026 not retrievable)."
+  },
+  {
+    "country": "COD",
+    "year": 2021,
+    "oil": 23.3,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "ITIE-RDC Rapport final 2023 (data: Banque Centrale du Congo, rapport annuel 2023)",
+      "url": "https://www.itierdc.net/rapports-itie-rdc/2023/Rapport%20final%20ITIE%20RDC%202023%20-%2031-12-2025.pdf",
+      "table_or_page": "Section 3.2.2 Secteur pétrolier - Production en volume, Pétrole brut (milliers de barils) 2019-2023 (p.102)",
+      "published": "2025-12-31"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: ITIE-RDC 2023 report, Section 3.2.2 (BCC data): crude production 2021 = 8,499 thousand bbl -> 8499e3/365 = 23.3 kb/d. Caution: BCC reports identical values for 2021 and 2022 (8,499), and ITIE notes systematic discrepancies between official sources. DRC not listed separately by OPEC ASB or EI. Gas: no marketed gas production."
+  },
+  {
+    "country": "COD",
+    "year": 2022,
+    "oil": 23.3,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "ITIE-RDC Rapport final 2023 (data: Banque Centrale du Congo, rapport annuel 2023)",
+      "url": "https://www.itierdc.net/rapports-itie-rdc/2023/Rapport%20final%20ITIE%20RDC%202023%20-%2031-12-2025.pdf",
+      "table_or_page": "Section 3.2.2 Secteur pétrolier - Production en volume, Pétrole brut (milliers de barils) 2019-2023 (p.102)",
+      "published": "2025-12-31"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: ITIE-RDC 2023 report, Section 3.2.2 (BCC data): crude production 2022 = 8,499 thousand bbl -> 8499e3/365 = 23.3 kb/d. Caution: BCC reports identical values for 2021 and 2022 (8,499), and ITIE notes systematic discrepancies between official sources. DRC not listed separately by OPEC ASB or EI. Gas: no marketed gas production."
+  },
+  {
+    "country": "COD",
+    "year": 2023,
+    "oil": 23.1,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "ITIE-RDC Rapport final 2023 (data: Banque Centrale du Congo, rapport annuel 2023)",
+      "url": "https://www.itierdc.net/rapports-itie-rdc/2023/Rapport%20final%20ITIE%20RDC%202023%20-%2031-12-2025.pdf",
+      "table_or_page": "Section 3.2.2 Secteur pétrolier - Production en volume, Pétrole brut (milliers de barils) 2019-2023 (p.102)",
+      "published": "2025-12-31"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: ITIE-RDC 2023 report, Section 3.2.2 (BCC data): crude production 2023 = 8,430 thousand bbl -> 8430e3/365 = 23.1 kb/d. Caution: BCC reports identical values for 2021 and 2022 (8,499), and ITIE notes systematic discrepancies between official sources. DRC not listed separately by OPEC ASB or EI. Gas: no marketed gas production."
+  },
+  {
+    "country": "COD",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional figure found: ITIE-RDC 2024 report not yet published (latest is 2023, Dec-2025); ITIE open-data portal is a JS interface (could not be read). Press/analysts cite ~19-20 kb/d (Perenco, Moanda coastal basin) - not used. Gas: none."
+  },
+  {
+    "country": "COD",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional figure found: ITIE-RDC 2024 report not yet published (latest is 2023, Dec-2025); ITIE open-data portal is a JS interface (could not be read). Press/analysts cite ~19-20 kb/d (Perenco, Moanda coastal basin) - not used. Gas: none."
+  },
+  {
+    "country": "COG",
+    "year": 2021,
+    "oil": 267,
+    "gas": 415,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 267 kb/d (EI NGL = 7 kb/d, excluded)."
+  },
+  {
+    "country": "COG",
+    "year": 2022,
+    "oil": 262,
+    "gas": 423,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 262 kb/d (EI NGL = 7 kb/d, excluded)."
+  },
+  {
+    "country": "COG",
+    "year": 2023,
+    "oil": 271,
+    "gas": 425,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 271 kb/d (EI NGL = 7 kb/d, excluded)."
+  },
+  {
+    "country": "COG",
+    "year": 2024,
+    "oil": 260,
+    "gas": 425,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 260 kb/d (EI NGL = 7 kb/d, excluded). MOMR Aug-2026 secondary sources 2024 = 253 tb/d."
+  },
+  {
+    "country": "COG",
+    "year": 2025,
+    "oil": 260,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); direct communication = 271 tb/d; EI 2026 crude+condensate = 271 kb/d. Gas: no 2025 institutional figure (ASB 2026 not retrievable; EI has no Congo gas line)."
+  },
+  {
+    "country": "DZA",
+    "year": 2021,
+    "oil": 911,
+    "gas": 105043,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2, million std m3). Cross-check EI 2026: crude+condensate 1105 kb/d, gas 101,098 million m3 (101.1 bcm x1000). EI includes condensate, hence higher. Condensate not published separately by OPEC/EI (EI NGL 2024 = 268 kb/d, excluded)."
+  },
+  {
+    "country": "DZA",
+    "year": 2022,
+    "oil": 1020,
+    "gas": 100513,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2, million std m3). Cross-check EI 2026: crude+condensate 1178 kb/d, gas 97,632 million m3 (97.6 bcm x1000). EI includes condensate, hence higher. Condensate not published separately by OPEC/EI (EI NGL 2024 = 268 kb/d, excluded)."
+  },
+  {
+    "country": "DZA",
+    "year": 2023,
+    "oil": 973,
+    "gas": 104275,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2, million std m3). Cross-check EI 2026: crude+condensate 1193 kb/d, gas 101,526 million m3 (101.5 bcm x1000). EI includes condensate, hence higher. Condensate not published separately by OPEC/EI (EI NGL 2024 = 268 kb/d, excluded)."
+  },
+  {
+    "country": "DZA",
+    "year": 2024,
+    "oil": 907,
+    "gas": 103966,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2, million std m3). Cross-check EI 2026: crude+condensate 1205 kb/d, gas 100,192 million m3 (100.2 bcm x1000). EI includes condensate, hence higher. Condensate not published separately by OPEC/EI (EI NGL 2024 = 268 kb/d, excluded). MOMR Aug-2026 secondary sources 2024 = 905 tb/d."
+  },
+  {
+    "country": "DZA",
+    "year": 2025,
+    "oil": 935,
+    "gas": 98021,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); direct communication (Table 5-8) = 936 tb/d; EI 2026 crude+condensate = 1,249 kb/d. Gas: EI Statistical Review 2026, 98.021 bcm x1000 = 98,021 million m3 (OPEC ASB 2026 with 2025 marketed gas was not retrievable - PDF blocked; EI series runs ~3-4% below OPEC series for Algeria)."
+  },
+  {
+    "country": "EGY",
+    "year": 2021,
+    "oil": 445,
+    "gas": 70400,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 561 kb/d (EI 2025 edition had 561 for this year - large downward revision in 2026 edition), gas 67,799 million m3. Egyptian condensate (~100 kb/d implied by EI-ASB gap) not published separately."
+  },
+  {
+    "country": "EGY",
+    "year": 2022,
+    "oil": 449,
+    "gas": 67000,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 567 kb/d (EI 2025 edition had 567 for this year - large downward revision in 2026 edition), gas 64,488 million m3. Egyptian condensate (~100 kb/d implied by EI-ASB gap) not published separately."
+  },
+  {
+    "country": "EGY",
+    "year": 2023,
+    "oil": 453,
+    "gas": 59300,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 563 kb/d (EI 2025 edition had 563 for this year - large downward revision in 2026 edition), gas 57,100 million m3. Egyptian condensate (~100 kb/d implied by EI-ASB gap) not published separately."
+  },
+  {
+    "country": "EGY",
+    "year": 2024,
+    "oil": 450,
+    "gas": 49350,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 537 kb/d (EI 2025 edition had 592 for this year - large downward revision in 2026 edition), gas 47,519 million m3. Egyptian condensate (~100 kb/d implied by EI-ASB gap) not published separately."
+  },
+  {
+    "country": "EGY",
+    "year": 2025,
+    "oil": 499,
+    "gas": 40757,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2026 (75th ed.)",
+      "url": "https://www.energyinst.org/statistical-review (data accessed via Our World in Data ETL mirror: https://catalog.ourworldindata.org/meadow/energy_institute/2026-06-30/statistical_review_of_world_energy/statistical_review_of_world_energy.feather)",
+      "table_or_page": "Sheets 'Oil Production - crude, condensate' (kb/d) and 'Gas Production - bcm'",
+      "published": "2026-06"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil = EI Statistical Review 2026 'crude + condensate' 499.1 kb/d - NOT comparable with the ASB crude-only series used for 2021-2024 (EI's own 2024 = 537 kb/d, i.e. -7% y/y). OPEC ASB 2026 (2025 crude) not retrievable. Gas: EI 2026 = 40.757 bcm x1000 = 40,757 million m3 (-14% y/y on EI basis; ASB 2024 = 49,350 vs EI 2024 = 47,519)."
+  },
+  {
+    "country": "GAB",
+    "year": 2021,
+    "oil": 181,
+    "gas": 454,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate identical (181 kb/d)."
+  },
+  {
+    "country": "GAB",
+    "year": 2022,
+    "oil": 191,
+    "gas": 463,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate identical (191 kb/d)."
+  },
+  {
+    "country": "GAB",
+    "year": 2023,
+    "oil": 223,
+    "gas": 463,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate identical (223 kb/d)."
+  },
+  {
+    "country": "GAB",
+    "year": 2024,
+    "oil": 224,
+    "gas": 477,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate identical (224 kb/d). MOMR Aug-2026 secondary sources 2024 = 222 tb/d."
+  },
+  {
+    "country": "GAB",
+    "year": 2025,
+    "oil": 227,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); Gabon does not report by direct communication; EI 2026 = 227 kb/d. Gas: no 2025 institutional figure (ASB 2026 not retrievable)."
+  },
+  {
+    "country": "GHA",
+    "year": 2021,
+    "oil": 151,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). National cross-check PIAC/Petroleum Commission: 55,050,391 bbl -> 150.8 kb/d (consistent). Gas: not in OPEC/EI tables; Petroleum Commission field data (Jubilee/TEN/SGN) not retrievable (PIAC site 403); Energy Commission 2024 mid-year outlook gives only H1-2024 gas supply (384 MMscfd avg) - not an annual production figure."
+  },
+  {
+    "country": "GHA",
+    "year": 2022,
+    "oil": 142,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). National cross-check PIAC/Petroleum Commission: 51,756,481 bbl -> 141.8 kb/d (consistent). Gas: not in OPEC/EI tables; Petroleum Commission field data (Jubilee/TEN/SGN) not retrievable (PIAC site 403); Energy Commission 2024 mid-year outlook gives only H1-2024 gas supply (384 MMscfd avg) - not an annual production figure."
+  },
+  {
+    "country": "GHA",
+    "year": 2023,
+    "oil": 132,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). National cross-check PIAC/Petroleum Commission: 48,247,037 bbl -> 132.2 kb/d (consistent). Gas: not in OPEC/EI tables; Petroleum Commission field data (Jubilee/TEN/SGN) not retrievable (PIAC site 403); Energy Commission 2024 mid-year outlook gives only H1-2024 gas supply (384 MMscfd avg) - not an annual production figure."
+  },
+  {
+    "country": "GHA",
+    "year": 2024,
+    "oil": 132,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). National cross-check PIAC/Petroleum Commission: 48,240,010 bbl -> 131.8 kb/d (consistent). Gas: not in OPEC/EI tables; Petroleum Commission field data (Jubilee/TEN/SGN) not retrievable (PIAC site 403); Energy Commission 2024 mid-year outlook gives only H1-2024 gas supply (384 MMscfd avg) - not an annual production figure."
+  },
+  {
+    "country": "GHA",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "PIAC 2025 annual report and Petroleum Commission '2025 Fields Production Data' xlsx could not be retrieved (HTTP 403 / JS-only page). OPEC ASB 2026 not retrievable. Press (IES) reports a 6th consecutive annual decline in 2025. Petroleum Commission H1-2026 field rates online: Jubilee 67-76 kb/d, TEN 14.5-15 kb/d, SGN 25-30 kb/d."
+  },
+  {
+    "country": "GNQ",
+    "year": 2021,
+    "oil": 93,
+    "gas": 7047,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 119 kb/d (GNQ produces significant condensate from Alba/Alen; EI NGL line of 10-18 kb/d excluded)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2022,
+    "oil": 81,
+    "gas": 8105,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 108 kb/d (GNQ produces significant condensate from Alba/Alen; EI NGL line of 10-18 kb/d excluded)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2023,
+    "oil": 55,
+    "gas": 7103,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 78 kb/d (GNQ produces significant condensate from Alba/Alen; EI NGL line of 10-18 kb/d excluded)."
+  },
+  {
+    "country": "GNQ",
+    "year": 2024,
+    "oil": 57,
+    "gas": 6914,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026 crude+condensate = 79 kb/d (GNQ produces significant condensate from Alba/Alen; EI NGL line of 10-18 kb/d excluded). MOMR Aug-2026 secondary sources 2024 = 57 tb/d."
+  },
+  {
+    "country": "GNQ",
+    "year": 2025,
+    "oil": 53,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); direct communication = 46 tb/d; EI 2026 crude+condensate = 64 kb/d. Gas: no 2025 institutional figure (ASB 2026 not retrievable; EI has no GNQ gas line)."
+  },
+  {
+    "country": "LBY",
+    "year": 2021,
+    "oil": 1207,
+    "gas": 13010,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1207 kb/d, gas 12,360 million m3 (EI 2025 edition: 15,261). Note the ASB 2024 gas jump to 16,411 is not mirrored by EI (12,360)."
+  },
+  {
+    "country": "LBY",
+    "year": 2022,
+    "oil": 983,
+    "gas": 12570,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1060 kb/d, gas 11,942 million m3 (EI 2025 edition: 14,560). Note the ASB 2024 gas jump to 16,411 is not mirrored by EI (12,360)."
+  },
+  {
+    "country": "LBY",
+    "year": 2023,
+    "oil": 1189,
+    "gas": 11750,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1188 kb/d, gas 11,657 million m3 (EI 2025 edition: 14,833). Note the ASB 2024 gas jump to 16,411 is not mirrored by EI (12,360)."
+  },
+  {
+    "country": "LBY",
+    "year": 2024,
+    "oil": 1136,
+    "gas": 16411,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1136 kb/d, gas 12,360 million m3 (EI 2025 edition: 14,259). Note the ASB 2024 gas jump to 16,411 is not mirrored by EI (12,360). MOMR Aug-2026 secondary sources 2024 = 1,092 tb/d."
+  },
+  {
+    "country": "LBY",
+    "year": 2025,
+    "oil": 1296,
+    "gas": 11726,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); direct communication (NOC) = 1,372 tb/d; EI 2026 crude+condensate = 1,374 kb/d (NOC figure preferred by EI). Gas: EI 2026 = 11.726 bcm x1000 = 11,726 million m3 - EI basis, not comparable with the ASB 2024 value of 16,411 (ASB 2026 not retrievable)."
+  },
+  {
+    "country": "NAM",
+    "year": 2021,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)",
+      "url": "https://worldoil.com/news/2026/2/2/collaboration-shapes-namibia-s-path-toward-first-oil/",
+      "table_or_page": "n/a",
+      "published": "2026-02-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Namibia had no commercial oil or gas production in 2021-2025 (Venus/Mopane discoveries undeveloped; Kudu gas undeveloped). Not listed in OPEC ASB or EI tables. 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "NAM",
+    "year": 2022,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)",
+      "url": "https://worldoil.com/news/2026/2/2/collaboration-shapes-namibia-s-path-toward-first-oil/",
+      "table_or_page": "n/a",
+      "published": "2026-02-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Namibia had no commercial oil or gas production in 2021-2025 (Venus/Mopane discoveries undeveloped; Kudu gas undeveloped). Not listed in OPEC ASB or EI tables. 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "NAM",
+    "year": 2023,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)",
+      "url": "https://worldoil.com/news/2026/2/2/collaboration-shapes-namibia-s-path-toward-first-oil/",
+      "table_or_page": "n/a",
+      "published": "2026-02-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Namibia had no commercial oil or gas production in 2021-2025 (Venus/Mopane discoveries undeveloped; Kudu gas undeveloped). Not listed in OPEC ASB or EI tables. 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "NAM",
+    "year": 2024,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)",
+      "url": "https://worldoil.com/news/2026/2/2/collaboration-shapes-namibia-s-path-toward-first-oil/",
+      "table_or_page": "n/a",
+      "published": "2026-02-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Namibia had no commercial oil or gas production in 2021-2025 (Venus/Mopane discoveries undeveloped; Kudu gas undeveloped). Not listed in OPEC ASB or EI tables. 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "NAM",
+    "year": 2025,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)",
+      "url": "https://worldoil.com/news/2026/2/2/collaboration-shapes-namibia-s-path-toward-first-oil/",
+      "table_or_page": "n/a",
+      "published": "2026-02-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Namibia had no commercial oil or gas production in 2021-2025 (Venus/Mopane discoveries undeveloped; Kudu gas undeveloped). Not listed in OPEC ASB or EI tables. 0 = documented non-producer, not a measured value."
+  },
+  {
+    "country": "NER",
+    "year": 2021,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional annual figure retrievable: Niger is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI; Ministry of Petroleum / INS Niger publish no accessible series; IMF country pages returned HTTP 403. Official statements: Agadem Phase 1 = 20 kb/d feeding SORAZ refinery (since 2011); Phase 2 launched Nov-2023 adding 90 kb/d for export via the Niger-Benin pipeline (Prime Minister, Le Sahel 1-Nov-2023); output described as 'stabilised at 110 kb/d' after 2024 (Ecofin, 2026). Exports were interrupted mid-2024 by the Benin border dispute. EIA-derived press figures (31.0 kb/d 2024; 101.8 kb/d 2025) not used (source not verifiable)."
+  },
+  {
+    "country": "NER",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional annual figure retrievable: Niger is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI; Ministry of Petroleum / INS Niger publish no accessible series; IMF country pages returned HTTP 403. Official statements: Agadem Phase 1 = 20 kb/d feeding SORAZ refinery (since 2011); Phase 2 launched Nov-2023 adding 90 kb/d for export via the Niger-Benin pipeline (Prime Minister, Le Sahel 1-Nov-2023); output described as 'stabilised at 110 kb/d' after 2024 (Ecofin, 2026). Exports were interrupted mid-2024 by the Benin border dispute. EIA-derived press figures (31.0 kb/d 2024; 101.8 kb/d 2025) not used (source not verifiable)."
+  },
+  {
+    "country": "NER",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional annual figure retrievable: Niger is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI; Ministry of Petroleum / INS Niger publish no accessible series; IMF country pages returned HTTP 403. Official statements: Agadem Phase 1 = 20 kb/d feeding SORAZ refinery (since 2011); Phase 2 launched Nov-2023 adding 90 kb/d for export via the Niger-Benin pipeline (Prime Minister, Le Sahel 1-Nov-2023); output described as 'stabilised at 110 kb/d' after 2024 (Ecofin, 2026). Exports were interrupted mid-2024 by the Benin border dispute. EIA-derived press figures (31.0 kb/d 2024; 101.8 kb/d 2025) not used (source not verifiable)."
+  },
+  {
+    "country": "NER",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional annual figure retrievable: Niger is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI; Ministry of Petroleum / INS Niger publish no accessible series; IMF country pages returned HTTP 403. Official statements: Agadem Phase 1 = 20 kb/d feeding SORAZ refinery (since 2011); Phase 2 launched Nov-2023 adding 90 kb/d for export via the Niger-Benin pipeline (Prime Minister, Le Sahel 1-Nov-2023); output described as 'stabilised at 110 kb/d' after 2024 (Ecofin, 2026). Exports were interrupted mid-2024 by the Benin border dispute. EIA-derived press figures (31.0 kb/d 2024; 101.8 kb/d 2025) not used (source not verifiable)."
+  },
+  {
+    "country": "NER",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "No institutional figure found",
+      "url": "",
+      "table_or_page": "",
+      "published": ""
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "No institutional annual figure retrievable: Niger is aggregated in 'Others'/'Other Western Africa' by OPEC ASB and EI; Ministry of Petroleum / INS Niger publish no accessible series; IMF country pages returned HTTP 403. Official statements: Agadem Phase 1 = 20 kb/d feeding SORAZ refinery (since 2011); Phase 2 launched Nov-2023 adding 90 kb/d for export via the Niger-Benin pipeline (Prime Minister, Le Sahel 1-Nov-2023); output described as 'stabilised at 110 kb/d' after 2024 (Ecofin, 2026). Exports were interrupted mid-2024 by the Benin border dispute. EIA-derived press figures (31.0 kb/d 2024; 101.8 kb/d 2025) not used (source not verifiable)."
+  },
+  {
+    "country": "NGA",
+    "year": 2021,
+    "oil": 1323,
+    "gas": 48572,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only, excluding condensate (OPEC ASB 2025, Table 3.5; note: since 2020 the OPEC Nigeria series excludes blended condensate). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1620 kb/d, gas 52,441 million m3."
+  },
+  {
+    "country": "NGA",
+    "year": 2022,
+    "oil": 1138,
+    "gas": 44307,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only, excluding condensate (OPEC ASB 2025, Table 3.5; note: since 2020 the OPEC Nigeria series excludes blended condensate). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1378 kb/d, gas 47,119 million m3."
+  },
+  {
+    "country": "NGA",
+    "year": 2023,
+    "oil": 1187,
+    "gas": 42403,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only, excluding condensate (OPEC ASB 2025, Table 3.5; note: since 2020 the OPEC Nigeria series excludes blended condensate). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1471 kb/d, gas 44,351 million m3."
+  },
+  {
+    "country": "NGA",
+    "year": 2024,
+    "oil": 1345,
+    "gas": 44322,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Crude only, excluding condensate (OPEC ASB 2025, Table 3.5; note: since 2020 the OPEC Nigeria series excludes blended condensate). Gas = marketed production (Table 9.2). EI 2026: crude+condensate 1557 kb/d, gas 46,846 million m3. MOMR Aug-2026 secondary sources 2024 = 1,429 tb/d. NUPRC 2024: 566.8 M bbl crude+condensate = 1.55 mb/d, of which crude-only ~1.4 mb/d (NUPRC data via Nairametrics; NUPRC annual report PDF blocked, so the condensate split could not be verified - condensat left null)."
+  },
+  {
+    "country": "NGA",
+    "year": 2025,
+    "oil": 1510,
+    "gas": 50774,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Monthly Oil Market Report, August 2026",
+      "url": "https://publications.opec.org/momr (mirror: https://egyptoil-gas.com/wp-content/uploads/2026/08/OPEC_MOMR_August_2026.pdf)",
+      "table_or_page": "Table 5-7 DoC crude oil production based on secondary sources, tb/d (p.56), column 2025",
+      "published": "2026-08-12"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: full-year 2025 crude per OPEC MOMR Aug-2026 secondary sources (Table 5-7); direct communication (NUPRC) = 1,432 tb/d; EI 2026 crude+condensate = 1,643 kb/d. NUPRC 'Crude Oil and Condensate Production 2025': 554.4 M bbl crude+condensate, reported average 1.63 mb/d (crude-only ~1.45 mb/d per press derivation) - condensate split not verifiable, condensat null. Gas: EI 2026 = 50.774 bcm x1000 = 50,774 million m3 (EI basis; ASB 2026 not retrievable). NUPRC gross gas 2025 = 7.5 bcf/d (~77.5 bcm gross incl. reinjection/flaring) - not marketed, not used."
+  },
+  {
+    "country": "SEN",
+    "year": 2021,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No production before Sangomar first oil (2 June 2024) - Ministry of Energy, Petroleum and Mines",
+      "url": "https://lesoleil.sn/actualites/economie/projet-petrolier-sangomar-169-millions-de-barils-produits-en-2024-au-dela-de-lobjectif-initial/",
+      "table_or_page": "n/a",
+      "published": "2025-01-07"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Senegal had no oil or gas production before Sangomar first oil on 2 June 2024 (GTA first gas Jan-2025). 0 = documented non-producer."
+  },
+  {
+    "country": "SEN",
+    "year": 2022,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No production before Sangomar first oil (2 June 2024) - Ministry of Energy, Petroleum and Mines",
+      "url": "https://lesoleil.sn/actualites/economie/projet-petrolier-sangomar-169-millions-de-barils-produits-en-2024-au-dela-de-lobjectif-initial/",
+      "table_or_page": "n/a",
+      "published": "2025-01-07"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Senegal had no oil or gas production before Sangomar first oil on 2 June 2024 (GTA first gas Jan-2025). 0 = documented non-producer."
+  },
+  {
+    "country": "SEN",
+    "year": 2023,
+    "oil": 0,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "No production before Sangomar first oil (2 June 2024) - Ministry of Energy, Petroleum and Mines",
+      "url": "https://lesoleil.sn/actualites/economie/projet-petrolier-sangomar-169-millions-de-barils-produits-en-2024-au-dela-de-lobjectif-initial/",
+      "table_or_page": "n/a",
+      "published": "2025-01-07"
+    },
+    "confidence": "high",
+    "provisional": false,
+    "notes": "Senegal had no oil or gas production before Sangomar first oil on 2 June 2024 (GTA first gas Jan-2025). 0 = documented non-producer."
+  },
+  {
+    "country": "SEN",
+    "year": 2024,
+    "oil": 46.2,
+    "gas": 0,
+    "condensat": null,
+    "source": {
+      "name": "Sénégal - Ministère de l'Énergie, du Pétrole et des Mines, rapport de production Sangomar 2024 (via Le Soleil)",
+      "url": "https://lesoleil.sn/actualites/economie/projet-petrolier-sangomar-169-millions-de-barils-produits-en-2024-au-dela-de-lobjectif-initial/",
+      "table_or_page": "Production Sangomar 2024 = 16,9 M bbl (juin-déc. 2024)",
+      "published": "2025-01-07"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: Sangomar produced 16.9 M bbl in 2024 (production started 2 June 2024; Ministry of Energy, Petroleum and Mines report) -> calendar-year average 16.9e6/366 = 46.2 kb/d; average over the 213 producing days = ~79 kb/d (plateau ~100 kb/d reached Q4-2024, Dec-2024 = 2.96 M bbl). Gas: GTA LNG first gas 31-Dec-2024/Jan-2025 -> 0 for 2024."
+  },
+  {
+    "country": "SEN",
+    "year": 2025,
+    "oil": 99.2,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Sénégal - Ministère de l'Énergie, du Pétrole et des Mines, données de production Sangomar (via Reuters/CNBC Africa & MarketScreener)",
+      "url": "https://www.cnbcafrica.com/2026/senegals-sangomar-oil-project-has-produced-about-18-million-barrels-so-far-this-year-document-says ; https://www.marketscreener.com/news/senegal-s-sangomar-oil-output-stood-at-around-36-mln-barrels-in-2025-energy-ministry-ce7e59dcdf8afe25",
+      "table_or_page": "Production Sangomar 2025 = 36,2 M bbl (~3 M bbl/mois)",
+      "published": "2026-07-06"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil: Sangomar 2025 production = 36.2 M bbl (Ministry data reported by Reuters/CNBC Africa 6-Jul-2026; ministry final report Jan-2026 said 'around 36 M bbl') -> 36.2e6/365 = 99.2 kb/d. Gas: GTA Phase 1 (Senegal/Mauritania, 2.3-2.5 Mtpa LNG) started production in 2025; no institutional 2025 volume for the Senegalese share was found -> null."
+  },
+  {
+    "country": "TCD",
+    "year": 2021,
+    "oil": 104,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Disagreement: EI 2026 gives 116 kb/d (crude+condensate; Chad has no NGL/condensate line) - a 10-20% gap between the two institutional series; ASB kept per priority. Gas: Chad has no marketed gas production (not listed by OPEC/EI)."
+  },
+  {
+    "country": "TCD",
+    "year": 2022,
+    "oil": 104,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Disagreement: EI 2026 gives 124 kb/d (crude+condensate; Chad has no NGL/condensate line) - a 10-20% gap between the two institutional series; ASB kept per priority. Gas: Chad has no marketed gas production (not listed by OPEC/EI)."
+  },
+  {
+    "country": "TCD",
+    "year": 2023,
+    "oil": 108,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Disagreement: EI 2026 gives 134 kb/d (crude+condensate; Chad has no NGL/condensate line) - a 10-20% gap between the two institutional series; ASB kept per priority. Gas: Chad has no marketed gas production (not listed by OPEC/EI)."
+  },
+  {
+    "country": "TCD",
+    "year": 2024,
+    "oil": 111,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "OPEC Annual Statistical Bulletin 2025 (60th ed.)",
+      "url": "https://www.opec.org/assets/assetdb/asb-2025.pdf",
+      "table_or_page": "Table 3.5 World crude oil production by country (p.26, 1,000 b/d); Table 9.2 World marketed production of natural gas by country (p.77, million std m3)",
+      "published": "2025-07-02"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Crude only (OPEC ASB 2025, Table 3.5). Disagreement: EI 2026 gives 128 kb/d (crude+condensate; Chad has no NGL/condensate line) - a 10-20% gap between the two institutional series; ASB kept per priority. Gas: Chad has no marketed gas production (not listed by OPEC/EI)."
+  },
+  {
+    "country": "TCD",
+    "year": 2025,
+    "oil": 111,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "Energy Institute Statistical Review of World Energy 2026 (75th ed.)",
+      "url": "https://www.energyinst.org/statistical-review (data accessed via Our World in Data ETL mirror: https://catalog.ourworldindata.org/meadow/energy_institute/2026-06-30/statistical_review_of_world_energy/statistical_review_of_world_energy.feather)",
+      "table_or_page": "Sheets 'Oil Production - crude, condensate' (kb/d) and 'Gas Production - bcm'",
+      "published": "2026-06"
+    },
+    "confidence": "medium",
+    "provisional": false,
+    "notes": "Oil = EI Statistical Review 2026: 111.0 kb/d for 2025 (crude+condensate = crude for Chad). Note EI's own 2024 value is 128 kb/d, so on EI basis 2025 is a -13% decline; OPEC ASB 2026 (2025 crude) not retrievable. Gas: none."
+  },
+  {
+    "country": "ZAF",
+    "year": 2021,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "US EIA Country Analysis Brief - South Africa",
+      "url": "https://eia.gov/international/content/analysis/countries_long/South_Africa",
+      "table_or_page": "Petroleum and other liquids; Natural gas",
+      "published": "2024-10-29"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: no country line in OPEC ASB or EI ('Other Africa'). EIA: total liquids ~108 kb/d in 2023 of which <1% crude+lease condensate (nearly all synthetic CTL/GTL fuels); PetroSA F-A offshore field and Mossel Bay GTL in care & maintenance since 2020. A negligible (<1 kb/d) but non-zero crude/condensate stream cannot be quantified -> null. Gas: EIA gives only a 2014-2023 average (~27 bcf/yr = ~765 million m3), no year-specific value -> null."
+  },
+  {
+    "country": "ZAF",
+    "year": 2022,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "US EIA Country Analysis Brief - South Africa",
+      "url": "https://eia.gov/international/content/analysis/countries_long/South_Africa",
+      "table_or_page": "Petroleum and other liquids; Natural gas",
+      "published": "2024-10-29"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: no country line in OPEC ASB or EI ('Other Africa'). EIA: total liquids ~108 kb/d in 2023 of which <1% crude+lease condensate (nearly all synthetic CTL/GTL fuels); PetroSA F-A offshore field and Mossel Bay GTL in care & maintenance since 2020. A negligible (<1 kb/d) but non-zero crude/condensate stream cannot be quantified -> null. Gas: EIA gives only a 2014-2023 average (~27 bcf/yr = ~765 million m3), no year-specific value -> null."
+  },
+  {
+    "country": "ZAF",
+    "year": 2023,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "US EIA Country Analysis Brief - South Africa",
+      "url": "https://eia.gov/international/content/analysis/countries_long/South_Africa",
+      "table_or_page": "Petroleum and other liquids; Natural gas",
+      "published": "2024-10-29"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: no country line in OPEC ASB or EI ('Other Africa'). EIA: total liquids ~108 kb/d in 2023 of which <1% crude+lease condensate (nearly all synthetic CTL/GTL fuels); PetroSA F-A offshore field and Mossel Bay GTL in care & maintenance since 2020. A negligible (<1 kb/d) but non-zero crude/condensate stream cannot be quantified -> null. Gas: EIA gives only a 2014-2023 average (~27 bcf/yr = ~765 million m3), no year-specific value -> null."
+  },
+  {
+    "country": "ZAF",
+    "year": 2024,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "US EIA Country Analysis Brief - South Africa",
+      "url": "https://eia.gov/international/content/analysis/countries_long/South_Africa",
+      "table_or_page": "Petroleum and other liquids; Natural gas",
+      "published": "2024-10-29"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: no country line in OPEC ASB or EI ('Other Africa'). EIA: total liquids ~108 kb/d in 2023 of which <1% crude+lease condensate (nearly all synthetic CTL/GTL fuels); PetroSA F-A offshore field and Mossel Bay GTL in care & maintenance since 2020. A negligible (<1 kb/d) but non-zero crude/condensate stream cannot be quantified -> null. Gas: EIA gives only a 2014-2023 average (~27 bcf/yr = ~765 million m3), no year-specific value -> null."
+  },
+  {
+    "country": "ZAF",
+    "year": 2025,
+    "oil": null,
+    "gas": null,
+    "condensat": null,
+    "source": {
+      "name": "US EIA Country Analysis Brief - South Africa",
+      "url": "https://eia.gov/international/content/analysis/countries_long/South_Africa",
+      "table_or_page": "Petroleum and other liquids; Natural gas",
+      "published": "2024-10-29"
+    },
+    "confidence": "low",
+    "provisional": false,
+    "notes": "Oil: no country line in OPEC ASB or EI ('Other Africa'). EIA: total liquids ~108 kb/d in 2023 of which <1% crude+lease condensate (nearly all synthetic CTL/GTL fuels); PetroSA F-A offshore field and Mossel Bay GTL in care & maintenance since 2020. A negligible (<1 kb/d) but non-zero crude/condensate stream cannot be quantified -> null. Gas: EIA gives only a 2014-2023 average (~27 bcf/yr = ~765 million m3), no year-specific value -> null."
+  }
+]

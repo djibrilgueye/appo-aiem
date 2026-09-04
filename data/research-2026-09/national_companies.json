@@ -1,0 +1,2601 @@
+[
+  {
+    "country": "DZA",
+    "acronym": "ALNAFT",
+    "name": "Agence Nationale pour la Valorisation des Ressources en Hydrocarbures",
+    "founded": 2005,
+    "type": "regulator",
+    "headquarters": "Algiers (Chemin Kaddous, lot G8, Hydra)",
+    "website": "https://www.alnaft.dz",
+    "description": {
+      "fr": "ALNAFT est l'agence publique chargée de la valorisation et de la promotion du domaine minier des hydrocarbures en Algérie, créée par la loi 05-07 du 28 avril 2005. Elle gère les titres miniers, approuve les plans de développement, promeut les investissements amont et administre la banque nationale de données.",
+      "en": "ALNAFT is the public agency responsible for developing and promoting Algeria's hydrocarbon mining domain, established under Law 05-07 of 28 April 2005. It manages mining titles, approves development plans, promotes upstream investment and runs the national data bank."
+    },
+    "source": {
+      "name": "ALNAFT – Who are we?",
+      "url": "https://www.alnaft.dz/who-are-we/"
+    },
+    "confidence": "high",
+    "notes": "Official page states 'Since April 28, 2005'. Operates today under Hydrocarbons Law 19-13 (2019)."
+  },
+  {
+    "country": "DZA",
+    "acronym": "ARH",
+    "name": "Autorité de Régulation des Hydrocarbures (Agence Nationale de Contrôle et de Régulation des Activités dans le Domaine des Hydrocarbures)",
+    "founded": 2005,
+    "type": "regulator",
+    "headquarters": "Algiers (Cité ENPI, Sidi Yahia)",
+    "website": "https://www.arh.gov.dz",
+    "description": {
+      "fr": "L'ARH est l'autorité indépendante de régulation des activités hydrocarbures en Algérie (régulation économique, transport par canalisations, contrôle technique, HSE). Créée par la loi 05-07 de 2005, elle exerce aujourd'hui ses missions dans le cadre de la loi 19-13 du 11 décembre 2019.",
+      "en": "ARH is Algeria's independent hydrocarbons regulator (economic regulation, pipeline transport, technical control, HSE). Created under Law 05-07 of 2005, it now operates under Hydrocarbons Law 19-13 of 11 December 2019."
+    },
+    "source": {
+      "name": "ARH – official site",
+      "url": "https://www.arh.gov.dz/"
+    },
+    "confidence": "medium",
+    "notes": "Site reachable only with TLS verification disabled (certificate chain issue). Creation year 2005 from the 2005 hydrocarbons law framework; the fetched 'Statut' page did not expose the creation text."
+  },
+  {
+    "country": "DZA",
+    "acronym": "ENAC",
+    "name": "Entreprise Nationale de Canalisations",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": null,
+    "website": null,
+    "description": {
+      "fr": "ENAC est la filiale de Sonatrach spécialisée dans la construction et la pose de canalisations (oléoducs, gazoducs) et les travaux associés.",
+      "en": "ENAC is Sonatrach's subsidiary specialised in pipeline construction and laying (oil and gas pipelines) and related works."
+    },
+    "source": {
+      "name": "SONATRACH – Filiales et participations",
+      "url": "https://sonatrach.com/fr/filiales-et-participations/"
+    },
+    "confidence": "low",
+    "notes": "Only the name is confirmed on Sonatrach's affiliates page; activity description from sector knowledge; type 'downstream' used for midstream/pipeline-construction services. Founding year and HQ not verified."
+  },
+  {
+    "country": "DZA",
+    "acronym": "ENIP",
+    "name": "Entreprise Nationale de l'Industrie Pétrochimique",
+    "founded": null,
+    "type": "petrochemicals",
+    "headquarters": "Skikda",
+    "website": null,
+    "description": {
+      "fr": "ENIP est la filiale pétrochimique du groupe Sonatrach, implantée sur la plateforme de Skikda. Elle exploite les unités de pétrochimie de base (éthylène, polyéthylène, PVC) issues du complexe pétrochimique de Skikda.",
+      "en": "ENIP is the Sonatrach group's petrochemicals subsidiary based on the Skikda platform, operating the basic petrochemical units (ethylene, polyethylene, PVC) of the Skikda petrochemical complex."
+    },
+    "source": {
+      "name": "SONATRACH – Filiales et participations",
+      "url": "https://sonatrach.com/fr/filiales-et-participations/"
+    },
+    "confidence": "medium",
+    "notes": "Named on Sonatrach's affiliates page (petrochemicals, Skikda). Founding year not stated on reachable official pages; enip.dz did not resolve."
+  },
+  {
+    "country": "DZA",
+    "acronym": "Naftal",
+    "name": "Naftal SpA – Entreprise Nationale de Commercialisation et de Distribution des Produits Pétroliers",
+    "founded": 1981,
+    "type": "downstream",
+    "headquarters": "Algiers",
+    "website": "https://www.naftal.dz",
+    "description": {
+      "fr": "Naftal est la filiale à 100 % de Sonatrach chargée de la commercialisation et de la distribution des produits pétroliers en Algérie (carburants, GPL, lubrifiants, bitumes). Créée en 1981 (ex-ERDP), elle a été recentrée sur la distribution en 1987 après séparation de l'activité raffinage.",
+      "en": "Naftal is Sonatrach's wholly owned subsidiary responsible for marketing and distributing petroleum products in Algeria (fuels, LPG, lubricants, bitumen). Created in 1981 (formerly ERDP), it was refocused on distribution in 1987 when refining was separated."
+    },
+    "source": {
+      "name": "Naftal – Historique (official site)",
+      "url": "https://www.naftal.dz/fr/index.php/a-propos-de-naftal/historique"
+    },
+    "confidence": "medium",
+    "notes": "naftal.dz refused connections from our network at research time; founding facts (decree 80-101, entry into activity 1 Jan 1982, refining split 25 Aug 1987) taken from the indexed text of the official 'Historique' page. Exact HQ address not verified."
+  },
+  {
+    "country": "DZA",
+    "acronym": "STVH",
+    "name": "SONATRACH Transformation et Valorisation des Hydrocarbures (holding)",
+    "founded": null,
+    "type": "holding",
+    "headquarters": "Algiers",
+    "website": "https://sonatrach.com/subsidiaries-and-shareholding/",
+    "description": {
+      "fr": "STVH est l'un des quatre holdings du groupe Sonatrach, regroupant les participations dans la transformation et la valorisation des hydrocarbures (raffinage, pétrochimie).",
+      "en": "STVH is one of Sonatrach's four holdings, grouping the group's shareholdings in hydrocarbon transformation and valorisation (refining, petrochemicals)."
+    },
+    "source": {
+      "name": "SONATRACH – Subsidiaries and shareholding",
+      "url": "https://sonatrach.com/subsidiaries-and-shareholding/"
+    },
+    "confidence": "medium",
+    "notes": "Sister holdings: SSPP (Services Parapétroliers), SAES (Activités Externes et de Soutien), SIHC (International Holding Corporation). Creation dates not stated."
+  },
+  {
+    "country": "DZA",
+    "acronym": "Sonelgaz",
+    "name": "Société Nationale de l'Électricité et du Gaz (Groupe Sonelgaz)",
+    "founded": 1969,
+    "type": "gas",
+    "headquarters": "Algiers (2 Boulevard Krim Belkacem)",
+    "website": "https://www.sonelgaz.dz",
+    "description": {
+      "fr": "Sonelgaz est l'opérateur historique de l'électricité et de la distribution publique du gaz en Algérie, créé par l'ordonnance 69-59 du 28 juillet 1969 en remplacement d'EGA. Organisé en holding depuis 2011, le groupe compte 11 filiales et dessert plus de 12 millions de clients électricité et 8 millions de clients gaz.",
+      "en": "Sonelgaz is Algeria's incumbent electricity and public gas distribution utility, created by Ordinance 69-59 of 28 July 1969 to replace EGA. Organised as a holding since 2011, the group has 11 subsidiaries and serves over 12 million electricity and 8 million gas customers."
+    },
+    "source": {
+      "name": "Sonelgaz – Notre histoire / Qui sommes-nous",
+      "url": "https://www.sonelgaz.dz/fr/category/historique"
+    },
+    "confidence": "high",
+    "notes": "Energy utility (electricity + gas distribution), listed here as gas-sector state company. Runs its own training schools (see training dataset)."
+  },
+  {
+    "country": "DZA",
+    "acronym": "Sonatrach",
+    "name": "Société Nationale pour la Recherche, la Production, le Transport, la Transformation et la Commercialisation des Hydrocarbures",
+    "founded": 1963,
+    "type": "NOC",
+    "headquarters": "Algiers (Djenane El Malik, Hydra)",
+    "website": "https://sonatrach.com",
+    "description": {
+      "fr": "Sonatrach est la compagnie nationale algérienne des hydrocarbures, créée le 31 décembre 1963. Groupe intégré présent dans l'exploration-production, le transport par canalisations, la liquéfaction, le raffinage, la pétrochimie et la commercialisation, il compte plus de 150 filiales et participations et plus de 200 000 employés.",
+      "en": "Sonatrach is Algeria's national hydrocarbons company, established on 31 December 1963. An integrated group active in exploration and production, pipeline transport, liquefaction, refining, petrochemicals and marketing, it has over 150 subsidiaries and shareholdings and more than 200,000 employees."
+    },
+    "source": {
+      "name": "SONATRACH – official site (presentation)",
+      "url": "https://sonatrach.com/en/"
+    },
+    "confidence": "high",
+    "notes": "Group structured around four holdings: SSPP, STVH, SAES, SIHC (149 subsidiaries/shareholdings: 89 domestic, 60 international per sonatrach.com/subsidiaries-and-shareholding/)."
+  },
+  {
+    "country": "AGO",
+    "acronym": "ANPG",
+    "name": "Agência Nacional de Petróleo, Gás e Biocombustíveis",
+    "founded": 2019,
+    "type": "regulator",
+    "headquarters": "Luanda",
+    "website": "https://anpg.co.ao",
+    "status": "operational",
+    "description": {
+      "fr": "L'ANPG est le concessionnaire national et le régulateur du secteur pétrolier, gazier et des biocarburants de l'Angola, créée par le Décret présidentiel n° 49/19 du 6 février 2019. Elle a repris la fonction de concessionnaire précédemment exercée par Sonangol E.P., organise les cycles de licences et gère les données d'exploration-production.",
+      "en": "ANPG is Angola's national concessionaire and regulator for petroleum, gas and biofuels, created by Presidential Decree 49/19 of 6 February 2019. It took over the concessionaire function previously held by Sonangol E.P., runs licensing rounds and manages E&P data."
+    },
+    "source": {
+      "name": "ANPG – Sobre nós",
+      "url": "https://anpg.co.ao/sobre-nos/"
+    },
+    "confidence": "high",
+    "notes": "Address: Edifício Torres do Carmo, Torre 2, Rua Lopes de Lima, Ingombota, Luanda."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Angola LNG",
+    "name": "Angola LNG Limited",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Soyo",
+    "website": "https://www.angolalng.com",
+    "status": "operational",
+    "description": {
+      "fr": "Coentreprise (JV) de liquéfaction de gaz naturel située à Soyo, à l'embouchure du fleuve Congo, d'une capacité de 5,2 Mt/an. Partenaires : Sonangol, Chevron, TotalEnergies et Azule Energy (BP-Eni). Première cargaison de GNL en 2013.",
+      "en": "Joint venture LNG plant at Soyo, at the mouth of the Congo River, with a capacity of 5.2 Mt/yr. Partners: Sonangol, Chevron, TotalEnergies and Azule Energy (BP-Eni). First LNG cargo in 2013."
+    },
+    "source": {
+      "name": "Angola LNG – About",
+      "url": "https://www.angolalng.com/about-angola-lng"
+    },
+    "confidence": "medium",
+    "notes": "JV, not a state company: Sonangol is a shareholder (22.8% historically per en.wikipedia; percentages not on official page). Incorporation year not on official page (null); first LNG delivery 2013 per Sonangol history."
+  },
+  {
+    "country": "AGO",
+    "acronym": "IRDP",
+    "name": "Instituto Regulador dos Derivados do Petróleo",
+    "founded": 2013,
+    "type": "regulator",
+    "headquarters": "Luanda",
+    "website": "https://www.irdp.gov.ao",
+    "status": "operational",
+    "description": {
+      "fr": "L'IRDP est l'autorité de régulation de l'aval pétrolier angolais (dérivés du petróleo), créé par le Décret présidentiel n° 133/13 du 5 septembre 2013 ; son statut organique a été révisé par le Décret présidentiel n° 133/18 du 18 mai 2018. Il exerce les fonctions de régulation, de contrôle et de supervision de toutes les activités liées aux produits pétroliers en Angola.",
+      "en": "IRDP is Angola's downstream (petroleum derivatives) regulator, created by Presidential Decree 133/13 of 5 September 2013; its organic statute was revised by Presidential Decree 133/18 of 18 May 2018. It regulates, controls and supervises all activities related to petroleum products in Angola."
+    },
+    "source": {
+      "name": "Decreto Presidencial n.º 133/13 (lex.ao)",
+      "url": "https://lex.ao/docs/presidente-da-republica/2013/decreto-presidencial-n-o-133-13-de-05-de-setembro/"
+    },
+    "confidence": "high",
+    "notes": "MIREMPET news (May 2024) counts IRDP anniversaries from DP 133/18 (2018); creation decree is DP 133/13 (2013). Official website shows a maintenance page; address Av. 4 de Fevereiro n.º 105, Luanda."
+  },
+  {
+    "country": "AGO",
+    "acronym": "MIREMPET",
+    "name": "Ministério dos Recursos Minerais, Petróleo e Gás",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Luanda",
+    "website": "https://mirempet.gov.ao",
+    "status": "operational",
+    "description": {
+      "fr": "Ministère de tutelle du secteur des hydrocarbures angolais, chargé de la politique pétrolière et gazière et de la supervision de Sonangol, de l'ANPG et de l'IRDP.",
+      "en": "Line ministry for Angola's hydrocarbons sector, responsible for oil and gas policy and for supervising Sonangol, ANPG and IRDP."
+    },
+    "source": {
+      "name": "MIREMPET",
+      "url": "https://mirempet.gov.ao"
+    },
+    "confidence": "medium",
+    "notes": "Included for the regulatory framework; creation date of the ministry in its current form not researched (null)."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Refinaria de Luanda",
+    "name": "Refinaria de Luanda (Sonangol Refinação)",
+    "founded": 1958,
+    "type": "downstream",
+    "headquarters": "Luanda",
+    "website": "https://refinariadeluanda.com",
+    "status": "operational",
+    "description": {
+      "fr": "Unique raffinerie en activité de l'Angola, située à Luanda et exploitée par Sonangol ; en service depuis 1958. Sonangol développe en parallèle les projets de raffineries de Cabinda, Lobito et Soyo.",
+      "en": "Angola's only operating refinery, located in Luanda and operated by Sonangol; in service since 1958. Sonangol is developing the Cabinda, Lobito and Soyo refinery projects in parallel."
+    },
+    "source": {
+      "name": "Sonangol – Breve historial",
+      "url": "https://www.sonangol.co.ao/breve-historial/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year derived from official history ('2015: Luanda Refinery marked 57 years of refining operations'). refinariadeluanda.com unreachable at time of research. The Sonaref/Lobito refinery is a project (Sonangol targets 2027 start per ANGOP)."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Sonangol Distribuidora",
+    "name": "Sonangol Distribuição e Comercialização",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Luanda",
+    "website": "https://www.sonangol.co.ao",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale aval de Sonangol E.P. chargée de l'approvisionnement, du stockage, de la distribution et de la commercialisation des produits pétroliers en Angola (réseau de stations-service).",
+      "en": "Downstream subsidiary of Sonangol E.P. responsible for supply, storage, distribution and marketing of petroleum products in Angola (service-station network)."
+    },
+    "source": {
+      "name": "Sonangol – site officiel",
+      "url": "https://www.sonangol.co.ao"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated on official site (null). Official history notes international expansion of Distribuidora in 2005."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Sonangol Gás",
+    "name": "Sonangol Gás e Energias Renováveis (ex-Sonangol Gás Natural / Sonagás)",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Luanda",
+    "website": "https://www.sonangol.co.ao",
+    "status": "operational",
+    "description": {
+      "fr": "Segment gaz et énergies renouvelables du groupe Sonangol, héritier de Sonangol Gás Natural (Sonagás), chargé du développement du gaz naturel, du GPL et des projets d'énergies renouvelables.",
+      "en": "Gas and renewables arm of the Sonangol group, successor to Sonangol Gás Natural (Sonagás), in charge of natural gas, LPG and renewable energy projects."
+    },
+    "source": {
+      "name": "Sonangol – site officiel (segmentos de negócio)",
+      "url": "https://www.sonangol.co.ao"
+    },
+    "confidence": "medium",
+    "notes": "Creation year of Sonagás not found in official sources (null)."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Sonangol E&P",
+    "name": "Sonangol Pesquisa e Produção (Sonangol Exploração & Produção)",
+    "founded": 1992,
+    "type": "NOC",
+    "headquarters": "Luanda",
+    "website": "https://www.sonangol.co.ao",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale amont de Sonangol E.P., créée en 1992, chargée de l'exploration, du développement et de la production d'hydrocarbures pour le compte du groupe.",
+      "en": "Upstream subsidiary of Sonangol E.P., created in 1992, responsible for hydrocarbon exploration, development and production on behalf of the group."
+    },
+    "source": {
+      "name": "Sonangol – Breve historial",
+      "url": "https://www.sonangol.co.ao/breve-historial/"
+    },
+    "confidence": "high",
+    "notes": "Official history: '1992: Creation of Sonangol P&P'. Listed on the official site as 'Sonangol Exploração & Produção (SNL E&P)'."
+  },
+  {
+    "country": "AGO",
+    "acronym": "Sonangol",
+    "name": "Sonangol – Sociedade Nacional de Combustíveis de Angola, E.P.",
+    "founded": 1976,
+    "type": "NOC",
+    "headquarters": "Luanda",
+    "website": "https://www.sonangol.co.ao",
+    "status": "operational",
+    "description": {
+      "fr": "Sonangol E.P. est la compagnie pétrolière nationale de l'Angola, créée par le Décret-loi n° 52/76 de 1976. Elle intervient sur toute la chaîne de valeur (exploration-production, raffinage, trading et transport maritime, gaz et énergies renouvelables, distribution) à travers 18 filiales réparties en cinq segments d'activité. Depuis 2019, la fonction de concessionnaire national a été transférée à l'ANPG.",
+      "en": "Sonangol E.P. is Angola's national oil company, established by Decree-Law 52/76 in 1976. It operates across the whole value chain (exploration and production, refining, trading and shipping, gas and renewables, distribution) through 18 subsidiaries grouped in five business segments. Since 2019 the national concessionaire role has been transferred to the ANPG."
+    },
+    "source": {
+      "name": "Sonangol – Breve historial / Estrutura",
+      "url": "https://www.sonangol.co.ao/breve-historial/"
+    },
+    "confidence": "high",
+    "notes": "Founding decree quoted on official history page: 'O Decreto-lei Nº 52/76 estabeleceu a Sonangol'. Head office Rua Rainha Ginga 29-31, Luanda (per en.wikipedia, not verified on official site)."
+  },
+  {
+    "country": "BEN",
+    "acronym": "MEEM",
+    "name": "Ministère de l'Énergie, de l'Eau et des Mines (Direction en charge des hydrocarbures)",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Cotonou",
+    "website": "https://eau-mines.gouv.bj",
+    "description": {
+      "fr": "Le Ministère de l'Énergie, de l'Eau et des Mines (MEEM) définit et applique la politique énergétique et minière du Bénin, y compris la réglementation des hydrocarbures (amont et aval) et la tutelle des sociétés d'État du secteur.",
+      "en": "The Ministry of Energy, Water and Mines (MEEM) sets and enforces Benin's energy and mining policy, including hydrocarbons regulation (upstream and downstream) and oversight of state companies in the sector."
+    },
+    "source": {
+      "name": "Gouvernement du Bénin – Ministères",
+      "url": "https://www.gouv.bj/ministeres/"
+    },
+    "confidence": "medium",
+    "notes": "Listed on gouv.bj as 'Eau, Énergie et Mines' (MEEM, site eau-mines.gouv.bj); the site returned HTTP 503 at time of check. Exact name of the hydrocarbons directorate not verified."
+  },
+  {
+    "country": "BEN",
+    "acronym": "SoBeGaz",
+    "name": "Société Béninoise de Gaz SA",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Cotonou",
+    "website": null,
+    "description": {
+      "fr": "Société d'État créée pour porter les infrastructures gazières du Bénin (approvisionnement en gaz naturel, notamment via le gazoduc de l'Afrique de l'Ouest et les projets d'importation de GNL, pour la production d'électricité).",
+      "en": "State company set up to carry Benin's gas infrastructure (natural gas supply, notably via the West African Gas Pipeline and LNG import projects, for power generation)."
+    },
+    "source": {
+      "name": "Gouvernement du Bénin – Ministères (MEEM)",
+      "url": "https://www.gouv.bj/ministeres/"
+    },
+    "confidence": "low",
+    "notes": "Not verifiable in this session: no official site found and the MEEM site was unavailable (503). Creation decree/year unknown; record kept because the brief requested a check, flagged low."
+  },
+  {
+    "country": "BEN",
+    "acronym": "SONACOP",
+    "name": "Société Nationale de Commercialisation des Produits Pétroliers",
+    "founded": 1974,
+    "type": "downstream",
+    "headquarters": "Cotonou",
+    "website": null,
+    "description": {
+      "fr": "Société nationale de distribution des produits pétroliers du Bénin (dépôts, réseau de stations-service), la SONACOP a été privatisée à la fin des années 1990 avant que l'État n'en reprenne le contrôle au milieu des années 2000. Elle relève du Ministère de l'Énergie, de l'Eau et des Mines.",
+      "en": "Benin's national petroleum products marketing company (depots, service-station network), SONACOP was privatised in the late 1990s before the State regained control in the mid-2000s. It falls under the Ministry of Energy, Water and Mines."
+    },
+    "source": {
+      "name": "Gouvernement du Bénin – Ministères (MEEM)",
+      "url": "https://www.gouv.bj/ministeres/"
+    },
+    "confidence": "low",
+    "notes": "No official SONACOP website found; the MEEM site (https://eau-mines.gouv.bj) returned HTTP 503 during this session. Founding year 1974 and ownership history are institutional history not confirmed on a primary source here; current operational status should be checked."
+  },
+  {
+    "country": "CMR",
+    "acronym": "CSPH",
+    "name": "Caisse de Stabilisation des Prix des Hydrocarbures",
+    "founded": 1974,
+    "type": "regulator",
+    "headquarters": "Yaoundé",
+    "website": "https://www.csph.cm",
+    "status": "operational",
+    "description": {
+      "fr": "Établissement public créé par le décret n° 74/458 du 10 mai 1974 (réorganisé par les décrets 98/165 de 1998 et 2019/032 de 2019), chargé de la stabilisation des prix des produits pétroliers et de la sécurisation de l'approvisionnement du territoire national.",
+      "en": "Public body created by Decree 74/458 of 10 May 1974 (reorganised by Decrees 98/165 of 1998 and 2019/032 of 2019), in charge of stabilising petroleum product prices and securing supply across the national territory."
+    },
+    "source": {
+      "name": "CSPH – Présentation",
+      "url": "https://www.csph.cm/presentation.php"
+    },
+    "confidence": "high",
+    "notes": "HQ: Rue 1025, Avenue Konrad Adenauer (Warda), B.P. 501 Yaoundé."
+  },
+  {
+    "country": "CMR",
+    "acronym": "Hydrac",
+    "name": "Hydrac S.A. (Hydrocarbures Analyses Contrôles)",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": null,
+    "website": "https://www.hydrac-sa.cm",
+    "status": "operational",
+    "description": {
+      "fr": "Société du portefeuille de la SNH spécialisée dans l'analyse, l'inspection et le contrôle de qualité des hydrocarbures et produits pétroliers.",
+      "en": "SNH portfolio company specialised in laboratory analysis, inspection and quality control of hydrocarbons and petroleum products."
+    },
+    "source": {
+      "name": "SNH – Portefeuille / partenaires",
+      "url": "https://www.snh.cm/organisation/portefeuille-snh/"
+    },
+    "confidence": "low",
+    "notes": "Listed on SNH site with link to hydrac-sa.cm (unreachable at time of research). Founding year, SNH stake and headquarters not verified (null)."
+  },
+  {
+    "country": "CMR",
+    "acronym": "SCDP",
+    "name": "Société Camerounaise des Dépôts Pétroliers",
+    "founded": 1979,
+    "type": "downstream",
+    "headquarters": "Douala",
+    "website": "https://www.scdp.cm",
+    "status": "operational",
+    "description": {
+      "fr": "Créée le 1er juillet 1979 par l'État du Cameroun, la SCDP est la société de stockage et de distribution des produits pétroliers sur l'ensemble du territoire national (dépôts, location de capacités aux marketers, coloration des produits).",
+      "en": "Established on 1 July 1979 by the State of Cameroon, SCDP is the national storage and distribution company for petroleum products across the country (depots, tank rental to marketers, product colouring)."
+    },
+    "source": {
+      "name": "SCDP – site officiel",
+      "url": "https://www.scdp.cm"
+    },
+    "confidence": "high",
+    "notes": "HQ: Rue de la Cité Chardy, Carrefour Agip, Douala."
+  },
+  {
+    "country": "CMR",
+    "acronym": "SONARA",
+    "name": "Société Nationale de Raffinage (National Refining Company Ltd)",
+    "founded": 1973,
+    "type": "downstream",
+    "headquarters": "Limbe",
+    "website": "https://www.sonara-cm.cm",
+    "status": "damaged",
+    "description": {
+      "fr": "Raffinerie nationale du Cameroun installée à Limbé (Sud-Ouest), inaugurée en 1981, d'une capacité d'environ 2,2 Mt/an. Détenue majoritairement par l'État (avec la SNH et Total Outre-mer). Un incendie le 31 mai 2019 a détruit quatre de ses treize unités ; la reconstruction n'avait pas démarré à mi-2023.",
+      "en": "Cameroon's national refinery at Limbe (South-West), commissioned in 1981, with a capacity of about 2.2 Mt/yr. Majority state-owned (with SNH and Total Outre-mer). A fire on 31 May 2019 destroyed four of its thirteen units; reconstruction had not started as of mid-2023."
+    },
+    "source": {
+      "name": "SONARA – site officiel",
+      "url": "https://www.sonara-cm.cm/"
+    },
+    "confidence": "medium",
+    "notes": "Official site gives only contact data (B.P. 365 Limbe). Founding date (24 March 1973), capacity, shareholding (State 81.95%, SNH 6.06%, Total Outre-mer 4%) and post-fire status come from fr.wikipedia (Sonara) — treat those figures as low confidence. Task brief cited 1976; not confirmed."
+  },
+  {
+    "country": "CMR",
+    "acronym": "SNH",
+    "name": "Société Nationale des Hydrocarbures",
+    "founded": 1980,
+    "type": "NOC",
+    "headquarters": "Yaoundé",
+    "website": "https://www.snh.cm",
+    "status": "operational",
+    "description": {
+      "fr": "Créée le 12 mars 1980, la SNH est la compagnie pétrolière nationale du Cameroun. Elle assure la promotion, le développement et le suivi des activités pétrolières et gazières, gère les intérêts de l'État dans les contrats pétroliers et commercialise la part d'hydrocarbures de l'État. Son portefeuille compte 12 entreprises (dont Tradex, Hydrac, SONARA, Chanas Assurances).",
+      "en": "Created on 12 March 1980, SNH is Cameroon's national hydrocarbons company. It promotes, develops and monitors oil and gas activities, manages the State's interests in petroleum contracts and markets the State's share of hydrocarbons. Its portfolio comprises 12 companies (incl. Tradex, Hydrac, SONARA, Chanas Assurances)."
+    },
+    "source": {
+      "name": "SNH – Histoire",
+      "url": "https://www.snh.cm/histoire/"
+    },
+    "confidence": "high",
+    "notes": "HQ: Rue Dragages, Yaoundé Centre. Missions extended by decrees of 17 Jan 2008 and 9 July 2019."
+  },
+  {
+    "country": "CMR",
+    "acronym": "Tradex",
+    "name": "Tradex S.A.",
+    "founded": 1999,
+    "type": "downstream",
+    "headquarters": "Douala",
+    "website": "https://tradexsa.co",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale de la SNH fondée en 1999, Tradex est passée du négoce de pétrole brut et de produits pétroliers à un marketer de premier plan en zone CEMAC (stations-service, soutage maritime, carburant aviation, trading).",
+      "en": "SNH subsidiary founded in 1999, Tradex evolved from crude and product trading into a leading marketer in the CEMAC zone (service stations, marine bunkering, aviation fuel, trading)."
+    },
+    "source": {
+      "name": "Tradex – site officiel",
+      "url": "https://tradexsa.co/"
+    },
+    "confidence": "high",
+    "notes": "HQ: Rue Christian Tobie Kuoh, Bonanjo, B.P. 1468 Douala."
+  },
+  {
+    "country": "TCD",
+    "acronym": "ARSAT",
+    "name": "Autorité de Régulation du Secteur Pétrolier Aval du Tchad",
+    "founded": 2012,
+    "type": "regulator",
+    "headquarters": "N'Djamena",
+    "website": "https://arsat.td",
+    "description": {
+      "fr": "Établissement public à caractère administratif créé par l'ordonnance n° 005/PR/2012 du 7 février 2012, l'ARSAT régule et contrôle les activités du secteur pétrolier aval : sécurisation de l'approvisionnement et de la distribution, contrôle qualité, suivi des infrastructures, gestion du fonds de stabilisation des prix du GPL et application de la réglementation.",
+      "en": "A public administrative establishment created by Ordinance No. 005/PR/2012 of 7 February 2012, ARSAT regulates and controls downstream petroleum activities: securing supply and distribution, quality control, infrastructure oversight, management of the LPG price stabilisation fund and enforcement of sector regulations."
+    },
+    "source": {
+      "name": "ARSAT – À propos",
+      "url": "https://arsat.td/a-propos/"
+    },
+    "confidence": "high",
+    "notes": "Address: avenue Maréchal Idriss Deby Itno, Sabangali, BP 2695 N'Djamena."
+  },
+  {
+    "country": "TCD",
+    "acronym": "MPME",
+    "name": "Ministère du Pétrole, des Mines et de l'Énergie – Direction Générale des Hydrocarbures",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "N'Djamena",
+    "website": null,
+    "description": {
+      "fr": "Le ministère en charge du pétrole régule le secteur amont tchadien (attribution des permis et conventions, suivi des opérations de production, de transport par le pipeline Tchad-Cameroun et de raffinage) et exerce la tutelle de la SHT.",
+      "en": "The ministry in charge of petroleum regulates Chad's upstream sector (award of permits and conventions, monitoring of production, transport through the Chad-Cameroon pipeline and refining) and oversees SHT."
+    },
+    "source": {
+      "name": "EITI – Chad",
+      "url": "https://eiti.org/countries/chad"
+    },
+    "confidence": "medium",
+    "notes": "petrole.gouv.td is a parked hosting page; no working ministry site found. TOTCO (Tchad Oil Transportation Company) and COTCO (Cameroon) operate the export pipeline with state participation; not recorded as separate entries (not verified on a primary source)."
+  },
+  {
+    "country": "TCD",
+    "acronym": "SRN",
+    "name": "Société de Raffinage de N'Djamena",
+    "founded": 2011,
+    "type": "downstream",
+    "headquarters": "Djermaya",
+    "website": null,
+    "description": {
+      "fr": "Coentreprise entre CNPC (60 %) et l'État tchadien via la SHT (40 %), la SRN exploite la raffinerie de Djermaya, au nord de N'Djamena, mise en service en 2011 (environ 20 000 barils/jour), alimentée par le brut de Ronier/Mimosa. Le Tchad est le premier pays à avoir inclus le raffinage dans le périmètre de ses rapports ITIE.",
+      "en": "A joint venture between CNPC (60%) and the Chadian State through SHT (40%), SRN operates the Djermaya refinery north of N'Djamena, commissioned in 2011 (about 20,000 barrels per day) and fed by Ronier/Mimosa crude. Chad was the first country to include refining in the scope of its EITI reporting."
+    },
+    "source": {
+      "name": "EITI – Chad (Djermaya refinery / SRN)",
+      "url": "https://eiti.org/countries/chad"
+    },
+    "confidence": "low",
+    "notes": "Year given is the 2011 start-up; JV creation date and exact shareholding not confirmed on a primary source in this session."
+  },
+  {
+    "country": "TCD",
+    "acronym": "SHT",
+    "name": "Société des Hydrocarbures du Tchad",
+    "founded": 2006,
+    "type": "NOC",
+    "headquarters": "N'Djamena",
+    "website": null,
+    "description": {
+      "fr": "Société nationale des hydrocarbures du Tchad, la SHT porte les participations de l'État dans les projets pétroliers (dont une participation de 10 % dans CNPCI obtenue en 2014 et des intérêts dans la raffinerie de N'Djamena), commercialise la part de brut de l'État et intervient dans la distribution des produits pétroliers.",
+      "en": "Chad's national hydrocarbons company, SHT holds the State's interests in oil projects (including a 10% stake in CNPCI obtained in 2014 and interests in the N'Djamena refinery), markets the State's share of crude and is active in petroleum product distribution."
+    },
+    "source": {
+      "name": "EITI – Chad (SHT as material extractive SOE)",
+      "url": "https://eiti.org/countries/chad"
+    },
+    "confidence": "medium",
+    "notes": "No reachable official website (sht.td and variants do not resolve). Founding year 2006 is institutional history not confirmed by the EITI page."
+  },
+  {
+    "country": "COD",
+    "acronym": "MinHydro",
+    "name": "Ministère des Hydrocarbures de la République Démocratique du Congo",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Kinshasa",
+    "website": "https://hydrocarbures.gouv.cd",
+    "description": {
+      "fr": "Le Ministère des Hydrocarbures définit et met en œuvre la politique du secteur et exerce la tutelle et la régulation des activités amont et aval dans le cadre de la loi n° 15/012 du 1er août 2015 portant régime général des hydrocarbures. Il attribue les droits d'exploration et d'exploitation (appels d'offres, contrats de partage de production) et tient le registre pétrolier.",
+      "en": "The Ministry of Hydrocarbons sets and implements sector policy and oversees and regulates upstream and downstream activities under Law No. 15/012 of 1 August 2015 on the general hydrocarbons regime. It awards exploration and production rights (tenders, production-sharing contracts) and maintains the petroleum register."
+    },
+    "source": {
+      "name": "ITIE-RDC / EITI – Democratic Republic of Congo",
+      "url": "https://eiti.org/countries/democratic-republic-congo"
+    },
+    "confidence": "medium",
+    "notes": "No separate hydrocarbons regulatory authority (e.g. 'ARH') could be verified for DRC; regulation sits with the ministry. The ministry site is behind a verification page and could not be read; URL kept."
+  },
+  {
+    "country": "COD",
+    "acronym": "SEP Congo",
+    "name": "Services des Entreprises Pétrolières Congolaises (SEP-CONGO SA)",
+    "founded": 1910,
+    "type": "downstream",
+    "headquarters": "Kinshasa",
+    "website": "https://sepcongo.com",
+    "description": {
+      "fr": "Héritière de Petrocongo SA fondée en 1910, SEP Congo (nom définitif depuis 1997, SA depuis 2014) est le logisticien pétrolier de la RDC : réception des produits importés au terminal d'Ango-Ango (Matadi), pipeline Matadi–Kinshasa (720 km), réseau de dépôts (Kinshasa, Matadi, Lubumbashi, Goma, Beni) et quatre laboratoires de certification. Société d'économie mixte à capital majoritairement privé assurant une mission d'intérêt public, elle compte SONAHYDROC (36,6 %) parmi ses actionnaires.",
+      "en": "Successor to Petrocongo SA founded in 1910, SEP Congo (current name since 1997, joint-stock company since 2014) is the DRC's petroleum logistics operator: reception of imported products at the Ango-Ango terminal (Matadi), the 720 km Matadi–Kinshasa pipeline, a network of depots (Kinshasa, Matadi, Lubumbashi, Goma, Beni) and four certification laboratories. It is a mixed-economy company with majority private capital performing a public-interest mission; SONAHYDROC holds 36.6%."
+    },
+    "source": {
+      "name": "SEP Congo – Historique / Mission",
+      "url": "https://sepcongo.com/mission/historique/"
+    },
+    "confidence": "high",
+    "notes": "Siège: 1 avenue des Pétroles, Kinshasa. The brief described SEP Congo as state-majority; the company site states 'capital majoritaire privé' and SONAHYDROC's site gives the state NOC stake as 36.6%. Full shareholder list not published on the site."
+  },
+  {
+    "country": "COD",
+    "acronym": "SONAHYDROC",
+    "name": "Société Nationale des Hydrocarbures du Congo SA",
+    "founded": 1999,
+    "type": "NOC",
+    "headquarters": "Kinshasa",
+    "website": "https://www.sonahydroc.cd",
+    "description": {
+      "fr": "Créée par le décret-loi n° 245 du 9 août 1999 sous le nom de La Congolaise des Hydrocarbures (COHYDRO), la société a été transformée en SARL (2008-2009) puis en SA (2014), avant de devenir la Société Nationale des Hydrocarbures du Congo (SONAHYDROC SA) le 7 novembre 2016 en application de la loi n° 15/012 du 1er août 2015 portant régime général des hydrocarbures. Elle intervient en amont (prospection, exploration et production en partenariat dans le bassin côtier et la cuvette centrale) et en aval (raffinage, stockage, transport et distribution). Elle détient notamment 15 % de LIREX SARL et 36,6 % de SEP-CONGO SA.",
+      "en": "Established by Decree-Law No. 245 of 9 August 1999 as La Congolaise des Hydrocarbures (COHYDRO), the company became a limited liability company (2008-2009), then a joint-stock company (2014), and was renamed Société Nationale des Hydrocarbures du Congo (SONAHYDROC SA) on 7 November 2016 under Law No. 15/012 of 1 August 2015 on the general hydrocarbons regime. It operates upstream (exploration and production in partnership in the Coastal Basin and Central Basin) and downstream (refining, storage, transport and distribution). It holds 15% of LIREX SARL and 36.6% of SEP-CONGO SA."
+    },
+    "source": {
+      "name": "SONAHYDROC SA – site officiel",
+      "url": "https://www.sonahydroc.cd"
+    },
+    "confidence": "high",
+    "notes": "Siège: n° 1 avenue Comité Urbain, Gombe, Kinshasa. The brief suggested a 2019 renaming; the official site states the SONAHYDROC name took effect on 7 November 2016."
+  },
+  {
+    "country": "COG",
+    "acronym": "CORAF",
+    "name": "Congolaise de Raffinage",
+    "founded": 1981,
+    "type": "downstream",
+    "headquarters": "Pointe-Noire",
+    "website": "https://www.coraf.cg",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale de raffinage du groupe SNPC (société anonyme unipersonnelle) créée le 31 janvier 1981, la CORAF exploite la raffinerie de Pointe-Noire d'une capacité de traitement de 1 000 000 t/an.",
+      "en": "Refining subsidiary of the SNPC group (single-shareholder company) created on 31 January 1981, CORAF operates the Pointe-Noire refinery with a processing capacity of 1,000,000 t/yr."
+    },
+    "source": {
+      "name": "SNPC – CORAF",
+      "url": "https://www.snpc-group.com/CORAF_a29.html"
+    },
+    "confidence": "high",
+    "notes": "Official SNPC page gives 31 Jan 1981 (task brief said 1982; official site also marked '40e anniversaire' in Dec 2022). Address: B.P. 755 Pointe-Noire."
+  },
+  {
+    "country": "COG",
+    "acronym": "Hydro-Congo",
+    "name": "Hydro-Congo",
+    "founded": 1973,
+    "type": "downstream",
+    "headquarters": "Brazzaville",
+    "website": null,
+    "status": "dissolved",
+    "description": {
+      "fr": "Ancienne société nationale des hydrocarbures du Congo, créée par ordonnance le 4 juin 1973, chargée de la distribution des produits pétroliers. Ses activités ont été reprises par la SNPC (1998) et la société a été dissoute le 6 août 2002.",
+      "en": "Former national hydrocarbons company of Congo, created by ordinance on 4 June 1973 and responsible for petroleum product distribution. Its activities were taken over by SNPC (1998) and the company was dissolved on 6 August 2002."
+    },
+    "source": {
+      "name": "fr.wikipedia – Hydro-Congo (cites Congopage/AllAfrica 2002)",
+      "url": "https://fr.wikipedia.org/wiki/Hydro-Congo"
+    },
+    "confidence": "low",
+    "notes": "Historical entry only; Wikipedia-sourced (low)."
+  },
+  {
+    "country": "COG",
+    "acronym": "ILOGS",
+    "name": "Integrated Logistic Services",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Pointe-Noire",
+    "website": "https://www.snpc-group.com/ILOGS_a28.html",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale logistique de la SNPC disposant d'un terminal portuaire et d'une plateforme logistique dédiés à l'industrie pétrolière.",
+      "en": "SNPC logistics subsidiary operating a port terminal and a logistics platform dedicated to the petroleum industry."
+    },
+    "source": {
+      "name": "SNPC – ILOGS",
+      "url": "https://www.snpc-group.com/ILOGS_a28.html"
+    },
+    "confidence": "medium",
+    "notes": "Creation year not stated (null)."
+  },
+  {
+    "country": "COG",
+    "acronym": "MinHydro",
+    "name": "Ministère des Hydrocarbures de la République du Congo",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Brazzaville",
+    "website": "https://www.hydrocarbures.gouv.cg",
+    "status": "operational",
+    "description": {
+      "fr": "Ministère chargé de la régulation et de l'octroi des titres du secteur pétrolier et gazier congolais, organisé en quatre directions générales (Amont pétrolier, Aval pétrolier, Valorisation du gaz, Économie-Audit-Trading pétrolier).",
+      "en": "Ministry responsible for regulating and licensing Congo's oil and gas sector, organised in four directorates-general (Upstream, Downstream, Gas Valorisation, Petroleum Economics-Audit-Trading)."
+    },
+    "source": {
+      "name": "Ministère des Hydrocarbures",
+      "url": "https://www.hydrocarbures.gouv.cg"
+    },
+    "confidence": "medium",
+    "notes": "Address: Immeuble Mines et Énergie, Rond-point Place de la République, B.P. 2120 Brazzaville."
+  },
+  {
+    "country": "COG",
+    "acronym": "SNPC Distribution",
+    "name": "SNPC Distribution S.A.",
+    "founded": 2011,
+    "type": "downstream",
+    "headquarters": null,
+    "website": "https://www.snpc-group.com/SNPC-DISTRIBUTION_a132.html",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale aval de la SNPC créée le 27 septembre 2011, chargée du stockage, du transport, de la distribution et de la commercialisation des produits finis (réseau de stations-service, clients industriels, gaz domestique).",
+      "en": "Downstream subsidiary of SNPC created on 27 September 2011, in charge of storage, transport, distribution and marketing of finished products (service-station network, industrial customers, domestic gas)."
+    },
+    "source": {
+      "name": "SNPC – SNPC Distribution",
+      "url": "https://www.snpc-group.com/SNPC-DISTRIBUTION_a132.html"
+    },
+    "confidence": "high",
+    "notes": "Headquarters city not stated on official page (null)."
+  },
+  {
+    "country": "COG",
+    "acronym": "SNPC Trading",
+    "name": "SNPC Trading",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": null,
+    "website": "https://www.snpc-group.com/SNPC-TRADING_a110.html",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale détenue à 100 % par la SNPC, spécialisée dans la commercialisation des hydrocarbures liquides et gazeux.",
+      "en": "Wholly owned SNPC subsidiary specialised in marketing liquid and gaseous hydrocarbons."
+    },
+    "source": {
+      "name": "SNPC – SNPC Trading",
+      "url": "https://www.snpc-group.com/SNPC-TRADING_a110.html"
+    },
+    "confidence": "medium",
+    "notes": "Creation year not stated (null)."
+  },
+  {
+    "country": "COG",
+    "acronym": "SONAREP",
+    "name": "Société Nationale de Recherche et Production",
+    "founded": 2002,
+    "type": "NOC",
+    "headquarters": null,
+    "website": "https://www.snpc-group.com/SONAREP_a26.html",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale amont de la SNPC (SA) créée le 23 janvier 2002, chargée de la prospection, de la recherche et de l'exploitation d'hydrocarbures ; opérateur des permis Zingali II et Loufika-Tioni.",
+      "en": "Upstream subsidiary of SNPC (SA) created on 23 January 2002, in charge of hydrocarbon prospecting, exploration and production; operator of the Zingali II and Loufika-Tioni permits."
+    },
+    "source": {
+      "name": "SNPC – SONAREP",
+      "url": "https://www.snpc-group.com/SONAREP_a26.html"
+    },
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "country": "COG",
+    "acronym": "SNPC",
+    "name": "Société Nationale des Pétroles du Congo",
+    "founded": 1998,
+    "type": "NOC",
+    "headquarters": "Brazzaville",
+    "website": "https://www.snpc-group.com",
+    "status": "operational",
+    "description": {
+      "fr": "Établissement public à caractère industriel et commercial créé le 23 avril 1998, la SNPC est l'outil technique de l'État congolais et le dépositaire de la banque de données de l'industrie pétrolière. Elle intervient sur toute la chaîne (amont, aval, trading) à travers six filiales : SONAREP, ILOGS, SFP, SNPC Trading, CORAF et SNPC Distribution.",
+      "en": "Public industrial and commercial establishment created on 23 April 1998, SNPC is the Congolese State's technical arm and custodian of the petroleum industry databank. It operates across the chain (upstream, downstream, trading) through six subsidiaries: SONAREP, ILOGS, SFP, SNPC Trading, CORAF and SNPC Distribution."
+    },
+    "source": {
+      "name": "SNPC – Présentation / Contacts",
+      "url": "https://www.snpc-group.com/Presentation_a99.html"
+    },
+    "confidence": "high",
+    "notes": "HQ: Tour SNPC, Boulevard Denis Sassou-Nguesso, B.P. 188 Brazzaville. Official site celebrates '26 ans' in April 2024; creation date 23 April 1998 per fr.wikipedia. Capital 81,334,654,844 FCFA. Successor of Hydro-Congo for distribution/refining."
+  },
+  {
+    "country": "COG",
+    "acronym": "SFP",
+    "name": "Société des Forages Pétroliers",
+    "founded": 2010,
+    "type": "NOC",
+    "headquarters": null,
+    "website": "https://www.snpc-group.com/SFP_a27.html",
+    "status": "operational",
+    "description": {
+      "fr": "Filiale de services de la SNPC créée le 10 février 2010, spécialisée dans le forage et la complétion des puits pétroliers, les work-overs et le mud logging.",
+      "en": "SNPC services subsidiary created on 10 February 2010, specialised in drilling and completion of oil wells, work-overs and mud logging."
+    },
+    "source": {
+      "name": "SNPC – SFP",
+      "url": "https://www.snpc-group.com/SFP_a27.html"
+    },
+    "confidence": "high",
+    "notes": "Oilfield-services subsidiary (typed as NOC subsidiary)."
+  },
+  {
+    "country": "CIV",
+    "acronym": "DGH",
+    "name": "Direction Générale des Hydrocarbures (Ministère des Mines, du Pétrole et de l'Énergie)",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Abidjan",
+    "website": "https://energie.gouv.ci",
+    "description": {
+      "fr": "Direction générale du Ministère des Mines, du Pétrole et de l'Énergie, la DGH assure la régulation et le suivi des activités pétrolières amont et aval : instruction des titres et contrats de partage de production, statistiques du secteur, application des textes, et gestion des contributions à la formation prévues par les CPP.",
+      "en": "A directorate-general of the Ministry of Mines, Petroleum and Energy, the DGH regulates and monitors upstream and downstream petroleum activities: licensing and production-sharing contracts, sector statistics, enforcement of legislation, and management of the training contributions provided for in PSCs."
+    },
+    "source": {
+      "name": "Ministère des Mines, du Pétrole et de l'Énergie – site officiel; EITI Côte d'Ivoire",
+      "url": "https://eiti.org/countries/cote-divoire"
+    },
+    "confidence": "medium",
+    "notes": "Ministry address: Immeuble SCIAM, 15e étage, BP V 50 Abidjan-Plateau. DGH application portal: http://dgh.energie.gouv.ci (TLS certificate mismatch). Creation decree of the DGH not verified."
+  },
+  {
+    "country": "CIV",
+    "acronym": "SIR",
+    "name": "Société Ivoirienne de Raffinage",
+    "founded": 1962,
+    "type": "downstream",
+    "headquarters": "Abidjan",
+    "website": "https://www.sir.ci",
+    "description": {
+      "fr": "Fondée le 3 octobre 1962 par l'État ivoirien avec des groupes pétroliers internationaux, la SIR exploite la raffinerie de Vridi (Abidjan), passée de 40 à 80 hectares, et approvisionne le marché national et la sous-région. Son actionnariat est composé de PETROCI (45,74 %), Sahara (27,33 %), Sonangol (20 %), Burkina Faso (5,39 %) et État de Côte d'Ivoire (1,54 %). Elle est certifiée ISO 9001 et 14001.",
+      "en": "Founded on 3 October 1962 by the Ivorian State with international oil groups, SIR operates the Vridi refinery (Abidjan), expanded from 40 to 80 hectares, and supplies the domestic market and the sub-region. Shareholders are PETROCI (45.74%), Sahara (27.33%), Sonangol (20%), Burkina Faso (5.39%) and the State of Côte d'Ivoire (1.54%). It holds ISO 9001 and 14001 certifications."
+    },
+    "source": {
+      "name": "SIR – Société",
+      "url": "https://www.sir.ci/societe/"
+    },
+    "confidence": "high",
+    "notes": "Refining capacity not stated on the fetched pages; capacity utilisation ~73% cited by management."
+  },
+  {
+    "country": "CIV",
+    "acronym": "SMB",
+    "name": "Société Multinationale de Bitumes",
+    "founded": 1976,
+    "type": "downstream",
+    "headquarters": "Abidjan",
+    "website": "https://smb.ci",
+    "description": {
+      "fr": "Créée en mars 1976 sur décision du Conseil des ministres pour soutenir les infrastructures routières, la SMB raffine des bruts lourds en bitumes (normes EN/ASTM) dans ses installations situées au sein de la raffinerie SIR à Vridi et dessert plus de 15 pays d'Afrique de l'Ouest et du Centre. Cotée à la BRVM depuis 1995, certifiée ISO 9001/14001, elle est liée à l'État via PETROCI, à l'origine de sa création.",
+      "en": "Created in March 1976 by Council of Ministers decision to support road infrastructure, SMB refines heavy crudes into bitumen (EN/ASTM grades) at facilities inside the SIR refinery at Vridi and serves more than 15 West and Central African countries. Listed on the BRVM since 1995 and ISO 9001/14001 certified, it is state-linked through PETROCI, which initiated its creation."
+    },
+    "source": {
+      "name": "SMB – site officiel",
+      "url": "https://smb.ci"
+    },
+    "confidence": "medium",
+    "notes": "Current PETROCI/State shareholding percentage not published on the fetched pages. Siège: Bd de Petit-Bassam, Vridi, 12 BP 622 Abidjan 12."
+  },
+  {
+    "country": "CIV",
+    "acronym": "PETROCI",
+    "name": "Société Nationale d'Opérations Pétrolières de la Côte d'Ivoire (PETROCI Holding)",
+    "founded": 1975,
+    "type": "holding",
+    "headquarters": "Abidjan",
+    "website": "https://www.petroci.ci",
+    "description": {
+      "fr": "Créée en 1975 pour promouvoir le bassin sédimentaire ivoirien, PETROCI a été scindée en 1997 en quatre entités (Exploration-Production, Gaz, Industrie-Services, Holding) avant d'être réunifiée à partir de 2000 sous PETROCI Holding (capital 20 milliards FCFA). Elle couvre l'amont (participations dans les blocs, découvertes Bélier 1974, Espoir 1979, Foxtrot 1981, Baobab 2001), le midstream (appontement, pipeline) et l'aval (distribution de gaz), et détient des participations dans SIR, GESTOCI et SMB. Elle opère le Centre d'Analyses et de Recherche (CAR) de Yopougon.",
+      "en": "Created in 1975 to promote the Ivorian sedimentary basin, PETROCI was split in 1997 into four entities (Exploration-Production, Gas, Industry-Services, Holding) and reunified from 2000 under PETROCI Holding (capital CFAF 20 billion). It covers upstream (block participations; Bélier 1974, Espoir 1979, Foxtrot 1981 and Baobab 2001 discoveries), midstream (jetty, pipeline) and downstream (gas distribution), and holds stakes in SIR, GESTOCI and SMB. It runs the Centre d'Analyses et de Recherche (CAR) in Yopougon."
+    },
+    "source": {
+      "name": "PETROCI – Historique",
+      "url": "https://www.petroci.ci/historique/"
+    },
+    "confidence": "high",
+    "notes": "Postal address BP V 194 Abidjan (Plateau). Type recorded as holding; functions as the NOC."
+  },
+  {
+    "country": "CIV",
+    "acronym": "GESTOCI",
+    "name": "Société de Gestion des Stocks Pétroliers de Côte d'Ivoire",
+    "founded": 1983,
+    "type": "downstream",
+    "headquarters": "Abidjan",
+    "website": "https://www.gestoci.ci",
+    "description": {
+      "fr": "Créée par le décret n° 83-1009 du 14 septembre 1983, GESTOCI est la société publique chargée du stockage des produits pétroliers : constitution des stocks de sécurité de l'État et stockage pour le compte des opérateurs. Elle exploite trois dépôts (Abidjan-Vridi, Bouaké, Yamoussoukro) et est triplement certifiée ISO 9001, 14001 et 45001. Son conseil réunit l'État (5 sièges) et les distributeurs (6 sièges).",
+      "en": "Created by Decree No. 83-1009 of 14 September 1983, GESTOCI is the public company in charge of petroleum product storage: building the State's security stocks and storing products for operators. It runs three depots (Abidjan-Vridi, Bouaké, Yamoussoukro) and is triple-certified ISO 9001, 14001 and 45001. Its board seats the State (5) and marketers (6)."
+    },
+    "source": {
+      "name": "GESTOCI – site officiel",
+      "url": "https://www.gestoci.ci"
+    },
+    "confidence": "high",
+    "notes": "Siège: Boulevard de Vridi, 15 BP 89 Abidjan 15."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Co-op",
+    "name": "Cooperation Petroleum Company",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Cairo",
+    "website": "https://www.coop-egypt.com",
+    "description": {
+      "fr": "La Cooperation Petroleum Company (Co-op) est une société publique de distribution de carburants et lubrifiants affiliée à l'EGPC.",
+      "en": "Cooperation Petroleum Company (Co-op) is a state fuel and lubricants marketing company affiliated to EGPC."
+    },
+    "source": {
+      "name": "EGPC – About EGPC (12 public-sector affiliates)",
+      "url": "http://www.egpc.com.eg/About_EGPC.aspx"
+    },
+    "confidence": "low",
+    "notes": "Website did not resolve; not individually named on reachable official pages. Founding year not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Egypt Gas",
+    "name": "Egypt Gas Company (شركة غاز مصر)",
+    "founded": 1983,
+    "type": "gas",
+    "headquarters": "Cairo (30 Mofatisheen St., Almaza, Heliopolis)",
+    "website": "https://www.egyptgas.com.eg",
+    "description": {
+      "fr": "Egypt Gas, créée par l'arrêté 142 de 1983 (loi 43/1974), est la première société égyptienne de distribution de gaz naturel et un contracteur EPC de réseaux gaziers ; elle a raccordé le premier quartier du Caire en 1984 et ouvert la première station GNV de la région en 1996.",
+      "en": "Egypt Gas, established by Ministerial Decree 142 of 1983 (Law 43/1974), is Egypt's first natural gas distribution company and an EPC contractor for gas networks; it connected the first Cairo district in 1984 and opened the region's first CNG station in 1996."
+    },
+    "source": {
+      "name": "Egypt Gas – Company history",
+      "url": "https://www.egyptgas.com.eg/CompanyHistory.aspx?Id=2"
+    },
+    "confidence": "medium",
+    "notes": "Listed by EGAS among sector companies; shareholder structure (state vs. private) not verified on fetched pages."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Petrogas",
+    "name": "Egyptian Company for Natural Gas (Petrogas)",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Cairo",
+    "website": "https://www.petrogas.com.eg",
+    "description": {
+      "fr": "Petrogas est une société publique de distribution de gaz naturel affiliée à EGAS.",
+      "en": "Petrogas is a state natural gas distribution company affiliated to EGAS."
+    },
+    "source": {
+      "name": "EGAS – sector companies",
+      "url": "https://www.egas.com.eg/"
+    },
+    "confidence": "low",
+    "notes": "Named on EGAS site; own website unreachable. Founding year not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "ETHYDCO",
+    "name": "Egyptian Ethylene and Derivatives Company",
+    "founded": null,
+    "type": "petrochemicals",
+    "headquarters": "Alexandria",
+    "website": "https://ethydco-eg.com",
+    "description": {
+      "fr": "ETHYDCO est une société pétrochimique du groupe ECHEM produisant éthylène et polyéthylène à Alexandrie.",
+      "en": "ETHYDCO is an ECHEM-group petrochemical company producing ethylene and polyethylene in Alexandria."
+    },
+    "source": {
+      "name": "ECHEM – Existing companies",
+      "url": "https://www.echem-eg.com/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "EGPC",
+    "name": "Egyptian General Petroleum Corporation",
+    "founded": 1956,
+    "type": "NOC",
+    "headquarters": "Cairo (Palestine St., New Maadi)",
+    "website": "https://www.egpc.com.eg",
+    "description": {
+      "fr": "L'EGPC est l'entreprise publique pétrolière égyptienne rattachée au ministère du Pétrole, créée par la loi 135 de 1956 (Autorité générale du pétrole, renommée en 1962). Elle est actionnaire de 12 sociétés du secteur public, 41 coentreprises et 87 sociétés de droit des investissements couvrant exploration, production, raffinage, transport et distribution.",
+      "en": "EGPC is Egypt's state petroleum corporation under the Ministry of Petroleum, established by Law 135 of 1956 (as the General Petroleum Authority, renamed in 1962). It holds stakes in 12 public-sector companies, 41 joint ventures and 87 investment-law companies spanning exploration, production, refining, transport and distribution."
+    },
+    "source": {
+      "name": "EGPC – About EGPC",
+      "url": "http://www.egpc.com.eg/About_EGPC.aspx"
+    },
+    "confidence": "high",
+    "notes": "Law 135/1956 amended by Law 167/1958 and Law 20/1976. HTTPS endpoint refused connections; HTTP page reachable."
+  },
+  {
+    "country": "EGY",
+    "acronym": "GASCO",
+    "name": "Egyptian Natural Gas Company",
+    "founded": 1997,
+    "type": "gas",
+    "headquarters": "Cairo",
+    "website": "https://www.gasco.com.eg",
+    "description": {
+      "fr": "GASCO, créée en mars 1997 (loi d'investissement 230/1989 amendée par la loi 8/1997), gère, exploite et développe le réseau national de transport de gaz (8 200 km), les usines de traitement (Western Desert Gas Complex, Amreya LPG) et, depuis 2023, des activités hydrogène et CO2.",
+      "en": "GASCO, established in March 1997 (Investment Law 230/1989 as amended by Law 8/1997), manages, operates and expands the national gas transmission grid (8,200 km), gas processing plants (Western Desert Gas Complex, Amreya LPG) and, since 2023, hydrogen and CO2 activities."
+    },
+    "source": {
+      "name": "GASCO – About",
+      "url": "https://www.gasco.com.eg/index.php/about/"
+    },
+    "confidence": "high",
+    "notes": "Site reachable only with TLS verification disabled. HQ street address not extracted."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Town Gas",
+    "name": "Egyptian Natural Gas Distribution Company (Town Gas)",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Cairo",
+    "website": "https://www.towngas.com.eg",
+    "description": {
+      "fr": "Town Gas est une société publique de distribution de gaz naturel aux ménages et clients commerciaux, affiliée à EGAS.",
+      "en": "Town Gas is a state natural gas distribution company serving households and commercial customers, affiliated to EGAS."
+    },
+    "source": {
+      "name": "EGAS – sector companies",
+      "url": "https://www.egas.com.eg/"
+    },
+    "confidence": "low",
+    "notes": "Named on EGAS site; own website unreachable. Founding year not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "EGAS",
+    "name": "Egyptian Natural Gas Holding Company",
+    "founded": 2001,
+    "type": "gas",
+    "headquarters": "Cairo (85 Nasr Road, Nasr City)",
+    "website": "https://www.egas.com.eg",
+    "description": {
+      "fr": "EGAS est la holding publique du gaz naturel en Égypte, créée en août 2001. Elle pilote l'exploration, le développement, la production, le transport et la distribution du gaz naturel et supervise des filiales comme GASCO, Petrogas et Town Gas.",
+      "en": "EGAS is Egypt's state natural gas holding company, established in August 2001. It steers natural gas exploration, development, production, transmission and distribution and oversees affiliates such as GASCO, Petrogas and Town Gas."
+    },
+    "source": {
+      "name": "EGAS – official site",
+      "url": "https://www.egas.com.eg/"
+    },
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "country": "EGY",
+    "acronym": "ECHEM",
+    "name": "Egyptian Petrochemicals Holding Company",
+    "founded": 2002,
+    "type": "petrochemicals",
+    "headquarters": "New Cairo (27 El Salam Avenue, El Lotus)",
+    "website": "https://www.echem-eg.com",
+    "description": {
+      "fr": "ECHEM est la holding publique de la pétrochimie, créée en 2002 pour exécuter le plan directeur pétrochimique à 20 ans de l'Égypte. Elle chapeaute ETHYDCO, SIDPEC, MOPCO, EPC, E-LAB, E-Methanex, EPPC et ESTYRENICS.",
+      "en": "ECHEM is the state petrochemicals holding company, established in 2002 to execute Egypt's 20-year petrochemicals master plan. It oversees ETHYDCO, SIDPEC, MOPCO, EPC, E-LAB, E-Methanex, EPPC and ESTYRENICS."
+    },
+    "source": {
+      "name": "ECHEM – History",
+      "url": "https://www.echem-eg.com/history"
+    },
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "country": "EGY",
+    "acronym": "ERC",
+    "name": "Egyptian Refining Company",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Mostorod (Qalyubia)",
+    "website": "https://www.ercegypt.com",
+    "description": {
+      "fr": "L'Egyptian Refining Company exploite l'unité d'hydrocraquage de Mostorod (Grand Caire), projet en partenariat public-privé dans lequel l'EGPC détient une participation minoritaire aux côtés d'investisseurs privés (Qalaa Holdings) et de bailleurs internationaux.",
+      "en": "Egyptian Refining Company operates the Mostorod hydrocracking complex (Greater Cairo), a public-private project in which EGPC holds a minority stake alongside private investors (Qalaa Holdings) and international lenders."
+    },
+    "source": {
+      "name": "ERC – official site",
+      "url": "https://www.ercegypt.com/"
+    },
+    "confidence": "low",
+    "notes": "Site is JavaScript-only; ownership split (EGPC minority) not verified on an official page. Included as a note per brief; not majority state-owned."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Enppi",
+    "name": "Engineering Company for Petroleum & Chemical Industries",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Cairo",
+    "website": "https://www.enppi.com",
+    "description": {
+      "fr": "Enppi est la société publique d'ingénierie du secteur pétrolier égyptien (études, ingénierie, EPC, gestion de projets) ; elle détient 10 % de MIDOR.",
+      "en": "Enppi is the Egyptian petroleum sector's state engineering company (studies, engineering, EPC, project management); it holds 10% of MIDOR."
+    },
+    "source": {
+      "name": "MIDOR – Shareholders (names ENPPI)",
+      "url": "https://www.midor.com.eg/shareholders.html"
+    },
+    "confidence": "medium",
+    "notes": "enppi.com content not extractable (JavaScript). Founding year and HQ address not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Ganope",
+    "name": "Ganoub El Wadi Petroleum Holding Company",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Cairo",
+    "website": "https://www.ganope.com",
+    "description": {
+      "fr": "Ganope est la holding publique chargée de la promotion, de l'exploration et de l'exploitation des hydrocarbures en Haute-Égypte (sud de la vallée du Nil et mer Rouge sud), aux côtés de l'EGPC et d'EGAS.",
+      "en": "Ganope is the state holding company responsible for promoting, exploring and developing hydrocarbons in Upper Egypt (southern Nile Valley and southern Red Sea), alongside EGPC and EGAS."
+    },
+    "source": {
+      "name": "EGAS – sector partners; Ministry of Petroleum portal",
+      "url": "https://www.egas.com.eg/"
+    },
+    "confidence": "low",
+    "notes": "ganope.com refused connections. Founding year (commonly reported as 2003) not verified on an official page; HQ city not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "MIDOR",
+    "name": "Middle East Oil Refinery",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Alexandria (Amreya Free Zone); corporate office New Cairo",
+    "website": "https://www.midor.com.eg",
+    "description": {
+      "fr": "MIDOR exploite la raffinerie d'Amreya (Alexandrie). Son capital de 2,2 milliards USD est détenu à 80 % par l'EGPC, 10 % par Petrojet et 10 % par Enppi, ce qui en fait une raffinerie sous contrôle de l'État.",
+      "en": "MIDOR operates the Amreya refinery (Alexandria). Its USD 2.2 billion capital is held 80% by EGPC, 10% by Petrojet and 10% by Enppi, making it a state-controlled refinery."
+    },
+    "source": {
+      "name": "MIDOR – Shareholders",
+      "url": "https://www.midor.com.eg/shareholders.html"
+    },
+    "confidence": "high",
+    "notes": "Site states '25+ years of powering Egypt'; exact incorporation year not stated."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Misr Petroleum",
+    "name": "Misr Petroleum Company",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Cairo",
+    "website": "https://www.misrpetroleum.com",
+    "description": {
+      "fr": "Misr Petroleum est une société publique de distribution de produits pétroliers (stations-service, lubrifiants, GPL) affiliée à l'EGPC.",
+      "en": "Misr Petroleum is a state petroleum products marketing company (service stations, lubricants, LPG) affiliated to EGPC."
+    },
+    "source": {
+      "name": "EGPC – About EGPC (12 public-sector affiliates)",
+      "url": "http://www.egpc.com.eg/About_EGPC.aspx"
+    },
+    "confidence": "low",
+    "notes": "Website did not resolve; not individually named on reachable official pages. Founding year not verified."
+  },
+  {
+    "country": "EGY",
+    "acronym": "Petrojet",
+    "name": "Petroleum Projects & Technical Consultations Company",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Cairo",
+    "website": "https://www.petrojet.com.eg",
+    "description": {
+      "fr": "Petrojet est l'entreprise publique égyptienne de construction et de projets pétroliers (EPC, fabrication, montage, maintenance) du secteur pétrolier ; elle détient notamment 10 % de MIDOR.",
+      "en": "Petrojet is Egypt's state petroleum projects and construction company (EPC, fabrication, erection, maintenance) within the petroleum sector; it holds, among others, 10% of MIDOR."
+    },
+    "source": {
+      "name": "MIDOR – Shareholders (names Petrojet)",
+      "url": "https://www.midor.com.eg/shareholders.html"
+    },
+    "confidence": "medium",
+    "notes": "petrojet.com.eg is JavaScript-rendered; founding year and HQ address not extractable. Full legal name from MIDOR shareholders page."
+  },
+  {
+    "country": "EGY",
+    "acronym": "SIDPEC",
+    "name": "Sidi Kerir Petrochemicals Company",
+    "founded": null,
+    "type": "petrochemicals",
+    "headquarters": "Alexandria",
+    "website": null,
+    "description": {
+      "fr": "SIDPEC, société du groupe ECHEM, produit de l'éthylène et du polyéthylène à Sidi Kerir (Alexandrie) depuis 2000.",
+      "en": "SIDPEC, an ECHEM-group company, has produced ethylene and polyethylene at Sidi Kerir (Alexandria) since 2000."
+    },
+    "source": {
+      "name": "ECHEM – History",
+      "url": "https://www.echem-eg.com/history"
+    },
+    "confidence": "medium",
+    "notes": "Production start 2000 per ECHEM history; incorporation year not stated."
+  },
+  {
+    "country": "GNQ",
+    "acronym": "EG LNG",
+    "name": "Equatorial Guinea LNG Holdings Limited",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Malabo",
+    "website": "https://eglng.com",
+    "status": "operational",
+    "description": {
+      "fr": "Coentreprise exploitant l'usine de liquéfaction de gaz de Punta Europa (île de Bioko). Actionnaires : ConocoPhillips (successeur de Marathon Oil), Sonagas G.E. et Marubeni.",
+      "en": "Joint venture operating the Punta Europa LNG plant (Bioko Island). Shareholders: ConocoPhillips (successor to Marathon Oil), Sonagas G.E. and Marubeni."
+    },
+    "source": {
+      "name": "EG LNG – Shareholders",
+      "url": "https://eglng.com/en/about/shareholders"
+    },
+    "confidence": "medium",
+    "notes": "JV, not a state company; Sonagas is the state shareholder. Percentages, incorporation year and first-cargo year not on official page (null)."
+  },
+  {
+    "country": "GNQ",
+    "acronym": "GEPetrol",
+    "name": "Guinea Ecuatorial de Petróleos (GEPetrol)",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Malabo",
+    "website": null,
+    "status": "operational",
+    "description": {
+      "fr": "Compagnie pétrolière nationale de la Guinée équatoriale, créée par décret présidentiel au début des années 2000 et placée sous le Ministère des Hydrocarbures et du Développement minier. Elle détient les participations de l'État dans les blocs pétroliers et commercialise la part de l'État.",
+      "en": "Equatorial Guinea's national oil company, created by presidential decree in the early 2000s under the Ministry of Hydrocarbons and Mining Development. It holds the State's interests in oil blocks and markets the State's share."
+    },
+    "source": {
+      "name": "en.wikipedia – GEPetrol (primary decree not retrieved)",
+      "url": "https://en.wikipedia.org/wiki/GEPetrol"
+    },
+    "confidence": "low",
+    "notes": "Founding year left null: task brief/APPO material cite 2001, en.wikipedia cites 2002; the creation decree PDF (minhacienda-gob.com) returned 404. Official domain gepetrol.gq offline; gepetrol.com for sale."
+  },
+  {
+    "country": "GNQ",
+    "acronym": "MHDM",
+    "name": "Ministerio de Hidrocarburos y Desarrollo Minero (ex-Ministerio de Minas e Hidrocarburos)",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Malabo",
+    "website": "https://mhdm.gob.gq",
+    "status": "operational",
+    "description": {
+      "fr": "Ministère de tutelle et régulateur du secteur des hydrocarbures et des mines de la Guinée équatoriale (octroi des contrats, inspection des opérateurs, réglementation minière, bourses de formation).",
+      "en": "Line ministry and regulator of Equatorial Guinea's hydrocarbons and mining sector (contract awards, operator inspections, mining regulation, training scholarships)."
+    },
+    "source": {
+      "name": "MHDM – sitio oficial",
+      "url": "https://mhdm.gob.gq/es"
+    },
+    "confidence": "medium",
+    "notes": "Site certificate invalid for WebFetch; content retrieved via curl. Ministry renamed from 'Minas e Hidrocarburos' (MMH) to 'Hidrocarburos y Desarrollo Minero'."
+  },
+  {
+    "country": "GNQ",
+    "acronym": "Sonagas G.E.",
+    "name": "Sociedad Nacional de Gas de Guinea Ecuatorial",
+    "founded": 2005,
+    "type": "gas",
+    "headquarters": "Malabo",
+    "website": "https://www.sonagas-ge.com",
+    "status": "operational",
+    "description": {
+      "fr": "Entreprise parapublique fondée en 2005 par le Gouvernement équato-guinéen pour développer les projets gaziers nationaux ; elle coordonne et exécute à titre exclusif la politique commerciale de l'État dans le traitement, la distribution, le transport et l'exportation du gaz. Actionnaire d'EG LNG.",
+      "en": "Parastatal founded in 2005 by the Government of Equatorial Guinea to develop national gas projects; it coordinates and executes, on an exclusive basis, the State's commercial policy in gas processing, distribution, transport and export. Shareholder in EG LNG."
+    },
+    "source": {
+      "name": "Sonagas G.E. – Sobre",
+      "url": "https://www.sonagas-ge.com/sobre"
+    },
+    "confidence": "high",
+    "notes": "HQ: Autopista Malabo II, Malabo. 'Sociedad Nacional de Gas' in the brief is the same entity."
+  },
+  {
+    "country": "GAB",
+    "acronym": "GOC",
+    "name": "Gabon Oil Company (Société Nationale des Hydrocarbures du Gabon)",
+    "founded": 2011,
+    "type": "NOC",
+    "headquarters": "Libreville",
+    "website": "https://www.gabonoil.com",
+    "status": "operational",
+    "description": {
+      "fr": "Compagnie pétrolière nationale du Gabon créée par le décret n° 1017/PR/MMPH du 24 août 2011, chargée de la gestion des participations de l'État dans les activités pétrolières, de l'exploitation de gisements et de la commercialisation des produits pétroliers. Placée sous la tutelle du Ministère du Pétrole ; sa filiale Gabon Oil Marketing commercialise les produits finis sur le marché intérieur.",
+      "en": "Gabon's national oil company created by Decree 1017/PR/MMPH of 24 August 2011 to manage State participations in petroleum activities, operate fields and market petroleum products. Supervised by the Ministry of Petroleum; its subsidiary Gabon Oil Marketing sells finished products domestically."
+    },
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – Agences sous tutelle",
+      "url": "https://minpetrole.ga/agences-sous-tutelles/"
+    },
+    "confidence": "medium",
+    "notes": "Decree reference from fr.wikipedia (Gabon Oil Company); official website gabonoil.com unreachable at time of research. HQ Boulevard Georges Rawiri, Libreville (en.wikipedia)."
+  },
+  {
+    "country": "GAB",
+    "acronym": "GOM",
+    "name": "Gabon Oil Marketing",
+    "founded": 2016,
+    "type": "downstream",
+    "headquarters": "Libreville",
+    "website": null,
+    "status": "operational",
+    "description": {
+      "fr": "Filiale de négoce de Gabon Oil Company chargée, depuis le 1er septembre 2016, de la commercialisation et du transport des produits pétroliers finis destinés au marché intérieur, ainsi que du renforcement du stockage.",
+      "en": "Trading subsidiary of Gabon Oil Company responsible, since 1 September 2016, for marketing and transporting finished petroleum products for the domestic market and for strengthening storage."
+    },
+    "source": {
+      "name": "L'Union (Sonapresse) – Gabon Oil Marketing",
+      "url": "https://www.union.sonapresse.com/fr/secteur-des-hydrocarbures-gabon-oil-marketing-gom-commercialiser-des-produits-petroliers-finis"
+    },
+    "confidence": "low",
+    "notes": "Source is the state-owned daily L'Union (not an official company page); no official GOM website found."
+  },
+  {
+    "country": "GAB",
+    "acronym": "DGH",
+    "name": "Ministère du Pétrole et du Gaz – Direction Générale des Hydrocarbures",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Libreville",
+    "website": "https://minpetrole.ga",
+    "status": "operational",
+    "description": {
+      "fr": "Le Ministère du Pétrole et du Gaz, via sa Direction Générale des Hydrocarbures, assure la régulation, l'attribution des titres et la supervision du secteur pétrolier gabonais et la tutelle de GOC, SGEPP, SOGARA et Pizolub.",
+      "en": "The Ministry of Petroleum and Gas, through its Directorate-General of Hydrocarbons, regulates, licenses and supervises Gabon's petroleum sector and oversees GOC, SGEPP, SOGARA and Pizolub."
+    },
+    "source": {
+      "name": "Ministère du Pétrole du Gabon",
+      "url": "https://minpetrole.ga/"
+    },
+    "confidence": "medium",
+    "notes": "DGH page on the legacy site petrole.gouv.ga (directions-generales) is unreachable; regulatory role inferred from ministry site and Code des hydrocarbures."
+  },
+  {
+    "country": "GAB",
+    "acronym": "Pizolub",
+    "name": "Pizolub",
+    "founded": null,
+    "type": "petrochemicals",
+    "headquarters": null,
+    "website": null,
+    "status": "operational",
+    "description": {
+      "fr": "Société de fabrication et de commercialisation de lubrifiants placée sous la tutelle du Ministère du Pétrole et du Gaz du Gabon.",
+      "en": "Lubricant blending and marketing company supervised by Gabon's Ministry of Petroleum and Gas."
+    },
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – Agences sous tutelle",
+      "url": "https://minpetrole.ga/agences-sous-tutelles/"
+    },
+    "confidence": "low",
+    "notes": "Only listed by name on the ministry's tutelle page; no further official data retrieved."
+  },
+  {
+    "country": "GAB",
+    "acronym": "SGEPP",
+    "name": "Société Gabonaise d'Entreposage des Produits Pétroliers",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Libreville",
+    "website": "https://sgepp.com",
+    "status": "operational",
+    "description": {
+      "fr": "Société d'État chargée du stockage et de la gestion des stocks de carburants et produits pétroliers, de leur logistique vers les stations-service et infrastructures stratégiques, et de la sécurisation de l'approvisionnement énergétique du Gabon.",
+      "en": "State company in charge of storing and managing fuel and petroleum product stocks, their logistics to service stations and strategic infrastructure, and securing Gabon's energy supply."
+    },
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – SGEPP",
+      "url": "https://minpetrole.ga/2025/04/01/agence-sous-tutelle-2-2/"
+    },
+    "confidence": "medium",
+    "notes": "sgepp.com blocked (Cloudflare error 1001 / TLS failure) at time of research; founding year and shareholders not verified (null). Headquarters city assumed Libreville per ministry listing — not verified."
+  },
+  {
+    "country": "GAB",
+    "acronym": "SOGARA",
+    "name": "Société Gabonaise de Raffinage",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Port-Gentil",
+    "website": null,
+    "status": "operational",
+    "description": {
+      "fr": "Société de raffinage du Gabon exploitant la raffinerie de Port-Gentil, placée sous la tutelle du Ministère du Pétrole. L'État gabonais est l'actionnaire majoritaire.",
+      "en": "Gabon's refining company operating the Port-Gentil refinery, supervised by the Ministry of Petroleum. The Gabonese State is the majority shareholder."
+    },
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – Agences sous tutelle",
+      "url": "https://minpetrole.ga/agences-sous-tutelles/"
+    },
+    "confidence": "low",
+    "notes": "Founding year not verified from an official source (fr.wikipedia: created 1964 as Société Équatoriale de Raffinage; task brief cites 1967) — left null. Former site sogara.info expired. Shareholding per fr.wikipedia: State 68.84%, private 31.16%."
+  },
+  {
+    "country": "GHA",
+    "acronym": "BOST",
+    "name": "Bulk Oil Storage and Transportation Company Limited",
+    "founded": 1993,
+    "type": "downstream",
+    "headquarters": "Accra",
+    "website": "http://www.bost.com.gh/",
+    "description": {
+      "fr": "Société d'État constituée en 1993 pour développer les infrastructures de stockage, de pipelines et de transport en vrac des produits pétroliers et gérer les stocks stratégiques de réserve du Ghana. BOST est également désignée Natural Gas Transmission Utility, chargée du développement des infrastructures de gaz naturel sur le territoire.",
+      "en": "State-owned company incorporated in 1993 to develop storage tanks, pipelines and bulk transportation infrastructure for petroleum products and to hold Ghana's strategic reserve stocks. BOST is also designated Natural Gas Transmission Utility, mandated to develop natural gas infrastructure across the country."
+    },
+    "source": {
+      "name": "SIGA – Bulk Oil Storage and Transportation Company",
+      "url": "https://siga.gov.gh/entity/bulk-oil-and-storage-company/"
+    },
+    "confidence": "high",
+    "notes": "Official website (bost.com.gh) did not resolve during this session; URL kept as listed by SIGA. Address: 30 Gulf Street, South Legon, Accra."
+  },
+  {
+    "country": "GHA",
+    "acronym": "EC",
+    "name": "Energy Commission of Ghana",
+    "founded": 1997,
+    "type": "regulator",
+    "headquarters": "Accra",
+    "website": "https://www.energycom.gov.gh/",
+    "description": {
+      "fr": "Organisme créé par l'Energy Commission Act 1997 (Act 541) pour réguler et gérer le développement et l'utilisation des ressources énergétiques du Ghana, y compris l'électricité, les énergies renouvelables et le gaz naturel, et assurer la planification énergétique nationale.",
+      "en": "Body established by the Energy Commission Act 1997 (Act 541) to regulate and manage the development and utilisation of Ghana's energy resources, including electricity, renewable energy and natural gas, and to lead national energy planning."
+    },
+    "source": {
+      "name": "Energy Commission – official site",
+      "url": "https://www.energycom.gov.gh/"
+    },
+    "confidence": "high",
+    "notes": "Included as the natural-gas (downstream gas) licensing regulator. Address: Ghana Airways Avenue, Airport Residential Area, Accra."
+  },
+  {
+    "country": "GHA",
+    "acronym": "GNPC Explorco",
+    "name": "GNPC Exploration and Production Company Limited",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tema",
+    "website": "https://www.gnpcghana.com/",
+    "description": {
+      "fr": "Filiale d'exploration-production de GNPC créée pour détenir des participations commerciales et opérer directement dans des blocs pétroliers, afin de renforcer les capacités opérationnelles de la compagnie nationale.",
+      "en": "Exploration and production subsidiary of GNPC created to hold commercial interests and act as operator in petroleum blocks, building the national company's operating capability."
+    },
+    "source": {
+      "name": "GNPC – official site (Explorco listed as subsidiary)",
+      "url": "https://www.gnpcghana.com/"
+    },
+    "confidence": "medium",
+    "notes": "Listed as a GNPC entity on the official site; founding year (secondary sources: 2013) not stated on official pages, hence null."
+  },
+  {
+    "country": "GHA",
+    "acronym": "GOIL",
+    "name": "GOIL PLC (Ghana Oil Company)",
+    "founded": 1960,
+    "type": "downstream",
+    "headquarters": "Accra",
+    "website": "https://goil.com.gh/",
+    "description": {
+      "fr": "Société nationale de distribution de produits pétroliers, constituée le 14 juin 1960 sous le nom d'AGIP Ghana Company Limited, entièrement acquise par l'État en 1974 et rebaptisée Ghana Oil Company en 1976. Cotée à la Bourse du Ghana depuis 2007, GOIL exploite le plus grand réseau de stations-service du pays et commercialise carburants, GPL, lubrifiants et bitume.",
+      "en": "National petroleum-products marketing company, incorporated on 14 June 1960 as AGIP Ghana Company Limited, fully acquired by the Government of Ghana in 1974 and renamed Ghana Oil Company in 1976. Listed on the Ghana Stock Exchange since 2007, GOIL operates the country's largest retail fuel network and markets fuels, LPG, lubricants and bitumen."
+    },
+    "source": {
+      "name": "GOIL – About us",
+      "url": "https://goil.com.gh/about-us/"
+    },
+    "confidence": "high",
+    "notes": "State-majority listed company. Address: junction of Kojo Thompson and Adjabeng Roads, Accra."
+  },
+  {
+    "country": "GHA",
+    "acronym": "Ghana Gas",
+    "name": "Ghana National Gas Company Limited",
+    "founded": 2011,
+    "type": "gas",
+    "headquarters": "Accra",
+    "website": "http://www.ghanagas.com.gh/",
+    "description": {
+      "fr": "Société gazière intermédiaire de l'État ghanéen, constituée en juillet 2011, propriétaire et exploitante des infrastructures de collecte, de traitement, de transport et de commercialisation du gaz naturel. Son usine de traitement de gaz d'Atuabo (région Ouest) est en production depuis novembre 2014 et alimente notamment les centrales de la Volta River Authority.",
+      "en": "Ghana's state-owned midstream gas company, incorporated in July 2011, which owns and operates infrastructure for gathering, processing, transporting and marketing natural gas. Its Atuabo gas processing plant (Western Region) has been in production since November 2014, supplying notably the Volta River Authority's power plants."
+    },
+    "source": {
+      "name": "SIGA – Ghana National Gas Company",
+      "url": "https://siga.gov.gh/entity/ghana-gas-company-limited/"
+    },
+    "confidence": "high",
+    "notes": "Official site loads only via JavaScript (no extractable content); facts from SIGA. HQ: 225 Osibisa Close, Airport West, Accra."
+  },
+  {
+    "country": "GHA",
+    "acronym": "GNPC",
+    "name": "Ghana National Petroleum Corporation",
+    "founded": 1983,
+    "type": "NOC",
+    "headquarters": "Tema",
+    "website": "https://www.gnpcghana.com/",
+    "description": {
+      "fr": "Compagnie pétrolière nationale du Ghana, créée en 1983 par la loi PNDC Law 64 et opérationnelle depuis 1985. Partenaire de tous les accords pétroliers du pays et agrégateur national du gaz, elle est chargée de l'exploration, du développement et de la production durables des ressources en hydrocarbures. Son siège est Petroleum House à Tema.",
+      "en": "Ghana's national oil company, established in 1983 by PNDC Law 64 and operational since 1985. Partner in all petroleum agreements in Ghana and national gas aggregator, it is mandated to lead the sustainable exploration, development and production of the country's hydrocarbon resources. Headquartered at Petroleum House, Tema."
+    },
+    "source": {
+      "name": "GNPC – Overview; SIGA entity profile",
+      "url": "https://www.gnpcghana.com/about-us/overview"
+    },
+    "confidence": "high",
+    "notes": "Founding law available at https://petrocom.gov.gh/wp-content/uploads/2022/08/ghana_national_petroleum_corporation_law_19831.pdf. Has a Research & Technology division (see R&D dataset)."
+  },
+  {
+    "country": "GHA",
+    "acronym": "NPA",
+    "name": "National Petroleum Authority",
+    "founded": 2005,
+    "type": "regulator",
+    "headquarters": "Accra",
+    "website": "https://www.npa.gov.gh/",
+    "description": {
+      "fr": "Autorité de régulation du secteur pétrolier aval du Ghana, créée par le NPA Act 2005 (Act 691). Elle régule l'importation, le raffinage, le stockage, la distribution et la commercialisation des produits pétroliers afin de garantir un secteur efficace, rentable et équitable pour les consommateurs.",
+      "en": "Regulator of Ghana's downstream petroleum sector, established by the NPA Act 2005 (Act 691). It regulates the importation, refining, storage, distribution and marketing of petroleum products to ensure an efficient, profitable and fair industry for consumers."
+    },
+    "source": {
+      "name": "NPA – official site",
+      "url": "https://www.npa.gov.gh/"
+    },
+    "confidence": "high",
+    "notes": "Address: No. 6 George Walker Bush Highway, Dzorwulu, Accra."
+  },
+  {
+    "country": "GHA",
+    "acronym": "PC",
+    "name": "Petroleum Commission Ghana",
+    "founded": 2011,
+    "type": "regulator",
+    "headquarters": "Accra",
+    "website": "https://www.petrocom.gov.gh/",
+    "description": {
+      "fr": "Régulateur du secteur pétrolier amont du Ghana, créé par le Petroleum Commission Act 2011 (Act 821) à la suite des découvertes commerciales d'hydrocarbures. La Commission régule et gère l'utilisation des ressources pétrolières, coordonne les politiques du secteur amont et supervise le contenu local et le développement des compétences.",
+      "en": "Regulator of Ghana's upstream petroleum sector, established by the Petroleum Commission Act 2011 (Act 821) following commercial hydrocarbon discoveries. The Commission regulates and manages the utilisation of petroleum resources, coordinates upstream policies and oversees local content and skills development."
+    },
+    "source": {
+      "name": "Petroleum Commission – About",
+      "url": "https://petrocom.gov.gh/about/"
+    },
+    "confidence": "high",
+    "notes": "Head office: Plot No 4A George Bush Highway, Accra; Western Region office at GNPC Energy House, Takoradi."
+  },
+  {
+    "country": "GHA",
+    "acronym": "TOR",
+    "name": "Tema Oil Refinery Limited",
+    "founded": 1963,
+    "type": "downstream",
+    "headquarters": "Tema",
+    "website": "https://torghana.gov.gh/",
+    "description": {
+      "fr": "Unique raffinerie du Ghana, constituée le 12 décembre 1960 sous le nom de Ghanaian Italian Petroleum Company (GHAIP), mise en service en 1963 et entièrement nationalisée en avril 1977 avant d'être renommée Tema Oil Refinery en 1990. Située dans la zone industrielle lourde de Tema, elle est autorisée à traiter le brut et à commercialiser les produits pétroliers.",
+      "en": "Ghana's only refinery, incorporated on 12 December 1960 as the Ghanaian Italian Petroleum Company (GHAIP), commissioned in 1963, fully nationalised in April 1977 and renamed Tema Oil Refinery in 1990. Located in Tema's Heavy Industrial Area, it is authorised to process crude oil and market petroleum products."
+    },
+    "source": {
+      "name": "Tema Oil Refinery – official site; SIGA entity profile",
+      "url": "https://torghana.gov.gh/"
+    },
+    "confidence": "high",
+    "notes": "1963 = commissioning year (official site); 1960 = incorporation as GHAIP (SIGA). Capacity not displayed on the official page (placeholders)."
+  },
+  {
+    "country": "LBY",
+    "acronym": "Akakus",
+    "name": "Akakus Oil Operations (شركة أكاكوس للعمليات النفطية)",
+    "founded": 1995,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://akakusoil.com",
+    "description": {
+      "fr": "Akakus Oil Operations, créée en 1995 sous le nom de Repsol Oil Operations, exploite les champs du bassin de Mourzouk (dont El Sharara) au sud-ouest de la Libye pour le compte de la NOC et de ses partenaires, avec une capacité d'environ 200 000 b/j.",
+      "en": "Akakus Oil Operations, established in 1995 as Repsol Oil Operations, operates the Murzuq basin fields (including El Sharara) in south-west Libya on behalf of NOC and its partners, with capacity of about 200,000 b/d."
+    },
+    "source": {
+      "name": "Akakus Oil Operations – official site",
+      "url": "https://akakusoil.com/"
+    },
+    "confidence": "medium",
+    "notes": "HQ city (Tripoli) not explicitly stated on fetched page."
+  },
+  {
+    "country": "LBY",
+    "acronym": "AGOCO",
+    "name": "Arabian Gulf Oil Company (شركة الخليج العربي للنفط)",
+    "founded": 1971,
+    "type": "NOC",
+    "headquarters": "Benghazi (112 Eritrea Street, Al-Keish)",
+    "website": "https://agoco.ly",
+    "description": {
+      "fr": "AGOCO est une société d'exploration et de production entièrement détenue par l'État libyen via la NOC, basée à Benghazi. Elle exploite les champs de Sarir, Messla, Nafoora, Beida et Hamada, des raffineries et le terminal de Marsa El Hariga, avec une production d'environ 300 000 b/j.",
+      "en": "AGOCO is a wholly state-owned upstream company under NOC, based in Benghazi. It operates the Sarir, Messla, Nafoora, Beida and Hamada fields, refineries and the Marsa El Hariga terminal, producing around 300,000 b/d."
+    },
+    "source": {
+      "name": "AGOCO – official site",
+      "url": "https://agoco.ly/"
+    },
+    "confidence": "high",
+    "notes": "Founding year 1971 per official site. Type 'NOC' used for NOC-owned upstream operating subsidiaries."
+  },
+  {
+    "country": "LBY",
+    "acronym": "BPMC",
+    "name": "Brega Petroleum Marketing Company (شركة البريقة لتسويق النفط)",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Tripoli",
+    "website": "https://brega.ly",
+    "description": {
+      "fr": "Brega Petroleum Marketing Company est la filiale de la NOC chargée de la commercialisation et de la distribution des produits pétroliers sur le marché libyen (carburants, GPL, lubrifiants).",
+      "en": "Brega Petroleum Marketing Company is NOC's subsidiary responsible for marketing and distributing petroleum products on the Libyan domestic market (fuels, LPG, lubricants)."
+    },
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Official site blocked our requests (Cloudflare). HQ city and founding year not verified."
+  },
+  {
+    "country": "LBY",
+    "acronym": "Harouge",
+    "name": "Harouge Oil Operations (الهروج للعمليات النفطية)",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://harouge.com",
+    "description": {
+      "fr": "Harouge Oil Operations est la société d'opérations conjointe NOC–Suncor (ex-Veba Oil Operations) exploitant les champs Amal, Farigh, Ghani/Jofra, Tibesti et Naga, avec terminal à Ras Lanuf.",
+      "en": "Harouge Oil Operations is the NOC–Suncor joint operating company (formerly Veba Oil Operations) running the Amal, Farigh, Ghani/Jofra, Tibesti and Naga fields, with a terminal at Ras Lanuf."
+    },
+    "source": {
+      "name": "Harouge Oil Operations – official site",
+      "url": "https://harouge.com/"
+    },
+    "confidence": "low",
+    "notes": "Official site fetched (Arabic; links to NOC and Suncor). HQ and founding year not stated."
+  },
+  {
+    "country": "LBY",
+    "acronym": "JOWFE",
+    "name": "Jowfe Oil Technology (الجوف للتقنية النفطية)",
+    "founded": 1983,
+    "type": "NOC",
+    "headquarters": "Benghazi (15 km Qaminis Road, Ganfouda)",
+    "website": "https://jowfe.ly",
+    "description": {
+      "fr": "Jowfe Oil Technology, société de services entièrement détenue par la NOC, a été créée par la résolution 577 du 28 juillet 1983. Elle fabrique et commercialise des produits chimiques, équipements et services de forage et de production pour l'industrie pétrolière et gazière.",
+      "en": "Jowfe Oil Technology, a service company wholly owned by NOC, was established by Resolution 577 of 28 July 1983. It manufactures and markets chemicals, equipment and drilling/production services for the oil and gas industry."
+    },
+    "source": {
+      "name": "Jowfe Oil Technology – company overview",
+      "url": "https://jowfe.ly/en/company-overview/"
+    },
+    "confidence": "high",
+    "notes": "Oilfield services company; type 'NOC' used for NOC-owned operating/service subsidiaries. Bases at Tripoli, Nasser (Zelten), Zellah and Intisar fields."
+  },
+  {
+    "country": "LBY",
+    "acronym": "Mabruk",
+    "name": "Mabruk Oil Operations",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli (Dhat El Imad complex)",
+    "website": "https://mabrukoil.com",
+    "description": {
+      "fr": "Mabruk Oil Operations est la société d'opérations développant et produisant les champs Mabruk (onshore) et Al Jurf (offshore) pour le compte de la NOC et de ses partenaires (TotalEnergies et autres).",
+      "en": "Mabruk Oil Operations is the operating company developing and producing the Mabruk (onshore) and Al Jurf (offshore) fields on behalf of NOC and partners (TotalEnergies and others)."
+    },
+    "source": {
+      "name": "Mabruk Oil Operations – company profile",
+      "url": "https://mabrukoil.com/company-profile/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated."
+  },
+  {
+    "country": "LBY",
+    "acronym": "MOG",
+    "name": "Mellitah Oil & Gas B.V. (Libyan Branch)",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Tripoli (Sharia Al-Zahra Al-Kabira)",
+    "website": "https://www.mellitahog.ly",
+    "description": {
+      "fr": "Mellitah Oil & Gas est la société d'opérations conjointe NOC–Eni qui exploite le complexe de Mellitah, les champs Wafa, Abu Attifel et Bouri/Sabratha, et alimente le gazoduc Greenstream vers l'Italie.",
+      "en": "Mellitah Oil & Gas is the NOC–Eni joint operating company running the Mellitah complex, the Wafa, Abu Attifel and Bouri/Sabratha fields, and feeding the Greenstream gas pipeline to Italy."
+    },
+    "source": {
+      "name": "Mellitah Oil & Gas – official site",
+      "url": "https://www.mellitahog.ly/"
+    },
+    "confidence": "medium",
+    "notes": "Partners: NOC and Eni. The domain mellitahog.com.ly listed on noc.ly now shows a domain-ownership notice; mellitahog.ly is the live site."
+  },
+  {
+    "country": "LBY",
+    "acronym": "NOC",
+    "name": "National Oil Corporation (المؤسسة الوطنية للنفط)",
+    "founded": 1970,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://noc.ly",
+    "description": {
+      "fr": "La National Oil Corporation est la compagnie pétrolière nationale de Libye et le pivot du secteur des hydrocarbures du pays. Elle supervise 24 filiales et opérations (exploration-production, raffinage, commercialisation, services, formation et recherche) et plus de 65 000 employés.",
+      "en": "The National Oil Corporation is Libya's national oil company and the centrepiece of the country's hydrocarbons sector. It oversees 24 subsidiaries and operations (upstream, refining, marketing, services, training and research) and over 65,000 employees."
+    },
+    "source": {
+      "name": "NOC – official site (subsidiary companies)",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year 1970 (Law No. 24 of 1970) is from secondary sources; noc.ly does not state it on fetched pages. Chairman named on site: Farhat bin Qadara; APPO Libya page names CEO Masoud Suleman Moussa."
+  },
+  {
+    "country": "LBY",
+    "acronym": "NOWDC",
+    "name": "National Oil Wells Drilling and Workover Company (الشركة الوطنية لحفر وصيانة آبار النفط)",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://nwd.ly",
+    "description": {
+      "fr": "Société de forage et de reconditionnement de puits appartenant à la NOC, elle exploite une flotte d'appareils de forage et de workover sur les champs libyens et dispose de son propre centre de formation et de développement.",
+      "en": "An NOC-owned drilling and workover company operating a fleet of drilling and workover rigs across Libyan fields, with its own training and development centre."
+    },
+    "source": {
+      "name": "NOWDC – official site",
+      "url": "https://nwd.ly/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated on site."
+  },
+  {
+    "country": "LBY",
+    "acronym": "NAGECO",
+    "name": "North African Geophysical Exploration Company",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://nageco.com",
+    "description": {
+      "fr": "NAGECO est la société de services géophysiques (acquisition et traitement sismiques) de la NOC.",
+      "en": "NAGECO is NOC's geophysical services company (seismic acquisition and processing)."
+    },
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "low",
+    "notes": "Site under construction at research time (Tripoli phone number only). Also listed by US Treasury (2011) as NOC-owned."
+  },
+  {
+    "country": "LBY",
+    "acronym": "RASCO",
+    "name": "Ras Lanuf Oil and Gas Processing Company (شركة راس لانوف لتصنيع النفط والغاز)",
+    "founded": 1982,
+    "type": "petrochemicals",
+    "headquarters": "Ras Lanuf",
+    "website": "https://raslanuf.ly",
+    "description": {
+      "fr": "Société par actions entièrement détenue par la NOC, créée par la résolution 137 de 1982, Ras Lanuf exploite le complexe de raffinage et de pétrochimie de Ras Lanuf (éthylène, polyéthylène, aromatiques) avec des bureaux à Tripoli, Benghazi et Sebha.",
+      "en": "A joint-stock company wholly owned by NOC, established by Resolution 137 of 1982, Ras Lanuf operates the Ras Lanuf refining and petrochemical complex (ethylene, polyethylene, aromatics) with offices in Tripoli, Benghazi and Sabha."
+    },
+    "source": {
+      "name": "Ras Lanuf Oil and Gas – official site",
+      "url": "https://raslanuf.ly/en/"
+    },
+    "confidence": "high",
+    "notes": "Resolution amended by Resolution 523 of 1986."
+  },
+  {
+    "country": "LBY",
+    "acronym": "Sirte Oil",
+    "name": "Sirte Oil Company for Production, Manufacturing of Oil and Gas",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Marsa El Brega",
+    "website": "https://www.sirteoil.com.ly",
+    "description": {
+      "fr": "Sirte Oil Company est une filiale de la NOC opérant des champs de pétrole et de gaz dans le bassin de Syrte et des installations de traitement et de GNL à Marsa El Brega.",
+      "en": "Sirte Oil Company is an NOC subsidiary operating oil and gas fields in the Sirte basin and processing/LNG facilities at Marsa El Brega."
+    },
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Official site is JavaScript-only; content not readable. Also identified by US Treasury (2011) as NOC-owned. Founding year not verified."
+  },
+  {
+    "country": "LBY",
+    "acronym": "Taknia",
+    "name": "Taknia Libya Engineering Company (تقنية ليبيا للأعمال الهندسية)",
+    "founded": 2009,
+    "type": "NOC",
+    "headquarters": "Tripoli (167 Al Nasr Street)",
+    "website": "https://taknia.ly",
+    "description": {
+      "fr": "Taknia Libya Engineering, société par actions entièrement détenue par la NOC créée en 2009, a repris les activités de Teknica (UK) Ltd. Elle assure ingénierie, gestion de projets, construction, inspection et O&M pour les projets pétroliers et gaziers.",
+      "en": "Taknia Libya Engineering, a joint-stock company wholly owned by NOC established in 2009, took over the activities of Teknica (UK) Ltd. It provides engineering, project management, construction, inspection and O&M for oil and gas projects."
+    },
+    "source": {
+      "name": "Taknia – official site",
+      "url": "https://taknia.ly/"
+    },
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "country": "LBY",
+    "acronym": "WOC",
+    "name": "Waha Oil Company",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://wahaoil.ly",
+    "description": {
+      "fr": "Waha Oil Company est la première filiale productrice de la NOC ; elle exploite les concessions Waha dans le bassin de Syrte pour le compte de la NOC et de ses partenaires internationaux, avec exportation via le terminal d'Es Sider.",
+      "en": "Waha Oil Company is NOC's largest producing subsidiary, operating the Waha concessions in the Sirte basin on behalf of NOC and its international partners, exporting via the Es Sider terminal."
+    },
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Official site protected by Cloudflare challenge; content not readable. Founding year not verified."
+  },
+  {
+    "country": "LBY",
+    "acronym": "AZRC",
+    "name": "Zawia (Azzawiya) Oil Refining Company (شركة الزاوية لتكرير النفط)",
+    "founded": 1974,
+    "type": "downstream",
+    "headquarters": "Zawiya",
+    "website": "https://arc.com.ly",
+    "description": {
+      "fr": "Créée par décision de la NOC, la Zawia Oil Refining Company exploite la raffinerie de Zaouia (deux unités de 60 000 b/j mises en service en 1974 et 1977), des usines de bitume à Zaouia et Benghazi et une unité de mélange de lubrifiants.",
+      "en": "Established by NOC decision, Zawia Oil Refining Company operates the Zawiya refinery (two 60,000 b/d units commissioned in 1974 and 1977), asphalt plants at Zawiya and Benghazi and a lubricant blending plant."
+    },
+    "source": {
+      "name": "Zawia Oil Refining Company – official site",
+      "url": "https://arc.com.ly/"
+    },
+    "confidence": "high",
+    "notes": "'founded' = year production started (1974) per official site; incorporation date not stated (commercial register no. 1572)."
+  },
+  {
+    "country": "LBY",
+    "acronym": "ZOC",
+    "name": "Zueitina Oil Company",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Tripoli",
+    "website": "https://zueitina.com.ly/en",
+    "description": {
+      "fr": "Zueitina Oil Company est une filiale de la NOC opérant des champs onshore et le terminal d'exportation de Zueitina.",
+      "en": "Zueitina Oil Company is an NOC subsidiary operating onshore fields and the Zueitina export terminal."
+    },
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "Official site is JavaScript-only. HQ city and founding year not verified."
+  },
+  {
+    "country": "NAM",
+    "acronym": "MME",
+    "name": "Ministry of Mines and Energy – Directorate of Petroleum Affairs (Commissioner for Petroleum Affairs)",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Windhoek",
+    "website": "https://www.mme.gov.na",
+    "description": {
+      "fr": "Le Ministry of Mines and Energy, par le Commissioner for Petroleum Affairs, administre le Petroleum (Exploration and Production) Act de 1991 et le Petroleum (Taxation) Act de 1991 : octroi des licences de reconnaissance, d'exploration (4 ans, renouvelable) et de production (25 ans), approbation des programmes de travaux, notification des découvertes et obligations de démantèlement.",
+      "en": "The Ministry of Mines and Energy, through the Commissioner for Petroleum Affairs, administers the Petroleum (Exploration and Production) Act of 1991 and the Petroleum (Taxation) Act of 1991: award of reconnaissance, exploration (4 years, renewable) and production (25 years) licences, approval of work programmes, notification of discoveries and decommissioning obligations."
+    },
+    "source": {
+      "name": "NAMCOR – National Legal Framework",
+      "url": "https://www.namcor.com.na/national-legal-frame-work/"
+    },
+    "confidence": "medium",
+    "notes": "mme.gov.na did not resolve via public DNS at time of check (URL kept). A separate 'Namibia Petroleum Fund' could not be verified; NamPower (Kudu gas-to-power) and the Electricity Control Board are electricity entities and were excluded."
+  },
+  {
+    "country": "NAM",
+    "acronym": "NAMCOR",
+    "name": "National Petroleum Corporation of Namibia (Pty) Ltd",
+    "founded": 1991,
+    "type": "NOC",
+    "headquarters": "Windhoek",
+    "website": "https://www.namcor.com.na",
+    "description": {
+      "fr": "Compagnie pétrolière nationale de la Namibie, détenue à 100 % par l'État, NAMCOR est régie par le Companies Act 28 de 2004 et tient son mandat du Petroleum (Exploration and Production) Act de 1991 : reconnaissance, exploration et production, seule ou en partenariat, sur l'ensemble des blocs namibiens. Elle exploite aussi l'aval (commercialisation, 18 stations, dépôts et National Oil Storage Facility de Walvis Bay) et le Petroleum Data Centre national.",
+      "en": "Namibia's national oil company, wholly owned by the Government, NAMCOR is governed by the Companies Act 28 of 2004 and draws its mandate from the Petroleum (Exploration and Production) Act of 1991: reconnaissance, exploration and production, alone or in partnership, across Namibian blocks. It also runs downstream operations (marketing, 18 retail sites, depots and the National Oil Storage Facility at Walvis Bay) and the national Petroleum Data Centre."
+    },
+    "source": {
+      "name": "NAMCOR – Overview",
+      "url": "https://www.namcor.com.na/overview/"
+    },
+    "confidence": "high",
+    "notes": "HQ: Petroleum House, 1 Aviation Road, Windhoek. Founding year 1991 corresponds to the Act cited on the site; the company does not state an incorporation date on the fetched pages. Upstream and Downstream (petroleum trading) are presented as business units, not separate legal subsidiaries."
+  },
+  {
+    "country": "NER",
+    "acronym": "MP",
+    "name": "Ministère du Pétrole – Direction Générale des Hydrocarbures",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Niamey",
+    "website": "http://www.petrole.gouv.ne",
+    "description": {
+      "fr": "Le Ministère du Pétrole applique le Code pétrolier du Niger, attribue les titres et contrats de partage de production et assure la tutelle de la SONIDEP et le suivi des projets (Agadem, raffinerie de Zinder, pipeline d'exportation Niger-Bénin).",
+      "en": "The Ministry of Petroleum applies Niger's Petroleum Code, awards licences and production-sharing contracts and oversees SONIDEP and major projects (Agadem, Zinder refinery, Niger-Benin export pipeline)."
+    },
+    "source": {
+      "name": "EITI – Niger; ITIE Niger (liens utiles)",
+      "url": "https://eiti.org/countries/niger"
+    },
+    "confidence": "medium",
+    "notes": "Ministry URL as listed on itieniger.ne; the host did not resolve at time of check. Ministry naming varies (Ministère du Pétrole / de l'Énergie et du Pétrole)."
+  },
+  {
+    "country": "NER",
+    "acronym": "SONIDEP",
+    "name": "Société Nigérienne de Pétrole SA (ex-Société Nigérienne des Produits Pétroliers)",
+    "founded": 1977,
+    "type": "NOC",
+    "headquarters": "Niamey",
+    "website": null,
+    "description": {
+      "fr": "Créée par l'ordonnance n° 77-01 du 20 janvier 1977, la SONIDEP est une société d'État au capital de 10 milliards FCFA entièrement détenu par l'État du Niger. Historiquement chargée de l'achat, du stockage et de la revente des produits pétroliers (dont une partie de la production de la raffinerie de Zinder depuis 2012), elle a vu ses statuts étendus en 2020 à l'amont (exploration, exploitation, transport, raffinage) et a signé en mars 2024 des contrats de partage de production sur les blocs R5, R6, R7 et Bilma.",
+      "en": "Created by Ordinance No. 77-01 of 20 January 1977, SONIDEP is a state company with capital of CFAF 10 billion wholly held by the State of Niger. Historically responsible for purchasing, storing and reselling petroleum products (including part of the Zinder refinery output since 2012), its statutes were extended in 2020 to upstream activities (exploration, production, transport, refining), and in March 2024 it signed production-sharing contracts for blocks R5, R6, R7 and Bilma."
+    },
+    "source": {
+      "name": "ITIE Niger – SONIDEP",
+      "url": "https://itieniger.ne/sonidep/"
+    },
+    "confidence": "high",
+    "notes": "Postal address BP 10692 Niamey. No reachable official website (sonidep.ne does not resolve). Type set to NOC given the 2020 upstream mandate; originally a downstream company."
+  },
+  {
+    "country": "NER",
+    "acronym": "SORAZ",
+    "name": "Société de Raffinage de Zinder",
+    "founded": 2008,
+    "type": "downstream",
+    "headquarters": "Zinder",
+    "website": null,
+    "description": {
+      "fr": "Coentreprise entre CNPC (60 %) et l'État du Niger (40 %), la SORAZ exploite la raffinerie de Zinder (Olelewa), mise en service en novembre 2011 (environ 20 000 barils/jour), alimentée par le brut d'Agadem. Une partie de sa production est commercialisée par la SONIDEP.",
+      "en": "A joint venture between CNPC (60%) and the State of Niger (40%), SORAZ operates the Zinder refinery (Olelewa), commissioned in November 2011 (about 20,000 barrels per day) and fed by Agadem crude. Part of its output is marketed by SONIDEP."
+    },
+    "source": {
+      "name": "ITIE Niger (SONIDEP page mentions Zinder refinery output)",
+      "url": "https://itieniger.ne/sonidep/"
+    },
+    "confidence": "low",
+    "notes": "No official SORAZ website found and no ITIE Niger page for SORAZ. Creation year (2008 JV) and shareholding are institutional history not confirmed on a primary source in this session; start-up 2011."
+  },
+  {
+    "country": "NGA",
+    "acronym": "KRPC",
+    "name": "Kaduna Refining and Petrochemical Company Limited",
+    "founded": 1980,
+    "type": "petrochemicals",
+    "headquarters": "Kaduna",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Société de raffinage et de pétrochimie de NNPC exploitant la raffinerie de Kaduna (mise en service en 1980), seule raffinerie du nord du Nigeria, avec des unités de lubrifiants et de pétrochimie.",
+      "en": "NNPC refining and petrochemical company operating the Kaduna refinery (commissioned 1980), the only refinery in northern Nigeria, with lubricants and petrochemical units."
+    },
+    "source": {
+      "name": "NNPC Ltd – Our Businesses",
+      "url": "https://nnpcgroup.com/businesses"
+    },
+    "confidence": "low",
+    "notes": "Not listed by name in the 2022 NNPC business-unit document; 1980 is the refinery commissioning year (company incorporated 1988)."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NETCO",
+    "name": "NNPC Engineering and Technical Company Limited",
+    "founded": null,
+    "type": "NOC",
+    "headquarters": "Lagos",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale d'ingénierie de NNPC Ltd fournissant des services d'ingénierie, d'approvisionnement, de construction, d'installation, de mise en service, d'exploitation et de maintenance pour l'industrie pétrolière et gazière.",
+      "en": "Engineering subsidiary of NNPC Ltd providing engineering, procurement, construction, installation, commissioning, operations and maintenance services to the oil and gas industry."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "Founding year (secondary sources: 1989) and Lagos headquarters not verified on official pages."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NEPL",
+    "name": "NNPC Exploration and Production Limited (formerly Nigerian Petroleum Development Company, NPDC)",
+    "founded": 1988,
+    "type": "NOC",
+    "headquarters": "Benin City",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale amont de NNPC Ltd chargée de l'exploration, de l'évaluation, du forage, du développement et de la production d'hydrocarbures (brut, condensats et gaz). Elle succède à la Nigerian Petroleum Development Company (NPDC), renommée dans le cadre de la restructuration consécutive au PIA 2021.",
+      "en": "Upstream subsidiary of NNPC Ltd responsible for exploration, appraisal, drilling, development and production of hydrocarbons (crude, condensate and gas). It succeeds the Nigerian Petroleum Development Company (NPDC), renamed as part of the post-PIA 2021 restructuring."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "Founding year 1988 refers to NPDC's incorporation; not stated in the NNPC document. Headquarters Benin City (NPDC legacy HQ) not verified on official pages."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NGIC",
+    "name": "NNPC Gas Infrastructure Company Limited (formerly Nigerian Gas Company)",
+    "founded": 1988,
+    "type": "gas",
+    "headquarters": "Warri",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale gazière de NNPC Ltd chargée de la construction, de l'exploitation et de la maintenance des infrastructures de gaz naturel (gazoducs et stations de compression). Elle succède à la Nigerian Gas Company (NGC) dans la nouvelle organisation issue du PIA 2021.",
+      "en": "Gas subsidiary of NNPC Ltd responsible for the construction, operation and maintenance of natural gas infrastructure (pipelines and compressor stations). It succeeds the Nigerian Gas Company (NGC) under the post-PIA 2021 structure."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "1988 is the founding year of the predecessor Nigerian Gas Company; headquarters Warri (NGC legacy) not verified on official page."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NGML",
+    "name": "NNPC Gas Marketing Limited",
+    "founded": null,
+    "type": "gas",
+    "headquarters": "Abuja",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale de NNPC Ltd dédiée à la commercialisation et à la distribution du gaz naturel aux clients industriels et commerciaux, ainsi qu'au développement du marché domestique du gaz.",
+      "en": "NNPC Ltd subsidiary dedicated to the marketing and distribution of natural gas to industrial and commercial users and to the development of the domestic gas market."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated in official sources consulted (successor of Nigerian Gas Marketing Company)."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NRCL",
+    "name": "NNPC RefChem Limited",
+    "founded": 2022,
+    "type": "downstream",
+    "headquarters": "Abuja",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Entité de NNPC Ltd regroupant les activités de raffinage et de transformation chimique, créée lors de la réorganisation post-PIA. Elle chapeaute les raffineries nationales de Port Harcourt, Warri et Kaduna.",
+      "en": "NNPC Ltd business unit grouping refining and chemicals processing, created in the post-PIA reorganisation. It oversees the national refineries of Port Harcourt, Warri and Kaduna."
+    },
+    "source": {
+      "name": "NNPC Ltd – Our Businesses",
+      "url": "https://nnpcgroup.com/businesses"
+    },
+    "confidence": "medium",
+    "notes": "Listed in the December 2022 NNPC business-unit document; exact incorporation date not stated."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NRL",
+    "name": "NNPC Retail Limited",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Abuja",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale aval de NNPC Ltd exploitant le réseau de stations-service de la compagnie et commercialisant produits raffinés, lubrifiants, GPL et GNC, ainsi que des activités hors carburant.",
+      "en": "Downstream subsidiary of NNPC Ltd operating the company's retail station network and marketing refined products, lubricants, LPG and CNG, together with non-fuel businesses."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not confirmed on official pages (secondary sources give 2002 incorporation)."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NLNG",
+    "name": "Nigeria LNG Limited",
+    "founded": 1989,
+    "type": "gas",
+    "headquarters": "Bonny Island",
+    "website": "https://www.nlng.com/",
+    "description": {
+      "fr": "Coentreprise de liquéfaction de gaz naturel constituée en 1989 entre NNPC (49 %), Shell, TotalEnergies et Eni, exploitant depuis 1999 une usine de six trains de GNL sur l'île de Bonny (État de Rivers), avec un septième train en construction. NLNG est le premier exportateur de GNL du Nigeria et un acteur majeur de la valorisation du gaz associé.",
+      "en": "Natural gas liquefaction joint venture incorporated in 1989 between NNPC (49%), Shell, TotalEnergies and Eni, operating a six-train LNG plant on Bonny Island (Rivers State) since 1999, with a seventh train under construction. NLNG is Nigeria's leading LNG exporter and a major outlet for associated gas."
+    },
+    "source": {
+      "name": "NLNG – About us",
+      "url": "https://www.nlng.com/about-us"
+    },
+    "confidence": "high",
+    "notes": "Joint venture, not wholly state-owned: NNPC holds 49%; included as a state-participated gas company. Shareholding percentages other than NNPC's from company reports."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NCDMB",
+    "name": "Nigerian Content Development and Monitoring Board",
+    "founded": 2010,
+    "type": "regulator",
+    "headquarters": "Yenagoa",
+    "website": "https://ncdmb.gov.ng/",
+    "description": {
+      "fr": "Organisme créé en 2010 par le Nigerian Oil and Gas Industry Content Development (NOGICD) Act pour promouvoir et contrôler la participation nigériane dans l'industrie pétrolière et gazière. Basé à la Nigerian Content Tower de Yenagoa (État de Bayelsa), il pilote le renforcement des capacités locales, la certification des équipements et un fonds de recherche-développement.",
+      "en": "Statutory body established in 2010 under the Nigerian Oil and Gas Industry Content Development (NOGICD) Act to promote and monitor Nigerian participation in the oil and gas industry. Headquartered at the Nigerian Content Tower in Yenagoa, Bayelsa State, it drives local capacity building, equipment certification and a research and development fund."
+    },
+    "source": {
+      "name": "NCDMB – official site",
+      "url": "https://ncdmb.gov.ng/"
+    },
+    "confidence": "high",
+    "notes": "Classified as regulator/content board; also sponsors R&D (see R&D dataset)."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NMDPRA",
+    "name": "Nigerian Midstream and Downstream Petroleum Regulatory Authority",
+    "founded": 2021,
+    "type": "regulator",
+    "headquarters": "Abuja",
+    "website": "https://nmdpra.gov.ng/",
+    "description": {
+      "fr": "Autorité de régulation des segments intermédiaire et aval du secteur pétrolier nigérian, créée par le Petroleum Industry Act 2021. Elle est issue de la fusion du Department of Petroleum Resources (fonctions aval), de la Petroleum Products Pricing Regulatory Agency (PPPRA) et du Petroleum Equalisation Fund (PEF), et régule le raffinage, le transport, le stockage et la distribution des produits pétroliers et du gaz.",
+      "en": "Regulatory authority for Nigeria's midstream and downstream petroleum operations, created by the Petroleum Industry Act 2021. It merged the downstream functions of the Department of Petroleum Resources, the Petroleum Products Pricing Regulatory Agency (PPPRA) and the Petroleum Equalisation Fund (PEF), and regulates refining, transportation, storage and distribution of petroleum products and gas."
+    },
+    "source": {
+      "name": "NMDPRA – About",
+      "url": "https://nmdpra.gov.ng/about/"
+    },
+    "confidence": "high",
+    "notes": "Official site confirms PIA 2021 establishment and DPR/PPPRA/PEF merger; street address not displayed on fetched pages (headquarters is in Abuja)."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NNPC Ltd",
+    "name": "Nigerian National Petroleum Company Limited",
+    "founded": 1977,
+    "type": "NOC",
+    "headquarters": "Abuja",
+    "website": "https://nnpcgroup.com/",
+    "description": {
+      "fr": "Compagnie pétrolière nationale du Nigeria, créée le 1er avril 1977 par la fusion de la Nigerian National Oil Corporation (NNOC) et des fonctions réglementaires du ministère fédéral des Mines et de l'Énergie. Conformément au Petroleum Industry Act (PIA) de 2021, elle a été constituée en société à responsabilité limitée le 16 août 2021 et a commencé ses opérations sous cette forme le 1er juillet 2022. NNPC Ltd intervient sur l'ensemble de la chaîne de valeur : exploration-production, gaz, raffinage, distribution, négoce et nouvelles énergies.",
+      "en": "Nigeria's national oil company, established on 1 April 1977 through the merger of the Nigerian National Oil Corporation (NNOC) and the regulatory functions of the Federal Ministry of Mines and Power. Under the Petroleum Industry Act (PIA) 2021 it was incorporated as a limited liability company on 16 August 2021 and commenced operations in that form on 1 July 2022. NNPC Ltd operates across the whole value chain: upstream, gas, refining, retail, trading and new energy."
+    },
+    "source": {
+      "name": "NNPC Ltd – Who we are",
+      "url": "https://nnpcgroup.com/who-we-are"
+    },
+    "confidence": "high",
+    "notes": "Official 'Who we are' page confirms 1 April 1977 merger and 16 August 2021 incorporation. Headquarters: NNPC Towers, Herbert Macaulay Way, Central Business District, Abuja (address confirmed on NNPC Academy page). 2022 operational start (1 July 2022) and 19 July 2022 unveiling from PIA transition announcements."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NPSC",
+    "name": "Nigerian Pipelines and Storage Company Limited",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Abuja",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Filiale de NNPC Ltd chargée des pipelines de produits pétroliers et des dépôts de stockage aval du pays, successeur des activités logistiques de l'ancienne Pipelines and Products Marketing Company (PPMC).",
+      "en": "NNPC Ltd subsidiary in charge of the country's downstream petroleum-product pipelines and storage depots, successor to the logistics activities of the former Pipelines and Products Marketing Company (PPMC)."
+    },
+    "source": {
+      "name": "NNPC Ltd – List of business units and subsidiaries (Dec 2022)",
+      "url": "https://cms1977.nnpcgroup.com/uploads/LIST_OF_THE_NNPC_LIMITED_B_Us_and_S_Us_604b6ef090.pdf"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated in official sources consulted."
+  },
+  {
+    "country": "NGA",
+    "acronym": "NUPRC",
+    "name": "Nigerian Upstream Petroleum Regulatory Commission",
+    "founded": 2021,
+    "type": "regulator",
+    "headquarters": "Abuja",
+    "website": "https://www.nuprc.gov.ng/",
+    "description": {
+      "fr": "Régulateur technique et commercial du secteur amont nigérian, créé par le Petroleum Industry Act signé en 2021, en remplacement du Department of Petroleum Resources (DPR). La Commission délivre les licences et permis d'exploration-production, administre les données pétrolières nationales et veille à la création de valeur durable à partir des ressources pétrolières.",
+      "en": "Technical and commercial regulator of Nigeria's upstream petroleum sector, established by the Petroleum Industry Act signed in 2021 as successor to the Department of Petroleum Resources (DPR). The Commission grants exploration and production licences, administers national petroleum data and promotes sustainable value creation from petroleum resources."
+    },
+    "source": {
+      "name": "NUPRC – History",
+      "url": "https://www.nuprc.gov.ng/history"
+    },
+    "confidence": "high",
+    "notes": "Headquarters address from official site: No. 7 Sylvester Ugoh Crescent, Jabi, Abuja."
+  },
+  {
+    "country": "NGA",
+    "acronym": "PTDF",
+    "name": "Petroleum Technology Development Fund",
+    "founded": 1973,
+    "type": "fund",
+    "headquarters": "Abuja",
+    "website": "https://ptdf.gov.ng/",
+    "description": {
+      "fr": "Fonds fédéral chargé de développer les capacités humaines et institutionnelles du secteur pétrolier et gazier nigérian, notamment par des bourses, le financement d'institutions de formation et le soutien à la recherche et à l'acquisition de technologies. Le PTDF a créé l'université UGSET de Kaduna (ex-Nigerian College of Petroleum Studies) et finance des centres et chaires dans les universités nigérianes.",
+      "en": "Federal fund mandated to build human and institutional capacity for Nigeria's oil and gas industry through scholarships, funding of training institutions and support for research and technology acquisition. PTDF established the UGSET university in Kaduna (formerly the Nigerian College of Petroleum Studies) and funds centres and chairs in Nigerian universities."
+    },
+    "source": {
+      "name": "PTDF – About us",
+      "url": "https://ptdf.gov.ng/about-us/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year 1973 corresponds to PTDF Decree No. 25 of 1973 (PTDF Act, Cap P15 LFN 2004); the year is not displayed on the official pages fetched. Address: Plot 1058 Memorial Drive, Central Business District, Abuja."
+  },
+  {
+    "country": "NGA",
+    "acronym": "PHRC",
+    "name": "Port Harcourt Refining Company Limited",
+    "founded": 1965,
+    "type": "downstream",
+    "headquarters": "Alesa-Eleme, Port Harcourt",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Société de raffinage de NNPC exploitant le complexe de Port Harcourt (raffinerie d'origine de 1965 et nouvelle raffinerie de 1989), d'une capacité nominale combinée de 210 000 barils/jour. Le complexe a fait l'objet d'un programme de réhabilitation dans les années 2020.",
+      "en": "NNPC refining company operating the Port Harcourt complex (original 1965 refinery and 1989 new refinery) with a combined nameplate capacity of 210,000 barrels per day. The complex underwent a rehabilitation programme in the 2020s."
+    },
+    "source": {
+      "name": "NNPC Ltd – Our Businesses",
+      "url": "https://nnpcgroup.com/businesses"
+    },
+    "confidence": "low",
+    "notes": "The 2022 NNPC business-unit list does not name the refining companies individually (grouped under NNPC RefChem / NDIS); 1965 is the commissioning year of the first Port Harcourt refinery, corporate incorporation of PHRC dates from 1988. Capacity figures from widely reported NNPC data, not verified on the fetched pages."
+  },
+  {
+    "country": "NGA",
+    "acronym": "WRPC",
+    "name": "Warri Refining and Petrochemical Company Limited",
+    "founded": 1978,
+    "type": "petrochemicals",
+    "headquarters": "Ekpan, Warri",
+    "website": "https://nnpcgroup.com/businesses",
+    "description": {
+      "fr": "Société de raffinage et de pétrochimie de NNPC exploitant la raffinerie de Warri (mise en service en 1978) et ses unités pétrochimiques (polypropylène, noir de carbone).",
+      "en": "NNPC refining and petrochemical company operating the Warri refinery (commissioned 1978) and its petrochemical units (polypropylene, carbon black)."
+    },
+    "source": {
+      "name": "NNPC Ltd – Our Businesses",
+      "url": "https://nnpcgroup.com/businesses"
+    },
+    "confidence": "low",
+    "notes": "Not listed by name in the 2022 NNPC business-unit document; 1978 is the refinery commissioning year (company incorporated 1988). Status as a separate legal entity under NNPC RefChem to be verified."
+  },
+  {
+    "country": "SEN",
+    "acronym": "COS-PETROGAZ",
+    "name": "Comité d'Orientation Stratégique du Pétrole et du Gaz",
+    "founded": 2016,
+    "type": "regulator",
+    "headquarters": "Dakar",
+    "website": "https://www.cospetrogaz.sn",
+    "description": {
+      "fr": "Créé par le décret n° 2016-1542 du 3 octobre 2016 (modifié, notamment par le décret n° 2024-1482), le COS-PETROGAZ assiste le Président de la République et le Gouvernement dans la définition et la mise en œuvre de la politique pétrolière et gazière, et supervise, évalue et contrôle l'exécution des projets. Sa composition a été élargie en 2020 à l'opposition et à la société civile.",
+      "en": "Created by Decree No. 2016-1542 of 3 October 2016 (amended, notably by Decree No. 2024-1482), COS-PETROGAZ assists the President and Government in defining and implementing oil and gas policy and supervises, evaluates and controls project implementation. Its membership was broadened in 2020 to include the opposition and civil society."
+    },
+    "source": {
+      "name": "COS-PETROGAZ – site officiel",
+      "url": "https://www.cospetrogaz.sn"
+    },
+    "confidence": "high",
+    "notes": "Strategic steering committee attached to the Presidency rather than a licensing regulator. Address: 18 boulevard de la République, Dakar."
+  },
+  {
+    "country": "SEN",
+    "acronym": "MEPM",
+    "name": "Ministère de l'Énergie, du Pétrole et des Mines – Direction des Hydrocarbures",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Dakar",
+    "website": "https://www.energie.gouv.sn",
+    "description": {
+      "fr": "Le ministère en charge de l'énergie, du pétrole et des mines exerce, via sa Direction des Hydrocarbures, la tutelle et la régulation du secteur : attribution des titres, contrats de recherche et de partage de production, suivi des opérations et du secteur aval, en lien avec PETROSEN et la Direction générale des Impôts et des Domaines.",
+      "en": "The ministry in charge of energy, petroleum and mines, through its Directorate of Hydrocarbons, oversees and regulates the sector: licensing, exploration and production-sharing contracts, monitoring of operations and of the downstream sector, together with PETROSEN and the Directorate General of Taxes and Domains."
+    },
+    "source": {
+      "name": "EITI – Senegal",
+      "url": "https://eiti.org/countries/senegal"
+    },
+    "confidence": "medium",
+    "notes": "Ministry website returns a PHP error at time of check (URL kept). A 'Comité National des Hydrocarbures' could not be verified."
+  },
+  {
+    "country": "SEN",
+    "acronym": "PETROSEN E&P",
+    "name": "PETROSEN Exploration & Production SA",
+    "founded": 2020,
+    "type": "NOC",
+    "headquarters": "Dakar",
+    "website": "https://www.petrosen.sn",
+    "description": {
+      "fr": "Filiale amont de PETROSEN Holding issue de la réorganisation de 2020, PETROSEN E&P gère les participations de l'État dans les contrats de recherche et de partage de production, le suivi des opérations d'exploration et de développement et la promotion du bassin sédimentaire sénégalais.",
+      "en": "Upstream subsidiary of PETROSEN Holding created in the 2020 reorganisation, PETROSEN E&P manages the State's interests in exploration and production-sharing contracts, monitors exploration and development operations and promotes the Senegalese sedimentary basin."
+    },
+    "source": {
+      "name": "EITI – Senegal",
+      "url": "https://eiti.org/countries/senegal"
+    },
+    "confidence": "low",
+    "notes": "Existence and role known from PETROSEN's group structure; creation year (2020) not verified on a primary source during this session because petrosen.sn was unreachable."
+  },
+  {
+    "country": "SEN",
+    "acronym": "PETROSEN T&S",
+    "name": "PETROSEN Trading & Services SA",
+    "founded": 2020,
+    "type": "downstream",
+    "headquarters": "Dakar",
+    "website": "https://www.petrosen.sn",
+    "description": {
+      "fr": "Filiale aval de PETROSEN Holding issue de la réorganisation de 2020, PETROSEN Trading & Services porte les activités de négoce, de logistique et de services (participations dans SAR, SENSTOCK et RGS, commercialisation du gaz et des produits).",
+      "en": "Downstream subsidiary of PETROSEN Holding created in the 2020 reorganisation, PETROSEN Trading & Services carries trading, logistics and service activities (stakes in SAR, SENSTOCK and RGS, gas and product marketing)."
+    },
+    "source": {
+      "name": "EITI – Senegal",
+      "url": "https://eiti.org/countries/senegal"
+    },
+    "confidence": "low",
+    "notes": "Creation year and portfolio not verified on a primary source in this session (petrosen.sn unreachable)."
+  },
+  {
+    "country": "SEN",
+    "acronym": "RGS",
+    "name": "Réseau Gazier du Sénégal SA",
+    "founded": 2019,
+    "type": "gas",
+    "headquarters": "Dakar",
+    "website": "https://rgs.sn",
+    "description": {
+      "fr": "Société anonyme à participation publique majoritaire créée en 2019 par l'État, avec PETROSEN, SENELEC, FONSIS et APIX comme partenaires, RGS a pour mission de construire, exploiter, maintenir et développer le réseau national de transport de gaz (segments Nord, Vert, Bleu, Orange, Rouge) au service du gas-to-power et du gas-to-industry.",
+      "en": "A majority state-owned company created in 2019 with PETROSEN, SENELEC, FONSIS and APIX as partners, RGS builds, operates, maintains and develops the national gas transport network (Nord, Vert, Bleu, Orange and Rouge segments) serving gas-to-power and gas-to-industry."
+    },
+    "source": {
+      "name": "RGS – site officiel",
+      "url": "https://rgs.sn"
+    },
+    "confidence": "high",
+    "notes": "The brief cited 2020; the company site states creation in 2019. Siège: Résidence Coralia, Rue NG-60, Ngor-Almadies, Dakar."
+  },
+  {
+    "country": "SEN",
+    "acronym": "SAR",
+    "name": "Société Africaine de Raffinage",
+    "founded": 1961,
+    "type": "downstream",
+    "headquarters": "Dakar (Mbao)",
+    "website": "https://www.sar.sn",
+    "description": {
+      "fr": "Créée en 1961, mise en service le 31 octobre 1963 (600 000 t/an initialement) et inaugurée en 1964, la SAR exploite la raffinerie de Mbao (km 18, route de Rufisque) d'une capacité actuelle de 1,5 million de tonnes par an, avec un projet SAR 2 visant 5,5 Mt/an. Partenaire de PETROSEN, elle emploie 309 personnes et détient les certifications ISO qualité, environnement, SST et laboratoire (ISO 17025).",
+      "en": "Created in 1961, commissioned on 31 October 1963 (initially 600,000 t/yr) and inaugurated in 1964, SAR operates the Mbao refinery (km 18, Route de Rufisque) with a current capacity of 1.5 million tonnes per year and a SAR 2 expansion project targeting 5.5 Mt/yr. A partner of PETROSEN, it employs 309 staff and holds ISO quality, environment, OHS and laboratory (ISO 17025) certifications."
+    },
+    "source": {
+      "name": "SAR – site officiel",
+      "url": "https://www.sar.sn/fr/"
+    },
+    "confidence": "high",
+    "notes": "Shareholding percentages (PETROSEN majority) not published on the fetched pages."
+  },
+  {
+    "country": "SEN",
+    "acronym": "SENSTOCK",
+    "name": "Société de Stockage d'Hydrocarbures (SENSTOCK)",
+    "founded": 2008,
+    "type": "downstream",
+    "headquarters": "Dakar (Mbao)",
+    "website": "https://senstock.sn",
+    "description": {
+      "fr": "Née en 2008 du rapprochement de la Société Nationale des Hydrocarbures (SNH) et de PETROSEN, rejoints en 2010 par la SPP, SENSTOCK exploite à Mbao (km 18, route de Rufisque) des installations de stockage d'hydrocarbures liquides reliées au quai 8 du Port de Dakar : réception, stockage, chargement camions, soutage et déclarations en douane. Certifiée APAVE et JIG (Jet A1), membre de l'ARDA depuis 2018.",
+      "en": "Formed in 2008 from the combination of the Société Nationale des Hydrocarbures (SNH) and PETROSEN, joined in 2010 by SPP, SENSTOCK operates liquid hydrocarbon storage at Mbao (km 18, Route de Rufisque) linked to berth 8 of the Port of Dakar: reception, storage, truck loading, bunkering and customs declarations. APAVE and JIG (Jet A1) certified, ARDA member since 2018."
+    },
+    "source": {
+      "name": "SENSTOCK – site officiel",
+      "url": "https://senstock.sn"
+    },
+    "confidence": "medium",
+    "notes": "State/PETROSEN shareholding percentage not published on the site; included as a PETROSEN-linked storage company."
+  },
+  {
+    "country": "SEN",
+    "acronym": "PETROSEN",
+    "name": "Société des Pétroles du Sénégal (PETROSEN Holding)",
+    "founded": 1981,
+    "type": "holding",
+    "headquarters": "Dakar",
+    "website": "https://www.petrosen.sn",
+    "description": {
+      "fr": "Société nationale des pétroles créée en 1981, PETROSEN porte les participations de l'État dans les blocs pétroliers et gaziers (Sangomar, GTA) et collecte la part de production revenant à l'État. Réorganisée en 2020 en PETROSEN Holding avec deux filiales, PETROSEN Exploration & Production et PETROSEN Trading & Services, elle intervient sur l'ensemble de la chaîne de valeur.",
+      "en": "The national oil company created in 1981, PETROSEN carries the State's interests in oil and gas blocks (Sangomar, GTA) and collects the State's production share. Reorganised in 2020 into PETROSEN Holding with two subsidiaries, PETROSEN Exploration & Production and PETROSEN Trading & Services, it operates across the value chain."
+    },
+    "source": {
+      "name": "EITI – Senegal (PETROSEN as state-owned oil company)",
+      "url": "https://eiti.org/countries/senegal"
+    },
+    "confidence": "medium",
+    "notes": "Official site petrosen.sn refused connections during this session (URL kept). Founding year 1981 and the 2020 holding restructuring are institutional history not confirmed on a primary page in this session."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "CEF",
+    "name": "Central Energy Fund SOC Ltd",
+    "founded": 1977,
+    "type": "holding",
+    "headquarters": "Sandton, Johannesburg",
+    "website": "https://www.cefgroup.co.za/",
+    "description": {
+      "fr": "Société holding énergétique de l'État sud-africain, créée par le Central Energy Fund Act (No 38 de 1977) et classée entreprise publique de l'Annexe 2. CEF a pour mandat de contribuer à la sécurité d'approvisionnement énergétique du pays et de la région par l'exploration, l'acquisition, le développement et les partenariats stratégiques ; ses filiales comprennent PetroSA, iGas, SFF, AEMFC, PASA et SANPC.",
+      "en": "South Africa's state-owned energy holding company, established under the Central Energy Fund Act (No. 38 of 1977) as a Schedule 2 public entity. CEF's mandate is to contribute to the security of energy supply of South Africa and the region through exploration, acquisition, development and strategic partnerships; its subsidiaries include PetroSA, iGas, SFF, AEMFC, PASA and SANPC."
+    },
+    "source": {
+      "name": "CEF Group – official site",
+      "url": "https://www.cefgroup.co.za/"
+    },
+    "confidence": "high",
+    "notes": "Address: Block C, Upper Grayston Office Park, 152 Ann Crescent, Strathavon, Sandton. Reports to the Department of Mineral Resources and Energy."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "NERSA",
+    "name": "National Energy Regulator of South Africa",
+    "founded": 2004,
+    "type": "regulator",
+    "headquarters": "Pretoria",
+    "website": "https://www.nersa.org.za/",
+    "description": {
+      "fr": "Régulateur national de l'énergie créé par le National Energy Regulator Act (No 40 de 2004), chargé de réguler l'électricité (Electricity Regulation Act 2006), le gaz canalisé (Gas Act 2001) et les pipelines pétroliers (Petroleum Pipelines Act 2003). Il délivre les licences, fixe les tarifs et surveille les opérateurs de ces trois industries.",
+      "en": "National energy regulator established by the National Energy Regulator Act (No. 40 of 2004) to regulate electricity (Electricity Regulation Act 2006), piped-gas (Gas Act 2001) and petroleum pipelines (Petroleum Pipelines Act 2003). It licenses operators, sets tariffs and monitors compliance across the three industries."
+    },
+    "source": {
+      "name": "NERSA – official site",
+      "url": "https://www.nersa.org.za/"
+    },
+    "confidence": "high",
+    "notes": "Address: Kulawula House, 526 Madiba Street, Arcadia, Pretoria. Operational since 2005."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "PASA",
+    "name": "Petroleum Agency SA",
+    "founded": null,
+    "type": "regulator",
+    "headquarters": "Century City, Cape Town",
+    "website": "https://www.petroleumagencysa.com/",
+    "description": {
+      "fr": "Agence désignée par l'État pour promouvoir et réguler l'exploration et la production pétrolières et gazières en Afrique du Sud, et dépositaire de la base nationale de données d'exploration-production. Filiale de CEF, elle instruit les permis et droits pétroliers dans le cadre du MPRDA et de la nouvelle loi sur le développement des ressources pétrolières amont.",
+      "en": "State-designated agency that promotes and regulates oil and gas exploration and production in South Africa and acts as custodian of the national exploration and production database. A CEF subsidiary, it processes petroleum permits and rights under the MPRDA and the new Upstream Petroleum Resources Development Act."
+    },
+    "source": {
+      "name": "Petroleum Agency SA – official site",
+      "url": "https://www.petroleumagencysa.com/"
+    },
+    "confidence": "medium",
+    "notes": "Establishment year (secondary sources: 1999) not stated on the official pages fetched, hence null. Address: Heron Place, Heron Close, Century City, Cape Town."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "PetroSA",
+    "name": "Petroleum Oil and Gas Corporation of South Africa SOC Ltd",
+    "founded": 2002,
+    "type": "NOC",
+    "headquarters": "Parow, Cape Town",
+    "website": "https://www.petrosa.co.za/",
+    "description": {
+      "fr": "Compagnie pétrolière nationale sud-africaine, lancée en 2002 par le président Thabo Mbeki à partir de la fusion de Mossgas et de Soekor (cette dernière fondée en 1965). Filiale à 100 % de CEF, PetroSA exploite la raffinerie gas-to-liquids de Mossel Bay et les champs gaziers offshore F-A et E-M. Depuis 2025, ses activités viables (négoce, actif ghanéen) sont transférées à la nouvelle SANPC, PetroSA subsistant comme entité de gestion des actifs hérités.",
+      "en": "South Africa's national oil company, launched in 2002 by President Thabo Mbeki from the merger of Mossgas and Soekor (the latter founded in 1965). A wholly owned CEF subsidiary, PetroSA operates the Mossel Bay gas-to-liquids refinery and the offshore F-A and E-M gas fields. Since 2025 its viable operations (trading, Ghana asset) are being transferred to the new SANPC, with PetroSA remaining as a legacy-asset entity."
+    },
+    "source": {
+      "name": "PetroSA – official site (Our History)",
+      "url": "https://www.petrosa.co.za/"
+    },
+    "confidence": "high",
+    "notes": "Address: 151 Frans Conradie Drive, Parow, Cape Town. Post-merger status per Parliament of RSA and Engineering News (April–May 2025): legacy assets ring-fenced with c. 620 employees."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "iGas",
+    "name": "South African Gas Development Company SOC Ltd",
+    "founded": 2000,
+    "type": "gas",
+    "headquarters": "Sandton, Johannesburg",
+    "website": "https://www.igas.co.za/",
+    "description": {
+      "fr": "Agence publique créée par directive ministérielle du 2 octobre 2000 pour développer le gaz naturel et ses infrastructures en Afrique australe. Filiale de CEF, iGas détient notamment une participation dans le gazoduc ROMPCO Mozambique–Secunda et promeut la diversification énergétique par le gaz dans la région SADC. Elle fait partie des entités fusionnées dans la SANPC en 2025.",
+      "en": "State-owned agency established by Ministerial Directive of 2 October 2000 to develop hydrocarbon gas and gas infrastructure in Southern Africa. A CEF subsidiary, iGas holds a stake in the ROMPCO Mozambique–Secunda pipeline and promotes gas-based energy diversification in the SADC region. It is one of the entities merged into SANPC in 2025."
+    },
+    "source": {
+      "name": "CEF Group – iGas",
+      "url": "https://www.cefgroup.co.za/igas/"
+    },
+    "confidence": "high",
+    "notes": "igas.co.za returned HTTP 500 during this session; URL kept. ROMPCO stake from company reporting, not on the fetched CEF page."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "SANPC",
+    "name": "South African National Petroleum Company SOC Ltd",
+    "founded": 2025,
+    "type": "NOC",
+    "headquarters": "Cape Town / Sandton (to be confirmed)",
+    "website": "https://www.sanpc.co.za/",
+    "description": {
+      "fr": "Nouvelle compagnie pétrolière nationale sud-africaine, filiale de CEF, issue de la fusion d'iGas, du Strategic Fuel Fund et des activités viables de PetroSA (division négoce et actif ghanéen). Autorisée à opérer en septembre 2024, elle est entrée en activité le 1er mai 2025 avec environ 420 employés et a été lancée officiellement par le ministre Gwede Mantashe le 23 mai 2025. Elle opère provisoirement sous le CEF Act et la loi PFMA dans l'attente de l'adoption du National Petroleum Company Bill.",
+      "en": "South Africa's new national petroleum company, a CEF subsidiary formed from the merger of iGas, the Strategic Fuel Fund and the viable operations of PetroSA (trading division and Ghana asset). Approved to operate in September 2024, it went live on 1 May 2025 with about 420 employees and was officially launched by Minister Gwede Mantashe on 23 May 2025. It operates on an interim basis under the CEF Act and the PFMA pending passage of the National Petroleum Company Bill."
+    },
+    "source": {
+      "name": "Parliament of RSA – New State Petroleum Company starts its work; SAnews.gov.za",
+      "url": "https://www.parliament.gov.za/news/new-state-petroleum-company-starts-its-work-committee-calls-urgent-tabling-national-petroleum-bill"
+    },
+    "confidence": "high",
+    "notes": "Status verified: operational since May 2025; the enabling Bill was approved by Cabinet in Oct 2024 but not yet tabled in Parliament at the time of the source. Website sanpc.co.za is only a domain-reservation page. Headquarters not confirmed on official pages (interim management sits at PetroSA Parow and CEF Sandton); coordinates in other datasets use CEF Sandton address."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "SFF",
+    "name": "Strategic Fuel Fund Association",
+    "founded": null,
+    "type": "fund",
+    "headquarters": "Sandton, Johannesburg",
+    "website": "https://www.sffsa.co.za/",
+    "description": {
+      "fr": "Association à but non lucratif filiale de CEF chargée de la gestion des stocks stratégiques de pétrole brut de l'Afrique du Sud et de leurs installations de stockage, notamment le parc de réservoirs de Saldanha Bay et le site de Milnerton. Ses activités ont été intégrées à la SANPC en 2025 selon un modèle de location et de cession d'actifs.",
+      "en": "Not-for-profit CEF subsidiary responsible for managing South Africa's strategic crude oil stocks and their storage facilities, notably the Saldanha Bay tank farm and the Milnerton site. Its operations were folded into SANPC in 2025 under a lease-and-assign asset model."
+    },
+    "source": {
+      "name": "CEF Group – official site (subsidiaries); Parliament of RSA",
+      "url": "https://www.cefgroup.co.za/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not confirmed on official pages (secondary sources cite 1964); sffsa.co.za did not resolve during this session. Non-profit (section 21) status noted in SA government material on the SANPC merger."
+  },
+  {
+    "country": "ZAF",
+    "acronym": "Transnet Pipelines",
+    "name": "Transnet Pipelines (division of Transnet SOC Ltd)",
+    "founded": null,
+    "type": "downstream",
+    "headquarters": "Durban",
+    "website": "https://www.transnet.net/",
+    "description": {
+      "fr": "Division de l'entreprise publique de logistique Transnet SOC Ltd, chargée du transport par pipeline des produits pétroliers raffinés, du brut et du gaz méthane-riche entre les ports (Durban) et l'intérieur du pays (Gauteng). Elle exploite notamment le New Multi-Product Pipeline Durban–Johannesburg et est régulée par la NERSA.",
+      "en": "Division of the state-owned logistics company Transnet SOC Ltd responsible for pipeline transport of refined petroleum products, crude oil and methane-rich gas between the coast (Durban) and the inland market (Gauteng). It operates the New Multi-Product Pipeline Durban–Johannesburg and is regulated by NERSA."
+    },
+    "source": {
+      "name": "Transnet SOC Ltd – official site (divisions)",
+      "url": "https://www.transnet.net/"
+    },
+    "confidence": "medium",
+    "notes": "The dedicated Pipelines division page could not be retrieved (site redirects to error page); founding year of the division (formerly Petronet) and network length not verified, hence null. Durban headquarters from Transnet reporting."
+  }
+]

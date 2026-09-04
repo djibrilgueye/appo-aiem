@@ -1,0 +1,902 @@
+[
+  {
+    "country": "DZA",
+    "name": "Algeria",
+    "capital": "Algiers",
+    "currency": "Algerian dinar (DZD)",
+    "independence": "1962-07-05",
+    "population": {
+      "2021": 44761099,
+      "2022": 45477389,
+      "2023": 46164219,
+      "2024": 46814308
+    },
+    "gdpBnUsd": {
+      "2021": 186.231,
+      "2022": 225.582,
+      "2023": 247.924,
+      "2024": 269.322,
+      "2025": 285.724,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'Algérie est la plus grande économie du Maghreb et un producteur majeur de gaz naturel et de pétrole. Selon la Banque mondiale, les hydrocarbures ont représenté en moyenne 13 % du PIB, 83 % des exportations et 46 % des recettes budgétaires sur 2020–2024. La croissance a atteint 4,1 % en 2023, portée par l'investissement public et la consommation des ménages.",
+      "en": "Algeria is the largest economy in the Maghreb and a major producer of natural gas and crude oil. According to the World Bank, hydrocarbons accounted on average for 13% of GDP, 83% of exports and 46% of budget revenues over 2020–2024. Growth reached 4.1% in 2023, driven by public investment and household consumption."
+    },
+    "flagEmoji": "🇩🇿",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=DZA"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=DZA",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/DZA"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/algeria/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 185.85,
+      "2022": 225.709,
+      "2023": 248.087,
+      "2024": 269.14,
+      "2025": 285.724
+    }
+  },
+  {
+    "country": "AGO",
+    "name": "Angola",
+    "capital": "Luanda",
+    "currency": "Angolan kwanza (AOA)",
+    "independence": "1975-11-11",
+    "population": {
+      "2021": 34532429,
+      "2022": 35635029,
+      "2023": 36749906,
+      "2024": 37885849
+    },
+    "gdpBnUsd": {
+      "2021": 78.284,
+      "2022": 128.234,
+      "2023": 106.042,
+      "2024": 103.081,
+      "2025": 141.728,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'Angola est l'un des deux premiers producteurs de pétrole brut d'Afrique subsaharienne. Selon la Banque mondiale, le pétrole représente environ 20 % du PIB, 60 % des recettes fiscales et 95 % des exportations. Après la récession de 2016–2020, la croissance a repris en 2021 mais reste sensible aux cours du brut (3,1 % en 2025).",
+      "en": "Angola is one of the two largest crude oil producers in Sub-Saharan Africa. According to the World Bank, oil accounts for around 20% of GDP, 60% of government tax revenues and 95% of exports. After the 2016–2020 recession, growth resumed in 2021 but remains sensitive to oil prices (3.1% in 2025)."
+    },
+    "flagEmoji": "🇦🇴",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=AGO"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=AGO",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/AGO"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/angola/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "IMF WEO nominal USD GDP for AGO differs materially from WB (IMF 119.6 bn vs WB 103.1 bn for 2024) due to exchange-rate treatment; WB series retained for 2021–2024 and IMF for 2025.",
+    "gdpImfWeoBnUsd": {
+      "2021": 83.022,
+      "2022": 139.171,
+      "2023": 113.135,
+      "2024": 119.574,
+      "2025": 141.728
+    }
+  },
+  {
+    "country": "BEN",
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "currency": "West African CFA franc (XOF)",
+    "independence": "1960-08-01",
+    "population": {
+      "2021": 13413417,
+      "2022": 13759501,
+      "2023": 14111034,
+      "2024": 14462724
+    },
+    "gdpBnUsd": {
+      "2021": 17.688,
+      "2022": 17.425,
+      "2023": 19.673,
+      "2024": 21.483,
+      "2025": 24.382,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'économie béninoise repose sur les services (commerce, transport, port de Cotonou), l'agriculture (coton) et une industrie en développement. La croissance est restée robuste, à 7,5 % en 2024 et environ 8 % sur les trois premiers trimestres de 2025 selon la Banque mondiale. Le pays est un producteur marginal d'hydrocarbures (champ offshore de Sèmè) et accueille le terminal d'exportation du pipeline Niger–Bénin.",
+      "en": "Benin's economy is driven by services (trade, transport, the port of Cotonou), agriculture (cotton) and a growing industrial base. Growth remained robust at 7.5% in 2024 and about 8% over the first three quarters of 2025 according to the World Bank. The country is a marginal hydrocarbon producer (Sèmè offshore field) and hosts the export terminal of the Niger–Benin pipeline."
+    },
+    "flagEmoji": "🇧🇯",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=BEN"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=BEN",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/BEN"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/benin/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "Porto-Novo is the constitutional capital; Cotonou is the seat of government and economic capital.",
+    "gdpImfWeoBnUsd": {
+      "2021": 17.699,
+      "2022": 17.439,
+      "2023": 19.679,
+      "2024": 21.487,
+      "2025": 24.382
+    }
+  },
+  {
+    "country": "CMR",
+    "name": "Cameroon",
+    "capital": "Yaoundé",
+    "currency": "Central African CFA franc (XAF)",
+    "independence": "1960-01-01",
+    "population": {
+      "2021": 26915758,
+      "2022": 27632771,
+      "2023": 28372687,
+      "2024": 29123744
+    },
+    "gdpBnUsd": {
+      "2021": 45.012,
+      "2022": 44.347,
+      "2023": 48.815,
+      "2024": 53.297,
+      "2025": 59.282,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Cameroun dispose de l'économie la plus diversifiée de la CEMAC (agriculture, industrie, services) et est un producteur de pétrole et de gaz en déclin structurel. La Banque mondiale note que les exportations sont passées de 19,1 % du PIB en 2012 à 13,2 % en 2024, en partie du fait de la baisse de la production d'hydrocarbures. La croissance du PIB réel a atteint 3,5 % en 2024.",
+      "en": "Cameroon has the most diversified economy in CEMAC (agriculture, industry, services) and is an oil and gas producer facing structural output decline. The World Bank notes that exports fell from 19.1% of GDP in 2012 to 13.2% in 2024, partly reflecting declining hydrocarbon production. Real GDP growth reached 3.5% in 2024."
+    },
+    "flagEmoji": "🇨🇲",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CMR"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=CMR",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/CMR"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/cameroon/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 45.036,
+      "2022": 44.442,
+      "2023": 48.822,
+      "2024": 53.308,
+      "2025": 59.282
+    }
+  },
+  {
+    "country": "TCD",
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "currency": "Central African CFA franc (XAF)",
+    "independence": "1960-08-11",
+    "population": {
+      "2021": 17828273,
+      "2022": 18455316,
+      "2023": 19319064,
+      "2024": 20299123
+    },
+    "gdpBnUsd": {
+      "2021": 16.872,
+      "2022": 17.829,
+      "2023": 18.353,
+      "2024": 19.907,
+      "2025": 22.092,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Tchad est un producteur de pétrole enclavé dont le brut est exporté via l'oléoduc Tchad–Cameroun. Selon la Banque mondiale, le pétrole représente environ 15 % du PIB, 41 % des recettes publiques et 76 % des exportations. La croissance est projetée à 3,4 % en 2025, tirée par le secteur non pétrolier.",
+      "en": "Chad is a landlocked oil producer whose crude is exported through the Chad–Cameroon pipeline. According to the World Bank, petroleum represents around 15% of GDP, 41% of government revenues and 76% of exports. Growth is projected at 3.4% in 2025, driven by the non-oil sector."
+    },
+    "flagEmoji": "🇹🇩",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=TCD"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=TCD",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/TCD"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/chad/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 16.975,
+      "2022": 18.052,
+      "2023": 18.638,
+      "2024": 20.656,
+      "2025": 22.092
+    }
+  },
+  {
+    "country": "COD",
+    "name": "DR Congo",
+    "capital": "Kinshasa",
+    "currency": "Congolese franc (CDF)",
+    "independence": "1960-06-30",
+    "population": {
+      "2021": 99148932,
+      "2022": 102396968,
+      "2023": 105789731,
+      "2024": 109276265
+    },
+    "gdpBnUsd": {
+      "2021": 59.067,
+      "2022": 70.422,
+      "2023": 69.844,
+      "2024": 75.716,
+      "2025": 92.833,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "La République démocratique du Congo est une économie dominée par le secteur minier (cuivre, cobalt), qui tire les exportations et la croissance (PIB réel +5,5 % en 2025 selon la Banque mondiale). La production pétrolière est modeste et concentrée sur le littoral atlantique (Muanda), tandis que le pays cherche à valoriser ses bassins sédimentaires et le gaz méthane du lac Kivu.",
+      "en": "The Democratic Republic of Congo is a mining-driven economy (copper, cobalt) whose exports and growth (real GDP +5.5% in 2025 according to the World Bank) depend on the mining sector. Oil production is modest and concentrated on the Atlantic coast (Muanda), while the country seeks to develop its sedimentary basins and Lake Kivu methane gas."
+    },
+    "flagEmoji": "🇨🇩",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=COD"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=COD",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/COD"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/drc/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 59.068,
+      "2022": 70.422,
+      "2023": 69.844,
+      "2024": 76.731,
+      "2025": 92.833
+    }
+  },
+  {
+    "country": "COG",
+    "name": "Republic of Congo",
+    "capital": "Brazzaville",
+    "currency": "Central African CFA franc (XAF)",
+    "independence": "1960-08-15",
+    "population": {
+      "2021": 5892183,
+      "2022": 6035104,
+      "2023": 6182885,
+      "2024": 6332961
+    },
+    "gdpBnUsd": {
+      "2021": 14.826,
+      "2022": 15.817,
+      "2023": 15.321,
+      "2024": 15.72,
+      "2025": 15.592,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "La République du Congo est le troisième producteur de pétrole d'Afrique subsaharienne. Selon la Banque mondiale, le secteur pétrolier représente environ la moitié du PIB et 80 % des exportations. Le PIB réel a progressé d'environ 3,1 % en 2025, avec des gains dans les secteurs pétrolier et non pétrolier.",
+      "en": "The Republic of Congo is the third largest oil producer in Sub-Saharan Africa. According to the World Bank, the oil sector accounts for about half of GDP and 80% of exports. Real GDP expanded by an estimated 3.1% in 2025, with gains across oil and non-oil sectors."
+    },
+    "flagEmoji": "🇨🇬",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=COG"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=COG",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/COG"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/congo/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "IMF WEO nominal USD GDP for COG (14.8 bn 2024) is lower than WB (15.7 bn); WB series retained for 2021–2024.",
+    "gdpImfWeoBnUsd": {
+      "2021": 13.387,
+      "2022": 13.967,
+      "2023": 14.169,
+      "2024": 14.774,
+      "2025": 15.592
+    }
+  },
+  {
+    "country": "CIV",
+    "name": "Côte d'Ivoire",
+    "capital": "Yamoussoukro",
+    "currency": "West African CFA franc (XOF)",
+    "independence": "1960-08-07",
+    "population": {
+      "2021": 29639736,
+      "2022": 30395002,
+      "2023": 31165654,
+      "2024": 31934230
+    },
+    "gdpBnUsd": {
+      "2021": 72.795,
+      "2022": 70.923,
+      "2023": 80.78,
+      "2024": 87.113,
+      "2025": 98.885,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "La Côte d'Ivoire est la première économie de l'UEMOA et le premier producteur mondial de cacao, avec une croissance de 6 % en 2024 selon la Banque mondiale. Producteur de pétrole et de gaz de taille moyenne, le pays connaît un regain d'activité avec le développement du champ Baleine, la croissance étant projetée à 6,2 % en 2025 grâce aux hydrocarbures, aux services et à l'investissement privé.",
+      "en": "Côte d'Ivoire is the largest economy in WAEMU and the world's leading cocoa producer, with growth of 6% in 2024 according to the World Bank. A mid-sized oil and gas producer, the country is seeing renewed upstream activity with the Baleine field; growth is projected at 6.2% in 2025 driven by hydrocarbons, services and private investment."
+    },
+    "flagEmoji": "🇨🇮",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CIV"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=CIV",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/CIV"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/cotedivoire/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "Yamoussoukro is the political capital; Abidjan is the economic capital and seat of most institutions.",
+    "gdpImfWeoBnUsd": {
+      "2021": 72.833,
+      "2022": 71.075,
+      "2023": 80.792,
+      "2024": 87.132,
+      "2025": 98.885
+    }
+  },
+  {
+    "country": "EGY",
+    "name": "Egypt",
+    "capital": "Cairo",
+    "currency": "Egyptian pound (EGP)",
+    "independence": "1922-02-28",
+    "population": {
+      "2021": 110957008,
+      "2022": 112618250,
+      "2023": 114535772,
+      "2024": 116538258
+    },
+    "gdpBnUsd": {
+      "2021": 424.672,
+      "2022": 476.748,
+      "2023": 395.926,
+      "2024": 389.06,
+      "2025": 364.64,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'Égypte est une économie diversifiée, adossée à l'agriculture, l'industrie manufacturière et les services, ainsi qu'au canal de Suez. C'est un producteur majeur de gaz naturel (champ Zohr) et un pôle régional de raffinage et de GNL. Selon la Banque mondiale, la croissance du PIB réel a atteint 5,3 % au premier semestre de l'exercice 2025/26, le secteur extractif restant freiné par les arriérés dus aux opérateurs.",
+      "en": "Egypt is a diversified economy anchored by agriculture, manufacturing and services, as well as the Suez Canal. It is a major natural gas producer (Zohr field) and a regional refining and LNG hub. According to the World Bank, real GDP growth reached 5.3% in the first half of FY2025/26, while the extractive sector remained constrained by arrears owed to operators."
+    },
+    "flagEmoji": "🇪🇬",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=EGY"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=EGY",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/EGY"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/egypt/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "Independence date is the UK declaration of 28 Feb 1922; Republic proclaimed 18 June 1953.",
+    "gdpImfWeoBnUsd": {
+      "2021": 423.3,
+      "2022": 475.231,
+      "2023": 393.828,
+      "2024": 383.105,
+      "2025": 364.64
+    }
+  },
+  {
+    "country": "GNQ",
+    "name": "Equatorial Guinea",
+    "capital": "Malabo",
+    "currency": "Central African CFA franc (XAF)",
+    "independence": "1968-10-12",
+    "population": {
+      "2021": 1758786,
+      "2022": 1803545,
+      "2023": 1847549,
+      "2024": 1892516
+    },
+    "gdpBnUsd": {
+      "2021": 12.216,
+      "2022": 13.688,
+      "2023": 12.542,
+      "2024": 13.254,
+      "2025": 12.484,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "La Guinée équatoriale est une économie fortement dépendante des hydrocarbures (pétrole, GNL de Punta Europa). Selon la Banque mondiale, l'économie a reculé sur la dernière décennie en raison de la baisse de la production pétrolière, et s'est contractée de 5,4 % en 2025 après une croissance de 0,4 % en 2024. Le pays cherche à monétiser son gaz et à diversifier son économie.",
+      "en": "Equatorial Guinea is an economy heavily dependent on hydrocarbons (oil, Punta Europa LNG). According to the World Bank, the economy has declined over the past decade due to reduced oil output, contracting by 5.4% in 2025 after 0.4% growth in 2024. The country is seeking to monetise its gas resources and diversify its economy."
+    },
+    "flagEmoji": "🇬🇶",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GNQ"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=GNQ",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/GNQ"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/equatorialguinea/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "Malabo is the capital; Ciudad de la Paz (Djibloho) is the planned future capital. IMF population series differs from WB (IMF 1.64 mn 2025 vs WB 1.89 mn 2024).",
+    "gdpImfWeoBnUsd": {
+      "2021": 12.222,
+      "2022": 13.717,
+      "2023": 12.339,
+      "2024": 12.769,
+      "2025": 12.484
+    }
+  },
+  {
+    "country": "GAB",
+    "name": "Gabon",
+    "capital": "Libreville",
+    "currency": "Central African CFA franc (XAF)",
+    "independence": "1960-08-17",
+    "population": {
+      "2021": 2376722,
+      "2022": 2430747,
+      "2023": 2484789,
+      "2024": 2538952
+    },
+    "gdpBnUsd": {
+      "2021": 19.445,
+      "2022": 20.441,
+      "2023": 19.388,
+      "2024": 20.896,
+      "2025": 21.624,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Gabon est un producteur pétrolier historique d'Afrique centrale dont les recettes publiques restent fortement liées au pétrole. Selon la Banque mondiale, la croissance s'est accélérée à 3,4 % en 2024 (2,4 % en 2023), portée par les grands projets d'infrastructure et la hausse de l'extraction pétrolière. À moyen terme, le pays mise sur le manganèse, le bois et le fer pour compenser l'épuisement progressif des réserves.",
+      "en": "Gabon is a long-standing Central African oil producer whose public revenues remain closely tied to oil. According to the World Bank, growth accelerated to 3.4% in 2024 (2.4% in 2023), driven by large infrastructure projects and increased petroleum extraction. Over the medium term the country is banking on manganese, timber and iron ore to offset gradually depleting reserves."
+    },
+    "flagEmoji": "🇬🇦",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GAB"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=GAB",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/GAB"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/gabon/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 19.455,
+      "2022": 20.485,
+      "2023": 20.059,
+      "2024": 20.9,
+      "2025": 21.624
+    }
+  },
+  {
+    "country": "GHA",
+    "name": "Ghana",
+    "capital": "Accra",
+    "currency": "Ghanaian cedi (GHS)",
+    "independence": "1957-03-06",
+    "population": {
+      "2021": 32518665,
+      "2022": 33149152,
+      "2023": 33787914,
+      "2024": 34427414
+    },
+    "gdpBnUsd": {
+      "2021": 79.514,
+      "2022": 73.919,
+      "2023": 80.547,
+      "2024": 83.289,
+      "2025": 114.708,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Ghana, pays à revenu intermédiaire depuis 2011, est un exportateur d'or, de cacao et de pétrole (champs Jubilee, TEN, Sankofa). Après la crise de la dette de 2022, le PIB réel a progressé de 5,8 % en 2024 et de 6 % en 2025 selon la Banque mondiale. La mise en production du champ Pecan devrait soutenir une croissance projetée à 5,1 % en 2026.",
+      "en": "Ghana, a middle-income country since 2011, exports gold, cocoa and oil (Jubilee, TEN and Sankofa fields). After the 2022 debt crisis, real GDP grew by 5.8% in 2024 and 6% in 2025 according to the World Bank. First production from the Pecan field is expected to support growth projected at 5.1% in 2026."
+    },
+    "flagEmoji": "🇬🇭",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GHA"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=GHA",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/GHA"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/ghana/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 79.514,
+      "2022": 73.919,
+      "2023": 80.547,
+      "2024": 83.289,
+      "2025": 114.708
+    }
+  },
+  {
+    "country": "LBY",
+    "name": "Libya",
+    "capital": "Tripoli",
+    "currency": "Libyan dinar (LYD)",
+    "independence": "1951-12-24",
+    "population": {
+      "2021": 7135175,
+      "2022": 7223805,
+      "2023": 7305659,
+      "2024": 7381023
+    },
+    "gdpBnUsd": {
+      "2021": 35.218,
+      "2022": 43.246,
+      "2023": 44.028,
+      "2024": 48.487,
+      "2025": 44.732,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "La Libye détient les plus grandes réserves prouvées de pétrole d'Afrique et son économie est dominée par les hydrocarbures. Selon la Banque mondiale, le secteur pétrolier et gazier a représenté 65 % du PIB, 93 % des exportations et 72 % des recettes en 2024. Après une contraction en 2024, le PIB réel devait rebondir de 13,3 % en 2025, porté par une hausse de 17,4 % de l'activité pétrolière.",
+      "en": "Libya holds Africa's largest proven oil reserves and its economy is dominated by hydrocarbons. According to the World Bank, the oil and gas sector accounted for 65% of GDP, 93% of exports and 72% of revenues in 2024. After contracting in 2024, real GDP was projected to rebound by 13.3% in 2025, driven by a 17.4% surge in oil sector activity."
+    },
+    "flagEmoji": "🇱🇾",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=LBY"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=LBY",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/LBY"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/libya/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "Figures for Libya are subject to large revisions given institutional fragmentation; IMF 2025 is a projection.",
+    "gdpImfWeoBnUsd": {
+      "2021": 35.216,
+      "2022": 43.281,
+      "2023": 43.958,
+      "2024": 49.349,
+      "2025": 44.732
+    }
+  },
+  {
+    "country": "NAM",
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "currency": "Namibian dollar (NAD)",
+    "independence": "1990-03-21",
+    "population": {
+      "2021": 2810548,
+      "2022": 2889662,
+      "2023": 2963095,
+      "2024": 3030131
+    },
+    "gdpBnUsd": {
+      "2021": 12.402,
+      "2022": 12.569,
+      "2023": 12.522,
+      "2024": 13.641,
+      "2025": 14.826,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'économie namibienne reste peu diversifiée et fortement dépendante du secteur minier (diamants, uranium), qui tire les exportations et les recettes publiques. La croissance a ralenti à 2,8 % en 2025 (3,7 % en 2024) selon la Banque mondiale. Les découvertes pétrolières majeures du bassin d'Orange (depuis 2022) placent le pays parmi les futures provinces productrices d'Afrique.",
+      "en": "Namibia's economy remains relatively undiversified and heavily dependent on mining (diamonds, uranium), which drives exports and fiscal revenues. Growth slowed to 2.8% in 2025 (3.7% in 2024) according to the World Bank. Major oil discoveries in the Orange Basin (since 2022) position the country as one of Africa's future producing provinces."
+    },
+    "flagEmoji": "🇳🇦",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NAM"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NAM",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/NAM"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/namibia/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "",
+    "gdpImfWeoBnUsd": {
+      "2021": 12.399,
+      "2022": 12.564,
+      "2023": 12.402,
+      "2024": 13.37,
+      "2025": 14.826
+    }
+  },
+  {
+    "country": "NER",
+    "name": "Niger",
+    "capital": "Niamey",
+    "currency": "West African CFA franc (XOF)",
+    "independence": "1960-08-03",
+    "population": {
+      "2021": 24502140,
+      "2022": 25311973,
+      "2023": 26159867,
+      "2024": 27032412
+    },
+    "gdpBnUsd": {
+      "2021": 14.936,
+      "2022": 15.532,
+      "2023": 16.95,
+      "2024": 19.73,
+      "2025": 21.836,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Niger est une économie sahélienne agro-pastorale et minière (uranium) devenue exportateur de pétrole avec l'oléoduc Niger–Bénin (2024). Selon la Banque mondiale, la croissance de 2025 est tirée par la hausse de la production pétrolière à 28 millions de barils, et devrait atteindre en moyenne 6,7 % en 2026–2027 à mesure que la production approche sa pleine capacité.",
+      "en": "Niger is a Sahelian agro-pastoral and mining (uranium) economy that became an oil exporter with the Niger–Benin pipeline (2024). According to the World Bank, growth in 2025 is driven by a rise in oil output to 28 million barrels, and is projected to average 6.7% in 2026–2027 as production nears full capacity."
+    },
+    "flagEmoji": "🇳🇪",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NER"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NER",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/NER"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/niger/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "IMF population series (28.1 mn 2024) is higher than WB (27.0 mn); WB series retained.",
+    "gdpImfWeoBnUsd": {
+      "2021": 14.923,
+      "2022": 15.458,
+      "2023": 16.809,
+      "2024": 19.866,
+      "2025": 21.836
+    }
+  },
+  {
+    "country": "NGA",
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "currency": "Nigerian naira (NGN)",
+    "independence": "1960-10-01",
+    "population": {
+      "2021": 218529286,
+      "2022": 223150896,
+      "2023": 227882945,
+      "2024": 232679478
+    },
+    "gdpBnUsd": {
+      "2021": 609.148,
+      "2022": 646.95,
+      "2023": 487.388,
+      "2024": 252.262,
+      "2025": 290.491,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Nigéria est le pays le plus peuplé d'Afrique et l'un de ses premiers producteurs de pétrole et de gaz. Le PIB en dollars a fortement reculé en 2023–2024 avec la dévaluation du naira, malgré le rebasage des comptes nationaux en 2025. Selon la Banque mondiale, la croissance s'est maintenue à 4 % en 2025, portée par les services, et les recettes pétrolières ont soutenu un excédent courant de 4,8 % du PIB.",
+      "en": "Nigeria is Africa's most populous country and one of its leading oil and gas producers. Dollar GDP fell sharply in 2023–2024 with the naira devaluation, notwithstanding the 2025 rebasing of national accounts. According to the World Bank, growth held steady at 4% in 2025, driven by services, while oil export receipts supported a current-account surplus of 4.8% of GDP."
+    },
+    "flagEmoji": "🇳🇬",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NGA"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NGA",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/NGA"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/nigeria/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "World Bank/IMF USD GDP for 2024 reflects the naira devaluation; NBS rebased GDP (2019 base) in July 2025, which the WB/IMF series now incorporates. IMF 2025 figure is a WEO projection.",
+    "gdpImfWeoBnUsd": {
+      "2021": 609.479,
+      "2022": 645.682,
+      "2023": 487.347,
+      "2024": 252.109,
+      "2025": 290.491
+    }
+  },
+  {
+    "country": "SEN",
+    "name": "Senegal",
+    "capital": "Dakar",
+    "currency": "West African CFA franc (XOF)",
+    "independence": "1960-04-04",
+    "population": {
+      "2021": 17220867,
+      "2022": 17651103,
+      "2023": 18077573,
+      "2024": 18501984
+    },
+    "gdpBnUsd": {
+      "2021": 27.521,
+      "2022": 27.783,
+      "2023": 30.696,
+      "2024": 32.17,
+      "2025": 37.116,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "Le Sénégal est devenu producteur de pétrole et de gaz en 2024 avec la mise en production du champ Sangomar et du projet GNL Grand Tortue Ahmeyim (GTA). Selon la Banque mondiale, l'économie a progressé de 6,1 % en 2024, portée par les nouvelles productions d'hydrocarbures, tandis que la croissance hors pétrole a ralenti à 3,5 %. Les hydrocarbures devraient continuer à soutenir la croissance en 2025.",
+      "en": "Senegal became an oil and gas producer in 2024 with first output from the Sangomar field and the Greater Tortue Ahmeyim (GTA) LNG project. According to the World Bank, the economy grew 6.1% in 2024, driven by new hydrocarbon production, while non-oil growth slowed to 3.5%. Hydrocarbons are expected to keep boosting growth in 2025."
+    },
+    "flagEmoji": "🇸🇳",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SEN"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=SEN",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/SEN"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/senegal/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "4 April 1960 = independence from France (within the Mali Federation, dissolved 20 Aug 1960); 4 April is the national day.",
+    "gdpImfWeoBnUsd": {
+      "2021": 27.535,
+      "2022": 27.843,
+      "2023": 30.701,
+      "2024": 32.829,
+      "2025": 37.116
+    }
+  },
+  {
+    "country": "ZAF",
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "currency": "South African rand (ZAR)",
+    "independence": "1910-05-31",
+    "population": {
+      "2021": 61502603,
+      "2022": 62378410,
+      "2023": 63212384,
+      "2024": 64007187
+    },
+    "gdpBnUsd": {
+      "2021": 419.986,
+      "2022": 407.596,
+      "2023": 381.441,
+      "2024": 401.145,
+      "2025": 427.141,
+      "2025_flag": "IMF WEO April 2026 projection (DataMapper NGDPD, last modified 2026-04-08); not a World Bank actual"
+    },
+    "economyDesc": {
+      "fr": "L'Afrique du Sud possède l'une des bases productives les plus diversifiées du continent (mines, agriculture, industrie, services) mais connaît une croissance faible (0,7 % par an sur la dernière décennie selon la Banque mondiale). Le pays est un importateur net de pétrole, dispose d'une industrie de carburants synthétiques (Sasol, PetroSA) et voit son économie contrainte par la sécurité électrique, le facteur de disponibilité d'Eskom étant passé de 55 % en 2023 à 63 % en 2024.",
+      "en": "South Africa has one of the continent's most diversified production bases (mining, agriculture, manufacturing, services) but low growth (0.7% a year over the past decade according to the World Bank). The country is a net oil importer with a synthetic-fuels industry (Sasol, PetroSA) and its economy is constrained by electricity security, Eskom's energy availability factor having risen from 55% in 2023 to 63% in 2024."
+    },
+    "flagEmoji": "🇿🇦",
+    "source": {
+      "population": {
+        "name": "World Bank WDI SP.POP.TOTL (API, last updated 2026-07-13)",
+        "url": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ZAF"
+      },
+      "gdp": {
+        "name": "World Bank WDI NY.GDP.MKTP.CD (2021–2024, current US$; API last updated 2026-07-13); IMF WEO April 2026 (DataMapper NGDPD, 2025 projection)",
+        "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=ZAF",
+        "urlImf": "https://www.imf.org/external/datamapper/NGDPD@WEO/ZAF"
+      },
+      "other": {
+        "name": "World Bank country overview (economy narrative); UN Statistics / CIA World Factbook as locator for capital, currency, independence date",
+        "url": "https://www.worldbank.org/en/country/southafrica/overview"
+      }
+    },
+    "confidence": "high",
+    "notes": "31 May 1910 = Union of South Africa (self-governing dominion); Republic on 31 May 1961. Pretoria is the executive capital (Cape Town legislative, Bloemfontein judicial).",
+    "gdpImfWeoBnUsd": {
+      "2021": 419.878,
+      "2022": 407.43,
+      "2023": 381.334,
+      "2024": 401.076,
+      "2025": 427.141
+    }
+  }
+]

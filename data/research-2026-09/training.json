@@ -1,0 +1,1730 @@
+[
+  {
+    "country": "DZA",
+    "name": "Centre de Perfectionnement de l'Entreprise (CPE) – Sonatrach",
+    "city": null,
+    "lat": null,
+    "lon": null,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Management et ressources humaines, techniques financières et commerciales, informatique, management QHSE",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "Ministère de l'Énergie – Les instituts de formation",
+      "url": "https://www.oilmines.gov.dz/?article=les-instituts-de-formation"
+    },
+    "confidence": "low",
+    "notes": "Named on the Ministry page as a Sonatrach training centre; location and founding year not given."
+  },
+  {
+    "country": "DZA",
+    "name": "IAP – École d'Arzew",
+    "city": "Arzew",
+    "lat": 35.8563,
+    "lon": -0.3137,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Formation aval (raffinage, GNL, pétrochimie) et HSE pour la zone industrielle d'Arzew",
+    "website": "https://sonatrach.com/en/algerien-institute-of-petroleum/",
+    "status": "operational",
+    "source": {
+      "name": "Ministère de l'Énergie – Les instituts de formation",
+      "url": "https://www.oilmines.gov.dz/?article=les-instituts-de-formation"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre); branch creation year not stated."
+  },
+  {
+    "country": "DZA",
+    "name": "IAP – École de Hassi Messaoud",
+    "city": "Hassi Messaoud",
+    "lat": 31.6957,
+    "lon": 6.0604,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Formation amont (forage, production, réservoir, maintenance) au cœur du bassin de Hassi Messaoud",
+    "website": "https://sonatrach.com/en/algerien-institute-of-petroleum/",
+    "status": "operational",
+    "source": {
+      "name": "Ministère de l'Énergie – Les instituts de formation",
+      "url": "https://www.oilmines.gov.dz/?article=les-instituts-de-formation"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre); branch creation year not stated."
+  },
+  {
+    "country": "DZA",
+    "name": "IAP – École de Skikda",
+    "city": "Skikda",
+    "lat": 36.8801,
+    "lon": 6.9077,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Formation aval (raffinage, GNL, pétrochimie), HSE; hôte de la 1re réunion du Forum APPO des instituts de formation (juin 2023)",
+    "website": "https://sonatrach.com/en/algerien-institute-of-petroleum/",
+    "status": "operational",
+    "source": {
+      "name": "APPO – Forum of Directors of O&G Training Institutes",
+      "url": "https://apposecretariat.org/what-you-need-to-know-about-the-appo-forum-of-directors-of-oil-and-gas-training-institutes-ce-que-vous-devez-savoir-sur-le-forum-des-directeurs-dinstituts-de-formation-dans-le-secteur-petrolier-e/"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre); branch creation year not stated."
+  },
+  {
+    "country": "DZA",
+    "name": "Institut Algérien du Pétrole (IAP) – Corporate University, siège de Boumerdès",
+    "city": "Boumerdès",
+    "lat": 36.7598,
+    "lon": 3.4709,
+    "type": "NOC academy",
+    "founded": 1965,
+    "programs": "Formation spécialisée et diplômante amont/aval (ingénieurs spécialisés, post-graduation spécialisée, Magister, MSc depuis 1986), génie électrique, mines, économie pétrolière, HSE, management; capacité 1 600 places sur 4 sites",
+    "website": "https://sonatrach.com/en/algerien-institute-of-petroleum/",
+    "status": "operational",
+    "source": {
+      "name": "SONATRACH – Institut Algérien du Pétrole",
+      "url": "https://sonatrach.com/en/algerien-institute-of-petroleum/"
+    },
+    "confidence": "high",
+    "notes": "Created 29 Nov 1965 (with IFP). Referred to as IAP-CU (Corporate University) by the Ministry of Energy. IAP hosted the inaugural APPO Forum of Directors of O&G Training Institutes (Skikda, 21–22 June 2023); its director chaired the Forum. Coordinates from OSM object 'Institut algérien du Pétrole'."
+  },
+  {
+    "country": "DZA",
+    "name": "Institut de Formation en Électricité et Gaz (IFEG) – Sonelgaz",
+    "city": "Algiers (Ben Aknoun)",
+    "lat": 36.7565,
+    "lon": 3.0084,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "Production/transport/distribution d'électricité, transport et distribution du gaz, travaux électriques et gaziers, énergies renouvelables, qualification professionnelle (sites de Ben Aknoun, Aïn M'lila, école technique de Blida)",
+    "website": "https://www.sonelgaz.dz/fr/category/nos-ecoles",
+    "status": "operational",
+    "source": {
+      "name": "Ministère de l'Énergie – Les instituts de formation",
+      "url": "https://www.oilmines.gov.dz/?article=les-instituts-de-formation"
+    },
+    "confidence": "medium",
+    "notes": "ifeg.dz did not resolve. Sonelgaz's current 'Nos écoles' page presents the network as Sonelgaz-Services schools (EFGB Ben Aknoun, EMEB Blida, EMGA Aïn M'lila, EMPEG Ghardaïa, EMEGA Adrar), suggesting IFEG was reorganised; founding year not stated."
+  },
+  {
+    "country": "DZA",
+    "name": "Université Kasdi Merbah Ouargla – Faculté des Hydrocarbures, des Énergies Renouvelables et des Sciences de la Terre et de l'Univers",
+    "city": "Ouargla",
+    "lat": 31.95,
+    "lon": 5.33,
+    "type": "university",
+    "founded": 1988,
+    "programs": "Licence/Master/Doctorat en production, forage, génie pétrolier, géologie pétrolière, énergies renouvelables",
+    "website": "https://fherstu.univ-ouargla.dz/",
+    "status": "operational",
+    "source": {
+      "name": "Université Kasdi Merbah Ouargla – site officiel",
+      "url": "https://www.univ-ouargla.dz/"
+    },
+    "confidence": "medium",
+    "notes": "'founded' = university origin (1988 as ENS; named Université Kasdi Merbah on 5 Sept 2005). Faculty site returned 404 at fetch time. coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "Université M'Hamed Bougara de Boumerdès – Faculté des Hydrocarbures et de la Chimie (FHC)",
+    "city": "Boumerdès",
+    "lat": 36.7634,
+    "lon": 3.4773,
+    "type": "university",
+    "founded": 1998,
+    "programs": "6 départements: génie des procédés chimiques et pharmaceutiques; économie et commercialisation des hydrocarbures; automatisation des procédés industriels et électrification; transport et équipements des hydrocarbures; gisements miniers et pétroliers; géophysique — 12 spécialités, ~2 300 étudiants",
+    "website": "https://fhc.univ-boumerdes.dz/",
+    "status": "operational",
+    "source": {
+      "name": "FHC – site officiel",
+      "url": "https://fhc.univ-boumerdes.dz/"
+    },
+    "confidence": "high",
+    "notes": "'founded' = creation of the university (décret exécutif 98-189 du 2 juin 1998). The faculty inherits the former Institut National des Hydrocarbures (INH, 1960s) but this lineage is not stated on the fetched official pages. Address: Avenue de l'Indépendance, Boumerdès."
+  },
+  {
+    "country": "DZA",
+    "name": "École Nationale Polytechnique (ENP) d'Alger",
+    "city": "Algiers (El Harrach)",
+    "lat": 36.72,
+    "lon": 3.14,
+    "type": "university",
+    "founded": null,
+    "programs": "Ingénieur d'État: génie chimique, génie minier, hydraulique, électrotechnique, génie mécanique, maîtrise des risques industriels et environnementaux",
+    "website": "https://www.enp.edu.dz/",
+    "status": "operational",
+    "source": {
+      "name": "ENP – site officiel",
+      "url": "https://www.enp.edu.dz/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year (1925) not extracted from the official 'Histoire' page; left null. Address 10 rue des Frères Oudek, El Harrach. coordinates approximate (city centre)"
+  },
+  {
+    "country": "DZA",
+    "name": "École des Métiers de Transport et Distribution du Gaz (EMGA) – Sonelgaz-Services",
+    "city": "Aïn M'lila",
+    "lat": 36.03,
+    "lon": 6.57,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "Formation professionnelle spécialisée et perfectionnement dans le transport et la distribution du gaz",
+    "website": "https://www.sonelgaz.dz/fr/category/nos-ecoles",
+    "status": "operational",
+    "source": {
+      "name": "Sonelgaz – Nos écoles",
+      "url": "https://www.sonelgaz.dz/fr/category/nos-ecoles"
+    },
+    "confidence": "medium",
+    "notes": "coordinates approximate (city centre); founding year not stated."
+  },
+  {
+    "country": "AGO",
+    "name": "Academia Sonangol",
+    "city": "Luanda",
+    "lat": -8.8273,
+    "lon": 13.244,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Corporate training and leadership seminars for Sonangol staff",
+    "website": "https://www.sonangol.co.ao/academia-sonangol-promove-seminario-sobre-lideranca/",
+    "status": "operational",
+    "source": {
+      "name": "Sonangol – Academia Sonangol promove seminário sobre liderança (24 Nov 2024)",
+      "url": "https://www.sonangol.co.ao/academia-sonangol-promove-seminario-sobre-lideranca/"
+    },
+    "confidence": "medium",
+    "notes": "Only an official news item found; founding year and campus address not published (coordinates approximate, Luanda city centre)."
+  },
+  {
+    "country": "AGO",
+    "name": "Instituto Nacional de Petróleos (INP)",
+    "city": "Sumbe",
+    "lat": -11.1255,
+    "lon": 13.9315,
+    "type": "government institute",
+    "founded": 1983,
+    "programs": "Ensino médio técnico (Técnico de Perfuração e Produção, Geologia de Petróleos, Minas, Instrumentação, Mecânica, Electricidade), formação profissional inter/intra-empresas, formação contínua, consultoria; centro de formação em Luanda",
+    "website": "https://www.inp.gov.ao",
+    "status": "operational",
+    "source": {
+      "name": "INP – História do INP",
+      "url": "https://www.inp.gov.ao/quem-somos/historia-instituto"
+    },
+    "confidence": "high",
+    "notes": "Created by Decreto n.º 84/83 de 15 de Setembro (merger of Instituto Médio dos Petróleos and Escola Central de Petróleos, both 1979). Address Km 13 Estrada Sumbe–Porto Amboim, C.P. 240 Sumbe; under Ministério da Educação. Coordinates from OSM/Photon match of the campus (consistent with the map embedded on the official site)."
+  },
+  {
+    "country": "AGO",
+    "name": "Instituto Superior Politécnico de Tecnologias e Ciências (ISPTEC)",
+    "city": "Luanda",
+    "lat": -8.8819,
+    "lon": 13.2018,
+    "type": "private",
+    "founded": 2011,
+    "programs": "Licenciatura em Engenharia de Petróleos, Engenharia de Geofísica, Mestrado em Engenharia de Petróleos; other engineering and management degrees",
+    "website": "https://www.isptec.co.ao",
+    "status": "operational",
+    "source": {
+      "name": "ISPTEC – site oficial",
+      "url": "https://www.isptec.co.ao"
+    },
+    "confidence": "high",
+    "notes": "Official site celebrates '15 anos de história' in August 2026 (=> 2011, Executive Decree 111/11); project originated in 2005 as Sonangol's UTEC initiative (pt.wikipedia). Campus Av. Luanda Sul, Rua Lateral Via S10, Talatona."
+  },
+  {
+    "country": "AGO",
+    "name": "Universidade Agostinho Neto – Faculdade de Engenharia",
+    "city": "Luanda",
+    "lat": -8.808,
+    "lon": 13.2388,
+    "type": "university",
+    "founded": 1962,
+    "programs": "Engenharia de Petróleo (per pt.wikipedia); engineering degrees; research centres Centro de Ciências da Terra e Sustentabilidade",
+    "website": "https://www.uan.ao",
+    "status": "operational",
+    "source": {
+      "name": "Universidade Agostinho Neto",
+      "url": "https://www.uan.ao"
+    },
+    "confidence": "medium",
+    "notes": "University founding (21 Aug 1962) and petroleum programme from pt.wikipedia; official homepage confirms the Faculdade de Engenharia and research centres but not the programme list. Coordinates approximate (UAN Faculdade de Ciências campus, OSM)."
+  },
+  {
+    "country": "AGO",
+    "name": "Universidade Católica de Angola (UCAN)",
+    "city": "Luanda",
+    "lat": -8.8575,
+    "lon": 13.2819,
+    "type": "private",
+    "founded": 1999,
+    "programs": "Faculdade de Engenharia; institute for mineral resources, environment and technologies; economics/management (CEIC research centre)",
+    "website": "https://www.ucan.co.ao",
+    "status": "operational",
+    "source": {
+      "name": "UCAN – site oficial",
+      "url": "https://www.ucan.co.ao/"
+    },
+    "confidence": "medium",
+    "notes": "No dedicated petroleum-engineering programme verified on official site; included because of its engineering and mineral-resources units. Coordinates from OSM."
+  },
+  {
+    "country": "BEN",
+    "name": "Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques (UNSTIM)",
+    "city": "Abomey",
+    "lat": 7.1826,
+    "lon": 1.9912,
+    "type": "university",
+    "founded": null,
+    "programs": "Université publique à vocation technologique (unités de formation et de recherche en ingénierie, sciences et technologies, dont énergie et génie des procédés).",
+    "website": "https://unstim.bj",
+    "status": "operational",
+    "source": {
+      "name": "UNSTIM – site officiel",
+      "url": "https://unstim.bj"
+    },
+    "confidence": "medium",
+    "notes": "Site indicates about 8 years of activity (c. 2016-2018) but no creation decree; no petroleum-specific school verified. Address: Hôtel de ville, BP 486 Abomey. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "BEN",
+    "name": "Université d'Abomey-Calavi – École Polytechnique d'Abomey-Calavi (EPAC)",
+    "city": "Abomey-Calavi",
+    "lat": 6.4485,
+    "lon": 2.3556,
+    "type": "university",
+    "founded": null,
+    "programs": "Ingénieurs en génie électrique, génie mécanique et énergétique, génie chimique-procédés, génie civil; UAC compte 64 laboratoires et 9 écoles doctorales.",
+    "website": "https://epac.uac.bj",
+    "status": "operational",
+    "source": {
+      "name": "Université d'Abomey-Calavi – site officiel",
+      "url": "https://www.uac.bj"
+    },
+    "confidence": "medium",
+    "notes": "epac.uac.bj has a TLS certificate mismatch and returned no readable content; department list from institutional knowledge. EPAC founding (1977 as CPU) not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "CMR",
+    "name": "University of Buea – Faculty of Engineering and Technology (Chemical and Petroleum Engineering)",
+    "city": "Buea",
+    "lat": 4.1487,
+    "lon": 9.2865,
+    "type": "university",
+    "founded": 1993,
+    "programs": "B.Eng. Chemical and Petroleum Engineering (Dept. of Chemical and Petroleum Engineering, FET); Earth Sciences",
+    "website": "https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/chemical-and-petroleum-engineering-cpe/",
+    "status": "operational",
+    "source": {
+      "name": "University of Buea – Chemical and Petroleum Engineering (CPE)",
+      "url": "https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/chemical-and-petroleum-engineering-cpe/"
+    },
+    "confidence": "high",
+    "notes": "University centre 1985, full university 1992/1993 (official site: 'since our founding in 1993'). SNH plans a petroleum-geosciences lab at UB Earth Sciences."
+  },
+  {
+    "country": "CMR",
+    "name": "Université de Douala (Faculté de Génie Industriel, IUT, centre Pétromines)",
+    "city": "Douala",
+    "lat": 4.0586,
+    "lon": 9.7019,
+    "type": "university",
+    "founded": 1993,
+    "programs": "Industrial engineering, IUT technology programmes; SNH/Schlumberger petroleum-geosciences computing laboratory; 'Pétromines' centre (per SNH)",
+    "website": "https://www.univ-douala.cm",
+    "status": "operational",
+    "source": {
+      "name": "SNH – Éducation (laboratoire de géosciences pétrolières à l'Université de Douala)",
+      "url": "https://www.snh.cm/education/"
+    },
+    "confidence": "medium",
+    "notes": "Official university site suspended at time of research; founding decree 93/030 of 19 Jan 1993 per fr.wikipedia. Coordinates approximate (OSM campus)."
+  },
+  {
+    "country": "CMR",
+    "name": "École Nationale Supérieure Polytechnique de Yaoundé (Université de Yaoundé I)",
+    "city": "Yaoundé",
+    "lat": 3.8624,
+    "lon": 11.5002,
+    "type": "university",
+    "founded": 1971,
+    "programs": "Engineering (civil, electrical, mechanical/industrial, computer, modelling); research labs in energy, environment and industrial processes",
+    "website": "https://www.polytechnique.cm",
+    "status": "operational",
+    "source": {
+      "name": "ENSPY – site officiel",
+      "url": "https://www.polytechnique.cm"
+    },
+    "confidence": "medium",
+    "notes": "No dedicated petroleum programme on official site; included as national engineering school and SNH partner (planned geosciences lab at UY1 Earth Sciences). Address Route Melen, BP 8390 Yaoundé."
+  },
+  {
+    "country": "CMR",
+    "name": "École Nationale Supérieure des Mines et des Industries Pétrolières (ENSMIP), Université de Maroua",
+    "city": "Kaélé",
+    "lat": 10.1096,
+    "lon": 14.4461,
+    "type": "university",
+    "founded": 2022,
+    "programs": "Mining and petroleum industries engineering (successor of the Faculté des Mines et des Industries Pétrolières)",
+    "website": "https://www.univ-maroua.cm",
+    "status": "operational",
+    "source": {
+      "name": "SNH – Éducation (Faculty of Mines and Petroleum Industries, University of Maroua)",
+      "url": "https://www.snh.cm/education/"
+    },
+    "confidence": "medium",
+    "notes": "Transformed into a school by Décret 2022/011 of 11 Jan 2022 (fr.wikipedia, citing prc.cm); university created by decree 2008/208. Official site serves only webmail. Coordinates approximate (Kaélé town centre)."
+  },
+  {
+    "country": "CMR",
+    "name": "École de Géologie et d'Exploitation Minière (EGEM), Université de Ngaoundéré",
+    "city": "Meiganga",
+    "lat": 6.5172,
+    "lon": 14.2948,
+    "type": "university",
+    "founded": null,
+    "programs": "Geology and mining engineering; SNH partner for petroleum-geosciences laboratory extension",
+    "website": "https://www.univ-ndere.cm",
+    "status": "operational",
+    "source": {
+      "name": "SNH – Éducation (School of Geology and Mining Exploitation, University of Ngaoundéré)",
+      "url": "https://www.snh.cm/education/"
+    },
+    "confidence": "low",
+    "notes": "Official university site unreachable; founding year unknown (null). Location Meiganga per general knowledge — coordinates approximate (town centre); verify."
+  },
+  {
+    "country": "TCD",
+    "name": "Institut National Supérieur des Sciences et Techniques d'Abéché (INSTA)",
+    "city": "Abéché",
+    "lat": 13.8292,
+    "lon": 20.8324,
+    "type": "technical institute",
+    "founded": 1997,
+    "programs": "Génie énergétique, énergies renouvelables, génie électrique, génie mécanique, informatique, télécommunications, sciences biomédicales, sciences animales; formation de techniciens supérieurs et d'ingénieurs.",
+    "website": "https://insta.td",
+    "status": "operational",
+    "source": {
+      "name": "INSTA – Présentation",
+      "url": "https://insta.td/presentation.php"
+    },
+    "confidence": "high",
+    "notes": "Public higher-education establishment under the Ministry of Higher Education; formerly Institut Universitaire des Sciences et Techniques d'Abéché (IUSTA). No petroleum/geology department listed. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "TCD",
+    "name": "Institut National Supérieur du Pétrole de Mao (INSPM)",
+    "city": "Mao",
+    "lat": 14.1194,
+    "lon": 15.3133,
+    "type": "government institute",
+    "founded": null,
+    "programs": "Formation de techniciens et cadres pour l'industrie pétrolière (reported).",
+    "website": null,
+    "status": "unknown",
+    "source": {
+      "name": "no reachable official site found",
+      "url": ""
+    },
+    "confidence": "low",
+    "notes": "Named in the brief; no official site or primary source found in this session. Founding year (reported c. 2011) and current status not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "TCD",
+    "name": "Université de N'Djamena – Faculté des Sciences Exactes et Appliquées",
+    "city": "N'Djamena",
+    "lat": 12.1348,
+    "lon": 15.0557,
+    "type": "university",
+    "founded": null,
+    "programs": "Géologie, chimie, physique et filières énergie au sein de la Faculté des Sciences Exactes et Appliquées.",
+    "website": "https://www.univ-ndjamena.org",
+    "status": "operational",
+    "source": {
+      "name": "Université de N'Djamena – site officiel (empty response at time of check)",
+      "url": "https://www.univ-ndjamena.org"
+    },
+    "confidence": "low",
+    "notes": "Site returned an empty page/404; founding (1971 as Université du Tchad) not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "COD",
+    "name": "Institut Supérieur des Techniques Appliquées (ISTA) Kinshasa",
+    "city": "Kinshasa",
+    "lat": -4.325,
+    "lon": 15.322,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "Institut public (Ministère de l'ESU) formant techniciens et ingénieurs en électricité, mécanique, et autres sections industrielles (11 sections).",
+    "website": "https://www.ista.ac.cd",
+    "status": "operational",
+    "source": {
+      "name": "ISTA Kinshasa – site officiel",
+      "url": "https://site.ista.myeduc.space/"
+    },
+    "confidence": "medium",
+    "notes": "ista.ac.cd redirects to site.ista.myeduc.space. No dedicated petroleum/petrochemistry section visible on the fetched page. Campus principal Barumbu (Ndolo); coordinates approximate (city centre). Founding year not shown."
+  },
+  {
+    "country": "COD",
+    "name": "Université de Kinshasa (UNIKIN) – Faculté de Pétrole, Gaz et Énergies Renouvelables / Faculté Polytechnique / Faculté des Sciences",
+    "city": "Kinshasa",
+    "lat": -4.418,
+    "lon": 15.306,
+    "type": "university",
+    "founded": 1954,
+    "programs": "Faculté de Pétrole, Gaz et Énergies Renouvelables (génie pétrolier, gaz, énergies renouvelables); Faculté Polytechnique (génie civil, mécanique, électricité, chimie industrielle); Faculté des Sciences (géologie, chimie, physique).",
+    "website": "https://www.unikin.ac.cd",
+    "status": "operational",
+    "source": {
+      "name": "Université de Kinshasa – site officiel (liste des 13 facultés)",
+      "url": "https://www.unikin.ac.cd"
+    },
+    "confidence": "medium",
+    "notes": "Faculty of Petroleum, Gas and Renewable Energies confirmed on the official faculty list; founding year (1954, Lovanium) not shown on the fetched page. Coordinates approximate (Mont-Amba campus, Lemba)."
+  },
+  {
+    "country": "COD",
+    "name": "Université de Lubumbashi (UNILU) – Faculté Polytechnique / Faculté des Sciences (Géologie)",
+    "city": "Lubumbashi",
+    "lat": -11.6647,
+    "lon": 27.4794,
+    "type": "university",
+    "founded": null,
+    "programs": "Faculté Polytechnique (mines, métallurgie, électromécanique, chimie industrielle); Faculté des Sciences (géologie); laboratoires et centres de recherche.",
+    "website": "https://www.unilu.ac.cd",
+    "status": "operational",
+    "source": {
+      "name": "Université de Lubumbashi – site officiel",
+      "url": "https://www.unilu.ac.cd"
+    },
+    "confidence": "medium",
+    "notes": "Faculties Polytechnique and Sciences confirmed on the site menu; no petroleum-specific programme verified. Address: route de Kasapa, Lubumbashi. Founding year not shown; coordinates approximate (city centre)."
+  },
+  {
+    "country": "COG",
+    "name": "Université Marien Ngouabi – École Nationale Supérieure Polytechnique (ENSP) & Faculté des Sciences et Techniques",
+    "city": "Brazzaville",
+    "lat": -4.2771,
+    "lon": 15.2483,
+    "type": "university",
+    "founded": 1971,
+    "programs": "Master in Petroleum Engineering (Production) opened with Total E&P Congo at ENSP; engineering and higher-technician programmes; geosciences at FST",
+    "website": "https://www.umng.cg",
+    "status": "operational",
+    "source": {
+      "name": "UMNG – ENSP master in petroleum engineering (Petroleum Experts software donation)",
+      "url": "https://www.umng.cg/?q=en/node/250"
+    },
+    "confidence": "high",
+    "notes": "University founded 4 Dec 1971 (fr.wikipedia); address avenue Bayardelle, BP 69 Brazzaville. Coordinates from OSM."
+  },
+  {
+    "country": "CIV",
+    "name": "Institut National Polytechnique Félix Houphouët-Boigny (INP-HB)",
+    "city": "Yamoussoukro",
+    "lat": 6.8732,
+    "lon": -5.2354,
+    "type": "university",
+    "founded": 1996,
+    "programs": "11 écoles dont l'École Supérieure de Chimie, Pétrole et de l'Énergie (ESCPE) et l'École Supérieure des Mines et de Géologie (ESMG, 1973, centre d'excellence régional 2015); écoles doctorales STI et SAPT; unités mixtes de recherche (UMRI).",
+    "website": "https://inphb.edu.ci",
+    "status": "operational",
+    "source": {
+      "name": "INP-HB – Nos écoles",
+      "url": "https://inphb.edu.ci/nos-ecoles/"
+    },
+    "confidence": "high",
+    "notes": "Founding year (1996 merger of ENSTP, ENSA, IAB, INSET) is institutional history; the fetched pages only mention the new statutes of 15 June 2023."
+  },
+  {
+    "country": "CIV",
+    "name": "Université Félix Houphouët-Boigny – UFR Sciences de la Terre et des Ressources Minières (STRM)",
+    "city": "Abidjan",
+    "lat": 5.3427,
+    "lon": -3.9871,
+    "type": "university",
+    "founded": null,
+    "programs": "Licence, master et doctorat en géosciences (géologie du pétrole, hydrogéologie, géophysique, mines) au sein de l'UFR STRM; Pôle scientifique et d'innovation de Bingerville (2012).",
+    "website": "https://univ-fhb.edu.ci",
+    "status": "operational",
+    "source": {
+      "name": "Université Félix Houphouët-Boigny – site officiel",
+      "url": "https://univ-fhb.edu.ci"
+    },
+    "confidence": "medium",
+    "notes": "The UFR STRM and its petroleum geoscience programmes were not visible on the fetched home page (site blocks automated readers); listed from institutional knowledge. Founding year (1964) not verified here."
+  },
+  {
+    "country": "CIV",
+    "name": "École Supérieure de Chimie, Pétrole et de l'Énergie (ESCPE) – INP-HB",
+    "city": "Yamoussoukro",
+    "lat": 6.8732,
+    "lon": -5.2354,
+    "type": "university",
+    "founded": 2019,
+    "programs": "Ingénieur Pétrole & Énergie; Ingénieur Chimie & Génie des Procédés; masters professionnels Développement et Production des Hydrocarbures, Raffinage et Distribution, Énergies Renouvelables et Entrepreneuriat; formations en maintenance pétrolière et gestion de l'énergie. Partenaires: IFP School, École Polytechnique (Paris), Ministère du Pétrole et de l'Énergie, ENI, Sonatrach/IAP.",
+    "website": "https://inphb.edu.ci/nos-ecoles/escpe/",
+    "status": "operational",
+    "source": {
+      "name": "INP-HB – ESCPE",
+      "url": "https://inphb.edu.ci/nos-ecoles/escpe/"
+    },
+    "confidence": "high",
+    "notes": "Created in 2019 as École Supérieure du Pétrole et de l'Énergie (ESPE), renamed ESCPE after the 2023 reform."
+  },
+  {
+    "country": "EGY",
+    "name": "Arab Academy for Science, Technology & Maritime Transport – Oil and Gas Hub",
+    "city": "Alexandria",
+    "lat": 31.31,
+    "lon": 30.06,
+    "type": "university",
+    "founded": 1972,
+    "programs": "Programmes d'ingénierie et de formation continue pétrole et gaz via l'Oil and Gas Hub (multi-campus: Alexandrie, Le Caire, Smart Village…)",
+    "website": "https://aast.edu/en/",
+    "status": "operational",
+    "source": {
+      "name": "AASTMT – official site",
+      "url": "https://aast.edu/en/"
+    },
+    "confidence": "low",
+    "notes": "'founded' = Academy (1972). Specific petroleum engineering degree page not fetched. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "Cairo University – Faculty of Engineering, Mining, Petroleum and Metallurgical Engineering Department",
+    "city": "Giza",
+    "lat": 30.026,
+    "lon": 31.211,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc/MSc/PhD en génie pétrolier, génie minier et métallurgie",
+    "website": "https://eng.cu.edu.eg/",
+    "status": "operational",
+    "source": {
+      "name": "Cairo University Faculty of Engineering",
+      "url": "https://eng.cu.edu.eg/en/"
+    },
+    "confidence": "low",
+    "notes": "eng.cu.edu.eg timed out from our network; department details not verified. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "EGPC – Training Department and Petroleum Sector Training Centres",
+    "city": "Cairo (New Maadi)",
+    "lat": 30.02,
+    "lon": 31.405,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Plan annuel de formation du secteur pétrolier, centres de formation affiliés (types de formation, centres, plan annuel)",
+    "website": "http://www.egpc.com.eg/Training_Types_Centers_Programs.aspx",
+    "status": "operational",
+    "source": {
+      "name": "EGPC – HR Training (Training Types / Centers)",
+      "url": "http://www.egpc.com.eg/Training_Types_Centers_Programs.aspx"
+    },
+    "confidence": "low",
+    "notes": "EGPC site exposes a 'Training > Centers' section but the page content did not render; individual centre names not verified."
+  },
+  {
+    "country": "EGY",
+    "name": "Egyptian Petroleum Research Institute – Training Center",
+    "city": "Cairo (Nasr City)",
+    "lat": 30.066,
+    "lon": 31.345,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "Certificats et diplômes supérieurs, formation continue pour le secteur pétrolier (analyse, corrosion, raffinage, environnement)",
+    "website": "http://www.epri.sci.eg/training-center",
+    "status": "operational",
+    "source": {
+      "name": "EPRI – Training Center",
+      "url": "http://www.epri.sci.eg/training-center"
+    },
+    "confidence": "medium",
+    "notes": "Page is JavaScript-rendered; programme detail limited. Address 1 Ahmed El-Zomor St., Nasr City. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "Future University in Egypt – Petroleum Engineering Program",
+    "city": "New Cairo",
+    "lat": 30.0271,
+    "lon": 31.4917,
+    "type": "private",
+    "founded": 2006,
+    "programs": "BSc Petroleum Engineering (partenariat Missouri University of Science and Technology)",
+    "website": "https://www.fue.edu.eg",
+    "status": "operational",
+    "source": {
+      "name": "FUE – official site",
+      "url": "https://www.fue.edu.eg/"
+    },
+    "confidence": "medium",
+    "notes": "'founded' = university (2006). Coordinates from OSM object 'جامعة المستقبل', 90th St., Fifth Settlement."
+  },
+  {
+    "country": "EGY",
+    "name": "Suez University – Faculty of Petroleum and Mining Engineering",
+    "city": "Suez",
+    "lat": 29.97,
+    "lon": 32.55,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc/MSc/PhD: génie pétrolier, génie du raffinage et de la pétrochimie, génie minier, géologie, métallurgie",
+    "website": "https://suezuni.edu.eg/Pme",
+    "status": "operational",
+    "source": {
+      "name": "ETHYDCO – protocol with Suez University Faculty of Petroleum and Mining Engineering",
+      "url": "https://ethydco-eg.com/en/posts/faculty-of-petroleum-and-mining-engineering-suez-university"
+    },
+    "confidence": "medium",
+    "notes": "suezuni.edu.eg timed out from our network; founding year (commonly 1957) not verified. Address Cairo–Suez Road, El Salam City. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "The American University in Cairo – Department of Petroleum and Energy Engineering",
+    "city": "New Cairo",
+    "lat": 30.02,
+    "lon": 31.5,
+    "type": "private",
+    "founded": null,
+    "programs": "BSc Petroleum Engineering (ABET-accredited), MSc/PhD énergie; laboratoires réservoir, forage, production",
+    "website": "https://sse.aucegypt.edu/departments/petroleum-energy-engineering",
+    "status": "operational",
+    "source": {
+      "name": "AUC School of Sciences and Engineering – Petroleum and Energy Engineering",
+      "url": "https://sse.aucegypt.edu/departments/petroleum-energy-engineering"
+    },
+    "confidence": "high",
+    "notes": "Department founding year not stated. coordinates approximate (city centre)"
+  },
+  {
+    "country": "EGY",
+    "name": "The British University in Egypt – Faculty of Energy and Environmental Engineering",
+    "city": "El Sherouk",
+    "lat": 30.12,
+    "lon": 31.61,
+    "type": "private",
+    "founded": null,
+    "programs": "Génie de l'énergie et de l'environnement (spécialisations incl. pétrole et gaz, énergies renouvelables) validé par des universités britanniques",
+    "website": "https://www.bue.edu.eg/our-faculties",
+    "status": "operational",
+    "source": {
+      "name": "BUE – Our Faculties",
+      "url": "https://www.bue.edu.eg/our-faculties"
+    },
+    "confidence": "medium",
+    "notes": "BUE states '20 successful years' (est. c. 2005) but the exact year and the petroleum programme name were not extracted. coordinates approximate (city centre)"
+  },
+  {
+    "country": "GNQ",
+    "name": "Afro-American University of Central Africa (AAUCA)",
+    "city": "Ciudad de la Paz (Djibloho)",
+    "lat": 1.605,
+    "lon": 10.857,
+    "type": "private",
+    "founded": 2015,
+    "programs": "Faculty of Engineering and Architecture; Economics and Business; Education and Humanities; Medicine and Biology",
+    "website": "https://aaucauniversity.com",
+    "status": "operational",
+    "source": {
+      "name": "AAUCA – sitio oficial",
+      "url": "https://aaucauniversity.com/"
+    },
+    "confidence": "medium",
+    "notes": "Created 2 Dec 2015, campus opened Jan 2020 (en.wikipedia); no petroleum programme verified. Coordinates from campus location cited on Wikipedia."
+  },
+  {
+    "country": "GNQ",
+    "name": "Universidad Nacional de Guinea Ecuatorial (UNGE)",
+    "city": "Malabo",
+    "lat": 3.7471,
+    "lon": 8.775,
+    "type": "university",
+    "founded": 1995,
+    "programs": "Engineering (Facultad de Arquitectura e Ingeniería, Bata campus), chemistry, informatics, economics; campuses Malabo, Bata, Mongomo",
+    "website": "https://ungecampus.com",
+    "status": "operational",
+    "source": {
+      "name": "UNGE – portal oficial",
+      "url": "https://ungecampus.com/"
+    },
+    "confidence": "medium",
+    "notes": "Created by Ley 12/1995 of 6 Jan 1995 (es.wikipedia). No petroleum-specific programme verified. Address Avenida Hassan II, Malabo; coordinates from OSM."
+  },
+  {
+    "country": "GAB",
+    "name": "Institut National du Pétrole et du Gaz (INPG) – Port-Gentil",
+    "city": "Port-Gentil",
+    "lat": -0.7152,
+    "lon": 8.7788,
+    "type": "government institute",
+    "founded": null,
+    "programs": "Drilling, petroleum production, geosciences, hydrocarbon management; industry partners TotalEnergies, Perenco, Assala Energy",
+    "website": "https://minpetrole.ga/la-formation/",
+    "status": "operational",
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – La formation",
+      "url": "https://minpetrole.ga/la-formation/"
+    },
+    "confidence": "medium",
+    "notes": "Referred to as 'Institut du Pétrole et du Gaz (IPG)' in the brief; ministry page names it INPG. Creation year not given (null); no own website found. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "GAB",
+    "name": "Université Omar Bongo (UOB)",
+    "city": "Libreville",
+    "lat": 0.4186,
+    "lon": 9.446,
+    "type": "university",
+    "founded": 1970,
+    "programs": "Law, economics, humanities (no hydrocarbon programme verified)",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "fr.wikipedia – Université Omar-Bongo (cites AUF/AAU directories)",
+      "url": "https://fr.wikipedia.org/wiki/Université_Omar-Bongo"
+    },
+    "confidence": "low",
+    "notes": "Listed because requested in brief; no oil & gas programme identified; official site (univoub.org / uob.ga) unreachable. Coordinates from OSM."
+  },
+  {
+    "country": "GAB",
+    "name": "Université des Sciences et Techniques de Masuku (USTM) – École Polytechnique de Masuku",
+    "city": "Franceville",
+    "lat": -1.6291,
+    "lon": 13.5517,
+    "type": "university",
+    "founded": 1986,
+    "programs": "Petroleum engineering, geology and chemistry applied to hydrocarbons (per Ministry of Petroleum); engineering (EPM), sciences, agronomy (INSAB)",
+    "website": "https://www.univ-masuku.ga",
+    "status": "operational",
+    "source": {
+      "name": "Ministère du Pétrole du Gabon – La formation",
+      "url": "https://minpetrole.ga/la-formation/"
+    },
+    "confidence": "medium",
+    "notes": "Created by law of 29 Jan 1986 (fr.wikipedia). Official site unreachable (TLS error). Coordinates from OSM."
+  },
+  {
+    "country": "GAB",
+    "name": "École des Mines et de la Métallurgie de Moanda (E3MG)",
+    "city": "Moanda",
+    "lat": -1.5548,
+    "lon": 13.2219,
+    "type": "technical institute",
+    "founded": 2016,
+    "programs": "Licence professionnelle (prospection & exploitation minière, mines et transformation métallurgique, maintenance des systèmes); cycle ingénieur (procédés de transformation, exploitation minière); formation continue",
+    "website": "https://www.e3mg.ga",
+    "status": "operational",
+    "source": {
+      "name": "E3MG – Notre histoire",
+      "url": "https://www.e3mg.ga/histoire"
+    },
+    "confidence": "high",
+    "notes": "Project decided in Council of Ministers 15 Sept 2011 (State–COMILOG/Eramet partnership); first cohort 2016. Mining/metallurgy focus, not petroleum. Coordinates approximate (Moanda town centre)."
+  },
+  {
+    "country": "GHA",
+    "name": "GNPC Foundation (GNPC scholarship and capacity-building arm)",
+    "city": "Tema",
+    "lat": 5.63409,
+    "lon": -0.00216,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Scholarships and skills-development programmes funded by GNPC for the petroleum sector and communities",
+    "website": "https://www.gnpcghana.com/",
+    "status": "operational",
+    "source": {
+      "name": "GNPC – official site (GNPC Foundation)",
+      "url": "https://www.gnpcghana.com/"
+    },
+    "confidence": "medium",
+    "notes": "Listed as a GNPC entity on the official site; founding year not stated. Not a training institute in the strict sense (funding vehicle). Coordinates: Petroleum House, Tema."
+  },
+  {
+    "country": "GHA",
+    "name": "Ghana Oil and Gas Learning Foundation (GOGLF)",
+    "city": "Accra",
+    "lat": 5.55711,
+    "lon": -0.20124,
+    "type": "private",
+    "founded": null,
+    "programs": "Industry-linked oil and gas skills and learning programmes (not verified)",
+    "website": null,
+    "status": "unverified",
+    "source": {
+      "name": "Not found on official sources during this session",
+      "url": "https://www.petrocom.gov.gh/"
+    },
+    "confidence": "low",
+    "notes": "Could not be located on the Petroleum Commission or other official Ghanaian sites in this session (web search budget exhausted). Entry retained as a placeholder per the requested list; coordinates approximate (Accra city centre)."
+  },
+  {
+    "country": "GHA",
+    "name": "KNUST – Department of Petroleum Engineering",
+    "city": "Kumasi",
+    "lat": 6.67851,
+    "lon": -1.57542,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc, MSc/MPhil and PhD in Petroleum Engineering; Chemical Engineering (College of Engineering)",
+    "website": "https://www.knust.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "KNUST – official site",
+      "url": "https://www.knust.edu.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Department site (petroleum.knust.edu.gh) did not resolve and the College of Engineering site was in maintenance; department founding year unverified. Petroleum Commission announced in July 2026 a US$15m Halliburton deal to strengthen teaching and research at KNUST (petrocom.gov.gh). Coordinates from OpenStreetMap entry for the KNUST campus."
+  },
+  {
+    "country": "GHA",
+    "name": "Kumasi Technical University (KsTU)",
+    "city": "Kumasi",
+    "lat": 6.69111,
+    "lon": -1.61014,
+    "type": "technical institute",
+    "founded": 1954,
+    "programs": "Chemical Engineering (up to Doctor of Technology), Mechanical, Civil and Automotive Engineering; petroleum-specific programmes not confirmed",
+    "website": "https://kstu.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "KsTU – official site",
+      "url": "https://kstu.edu.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Established 1954 as Kumasi Technical Institute, polytechnic 1963, technical university 2016 (official site). Coordinates from OpenStreetMap entry for the campus."
+  },
+  {
+    "country": "GHA",
+    "name": "Takoradi Technical University (TTU)",
+    "city": "Takoradi",
+    "lat": 4.8874,
+    "lon": -1.75193,
+    "type": "technical institute",
+    "founded": 2016,
+    "programs": "HND and BTech programmes in engineering, including oil-and-gas related technology programmes serving the Western Region petroleum hub",
+    "website": "https://ttu.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "TTU – official site",
+      "url": "https://ttu.edu.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Official site: 'established in September 2016' by conversion of Takoradi Polytechnic (origins 1954). Specific petroleum programme names not extractable from the homepage. Coordinates approximate (Takoradi city centre)."
+  },
+  {
+    "country": "GHA",
+    "name": "University of Cape Coast (UCC)",
+    "city": "Cape Coast",
+    "lat": 5.11834,
+    "lon": -1.28858,
+    "type": "university",
+    "founded": 1962,
+    "programs": "Physics, chemistry and engineering programmes; petroleum-related courses not confirmed on official site",
+    "website": "https://ucc.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "University of Cape Coast – official site",
+      "url": "https://ucc.edu.gh/"
+    },
+    "confidence": "low",
+    "notes": "Founding year 1962 confirmed on official site; no oil-and-gas programme could be verified there. Coordinates from OpenStreetMap entry for the campus."
+  },
+  {
+    "country": "GHA",
+    "name": "University of Ghana – Department of Earth Science",
+    "city": "Accra (Legon)",
+    "lat": 5.6466,
+    "lon": -0.188,
+    "type": "university",
+    "founded": null,
+    "programs": "Undergraduate and graduate programmes in geoscientific disciplines including petroleum geoscience (College of Basic and Applied Sciences)",
+    "website": "https://www.ug.edu.gh/earthscience/",
+    "status": "operational",
+    "source": {
+      "name": "University of Ghana – Department of Earth Science",
+      "url": "https://www.ug.edu.gh/earthscience/"
+    },
+    "confidence": "medium",
+    "notes": "Department founding year not shown on the official page. Coordinates from OpenStreetMap entry for the University of Ghana."
+  },
+  {
+    "country": "GHA",
+    "name": "University of Mines and Technology (UMaT), Tarkwa",
+    "city": "Tarkwa",
+    "lat": 5.29754,
+    "lon": -2.00219,
+    "type": "university",
+    "founded": 2004,
+    "programs": "BSc, MSc and PhD in Petroleum Engineering, Petroleum Geosciences and Engineering, Natural Gas Engineering, Mining and Minerals Engineering",
+    "website": "https://www.umat.edu.gh/",
+    "status": "operational",
+    "source": {
+      "name": "UMaT – official site",
+      "url": "https://www.umat.edu.gh/"
+    },
+    "confidence": "medium",
+    "notes": "Official site reachable but blocked structured extraction (HTTP 403 to fetch tool); founding year 2004 (as a university, origins 1952 Tarkwa Technical Institute) from institutional records not displayed on the homepage. Coordinates from OpenStreetMap entry for the campus."
+  },
+  {
+    "country": "LBY",
+    "name": "Libyan Academy for Postgraduate Studies – School of Applied and Engineering Sciences (Dept. of Chemical Engineering and Oil)",
+    "city": "Tripoli (Janzour)",
+    "lat": 32.83,
+    "lon": 13.01,
+    "type": "university",
+    "founded": 1988,
+    "programs": "Masters/PhD en génie chimique et pétrolier, gestion des actifs d'ingénierie",
+    "website": "https://academy.edu.ly",
+    "status": "operational",
+    "source": {
+      "name": "Libyan Academy – official site",
+      "url": "https://academy.edu.ly/"
+    },
+    "confidence": "medium",
+    "notes": "Founded 1988 as Institute of Higher Studies for Economic Sciences; nine schools today. coordinates approximate (city centre)"
+  },
+  {
+    "country": "LBY",
+    "name": "Libyan Petroleum Institute (LPI) – ex-Petroleum Research Centre",
+    "city": "Tripoli",
+    "lat": 32.8753,
+    "lon": 13.1312,
+    "type": "NOC academy",
+    "founded": 1977,
+    "programs": "Formation technique et laboratoire pour l'industrie pétrolière, services d'essais et de normalisation, recherche appliquée (bras technique de la NOC)",
+    "website": "https://www.lpilibya.com",
+    "status": "operational",
+    "source": {
+      "name": "NOC – subsidiary companies (Petroleum Research Center)",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "medium",
+    "notes": "lpilibya.com did not resolve at research time; founding year 1977 and address (Gargarish 7 km Rd) from indexed text of the former official site. Listed on noc.ly as 'Petroleum Research Center'. Coordinates approximate (Gargaresh district)."
+  },
+  {
+    "country": "LBY",
+    "name": "National Centre for Training and Development – NOWDC",
+    "city": "Tripoli",
+    "lat": 32.89,
+    "lon": 13.19,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "HSE, formation d'intégration et formation technique forage/workover pour le personnel de la société",
+    "website": "https://nwd.ly",
+    "status": "operational",
+    "source": {
+      "name": "NOWDC – official site",
+      "url": "https://nwd.ly/"
+    },
+    "confidence": "low",
+    "notes": "Company-level training centre of National Oil Wells Drilling & Workover Co. coordinates approximate (city centre)"
+  },
+  {
+    "country": "LBY",
+    "name": "Petroleum Training and Qualifying Institute (PTQI)",
+    "city": "Tripoli",
+    "lat": 32.8763,
+    "lon": 13.136,
+    "type": "NOC academy",
+    "founded": 1970,
+    "programs": "Formation technique 3 ans et perfectionnement: forage (IWCF), opérations/production, maintenance mécanique et électrique, instrumentation, soudage, froid/climatisation, sécurité industrielle, technologie de l'environnement, anglais, informatique",
+    "website": "https://ptqi.edu.ly",
+    "status": "operational",
+    "source": {
+      "name": "PTQI – official site",
+      "url": "https://ptqi.edu.ly/"
+    },
+    "confidence": "high",
+    "notes": "Established by cabinet decision of 26 Aug 1970 as 'Institute of Petroleum Affairs'; Training & Development Centre opened 1987. Address: Gargaresh Road 9 km, Tripoli. NOC subsidiary. Coordinates from Gargaresh Road (approximate)."
+  },
+  {
+    "country": "LBY",
+    "name": "Specific Training Center for Oil Industries (STC)",
+    "city": null,
+    "lat": null,
+    "lon": null,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Formation spécialisée pour les métiers de l'industrie pétrolière (NOC)",
+    "website": "https://stc.edu.ly",
+    "status": "operational",
+    "source": {
+      "name": "NOC – subsidiary companies",
+      "url": "https://noc.ly/en/companies/"
+    },
+    "confidence": "low",
+    "notes": "Listed on noc.ly; site returned 403. Location and founding year not verified."
+  },
+  {
+    "country": "LBY",
+    "name": "University of Tripoli – Faculty of Engineering, Department of Petroleum Engineering",
+    "city": "Tripoli",
+    "lat": 32.8493,
+    "lon": 13.2235,
+    "type": "university",
+    "founded": 1972,
+    "programs": "BSc/MSc en génie pétrolier; départements connexes: génie chimique, génie géologique, génie minier",
+    "website": "https://uot.edu.ly/eng/",
+    "status": "operational",
+    "source": {
+      "name": "University of Tripoli – Faculty of Engineering (about)",
+      "url": "https://uot.edu.ly/eng/index.php"
+    },
+    "confidence": "high",
+    "notes": "Faculty of Engineering founded 1961 (with UNESCO); College of Petroleum Engineering founded 1972 and merged into the Faculty in 1985. University founded 15 Dec 1955 as Libyan University."
+  },
+  {
+    "country": "NAM",
+    "name": "Namibia University of Science and Technology (NUST) – Department of Mining and Process Engineering; Namibia Energy Institute",
+    "city": "Windhoek",
+    "lat": -22.5658,
+    "lon": 17.0772,
+    "type": "university",
+    "founded": 1994,
+    "programs": "Faculty of Engineering and the Built Environment: mining, process and geoscience-related engineering programmes; Namibia Energy Institute (oil and gas, renewable energy, electricity, nuclear centres).",
+    "website": "https://www.nust.na",
+    "status": "operational",
+    "source": {
+      "name": "NUST – site officiel",
+      "url": "https://www.nust.na"
+    },
+    "confidence": "high",
+    "notes": "Polytechnic of Namibia founded 1994, reconstituted as NUST in 2015. Address: 13 Jackson Kaujeua Street, Windhoek."
+  },
+  {
+    "country": "NAM",
+    "name": "Namibian Institute of Mining and Technology (NIMT)",
+    "city": "Arandis",
+    "lat": -22.4167,
+    "lon": 14.9667,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "Engineering trades and technician training for the mining, energy and industrial sectors (Arandis, Tsumeb and Keetmanshoop campuses).",
+    "website": "https://www.nimt.edu.na",
+    "status": "operational",
+    "source": {
+      "name": "NIMT – site officiel (redirects to nimtnam.com; expired certificate)",
+      "url": "https://www.nimt.edu.na"
+    },
+    "confidence": "low",
+    "notes": "Site content could not be parsed (legacy page, expired TLS certificate). Founding year (reported 1991) and campuses not verified. Coordinates approximate (Arandis)."
+  },
+  {
+    "country": "NAM",
+    "name": "Petroleum Training and Education Fund (PETROFUND)",
+    "city": "Windhoek",
+    "lat": -22.5609,
+    "lon": 17.0658,
+    "type": "government institute",
+    "founded": null,
+    "programs": "Fund (not a school) financing bursaries, scholarships and training of Namibians for the petroleum industry, funded by contributions of exploration licence holders.",
+    "website": "https://www.petrofund.org.na",
+    "status": "operational",
+    "source": {
+      "name": "PETROFUND – site officiel (host did not resolve at time of check)",
+      "url": "https://www.petrofund.org.na"
+    },
+    "confidence": "low",
+    "notes": "Fund rather than a training institute; founding year (reported 1993) not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "NAM",
+    "name": "University of Namibia (UNAM) – Faculty of Agriculture, Engineering & Natural Sciences (Geosciences; School of Engineering)",
+    "city": "Windhoek",
+    "lat": -22.6115,
+    "lon": 17.0586,
+    "type": "university",
+    "founded": 1992,
+    "programs": "Geology and geosciences degrees (Windhoek main campus); School of Engineering & the Built Environment (José Eduardo dos Santos campus, Ongwediva); 265 research projects.",
+    "website": "https://www.unam.edu.na",
+    "status": "operational",
+    "source": {
+      "name": "UNAM – site officiel",
+      "url": "https://www.unam.edu.na"
+    },
+    "confidence": "medium",
+    "notes": "Faculty and School of Engineering confirmed on the site; the geosciences department and founding year (1992) are from institutional knowledge. Main campus: 340 Mandume Ndemufayo Avenue."
+  },
+  {
+    "country": "NER",
+    "name": "Université Abdou Moumouni de Niamey (UAM) – Faculté des Sciences et Techniques",
+    "city": "Niamey",
+    "lat": 13.5127,
+    "lon": 2.1128,
+    "type": "university",
+    "founded": 1971,
+    "programs": "Faculté des Sciences et Techniques (géologie, chimie, physique); École doctorale des Sciences de la Vie et de la Terre (géologie) et des Sciences exactes et techniques; Centre d'excellence CEA/IEA-MS4SSA.",
+    "website": "https://www.uam.edu.ne",
+    "status": "operational",
+    "source": {
+      "name": "Université Abdou Moumouni – site officiel",
+      "url": "https://www.uam.edu.ne"
+    },
+    "confidence": "high",
+    "notes": "Created 1971 as Centre d'enseignement supérieur, university in 1973, renamed 1992 (per site). Campus Rive droite / Harobanda; coordinates approximate (city centre)."
+  },
+  {
+    "country": "NER",
+    "name": "Université d'Agadez",
+    "city": "Agadez",
+    "lat": 16.9742,
+    "lon": 7.9911,
+    "type": "university",
+    "founded": null,
+    "programs": "Université publique à orientation mines, géologie et pétrole (reported).",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "no reachable official site found",
+      "url": ""
+    },
+    "confidence": "low",
+    "notes": "Named in the brief; no official site found and no primary source consulted. Founding year (reported 2014) not verified. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "NER",
+    "name": "École des Mines, de l'Industrie et de la Géologie (EMIG)",
+    "city": "Niamey",
+    "lat": 13.5127,
+    "lon": 2.1128,
+    "type": "technical institute",
+    "founded": 1982,
+    "programs": "Sept départements: génie minier et environnement, mines-géologie, génie électrique, génie mécanique, génie civil, informatique, études générales; licences techniques, masters/ingénieurs, formation continue; partenariat avec China University of Petroleum (East China).",
+    "website": "https://emig-niger.org",
+    "status": "operational",
+    "source": {
+      "name": "EMIG – site officiel",
+      "url": "https://emig-niger.org"
+    },
+    "confidence": "high",
+    "notes": "Created 13 September 1982 as a CEAO regional school, operational from 1990, Nigerien public institution under Law 2004-019. The brief cited 1990 (start of operations). Coordinates approximate (city centre)."
+  },
+  {
+    "country": "NGA",
+    "name": "African University of Science and Technology (AUST), Abuja – Petroleum and Energy Resources Engineering",
+    "city": "Abuja",
+    "lat": 8.98472,
+    "lon": 7.43056,
+    "type": "private",
+    "founded": 2007,
+    "programs": "MSc and PhD in Petroleum and Energy Resources Engineering; materials, computer science and applied mathematics",
+    "website": "https://aust.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "AUST – official site",
+      "url": "https://aust.edu.ng/"
+    },
+    "confidence": "high",
+    "notes": "Pan-African graduate university (Nelson Mandela Institution). Address: Km 10 Umaru Musa Yar'Adua Road, Galadimawa, Abuja. Coordinates approximate (Galadimawa district)."
+  },
+  {
+    "country": "NGA",
+    "name": "Ahmadu Bello University – Department of Chemical Engineering (petroleum and gas)",
+    "city": "Zaria",
+    "lat": 11.02481,
+    "lon": 7.65185,
+    "type": "university",
+    "founded": null,
+    "programs": "BEng, MSc and PhD in Chemical Engineering with petroleum and gas specialisations; petroleum geology (Department of Geology)",
+    "website": "https://abu.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "Ahmadu Bello University – official site",
+      "url": "https://abu.edu.ng/"
+    },
+    "confidence": "low",
+    "notes": "Official site unreachable during this session (connection refused); programme details unverified. University founded 1962. Coordinates approximate (Zaria town centre)."
+  },
+  {
+    "country": "NGA",
+    "name": "Centre for Gas, Refining and Petrochemicals (CGRP), University of Port Harcourt",
+    "city": "Port Harcourt",
+    "lat": 4.88725,
+    "lon": 6.90399,
+    "type": "university",
+    "founded": null,
+    "programs": "Postgraduate programmes and research in gas engineering, refining and petrochemicals",
+    "website": "https://cgrpng.org/",
+    "status": "operational",
+    "source": {
+      "name": "University of Port Harcourt – Centres and Institutes",
+      "url": "https://www.uniport.edu.ng/centres-and-institutes/"
+    },
+    "confidence": "low",
+    "notes": "Listed on the UNIPORT centres page; the centre's own site returned HTTP 500. Founding year unverified. Coordinates approximate (Choba campus)."
+  },
+  {
+    "country": "NGA",
+    "name": "Emerald Energy Institute (EEI), University of Port Harcourt",
+    "city": "Port Harcourt",
+    "lat": 4.88725,
+    "lon": 6.90399,
+    "type": "university",
+    "founded": null,
+    "programs": "MSc, Postgraduate Diploma and PhD in Petroleum and Energy Economics, Management and Policy; short courses",
+    "website": "https://eeiuniport.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "Emerald Energy Institute – official site",
+      "url": "https://eeiuniport.edu.ng/"
+    },
+    "confidence": "medium",
+    "notes": "Founding year not stated on official site. Coordinates approximate (Choba campus)."
+  },
+  {
+    "country": "NGA",
+    "name": "Federal University of Petroleum Resources, Effurun (FUPRE)",
+    "city": "Effurun",
+    "lat": 5.5555,
+    "lon": 5.78501,
+    "type": "university",
+    "founded": 2007,
+    "programs": "Undergraduate and postgraduate programmes in Petroleum Engineering, Petroleum Chemistry, Earth Sciences, Marine Engineering, Chemical Engineering, Gas Engineering, Petroleum Administration and Management, Maritime and Offshore Studies",
+    "website": "https://fupre.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "FUPRE – official site",
+      "url": "https://fupre.edu.ng/"
+    },
+    "confidence": "medium",
+    "notes": "Official site calls FUPRE 'the first petroleum university in Africa' but does not display the founding year (established March 2007 by the Federal Government). Coordinates approximate (Effurun town centre); campus is on the Warri–Port Harcourt Expressway, Ugbomro."
+  },
+  {
+    "country": "NGA",
+    "name": "General Shehu Musa Yar'Adua University of Geological Sciences and Engineering Technology (UGSET), Kaduna – formerly Nigerian College of Petroleum Studies (NCPS)",
+    "city": "Kaduna",
+    "lat": 10.52235,
+    "lon": 7.44098,
+    "type": "government institute",
+    "founded": null,
+    "programs": "Degree and professional programmes in geological sciences, petroleum and engineering technology for the oil and gas industry",
+    "website": "https://ugset.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "PTDF – official site (UGSET)",
+      "url": "https://ptdf.gov.ng/"
+    },
+    "confidence": "medium",
+    "notes": "Described by PTDF as 'a premier tertiary institution established by the Petroleum Technology Development Fund'. Founding years of NCPS and of the university upgrade not stated on official pages. ugset.edu.ng did not resolve. Coordinates approximate (Kaduna city, OpenStreetMap point for Kaduna Polytechnic area)."
+  },
+  {
+    "country": "NGA",
+    "name": "Institute of Petroleum and Energy Studies (IPES), University of Port Harcourt",
+    "city": "Port Harcourt",
+    "lat": 4.89407,
+    "lon": 6.91587,
+    "type": "university",
+    "founded": 2003,
+    "programs": "MSc Petroleum Project Development and Energy Transition (joint degree with IFP School, France); Postgraduate Diploma in Petroleum Technology; oil and gas wells training",
+    "website": "https://ipes.uniport.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "IPES UNIPORT – official site",
+      "url": "https://ipes.uniport.edu.ng/"
+    },
+    "confidence": "high",
+    "notes": "Formerly Institute of Petroleum Studies (IPS). Founded 2003 in partnership with IFP School, NNPC and TotalEnergies. Coordinates from OpenStreetMap entry 'Institute of Petroleum Studies, East-West Road, Choba'."
+  },
+  {
+    "country": "NGA",
+    "name": "Kaduna Polytechnic",
+    "city": "Kaduna",
+    "lat": 10.52235,
+    "lon": 7.44098,
+    "type": "technical institute",
+    "founded": null,
+    "programs": "ND/HND in Chemical Engineering, Mechanical Engineering, Petroleum/Mineral Resources Engineering and related technologies",
+    "website": "https://kadunapolytechnic.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "Kaduna Polytechnic – official site",
+      "url": "https://kadunapolytechnic.edu.ng/"
+    },
+    "confidence": "low",
+    "notes": "Official site blocked automated access (HTTP 403 / certificate mismatch); founding year and programme list unverified. Coordinates from OpenStreetMap entry for the polytechnic."
+  },
+  {
+    "country": "NGA",
+    "name": "NNPC Academy",
+    "city": "Abuja",
+    "lat": 9.05211,
+    "lon": 7.4858,
+    "type": "NOC academy",
+    "founded": null,
+    "programs": "Technical and non-technical certification courses, competency profiling and skills-gap analysis, capacity-development interventions and consultancy for NNPC Ltd and other energy-sector organisations",
+    "website": "https://nnpcgroup.com/nnpc-academy",
+    "status": "operational",
+    "source": {
+      "name": "NNPC Ltd – NNPC Academy",
+      "url": "https://nnpcgroup.com/nnpc-academy"
+    },
+    "confidence": "high",
+    "notes": "Training and consultancy arm of NNPC Ltd. Address: Block C, 10th Floor, NNPC Towers, Herbert Macaulay Way, CBD Abuja. Founding year not stated. Coordinates approximate (Herbert Macaulay Way)."
+  },
+  {
+    "country": "NGA",
+    "name": "Nigerian Institute of Welding (NIW)",
+    "city": "Warri",
+    "lat": 5.5555,
+    "lon": 5.78501,
+    "type": "private",
+    "founded": null,
+    "programs": "Welding and inspection certification and training for the oil and gas industry",
+    "website": "https://niw.org.ng/",
+    "status": "operational",
+    "source": {
+      "name": "Nigerian Institute of Welding (site unreachable)",
+      "url": "https://niw.org.ng/"
+    },
+    "confidence": "low",
+    "notes": "Professional body; official site did not resolve during this session, so founding year, address and programmes are unverified. Coordinates approximate (Effurun/Warri area)."
+  },
+  {
+    "country": "NGA",
+    "name": "PTDF Centre for Skills Development and Training (CSDT), Port Harcourt",
+    "city": "Port Harcourt",
+    "lat": 4.76766,
+    "lon": 7.01885,
+    "type": "government institute",
+    "founded": null,
+    "programs": "Industry-ready technical skills development for the oil and gas sector (PTDF)",
+    "website": "https://ptdf.gov.ng/",
+    "status": "operational",
+    "source": {
+      "name": "PTDF – official site (news: Executive Secretary inspects CSDT Port Harcourt)",
+      "url": "https://ptdf.gov.ng/"
+    },
+    "confidence": "low",
+    "notes": "Mentioned on the PTDF site; founding year and exact address not found. Coordinates approximate (Port Harcourt city centre)."
+  },
+  {
+    "country": "NGA",
+    "name": "Petroleum Training Institute (PTI)",
+    "city": "Effurun",
+    "lat": 5.57467,
+    "lon": 5.7976,
+    "type": "government institute",
+    "founded": 1973,
+    "programs": "Certificate, National Diploma and Higher National Diploma in Petroleum Engineering Technology, Petroleum and Natural Gas Processing, Mechanical/Electrical Engineering, Welding Engineering and Offshore Technology, Industrial Safety and Environmental Technology; post-HND degrees; short courses; welding and commercial diving certification",
+    "website": "https://pti.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "PTI – official site",
+      "url": "https://pti.edu.ng/"
+    },
+    "confidence": "high",
+    "notes": "Founding year per PTI Decree No. 37 of 1973 (not displayed on homepage). Address: 1 PTI Road, Effurun, Delta State. Coordinates from OpenStreetMap entry for the PTI campus. Parastatal of the Federal Ministry of Petroleum Resources; historically associated with the APPO training-institute network."
+  },
+  {
+    "country": "NGA",
+    "name": "University of Benin – Department of Petroleum Engineering",
+    "city": "Benin City",
+    "lat": 6.33441,
+    "lon": 5.59983,
+    "type": "university",
+    "founded": null,
+    "programs": "BEng, MEng and PhD in Petroleum Engineering (Faculty of Engineering)",
+    "website": "https://uniben.edu/",
+    "status": "operational",
+    "source": {
+      "name": "University of Benin – official site",
+      "url": "https://uniben.edu/"
+    },
+    "confidence": "medium",
+    "notes": "Official site returned HTTP 403 to automated fetch; university founded 1970. Also hosts the Energy Commission's National Centre for Energy and Environment. Coordinates from OpenStreetMap entry for the university."
+  },
+  {
+    "country": "NGA",
+    "name": "University of Ibadan – Department of Petroleum Engineering",
+    "city": "Ibadan",
+    "lat": 7.44772,
+    "lon": 3.89671,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc, MSc and PhD in Petroleum Engineering (Faculty of Technology)",
+    "website": "https://www.ui.edu.ng/",
+    "status": "operational",
+    "source": {
+      "name": "University of Ibadan – official site",
+      "url": "https://www.ui.edu.ng/"
+    },
+    "confidence": "medium",
+    "notes": "University founded 1948 (first university in Nigeria, per official site); department founding year not verified. Coordinates from OpenStreetMap entry for the university."
+  },
+  {
+    "country": "SEN",
+    "name": "Institut National du Pétrole et du Gaz (INPG)",
+    "city": "Dakar",
+    "lat": 14.6928,
+    "lon": -17.4467,
+    "type": "government institute",
+    "founded": 2018,
+    "programs": "Masters spécialisés (ingénierie pétrolière et gazière, géosciences, management), formation de techniciens et formation continue pour l'industrie pétrolière et gazière; partenariats avec les opérateurs (Woodside, bp, Kosmos, PETROSEN) et écoles internationales.",
+    "website": "https://www.inpg.sn",
+    "status": "operational",
+    "source": {
+      "name": "INPG – site officiel (unreachable at time of check)",
+      "url": "https://www.inpg.sn"
+    },
+    "confidence": "medium",
+    "notes": "inpg.sn refused connections during this session; founding year 2018 and programmes are from institutional history and could not be confirmed on a primary page. Coordinates approximate (city centre)."
+  },
+  {
+    "country": "SEN",
+    "name": "Université Amadou Mahtar Mbow (UAM)",
+    "city": "Diamniadio",
+    "lat": 14.7217,
+    "lon": -17.1831,
+    "type": "university",
+    "founded": null,
+    "programs": "Université à vocation scientifique et technologique (UFR Sciences de l'Ingénieur, Sciences et Technologies) avec filières énergie.",
+    "website": null,
+    "status": "operational",
+    "source": {
+      "name": "no reachable official site found",
+      "url": ""
+    },
+    "confidence": "low",
+    "notes": "uam.sn / uam.edu.sn did not resolve; listed because named in the brief. Founding year and programmes not verified. Coordinates approximate (Diamniadio)."
+  },
+  {
+    "country": "SEN",
+    "name": "Université Cheikh Anta Diop – Institut des Sciences de la Terre (IST)",
+    "city": "Dakar",
+    "lat": 14.6872,
+    "lon": -17.4644,
+    "type": "university",
+    "founded": null,
+    "programs": "Formation d'ingénieurs géologues et masters en géosciences (géologie du pétrole, hydrogéologie, mines).",
+    "website": "https://www.ucad.sn",
+    "status": "operational",
+    "source": {
+      "name": "UCAD – site officiel",
+      "url": "https://ucad.sn"
+    },
+    "confidence": "low",
+    "notes": "ist.ucad.sn served the CESTI site content at time of check, so no IST page could be verified; institute listed from institutional knowledge. Coordinates: UCAD campus."
+  },
+  {
+    "country": "SEN",
+    "name": "Université Cheikh Anta Diop – École Supérieure Polytechnique (ESP)",
+    "city": "Dakar",
+    "lat": 14.6811,
+    "lon": -17.467,
+    "type": "university",
+    "founded": 1964,
+    "programs": "Six départements dont Génie Chimique et Biologie Appliquée, Génie Mécanique, Génie Électrique; DUT (Bac+2) à master (Bac+5); recherche et innovation.",
+    "website": "https://esp.sn",
+    "status": "operational",
+    "source": {
+      "name": "ESP – site officiel",
+      "url": "https://esp.sn"
+    },
+    "confidence": "high",
+    "notes": "Address: UCAD, Corniche Ouest, BP 5085 Dakar-Fann."
+  },
+  {
+    "country": "SEN",
+    "name": "Université Gaston Berger (UGB) – UFR Sciences Appliquées et de Technologie / Institut Polytechnique de Saint-Louis",
+    "city": "Saint-Louis",
+    "lat": 16.0632,
+    "lon": -16.4239,
+    "type": "university",
+    "founded": 1990,
+    "programs": "UFR SAT (physique appliquée, énergies, génie); Institut Polytechnique de Saint-Louis (IPSL), partenariat TotalEnergies 2025.",
+    "website": "https://www.ugb.sn",
+    "status": "operational",
+    "source": {
+      "name": "UGB – site officiel",
+      "url": "https://www.ugb.sn"
+    },
+    "confidence": "medium",
+    "notes": "No petroleum-specific programme verified; included for energy engineering and the IPSL–TotalEnergies partnership mentioned on the site."
+  },
+  {
+    "country": "SEN",
+    "name": "École Polytechnique de Thiès (EPT)",
+    "city": "Thiès",
+    "lat": 14.7943,
+    "lon": -16.9647,
+    "type": "university",
+    "founded": null,
+    "programs": "Formation d'ingénieurs (génie civil, génie mécanique, génie électromécanique, génie informatique) et masters en énergie.",
+    "website": "https://ept.sn",
+    "status": "operational",
+    "source": {
+      "name": "EPT – site officiel (directory listing only at time of check)",
+      "url": "https://ept.sn"
+    },
+    "confidence": "low",
+    "notes": "ept.sn returned an empty directory listing; programmes from institutional knowledge. Founding year (1973) not verified."
+  },
+  {
+    "country": "ZAF",
+    "name": "Durban University of Technology – Faculty of Engineering and the Built Environment",
+    "city": "Durban",
+    "lat": -29.86181,
+    "lon": 31.00991,
+    "type": "university",
+    "founded": null,
+    "programs": "Chemical, Mechanical and Electrical Engineering diplomas and degrees; Technology Station in Energy Innovations",
+    "website": "https://www.dut.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "DUT – official site",
+      "url": "https://www.dut.ac.za/"
+    },
+    "confidence": "medium",
+    "notes": "Founded 2002 by merger (homepage references a 21st anniversary but not the year). Coordinates approximate (Durban city centre)."
+  },
+  {
+    "country": "ZAF",
+    "name": "Nelson Mandela University – Faculty of Engineering, the Built Environment and Technology",
+    "city": "Gqeberha",
+    "lat": -34.00809,
+    "lon": 25.67463,
+    "type": "university",
+    "founded": null,
+    "programs": "Engineering diplomas and degrees; energy and ocean-sciences programmes",
+    "website": "https://www.mandela.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "Nelson Mandela University – official site",
+      "url": "https://www.mandela.ac.za/"
+    },
+    "confidence": "medium",
+    "notes": "Founded 2005 (not displayed on fetched homepage). Address: PO Box 77000, Gqeberha 6031. Coordinates from OpenStreetMap entry for the South Campus."
+  },
+  {
+    "country": "ZAF",
+    "name": "PetroSA Centre of Excellence, Mossel Bay",
+    "city": "Mossel Bay",
+    "lat": -34.1832,
+    "lon": 22.15362,
+    "type": "NOC academy",
+    "founded": 2002,
+    "programs": "Accredited learnerships and trade qualifications (NQF 2–4) for chemical electricians, instrument mechanics, fitters, riggers, welders and boilermakers; nationally accredited trade test centre",
+    "website": "https://www.petrosa.co.za/excellence.html",
+    "status": "operational",
+    "source": {
+      "name": "PetroSA – Centre of Excellence",
+      "url": "https://www.petrosa.co.za/excellence.html"
+    },
+    "confidence": "high",
+    "notes": "Official site: 'the first learning establishment dedicated to teaching the essential skills demanded by South Africa's petrochemical sector', established 2002. Future transfer to SANPC not confirmed. Coordinates approximate (Mossel Bay town)."
+  },
+  {
+    "country": "ZAF",
+    "name": "Sasol skills academies (Sasolburg / Secunda)",
+    "city": "Secunda",
+    "lat": -26.51611,
+    "lon": 29.20278,
+    "type": "private",
+    "founded": null,
+    "programs": "Artisan learnerships, bursaries and technical training for synthetic fuels and chemicals operations",
+    "website": "https://www.sasol.com/",
+    "status": "operational",
+    "source": {
+      "name": "Sasol – official site",
+      "url": "https://www.sasol.com/"
+    },
+    "confidence": "low",
+    "notes": "Private company (state-founded 1950, privatised 1979) included for completeness as requested; specific academy pages could not be retrieved, so founding and programme details are unverified. Coordinates approximate (Secunda town)."
+  },
+  {
+    "country": "ZAF",
+    "name": "Stellenbosch University – Faculty of Engineering",
+    "city": "Stellenbosch",
+    "lat": -33.93262,
+    "lon": 18.86506,
+    "type": "university",
+    "founded": null,
+    "programs": "BEng, MEng and PhD in Chemical, Process, Mechanical and Electrical Engineering; postgraduate programmes in renewable and sustainable energy (CRSES)",
+    "website": "https://www.su.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "Stellenbosch University – official site",
+      "url": "https://www.su.ac.za/"
+    },
+    "confidence": "medium",
+    "notes": "University founded 1918 (not displayed on fetched page). Site redirects from sun.ac.za to su.ac.za. Coordinates from OpenStreetMap entry for the university."
+  },
+  {
+    "country": "ZAF",
+    "name": "University of Cape Town – Department of Chemical Engineering / Faculty of Engineering & the Built Environment",
+    "city": "Cape Town",
+    "lat": -33.95676,
+    "lon": 18.46758,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc(Eng), MSc and PhD in Chemical Engineering; energy systems, catalysis and minerals-to-metals research",
+    "website": "https://www.uct.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "UCT – official site",
+      "url": "https://www.uct.ac.za/"
+    },
+    "confidence": "medium",
+    "notes": "UCT founded 1829 (not displayed on fetched page). Address: Rondebosch 7701. Coordinates from OpenStreetMap entry for the university."
+  },
+  {
+    "country": "ZAF",
+    "name": "University of Johannesburg – Faculty of Engineering and the Built Environment",
+    "city": "Johannesburg",
+    "lat": -26.18532,
+    "lon": 27.99718,
+    "type": "university",
+    "founded": null,
+    "programs": "BEngTech, BEng, MEng and PhD in Chemical, Mechanical, Electrical and Extraction Metallurgy Engineering",
+    "website": "https://www.uj.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "University of Johannesburg – official site",
+      "url": "https://www.uj.ac.za/"
+    },
+    "confidence": "low",
+    "notes": "Official site blocked automated access (HTTP 403); founded 2005 by merger (not verified here). Coordinates from OpenStreetMap entry for the Auckland Park Kingsway campus."
+  },
+  {
+    "country": "ZAF",
+    "name": "University of Pretoria – Department of Chemical Engineering / Mining Engineering",
+    "city": "Pretoria",
+    "lat": -25.75434,
+    "lon": 28.23086,
+    "type": "university",
+    "founded": null,
+    "programs": "BEng, MEng and PhD in Chemical Engineering and Mining Engineering (Faculty of Engineering, Built Environment and IT)",
+    "website": "https://www.up.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "University of Pretoria – official site",
+      "url": "https://www.up.ac.za/"
+    },
+    "confidence": "low",
+    "notes": "Official site blocked automated access (HTTP 403); founded 1908 (not verified here). Coordinates from OpenStreetMap entry for the Hatfield campus."
+  },
+  {
+    "country": "ZAF",
+    "name": "University of the Witwatersrand – School of Chemical and Metallurgical Engineering / School of Mining Engineering",
+    "city": "Johannesburg",
+    "lat": -26.18888,
+    "lon": 28.02479,
+    "type": "university",
+    "founded": null,
+    "programs": "BSc(Eng), MSc and PhD in Chemical and Metallurgical Engineering and Mining Engineering; energy, coal and catalysis research",
+    "website": "https://www.wits.ac.za/",
+    "status": "operational",
+    "source": {
+      "name": "Wits – About Wits",
+      "url": "https://www.wits.ac.za/about-wits/"
+    },
+    "confidence": "medium",
+    "notes": "University founded 1922 (origins 1896 South African School of Mines); year not displayed on the fetched page, hence null. Address: 1 Jan Smuts Avenue, Braamfontein. Coordinates from OpenStreetMap entry for the university."
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "fr": [
+    { "icon": "📊", "label": "Réserves prouvées", "text": "OPEC Annual Statistical Bulletin 2022–2025 (tables 3.1 et 9.1) ; Energy Institute Statistical Review 2022 (fin 2021) ; NUPRC (déclaration au 1er janvier 2026, Nigeria)" },
+    { "icon": "⚡", "label": "Production", "text": "OPEC ASB 2025 (tables 3.5 et 9.2) ; OPEC Monthly Oil Market Report (sources secondaires, 2025) ; Energy Institute Statistical Review 2026 ; SNH Cameroun, ITIE-RDC, PIAC Ghana, ministères de l'Énergie (Côte d'Ivoire, Sénégal)" },
+    { "icon": "🔄", "label": "Commerce des hydrocarbures", "text": "UN Comtrade (HS 2709, 2710, 2711 ; données déclarées et miroir) ; JODI-Oil ; OPEC ASB 2025 (exportations par destination, table 5.1) ; GIIGNL Annual Report 2022–2025 (flux GNL)" },
+    { "icon": "🗺️", "label": "Bassins, blocs et champs", "text": "USGS World Petroleum Assessment ; régulateurs et compagnies nationales (NUPRC, ANPG, ALNAFT, NOC Libye, EGAS, Petroleum Commission Ghana, NAMCOR, PASA…) ; pages officielles des opérateurs (Eni, TotalEnergies, bp, Shell, ExxonMobil, Chevron, Woodside, Kosmos)" },
+    { "icon": "🚇", "label": "Pipelines", "text": "Global Energy Monitor — Global Gas & Oil Infrastructure Trackers ; opérateurs (WAPCo, Medgaz, Sonatrach TRC, NNPC/NGIC, GASCO, Transnet, COTCO) ; IEA/OPEC pour les lignes transfrontalières" },
+    { "icon": "🏭", "label": "Raffineries", "text": "US EIA Country Analysis Briefs (Nigeria 2025, Algérie 2025, Angola 2025, Libye, Égypte, Afrique du Sud) ; OPEC ASB 2025 (tables 4.1/4.2) ; ARDA ; NNPC, Sonatrach, NOC Libye, EGPC, SIR, SAR, Sogara, Coraf, Soraz, SRN ; Global Energy Observatory (coordonnées)" },
+    { "icon": "🏪", "label": "Stockage et terminaux GNL", "text": "GIIGNL Annual Report 2025 (table des usines de liquéfaction) ; IGU World LNG Report ; Global Energy Monitor (terminaux) ; SUMED, NLNG, Angola LNG, Golar, Perenco, CEF/SFF Afrique du Sud, SCDP, GESTOCI, Senstock, Vopak, NAMCOR, SEP Congo" },
+    { "icon": "🧬", "label": "Pétrochimie", "text": "Sites officiels des opérateurs (Indorama, Dangote, Notore, Fertiglobe/Sorfert, AOA, Abu Qir, MOPCO, Methanex, Sidpec, Ethydco, Sasol, Safripol, LIFECO) ; IFC, EBRD, Arab Fertilizer Association, SEC (10-K)" },
+    { "icon": "🎓", "label": "Formation et R&D", "text": "Sites officiels des instituts, universités et compagnies nationales ; APPO — Forum des Directeurs des Instituts de Formation ; Parlement d'Afrique du Sud, SIGA Ghana, EITI (pages pays)" },
+    { "icon": "🌍", "label": "Profils pays", "text": "Banque mondiale WDI (SP.POP.TOTL, NY.GDP.MKTP.CD, 2021–2024) ; FMI World Economic Outlook avril 2026 (PIB 2025, projection) ; pages pays de la Banque mondiale (économie)" }
+  ],
+  "en": [
+    { "icon": "📊", "label": "Proved reserves", "text": "OPEC Annual Statistical Bulletin 2022–2025 (tables 3.1 and 9.1); Energy Institute Statistical Review 2022 (end-2021); NUPRC (1 January 2026 declaration, Nigeria)" },
+    { "icon": "⚡", "label": "Production", "text": "OPEC ASB 2025 (tables 3.5 and 9.2); OPEC Monthly Oil Market Report (secondary sources, 2025); Energy Institute Statistical Review 2026; SNH Cameroon, EITI-DRC, PIAC Ghana, Ministries of Energy (Côte d'Ivoire, Senegal)" },
+    { "icon": "🔄", "label": "Hydrocarbon trade", "text": "UN Comtrade (HS 2709, 2710, 2711; reporter and mirror data); JODI-Oil; OPEC ASB 2025 (exports by destination, table 5.1); GIIGNL Annual Report 2022–2025 (LNG flows)" },
+    { "icon": "🗺️", "label": "Basins, blocks and fields", "text": "USGS World Petroleum Assessment; regulators and national companies (NUPRC, ANPG, ALNAFT, NOC Libya, EGAS, Petroleum Commission Ghana, NAMCOR, PASA…); operators' official pages (Eni, TotalEnergies, bp, Shell, ExxonMobil, Chevron, Woodside, Kosmos)" },
+    { "icon": "🚇", "label": "Pipelines", "text": "Global Energy Monitor — Global Gas & Oil Infrastructure Trackers; operators (WAPCo, Medgaz, Sonatrach TRC, NNPC/NGIC, GASCO, Transnet, COTCO); IEA/OPEC for cross-border lines" },
+    { "icon": "🏭", "label": "Refineries", "text": "US EIA Country Analysis Briefs (Nigeria 2025, Algeria 2025, Angola 2025, Libya, Egypt, South Africa); OPEC ASB 2025 (tables 4.1/4.2); ARDA; NNPC, Sonatrach, NOC Libya, EGPC, SIR, SAR, Sogara, Coraf, Soraz, SRN; Global Energy Observatory (coordinates)" },
+    { "icon": "🏪", "label": "Storage and LNG terminals", "text": "GIIGNL Annual Report 2025 (liquefaction plants table); IGU World LNG Report; Global Energy Monitor (terminals); SUMED, NLNG, Angola LNG, Golar, Perenco, CEF/SFF South Africa, SCDP, GESTOCI, Senstock, Vopak, NAMCOR, SEP Congo" },
+    { "icon": "🧬", "label": "Petrochemicals", "text": "Operators' official sites (Indorama, Dangote, Notore, Fertiglobe/Sorfert, AOA, Abu Qir, MOPCO, Methanex, Sidpec, Ethydco, Sasol, Safripol, LIFECO); IFC, EBRD, Arab Fertilizer Association, SEC (10-K)" },
+    { "icon": "🎓", "label": "Training and R&D", "text": "Official sites of institutes, universities and national companies; APPO — Forum of Directors of Training Institutes; Parliament of South Africa, SIGA Ghana, EITI (country pages)" },
+    { "icon": "🌍", "label": "Country profiles", "text": "World Bank WDI (SP.POP.TOTL, NY.GDP.MKTP.CD, 2021–2024); IMF World Economic Outlook April 2026 (2025 GDP, projection); World Bank country pages (economy)" }
+  ]
+}

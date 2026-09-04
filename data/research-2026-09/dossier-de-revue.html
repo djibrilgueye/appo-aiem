@@ -1,0 +1,219 @@
+<title>Dossier de revue AIEM 2021–2025</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@90,600;90,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F3F5F8; --paper:#FFFFFF; --ink:#14212E; --ink-2:#3D4B5A; --muted:#6B7886; --line:#D6DDE5; --line-2:#E9EDF2;
+    --navy:#1B4F72; --navy-soft:#E4EEF6; --gold:#B8790A; --gold-soft:#FBF1DC;
+    --ok:#1F7A4D; --ok-soft:#E3F3EA; --warn:#B45309; --warn-soft:#FCEFE1; --crit:#B42318; --crit-soft:#FBE7E4;
+    --cell-0:#F3F5F8; --cell-1:#DCE8F1; --cell-2:#B9D2E4; --cell-3:#8FB6D2; --cell-4:#5E93BA; --cell-5:#2F6B96;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1620; --paper:#152030; --ink:#E7EDF3; --ink-2:#C2CCD6; --muted:#8A98A6; --line:#2A3949; --line-2:#1E2B3A;
+      --navy:#8FBCDE; --navy-soft:#1B3047; --gold:#E0A83A; --gold-soft:#3A2D12;
+      --ok:#5FCB8E; --ok-soft:#173226; --warn:#F2A85A; --warn-soft:#3A2712; --crit:#F0857A; --crit-soft:#3B1C19;
+      --cell-0:#152030; --cell-1:#1E3347; --cell-2:#26455F; --cell-3:#2F5A7A; --cell-4:#3B7399; --cell-5:#4E8FBB;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1620; --paper:#152030; --ink:#E7EDF3; --ink-2:#C2CCD6; --muted:#8A98A6; --line:#2A3949; --line-2:#1E2B3A;
+    --navy:#8FBCDE; --navy-soft:#1B3047; --gold:#E0A83A; --gold-soft:#3A2D12;
+    --ok:#5FCB8E; --ok-soft:#173226; --warn:#F2A85A; --warn-soft:#3A2712; --crit:#F0857A; --crit-soft:#3B1C19;
+    --cell-0:#152030; --cell-1:#1E3347; --cell-2:#26455F; --cell-3:#2F5A7A; --cell-4:#3B7399; --cell-5:#4E8FBB;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.55}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 24px 80px}
+  h1,h2,h3{font-family:"Archivo","IBM Plex Sans",system-ui,sans-serif;font-stretch:90%;letter-spacing:-0.01em;text-wrap:balance;margin:0}
+  h1{font-size:34px;font-weight:700;line-height:1.1}
+  h2{font-size:20px;font-weight:700;margin-top:56px;padding-top:18px;border-top:2px solid var(--ink)}
+  h3{font-size:15px;font-weight:600;margin-top:24px;color:var(--ink-2)}
+  p{max-width:68ch;margin:12px 0}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);max-width:66ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--muted);font-size:13px;margin-top:14px;font-variant-numeric:tabular-nums}
+  .band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+  .band > div{background:var(--paper);padding:16px 18px}
+  .band .n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:26px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  .band .l{font-size:12px;color:var(--muted);margin-top:8px}
+  .decision{margin-top:24px;padding:18px 20px;border-left:4px solid var(--gold);background:var(--gold-soft)}
+  .decision p{margin:6px 0;max-width:none}
+  .decision ol{margin:8px 0 0 18px;padding:0}
+  .decision li{margin:6px 0}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+  .tbl{overflow-x:auto;margin-top:14px;border:1px solid var(--line);background:var(--paper)}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line-2);vertical-align:top}
+  th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+  td.num,th.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px}
+  tr:last-child td{border-bottom:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px}
+  .heat td.h{width:64px;text-align:center;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:var(--ink)}
+  .h0{background:var(--cell-0)} .h1{background:var(--cell-1)} .h2{background:var(--cell-2)} .h3{background:var(--cell-3)} .h4{background:var(--cell-4);color:#fff!important} .h5{background:var(--cell-5);color:#fff!important}
+  .legend{display:flex;gap:14px;align-items:center;font-size:12px;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:4px;border:1px solid var(--line)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.crit{background:var(--crit-soft);color:var(--crit)} .pill.navy{background:var(--navy-soft);color:var(--navy)}
+  .delta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;white-space:nowrap}
+  .delta b{font-weight:500}
+  ul.plain{padding-left:18px;margin:10px 0}
+  ul.plain li{margin:6px 0;max-width:72ch}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .note{font-size:13px;color:var(--muted)}
+  .src{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;font-size:13.5px;margin-top:14px}
+  .src dt{color:var(--ink-2);font-weight:600}
+  .src dd{margin:0;color:var(--ink-2)}
+  .step{display:grid;grid-template-columns:28px 1fr;gap:12px;margin:10px 0;max-width:72ch}
+  .step span{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--muted);font-size:12.5px;padding-top:2px}
+  @media (max-width:760px){.band{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.src{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:no-preference){a{transition:color .15s}}
+  a{color:var(--navy)} a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">AIEM · Africa Interactive Energy Map · Campagne de collecte 2021–2025</div>
+  <h1 style="margin-top:10px">Dossier de revue avant import</h1>
+  <p class="lede">Ce que la recherche institutionnelle a produit pour les 18 États membres, ce qu'elle va changer dans la base de production, et les points qui attendent ta validation avant écriture.</p>
+  <div class="meta">
+    <span>Recherche : 6 agents, 20 sous-agents, sources institutionnelles uniquement</span>
+    <span>Base testée : copie prod du 4 sept. 2026 (backup local conservé)</span>
+    <span>Écriture en prod : <b>aucune pour l'instant</b></span>
+  </div>
+
+  <div class="band">
+    <div><div class="n">1 157</div><div class="l">enregistrements recherchés, chacun avec source, page/table, année de référence et niveau de confiance</div></div>
+    <div><div class="n">865</div><div class="l">écritures planifiées (264 sur les séries, 583 sur les inventaires, 18 profils pays) — simulées sur la copie de test</div></div>
+    <div><div class="n">0</div><div class="l">suppression : les lignes existantes non appariées sont conservées, les valeurs « approximatives » n'écrasent jamais l'existant</div></div>
+    <div><div class="n">26</div><div class="l">sources primaires majeures (OPEC, EI, UN Comtrade, JODI, GIIGNL, EIA, GEM, Banque mondiale, FMI, régulateurs, NOC)</div></div>
+  </div>
+
+  <div class="decision">
+    <p class="eyebrow" style="color:var(--gold)">Décision demandée</p>
+    <p>Le plan ci-dessous est prêt à s'exécuter en une commande, après un nouveau backup automatique. Il te faut trancher six points :</p>
+    <ol>
+      <li><b>Révisions OPEC</b> qui remplacent des valeurs en base : Angola réserves pétrole 7,78 → 2,55 Gbbl ; Libye réserves gaz 52,99 → 25,78 Tcf ; Congo gaz produit 2 000 → 425 M m³ ; Égypte gaz réserves 63 → 78 Tcf. Ce sont les chiffres officiels ASB 2025.</li>
+      <li><b>Convention « brut seul »</b> pour la production pétrolière (OPEC), qui fait baisser l'Égypte de 560 à 450 kb/d : le condensat n'est plus additionné.</li>
+      <li><b>Zéros documentés</b> : Bénin 2023 (8 → 0 kb/d, Sèmè à l'arrêt), Sénégal 2021-2023 (0, premier pétrole Sangomar en juin 2024).</li>
+      <li><b>Blocs et champs</b> : 59 blocs et 58 champs entrent dans deux tables aujourd'hui vides.</li>
+      <li><b>Seuil de confiance</b> : les 205 lignes classées « faible » sont exclues par défaut (abaissable table par table).</li>
+      <li><b>Bloc « Sources »</b> de la Vue Générale remplacé par la version bilingue ci-dessous.</li>
+    </ol>
+  </div>
+
+  <h2>1 · Couverture des séries temporelles</h2>
+  <p>Nombre de pays membres (sur 18) disposant d'une valeur par année. Les cases claires sont des <em>limites de source</em>, pas des oublis : l'Energy Institute a cessé de publier les réserves après 2021 et l'OPEP agrège dix de nos membres dans « Others » — aucune interpolation n'a été faite.</p>
+  <div class="tbl"><table class="heat">
+    <thead><tr><th>Série · unité</th><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th><th>Source dominante</th></tr></thead>
+    <tbody>
+      <tr><td>Réserves pétrole · Gbbl</td><td class="h h5">16</td><td class="h h2">8</td><td class="h h2">8</td><td class="h h2">8</td><td class="h h0">1</td><td class="note">OPEC ASB (8 pays détaillés) ; EI 2022 pour 2021</td></tr>
+      <tr><td>Réserves gaz · Tcf</td><td class="h h4">14</td><td class="h h2">9</td><td class="h h2">9</td><td class="h h2">9</td><td class="h h0">1</td><td class="note">OPEC ASB ; NUPRC 2025 (Nigeria)</td></tr>
+      <tr><td>Production pétrole · kb/d</td><td class="h h5">15</td><td class="h h5">15</td><td class="h h5">15</td><td class="h h5">15</td><td class="h h4">13</td><td class="note">OPEC ASB 2025 ; MOMR 2025 ; EI 2026 ; ministères</td></tr>
+      <tr><td>Production gaz · M m³/an</td><td class="h h3">12</td><td class="h h3">12</td><td class="h h3">12</td><td class="h h4">13</td><td class="h h1">6</td><td class="note">OPEC ASB 2025 table 9.2 ; EI 2026</td></tr>
+      <tr><td>Exports brut hors Afrique · kb/d</td><td class="h h5">17</td><td class="h h5">17</td><td class="h h5">17</td><td class="h h5">17</td><td class="h h2">7</td><td class="note">OPEC ASB 5.1 ; UN Comtrade ; JODI</td></tr>
+      <tr><td>Exports gaz hors Afrique · bcm</td><td class="h h4">14</td><td class="h h4">13</td><td class="h h5">16</td><td class="h h4">14</td><td class="h h0">2</td><td class="note">GIIGNL 2022-2025 ; OPEC 9.3/9.4</td></tr>
+      <tr><td>Exports essence · m³</td><td class="h h5">18</td><td class="h h5">17</td><td class="h h5">18</td><td class="h h5">18</td><td class="h h2">7</td><td class="note">UN Comtrade HS 271012 ; JODI</td></tr>
+      <tr><td>Exports jet fuel · t</td><td class="h h1">6</td><td class="h h1">6</td><td class="h h1">6</td><td class="h h0">3</td><td class="h h0">2</td><td class="note">JODI seul (HS 271019 ne l'isole pas)</td></tr>
+      <tr><td>Imports brut hors Afrique · kb/d</td><td class="h h5">15</td><td class="h h5">15</td><td class="h h5">15</td><td class="h h3">11</td><td class="h h2">7</td><td class="note">UN Comtrade ; JODI</td></tr>
+      <tr><td>Imports essence · m³</td><td class="h h5">18</td><td class="h h5">18</td><td class="h h5">18</td><td class="h h5">18</td><td class="h h2">7</td><td class="note">UN Comtrade (miroir signalé)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="legend"><span><i class="h0"></i>0–3</span><span><i class="h1"></i>4–7</span><span><i class="h2"></i>8–9</span><span><i class="h3"></i>10–12</span><span><i class="h4"></i>13–14</span><span><i class="h5"></i>15–18</span><span style="margin-left:auto">Condensat : non publié séparément par les sources atteintes (Nigeria seul, réserves).</span></div>
+
+  <h2>2 · Ce qui change dans la base</h2>
+  <p>Écarts supérieurs à 15 % entre la valeur actuellement en production et la valeur sourcée. Chacun correspond à un changement de base de référence officiel, indiqué en dernière colonne.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Pays · année</th><th>Série</th><th class="num">En base</th><th class="num">Sourcé</th><th>Pourquoi</th></tr></thead>
+    <tbody>
+      <tr><td>Angola · 2024</td><td>Réserves pétrole (Gbbl)</td><td class="num">7,78</td><td class="num"><span class="delta"><b>2,55</b></span></td><td class="note">Révision OPEC ASB (déjà 2 516 mb en 2021)</td></tr>
+      <tr><td>Angola · 2024</td><td>Réserves gaz (Tcf)</td><td class="num">13,50</td><td class="num"><span class="delta"><b>4,56</b></span></td><td class="note">OPEC ASB 2025 table 9.1 (129 bcm)</td></tr>
+      <tr><td>Libye · 2024</td><td>Réserves gaz (Tcf)</td><td class="num">52,99</td><td class="num"><span class="delta"><b>25,78</b></span></td><td class="note">OPEC 1 505 → 730 bcm ; EIA/OGJ gardent 53 Tcf — noté</td></tr>
+      <tr><td>Égypte · 2024</td><td>Réserves gaz (Tcf)</td><td class="num">63,00</td><td class="num"><span class="delta"><b>78,01</b></span></td><td class="note">OPEC ; EI donnait 63 — désaccord consigné</td></tr>
+      <tr><td>Congo · 2024</td><td>Réserves pétrole (Gbbl)</td><td class="num">2,88</td><td class="num"><span class="delta"><b>1,81</b></span></td><td class="note">OPEC ASB 2025</td></tr>
+      <tr><td>Égypte · 2021-24</td><td>Production pétrole (kb/d)</td><td class="num">≈560</td><td class="num"><span class="delta"><b>445–453</b></span></td><td class="note">Brut seul (OPEC) ; la base incluait le condensat</td></tr>
+      <tr><td>Égypte · 2024</td><td>Production gaz (M m³)</td><td class="num">67 000</td><td class="num"><span class="delta"><b>49 350</b></span></td><td class="note">OPEC table 9.2 (gaz commercialisé)</td></tr>
+      <tr><td>Congo · 2021-24</td><td>Production gaz (M m³)</td><td class="num">1 032–2 000</td><td class="num"><span class="delta"><b>415–425</b></span></td><td class="note">OPEC gaz commercialisé (hors réinjection)</td></tr>
+      <tr><td>Nigeria · 2021-23</td><td>Production gaz (M m³)</td><td class="num">33 532–39 370</td><td class="num"><span class="delta"><b>42 403–48 572</b></span></td><td class="note">OPEC ASB 2025 (série révisée à la hausse)</td></tr>
+      <tr><td>Sénégal · 2024</td><td>Production pétrole (kb/d)</td><td class="num">100,0</td><td class="num"><span class="delta"><b>46,2</b></span></td><td class="note">Moyenne annuelle : premier pétrole Sangomar le 2 juin 2024</td></tr>
+      <tr><td>Tchad · 2021-23</td><td>Production pétrole (kb/d)</td><td class="num">133–149</td><td class="num"><span class="delta"><b>104–108</b></span></td><td class="note">OPEC ; écart EI 10-20 % consigné</td></tr>
+      <tr><td>Gabon · 2024</td><td>Production pétrole (kb/d)</td><td class="num">181</td><td class="num"><span class="delta"><b>224</b></span></td><td class="note">OPEC ASB 2025</td></tr>
+      <tr><td>Guinée éq. · 2024</td><td>Production pétrole (kb/d)</td><td class="num">85</td><td class="num"><span class="delta"><b>57</b></span></td><td class="note">OPEC ASB 2025 (brut seul)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Commerce : les 4 lignes 2024 existantes portaient des unités incohérentes (ex. gaz intra-africain algérien « 93 592 bcm ») ; elles sont remplacées par les valeurs sourcées (3,26 bcm).</p>
+
+  <h2>3 · Plan d'import</h2>
+  <p>Résultat de la simulation sur la copie de test, seuil de confiance « moyen ». <em>Mise à jour</em> = ligne existante appariée (par acronyme, mots-clés, ville ou alias manuel) enrichie champ par champ ; <em>ajout</em> = aucune ligne correspondante.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Table</th><th class="num">En base</th><th class="num">Recherchés</th><th class="num">Mises à jour</th><th class="num">Ajouts</th><th class="num">Exclus (faible)</th><th>Remarque</th></tr></thead>
+    <tbody>
+      <tr><td>Reserve</td><td class="num">22</td><td class="num">90</td><td class="num">8</td><td class="num">36</td><td class="num">45</td><td class="note">45 « faible » = valeurs 2021 EI pour les non-OPEP + Nigeria 2025 NUPRC via presse</td></tr>
+      <tr><td>Production</td><td class="num">117</td><td class="num">90</td><td class="num">49</td><td class="num">18</td><td class="num">21</td><td class="note">2025 complet pour 13 pays (ASB 2026 inaccessible, confiance moyenne)</td></tr>
+      <tr><td>TradeExport</td><td class="num">4</td><td class="num">79</td><td class="num">4</td><td class="num">73</td><td class="num">2</td><td class="note">Partenaires (top 3-6) dans partnersDetail</td></tr>
+      <tr><td>TradeImport</td><td class="num">4</td><td class="num">79</td><td class="num">4</td><td class="num">72</td><td class="num">3</td><td class="note">84 lignes utilisent partiellement des données miroir (signalées)</td></tr>
+      <tr><td>Refinery</td><td class="num">49</td><td class="num">69</td><td class="num">35</td><td class="num">11</td><td class="num">18</td><td class="note">Statuts 2024-25 (Dangote, PH/Warri/Kaduna offline, Sapref CEF, TOR redémarrée)</td></tr>
+      <tr><td>Storage</td><td class="num">52</td><td class="num">92</td><td class="num">45</td><td class="num">23</td><td class="num">18</td><td class="note">+ 6 projets annulés exclus ; GNL depuis la table GIIGNL 2025</td></tr>
+      <tr><td>Petrochemical</td><td class="num">6</td><td class="num">52</td><td class="num">5</td><td class="num">36</td><td class="num">11</td><td class="note">Engrais/urée, méthanol, oléfines — capacités opérateurs</td></tr>
+      <tr><td>Pipeline</td><td class="num">20</td><td class="num">70</td><td class="num">16</td><td class="num">39</td><td class="num">15</td><td class="note">6 alias manuels (Medgaz, GME, Greenstream, Niger–Bénin, GR5, OZ)</td></tr>
+      <tr><td>Basin</td><td class="num">37</td><td class="num">51</td><td class="num">25</td><td class="num">20</td><td class="num">6</td><td class="note">8 alias manuels ; « Tano Basin » est en double en base (à nettoyer)</td></tr>
+      <tr><td>Block</td><td class="num">0</td><td class="num">96</td><td class="num">0</td><td class="num">59</td><td class="num">9</td><td class="note">28 sans bassin résolu → non importés</td></tr>
+      <tr><td>HydrocarbonField</td><td class="num">0</td><td class="num">90</td><td class="num">0</td><td class="num">58</td><td class="num">4</td><td class="note">28 sans bassin résolu → non importés</td></tr>
+      <tr><td>Training</td><td class="num">28</td><td class="num">96</td><td class="num">14</td><td class="num">56</td><td class="num">26</td><td class="note">Tes 28 lignes curées restent intactes</td></tr>
+      <tr><td>RnDCenter</td><td class="num">7</td><td class="num">50</td><td class="num">4</td><td class="num">35</td><td class="num">11</td><td class="note">Aucun centre vérifiable pour COG et GNQ</td></tr>
+      <tr><td>NationalCompany</td><td class="num">24</td><td class="num">135</td><td class="num">13</td><td class="num">89</td><td class="num">24</td><td class="note">Régulateurs et filiales aval inclus (type dans la description)</td></tr>
+      <tr><td>Country</td><td class="num">18</td><td class="num">18</td><td class="num">18</td><td class="num">—</td><td class="num">—</td><td class="note">Population 2024, PIB 2024 (WDI) ; textes économie fr/en si vides</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Règles appliquées</h3>
+  <ul class="plain">
+    <li>Clé d'appariement des séries : pays + année (contrainte unique du schéma). Un champ nul en recherche ne touche pas la valeur existante.</li>
+    <li>Inventaires : jamais de suppression ; coordonnées écrites seulement si la ligne n'en a pas, et jamais depuis une source marquée « approximatif ».</li>
+    <li>Statut ramené au vocabulaire à 6 valeurs ; projets annulés ou abandonnés non importés.</li>
+    <li>Provenance (source, page/table, confiance, notes) conservée dans un journal JSON par écriture — le schéma n'a pas de colonne source (proposition : en ajouter une lors d'une prochaine migration).</li>
+  </ul>
+
+  <h2>4 · Sources</h2>
+  <p>Ce qui entrera dans le bloc « Sources » de la Vue Générale (versions française et anglaise). Chaque valeur en base renvoie en plus, dans le journal, à la page ou au tableau exact.</p>
+  <dl class="src">
+    <dt>Réserves</dt><dd>OPEC Annual Statistical Bulletin 2022–2025 (tables 3.1, 9.1) · Energy Institute Statistical Review 2022 · NUPRC</dd>
+    <dt>Production</dt><dd>OPEC ASB 2025 (3.5, 9.2) · OPEC MOMR 2025 · Energy Institute 2026 · SNH, ITIE-RDC, PIAC, ministères CIV/SEN</dd>
+    <dt>Commerce</dt><dd>UN Comtrade (HS 2709/2710/2711) · JODI-Oil · OPEC ASB 2025 (5.1) · GIIGNL 2022–2025</dd>
+    <dt>Amont</dt><dd>USGS · NUPRC, ANPG, ALNAFT, NOC Libye, EGAS, Petroleum Commission, NAMCOR, PASA · opérateurs (Eni, TotalEnergies, bp, Shell, ExxonMobil, Chevron, Woodside, Kosmos)</dd>
+    <dt>Pipelines</dt><dd>Global Energy Monitor · WAPCo, Medgaz, Sonatrach TRC, NNPC/NGIC, GASCO, Transnet, COTCO</dd>
+    <dt>Raffineries</dt><dd>US EIA Country Analysis Briefs 2024–2025 · OPEC ASB 2025 (4.1/4.2) · ARDA · NOC et opérateurs · Global Energy Observatory</dd>
+    <dt>Stockage / GNL</dt><dd>GIIGNL 2025 (table liquéfaction) · IGU · GEM · SUMED, NLNG, Angola LNG, Golar, Perenco, CEF/SFF, SCDP, GESTOCI, Senstock, Vopak, NAMCOR, SEP Congo</dd>
+    <dt>Pétrochimie</dt><dd>Sites opérateurs · IFC · EBRD · Arab Fertilizer Association · SEC 10-K</dd>
+    <dt>Institutions</dt><dd>Sites officiels · APPO (Forum des Directeurs) · Parlement RSA · SIGA Ghana · EITI</dd>
+    <dt>Profils pays</dt><dd>Banque mondiale WDI (population, PIB courant 2021–2024) · FMI WEO avril 2026 (PIB 2025, projection)</dd>
+  </dl>
+
+  <h2>5 · Limites à connaître</h2>
+  <div class="two">
+    <div>
+      <h3>Limites des sources</h3>
+      <ul class="plain">
+        <li>Réserves après 2021 : seuls les 8 pays détaillés par l'OPEP ont une série officielle ; Bénin, Tchad, RDC, Côte d'Ivoire, Ghana, Namibie, Niger, Sénégal, Afrique du Sud restent à leur valeur fin 2021 (EI).</li>
+        <li>Condensat : non publié séparément ; le chiffre OPEC du Nigeria inclut déjà le condensat (ne pas additionner).</li>
+        <li>Jet fuel : isolable uniquement via JODI (8 pays) ; HS 271019 mélange gasoil, jet et fioul.</li>
+        <li>2025 : millésime complet mais « moyen » — l'ASB 2026 de l'OPEP était inaccessible (403).</li>
+        <li>Données miroir Comtrade biaisées par le transit (Pays-Bas, Belgique, Togo, EAU) — signalé ligne par ligne.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limites de la collecte</h3>
+      <ul class="plain">
+        <li>Quota de recherche web épuisé à mi-parcours : la suite s'est faite en accès direct aux URL institutionnelles. Couche la plus faible : dépôts de produits (BOST, Naftal, Brega, EGPC, SONIDEP, SHT, SGEPP injoignables).</li>
+        <li>Global Energy Monitor bloqué (403) : lu via archives ; coordonnées souvent approximatives (ville/port), signalées et non écrasantes.</li>
+        <li>Le vocabulaire statut n'a pas de valeur « annulé » : ces projets sont exclus plutôt que forcés en « concept ».</li>
+        <li>Blocs et champs : 28 + 28 sans bassin résolu ; à rattacher après un second passage sur les bassins.</li>
+        <li>APPO ne publie pas la liste des membres du Forum des Directeurs : aucun institut n'est marqué membre — à demander au Secrétariat.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>6 · Si tu valides</h2>
+  <div class="step"><span>1</span><div>Nouveau backup SQLite consistant de la prod (`.backup`), conservé sur le serveur et en local.</div></div>
+  <div class="step"><span>2</span><div>Import des séries (Reserve, Production, TradeExport, TradeImport) puis des inventaires et profils pays, avec le journal de provenance.</div></div>
+  <div class="step"><span>3</span><div>Mise à jour du bloc « Sources » (fr/en) ; redémarrage de l'application ; vérification sur la carte, le tableau et la comparaison.</div></div>
+  <div class="step"><span>4</span><div>Archivage des fichiers de recherche et des journaux dans le dépôt (`data/research-2026-09/`) pour l'audit.</div></div>
+  <p class="note" style="margin-top:20px">Réponds par point si tu veux ajuster (par ex. « garder l'Égypte brut+condensat », « importer aussi les lignes faibles pour les raffineries », « ne pas toucher aux réserves Angola »). Sinon un « go » suffit.</p>
+</div>
