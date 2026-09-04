@@ -1052,6 +1052,21 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
   const labelsGrp    = useRef<L.LayerGroup | null>(null)
   const hoveredLayer   = useRef<L.Path | null>(null)
   const tooltipLocked  = useRef(false)
+
+  // Single source of truth for a country's resting style (4 tiers:
+  // selected > non-member > in-region > off-region). Used by the bulk
+  // restyle effect, mouseout, mouseover (previous layer) and the trade
+  // highlight reset — so a hovered-then-left country always comes back to
+  // exactly the same look as its never-hovered neighbours.
+  const tierStyle = (iso2?: string): L.PathOptions => {
+    const isSelected = !!iso2 && selectedCodesRef.current.has(iso2)
+    const isMember   = !!iso2 && memberCodesRef.current.has(iso2)
+    const isInRegion = !iso2 || regionCodesRef.current.size === 0 || regionCodesRef.current.has(iso2)
+    if (isSelected)  return { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
+    if (!isMember)   return { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
+    if (isInRegion)  return { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
+    return                  { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
+  }
   const tooltipTimer   = useRef<ReturnType<typeof setTimeout> | null>(null)
   const memberCodesRef    = useRef<Set<string>>(new Set())
   const regionCodesRef    = useRef<Set<string>>(new Set())  // ISO2 codes in the active region
@@ -1153,15 +1168,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     tradeHighlightRef.current.forEach(lyr => {
       const iso2 = (lyr as L.Path & { _iso2?: string })._iso2
       if (!iso2) return
-      const isSelected = selectedCodesRef.current.has(iso2)
-      const isMember   = memberCodesRef.current.has(iso2)
-      const isInRegion = regionCodesRef.current.size === 0 || regionCodesRef.current.has(iso2)
-      lyr.setStyle(
-        isSelected  ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
-        : !isMember ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
-        : isInRegion? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
-        :             { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
-      )
+      lyr.setStyle(tierStyle(iso2))
     })
     tradeHighlightRef.current.clear()
   }, [])
@@ -1303,39 +1310,15 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                 // qui disparaît" bug after hovering a country.
                 const prev = hoveredLayer.current
                 if (prev && prev !== tgt) {
-                  const prevIso2 = (prev as L.Path & { _iso2?: string })._iso2
-                  const prevSelected = prevIso2 && selectedCodesRef.current.has(prevIso2)
-                  const prevMember = prevIso2 && memberCodesRef.current.has(prevIso2)
-                  const prevInRegion = !prevIso2 || regionCodesRef.current.size === 0 || regionCodesRef.current.has(prevIso2)
-                  prev.setStyle(
-                    prevSelected
-                      ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
-                      : !prevMember
-                      ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
-                      : prevInRegion
-                      ? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
-                      : { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
-                  )
+                  prev.setStyle(tierStyle((prev as L.Path & { _iso2?: string })._iso2))
                 }
                 hoveredLayer.current = tgt
                 tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
               },
               mouseout: (e) => {
                 const tgt = e.target as L.Path & { _iso2?: string }
-                const tgtIso2 = tgt._iso2
-                const isSelected = tgtIso2 && selectedCodesRef.current.has(tgtIso2)
-                const isMember = tgtIso2 && memberCodesRef.current.has(tgtIso2)
-                const isInRegion = !tgtIso2 || regionCodesRef.current.size === 0 || regionCodesRef.current.has(tgtIso2)
-                // Restore the correct style (4-tier: selected > non-member > in-region > off-region)
-                tgt.setStyle(
-                  isSelected
-                    ? { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
-                    : !isMember
-                    ? { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
-                    : isInRegion
-                    ? { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
-                    : { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
-                )
+                // Restore the resting 4-tier style
+                tgt.setStyle(tierStyle(tgt._iso2))
                 if (hoveredLayer.current === tgt) hoveredLayer.current = null
                 if (!tooltipLocked.current) {
                   tooltipTimer.current = setTimeout(() => setTooltip(null), 150)
@@ -1401,28 +1384,13 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     regionCodesRef.current = regionIso2
     selectedCodesRef.current = selectedIso2
 
-    geoLayer.current.setStyle((feature) => {
-      const iso2 = feature?.properties?.iso2
-      const isSelected  = selectedIso2.size > 0 && iso2 && selectedIso2.has(iso2)
-      const isMember    = iso2 && memberCodes.has(iso2)
-      const isInRegion  = regionIso2.size === 0 || (iso2 && regionIso2.has(iso2))
-
-      const fillColor   = isSelected   ? MC.countrySelected
-                        : !isMember    ? MC.countryNonMember
-                        : isInRegion   ? MC.countryDefault
-                        :                MC.countryMemberOff
-      const fillOpacity = isSelected ? 0.9
-                        : !isMember  ? 0.5
-                        : isInRegion ? 0.85
-                        :              0.55
-      const borderColor = isSelected                ? MC.borderHover
-                        : isMember && isInRegion    ? MC.borderInRegion
-                        :                             MC.border
-      const borderWeight = isSelected              ? 1.4
-                         : isMember && isInRegion  ? 1.2
-                         :                            0.6
-      return { fillColor, fillOpacity, color: borderColor, weight: borderWeight }
-    })
+    // Refs are up to date at this point, so the shared helper applies the
+    // exact same 4-tier look the hover handlers restore to.
+    geoLayer.current.setStyle((feature) => tierStyle(feature?.properties?.iso2))
+    // A layer that is currently hovered keeps its hover look.
+    if (hoveredLayer.current) {
+      hoveredLayer.current.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
+    }
   }, [selectedCountries, countries, selectedRegion, geoReady])
 
   // ── Render markers & layers ───────────────────────────────────────────────
