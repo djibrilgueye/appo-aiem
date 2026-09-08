@@ -1,0 +1,12 @@
+[
+  {
+    "table": "Reserve", "country": "NAM", "year": 2023, "field": "oil", "old": 11.0, "new": 0.0,
+    "reason": "11 Gbbl were discovered resources (Venus, Graff, Mopane — contingent, pre-FID), not proved reserves. Energy Institute end-2021 reports no proved oil reserves for Namibia; gas 2.2 Tcf (Kudu) kept.",
+    "source": "Energy Institute Statistical Review 2023 (end-2021 reserves); NAMCOR / operator releases on Venus & Mopane (pre-FID)"
+  },
+  {
+    "table": "Production", "country": "SEN", "year": 2020, "field": "gas", "old": 15.6, "new": 0.0,
+    "reason": "Senegal had no hydrocarbon production before Sangomar first oil (2 June 2024); first gas from GTA in 2025.",
+    "source": "Ministère de l'Énergie, du Pétrole et des Mines (Sénégal); bp/Kosmos GTA first gas Jan 2025"
+  }
+]

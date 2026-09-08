@@ -74,8 +74,11 @@ export function Overview() {
         rnd:                  Array.isArray(rnd)          ? rnd.length : 0,
         storage:              Array.isArray(storage)      ? storage.length : 0,
         petrochem:            Array.isArray(petrochem)    ? petrochem.length : 0,
-        reserves_countries:   Array.isArray(reserves)    ? new Set(reserves.map((r: { countryId?: string; country?: { id?: string } }) => r.countryId || r.country?.id)).size : 0,
-        production_countries: Array.isArray(production)  ? new Set(production.map((p: { countryId?: string; country?: { id?: string } }) => p.countryId || p.country?.id)).size : 0,
+        // Count countries with an actual non-zero figure, not merely a row:
+        // documented non-producers (e.g. Benin, Namibia) carry explicit
+        // zeros and must not inflate the KPI.
+        reserves_countries:   Array.isArray(reserves)    ? new Set(reserves.filter((r: { oil?: number; gas?: number; condensat?: number | null }) => (r.oil ?? 0) > 0 || (r.gas ?? 0) > 0 || (r.condensat ?? 0) > 0).map((r: { countryId?: string; country?: { id?: string } }) => r.countryId || r.country?.id)).size : 0,
+        production_countries: Array.isArray(production)  ? new Set(production.filter((p: { oil?: number; gas?: number; condensat?: number | null }) => (p.oil ?? 0) > 0 || (p.gas ?? 0) > 0 || (p.condensat ?? 0) > 0).map((p: { countryId?: string; country?: { id?: string } }) => p.countryId || p.country?.id)).size : 0,
       })
     })
   }, [])

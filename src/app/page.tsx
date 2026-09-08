@@ -247,8 +247,9 @@ export default function LandingPage() {
         rnd:        Array.isArray(rnd)          ? rnd.length        : 0,
         storage:    Array.isArray(storage)      ? storage.length    : 0,
         petrochem:  Array.isArray(petrochem)    ? petrochem.length  : 0,
-        reserves:   Array.isArray(reserves)     ? new Set(reserves.map((r: { countryId?: string }) => r.countryId)).size : 0,
-        production: Array.isArray(production)   ? new Set(production.map((p: { countryId?: string }) => p.countryId)).size : 0,
+        // Countries with a non-zero figure only — documented non-producers carry explicit zeros.
+        reserves:   Array.isArray(reserves)     ? new Set(reserves.filter((r: { oil?: number; gas?: number; condensat?: number | null }) => (r.oil ?? 0) > 0 || (r.gas ?? 0) > 0 || (r.condensat ?? 0) > 0).map((r: { countryId?: string }) => r.countryId)).size : 0,
+        production: Array.isArray(production)   ? new Set(production.filter((p: { oil?: number; gas?: number; condensat?: number | null }) => (p.oil ?? 0) > 0 || (p.gas ?? 0) > 0 || (p.condensat ?? 0) > 0).map((p: { countryId?: string }) => p.countryId)).size : 0,
       })
     })
   }, [])
