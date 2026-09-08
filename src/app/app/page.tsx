@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic"
 import { useState, useEffect, Suspense, useRef } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
-import { Play, Pause, ChevronLeft, ChevronRight } from "lucide-react"
+import { Play, Pause, ChevronLeft, ChevronRight, GripVertical } from "lucide-react"
 import { Navbar } from "@/components/Navbar"
 import { Sidebar } from "@/components/Sidebar"
 import { DraggableLegend } from "@/components/DraggableLegend"
@@ -43,6 +43,34 @@ function HomeContent() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const playTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Draggable timeline: null = default spot (bottom centre); once dragged the
+  // bar is positioned absolutely inside the map area and clamped to it.
+  const [tlPos, setTlPos] = useState<{ x: number; y: number } | null>(null)
+  const tlRef = useRef<HTMLDivElement>(null)
+  const tlDrag = useRef<{ startX: number; startY: number; originX: number; originY: number } | null>(null)
+  const onTlPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest("button")) return // year / play buttons stay clickable
+    const el = tlRef.current, parent = el?.parentElement
+    if (!el || !parent) return
+    const r = el.getBoundingClientRect(), pr = parent.getBoundingClientRect()
+    const origin = { x: r.left - pr.left, y: r.top - pr.top }
+    setTlPos(origin)
+    tlDrag.current = { startX: e.clientX, startY: e.clientY, originX: origin.x, originY: origin.y }
+    el.setPointerCapture(e.pointerId)
+  }
+  const onTlPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const d = tlDrag.current, el = tlRef.current, parent = el?.parentElement
+    if (!d || !el || !parent) return
+    const pr = parent.getBoundingClientRect()
+    const x = Math.min(Math.max(0, d.originX + e.clientX - d.startX), Math.max(0, pr.width - el.offsetWidth))
+    const y = Math.min(Math.max(0, d.originY + e.clientY - d.startY), Math.max(0, pr.height - el.offsetHeight))
+    setTlPos({ x, y })
+  }
+  const onTlPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    tlDrag.current = null
+    try { tlRef.current?.releasePointerCapture(e.pointerId) } catch { /* already released */ }
+  }
 
   // Handle ?view=<map|table|overview>&theme=xxx from Overview stat cards,
   // Navbar links, or AI assistant links.
@@ -135,9 +163,19 @@ function HomeContent() {
               />
               <DraggableLegend activeThemes={activeThemes} />
 
-              {/* Floating interactive timeline (2021 → 2026) with Play/Pause */}
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[1000] select-none">
-                <div className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/50 shadow-2xl">
+              {/* Floating interactive timeline (2021 → 2026) with Play/Pause — draggable */}
+              <div
+                ref={tlRef}
+                className={`absolute z-[1000] select-none touch-none ${tlPos ? "" : "bottom-5 left-1/2 -translate-x-1/2"}`}
+                style={tlPos ? { left: tlPos.x, top: tlPos.y, cursor: tlDrag.current ? "grabbing" : "grab" } : { cursor: "grab" }}
+                onPointerDown={onTlPointerDown}
+                onPointerMove={onTlPointerMove}
+                onPointerUp={onTlPointerUp}
+                onPointerCancel={onTlPointerUp}
+                title="Glisser pour déplacer la timeline"
+              >
+                <div className="flex items-center gap-3 pl-2 pr-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/50 shadow-2xl">
+                  <GripVertical size={16} className="text-slate-400 shrink-0" aria-hidden="true" />
                   <button
                     onClick={() => setIsPlaying(p => !p)}
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-white shadow-md transition-transform hover:scale-105"
