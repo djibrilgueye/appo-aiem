@@ -19,7 +19,7 @@ export default function EditPipelinePage() {
   const [error, setError] = useState("")
   const [form, setForm] = useState({
     pipelineId: "", name: "", countries: "", status: "operational",
-    lengthKm: "", diametre: "", capacity: "", coords: ""
+    lengthKm: "", diametre: "", capacity: "", coords: "", active: true,
   })
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
@@ -38,6 +38,7 @@ export default function EditPipelinePage() {
           diametre: d.diametre || "",
           capacity: d.capacity || "",
           coords: Array.isArray(d.coords) ? d.coords.map((p: number[]) => p.join(",")).join("|") : "",
+          active: d.active !== false,
         })
         setFetching(false)
       })
@@ -64,6 +65,7 @@ export default function EditPipelinePage() {
       lengthKm: form.lengthKm ? parseInt(form.lengthKm) : undefined,
       diametre: form.diametre || undefined,
       capacity: form.capacity || undefined,
+      active: form.active,
     }
     const res = await fetch(`/api/pipelines/${id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
     if (res.ok) router.push("/admin/pipelines")
@@ -121,6 +123,38 @@ export default function EditPipelinePage() {
               <input value={form.capacity} onChange={e => setForm({...form, capacity: e.target.value})} className="w-full px-4 py-2 rounded-lg bg-[#F4F7FB] border border-[#D0E4F0] text-[#0D2840] focus:outline-none focus:border-[#1B4F72]" />
             </div>
           </div>
+          {/* Visibility switch — an inactive pipeline is kept in the database
+              but disappears from every map, table and comparison. */}
+          <div
+            className="flex items-center justify-between gap-4 rounded-lg px-4 py-3"
+            style={{ backgroundColor: form.active ? "#EBF3FB" : "#FEF2F2", border: `1px solid ${form.active ? "#A3C4DC" : "#FECACA"}` }}
+          >
+            <div>
+              <div className="text-sm font-semibold" style={{ color: form.active ? "#1B4F72" : "#B42318" }}>
+                {form.active ? "Pipeline actif — affiché sur les cartes" : "Pipeline désactivé — masqué des cartes, tableaux et comparaisons"}
+              </div>
+              <div className="text-xs mt-0.5" style={{ color: form.active ? "#5B8FB9" : "#B45309" }}>
+                {form.active
+                  ? "Désactivez-le pour le retirer de l'affichage public sans le supprimer."
+                  : "Les données sont conservées ; réactivez-le pour le rendre à nouveau visible."}
+              </div>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={form.active}
+              onClick={() => setForm({ ...form, active: !form.active })}
+              className="relative inline-flex h-7 w-12 flex-shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F4B942]"
+              style={{ backgroundColor: form.active ? "#1B4F72" : "#CBD5E1" }}
+              title={form.active ? "Désactiver ce pipeline" : "Activer ce pipeline"}
+            >
+              <span
+                className="inline-block h-5 w-5 rounded-full bg-white shadow transition-transform"
+                style={{ transform: form.active ? "translateX(26px)" : "translateX(4px)" }}
+              />
+            </button>
+          </div>
+
           <div className="flex gap-3 pt-2">
             <button type="submit" disabled={loading} className="flex items-center gap-2 bg-[#1B4F72] hover:bg-[#154060] disabled:opacity-50 text-white px-6 py-2 rounded-lg font-semibold transition">
               <Save size={18} />{loading ? "Saving..." : "Save"}

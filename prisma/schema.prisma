@@ -312,6 +312,9 @@ model Pipeline {
   coords     String   // JSON array of coordinates
   // Operational status — canonical 6-value vocabulary
   status     String   @default("operational")
+  // Admin visibility switch: an inactive pipeline is hidden from every map,
+  // table and comparison, but kept in the database (admin list shows it).
+  active     Boolean  @default(true)
   lengthKm   Int?
   diametre   String?
   capacity   String?

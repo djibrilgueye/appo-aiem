@@ -22,9 +22,15 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url)
     const status = searchParams.get("status")
+    // Public consumers (maps, tables, comparisons, stats) only get active
+    // pipelines; the admin list asks for everything with ?all=1.
+    const includeInactive = searchParams.get("all") === "1"
 
     const pipelines = await prisma.pipeline.findMany({
-      where: status ? { status } : undefined,
+      where: {
+        ...(status ? { status } : {}),
+        ...(includeInactive ? {} : { active: true }),
+      },
       orderBy: { name: "asc" },
     })
 

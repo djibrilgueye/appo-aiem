@@ -13,6 +13,8 @@ const pipelineUpdateSchema = z.object({
   countries: z.array(z.string()).optional(),
   coords: z.array(z.array(z.number())).optional(),
   status: z.enum(OPERATIONAL_STATUSES as unknown as [string, ...string[]]).optional(),
+  // false = hidden from maps/tables/comparisons, kept in DB
+  active: z.boolean().optional(),
   lengthKm: z.number().optional().nullable(),
   diametre: z.string().optional().nullable(),
   capacity: z.string().optional().nullable(),

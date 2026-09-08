@@ -14,6 +14,7 @@ interface Pipeline {
   name: string
   countries: string
   status: string
+  active: boolean
   lengthKm: number | null
   capacity: string | null
 }
@@ -26,7 +27,8 @@ export default function PipelinesPage() {
 
   useEffect(() => { if (status === "unauthenticated") router.push("/login") }, [status, router])
   useEffect(() => {
-    if (session) fetch("/api/pipelines").then(r => r.json()).then(d => { if (Array.isArray(d)) setPipelines(d) }).finally(() => setLoading(false))
+    // ?all=1 — the admin list also shows pipelines hidden from the public maps.
+    if (session) fetch("/api/pipelines?all=1").then(r => r.json()).then(d => { if (Array.isArray(d)) setPipelines(d) }).finally(() => setLoading(false))
   }, [session])
 
   const handleDelete = async (id: string, name: string) => {
@@ -70,6 +72,23 @@ export default function PipelinesPage() {
       sortable: true,
       searchable: true,
       render: (status: string) => <StatusBadge status={status} />,
+    },
+    {
+      key: 'active',
+      label: 'Visibilité',
+      sortable: true,
+      render: (active: boolean) => (
+        <span
+          className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold"
+          style={active
+            ? { backgroundColor: "#E3F3EA", color: "#1F7A4D", border: "1px solid #A7DCBD" }
+            : { backgroundColor: "#FBE7E4", color: "#B42318", border: "1px solid #F5B8B1" }}
+          title={active ? "Affiché sur les cartes" : "Masqué des cartes, tableaux et comparaisons"}
+        >
+          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: active ? "#1F7A4D" : "#B42318" }} />
+          {active ? "Actif" : "Masqué"}
+        </span>
+      ),
     },
     {
       key: 'lengthKm',
