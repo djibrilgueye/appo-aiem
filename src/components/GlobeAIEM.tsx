@@ -61,8 +61,10 @@ interface GlobeAIEMProps {
 }
 
 const SENSITIVITY = 0.25
-const BASE_SCALE = 380
-const GLOBE_DIAMETER_PCT = 88
+// Globe diameter as a share of the container's SMALLER side, so the sphere
+// always fits the viewport whatever the aspect ratio (was 88% of width +
+// a fixed projection scale, which overflowed on wide/short screens).
+const GLOBE_FILL = 0.88
 const INITIAL_ROTATION: [number, number, number] = [-20, -5, 0]
 
 // Animation d'oscillation (pendule)
@@ -87,6 +89,23 @@ function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
   const animRef = useRef<number | null>(null)
   const startTimeRef = useRef<number | null>(null)
   const isUserInteracting = useRef(false)
+
+  // Fit-to-container: measure the host and size the globe from its smaller
+  // side. Re-measured on every resize (window, sidebar collapse, rotation).
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState(0)
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const measure = () => {
+      const r = el.getBoundingClientRect()
+      setSize(Math.max(120, Math.floor(Math.min(r.width, r.height) * GLOBE_FILL)))
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   // Charger le GeoJSON de l'Afrique
   useEffect(() => {
@@ -185,7 +204,8 @@ function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
 
   return (
     <div
-      className="w-full h-full flex items-center justify-center relative select-none"
+      ref={containerRef}
+      className="w-full h-full flex items-center justify-center relative select-none overflow-hidden"
       style={{ cursor: grabbing ? "grabbing" : "grab" }}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
@@ -215,8 +235,8 @@ function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
         aria-hidden="true"
         className="absolute rounded-full transition-transform duration-300"
         style={{
-          width: `${GLOBE_DIAMETER_PCT}%`,
-          aspectRatio: "1 / 1",
+          width: size,
+          height: size,
           background: "radial-gradient(circle at 35% 30%, #164e73 0%, #0c2b42 45%, #05131d 100%)",
           boxShadow: "0 10px 40px rgba(15,59,87,0.25), inset 0 0 45px rgba(0,0,0,0.6)",
           top: "50%",
@@ -228,12 +248,14 @@ function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
       />
 
       {/* Carte SimpleMaps vectorielle (projection orthographique) */}
-      {geoData && (
+      {geoData && size > 0 && (
         <ComposableMap
           projection="geoOrthographic"
-          projectionConfig={{ rotate: rotation, scale: BASE_SCALE }}
-          className="w-full h-full"
-          style={{ outline: "none", background: "transparent", position: "relative", zIndex: 2 }}
+          // Square viewBox equal to the disc; sphere radius just inside its edge.
+          width={size}
+          height={size}
+          projectionConfig={{ rotate: rotation, scale: (size / 2) * 0.985 }}
+          style={{ width: size, height: size, outline: "none", background: "transparent", position: "relative", zIndex: 2 }}
         >
           <Geographies geography={geoData}>
             {({ geographies }: { geographies: GeoFeature[] }) => {
