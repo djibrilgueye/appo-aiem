@@ -1,0 +1,255 @@
+"use client"
+
+import dynamic from "next/dynamic"
+import { useState, useEffect, useRef } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
+import { Play, Pause, ChevronLeft, ChevronRight, GripVertical } from "lucide-react"
+import { Navbar } from "@/components/Navbar"
+import { Sidebar } from "@/components/Sidebar"
+import { DraggableLegend } from "@/components/DraggableLegend"
+import { DataTable } from "@/components/DataTable"
+import { ComparePanel } from "@/components/ComparePanel"
+import { Overview } from "@/components/Overview"
+import { AIAssistant } from "@/components/ai/AIAssistant"
+import { OPERATIONAL_STATUSES } from "@/lib/operationalStatus"
+import "./MapWorkspace.css"
+
+// Dynamic import for Leaflet (SSR disabled)
+const AIEMMap = dynamic(() => import("@/components/Map").then(mod => mod.AIEMMap), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full flex items-center justify-center" style={{ backgroundColor: "#D4E5F5" }}>
+      <div className="flex flex-col items-center gap-3">
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1B4F72]" />
+        <span className="text-sm font-semibold text-[#1B4F72]">Chargement de la carte…</span>
+      </div>
+    </div>
+  ),
+})
+
+const YEARS = [2021, 2022, 2023, 2024, 2025, 2026]
+
+export function MapWorkspace({ refined = false, preview = false, initialView = "overview" }: {
+  refined?: boolean
+  preview?: boolean
+  initialView?: "overview" | "map" | "table"
+}) {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const basePath = preview ? "/preview" : "/app"
+  const appearanceQuery = preview && !refined ? "?appearance=original" : ""
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([])
+  const [selectedYear, setSelectedYear] = useState(2024)
+  const [selectedRegion, setSelectedRegion] = useState("All")
+  const [activeThemes, setActiveThemes] = useState<Set<string>>(new Set())
+  const [activeStatuses, setActiveStatuses] = useState<Set<string>>(new Set(OPERATIONAL_STATUSES))
+  const [showLabels, setShowLabels] = useState(true)
+  const [showPipelineLabels, setShowPipelineLabels] = useState(false)
+  const [viewMode, setViewMode] = useState<"overview" | "map" | "table">(initialView)
+  const [showCompare, setShowCompare] = useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const playTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const selectYear = (year: number) => {
+    setIsPlaying(false)
+    setSelectedYear(year)
+  }
+
+  // Draggable timeline: null = default spot (bottom centre); once dragged the
+  // bar is positioned absolutely inside the map area and clamped to it.
+  const [tlPos, setTlPos] = useState<{ x: number; y: number } | null>(null)
+  const tlRef = useRef<HTMLDivElement>(null)
+  const tlDrag = useRef<{ startX: number; startY: number; originX: number; originY: number } | null>(null)
+  const onTlPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest("button")) return // year / play buttons stay clickable
+    const el = tlRef.current, parent = el?.parentElement
+    if (!el || !parent) return
+    const r = el.getBoundingClientRect(), pr = parent.getBoundingClientRect()
+    const origin = { x: r.left - pr.left, y: r.top - pr.top }
+    setTlPos(origin)
+    tlDrag.current = { startX: e.clientX, startY: e.clientY, originX: origin.x, originY: origin.y }
+    el.setPointerCapture(e.pointerId)
+  }
+  const onTlPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const d = tlDrag.current, el = tlRef.current, parent = el?.parentElement
+    if (!d || !el || !parent) return
+    const pr = parent.getBoundingClientRect()
+    const x = Math.min(Math.max(0, d.originX + e.clientX - d.startX), Math.max(0, pr.width - el.offsetWidth))
+    const y = Math.min(Math.max(0, d.originY + e.clientY - d.startY), Math.max(0, pr.height - el.offsetHeight))
+    setTlPos({ x, y })
+  }
+  const onTlPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    tlDrag.current = null
+    try { tlRef.current?.releasePointerCapture(e.pointerId) } catch { /* already released */ }
+  }
+
+  // Handle ?view=<map|table|overview>&theme=xxx from Overview stat cards,
+  // Navbar links, or AI assistant links.
+  useEffect(() => {
+    const view = searchParams.get("view")
+    const theme = searchParams.get("theme")
+    if (view === "map" || view === "table" || view === "overview") {
+      setViewMode(view)
+      if (view === "map" && theme) {
+        // Add to the existing selection instead of wiping it.
+        setActiveThemes(prev => new Set([...prev, theme]))
+      }
+      router.replace(basePath + appearanceQuery, { scroll: false })
+    }
+  }, [searchParams, router, basePath, appearanceQuery])
+
+  // Chronological play/pause across YEARS (loops back to 2021 after 2026).
+  useEffect(() => {
+    if (isPlaying) {
+      playTimerRef.current = setInterval(() => {
+        setSelectedYear(prev => {
+          const i = YEARS.indexOf(prev)
+          return YEARS[(i + 1) % YEARS.length]
+        })
+      }, 2500)
+    } else if (playTimerRef.current) {
+      clearInterval(playTimerRef.current)
+      playTimerRef.current = null
+    }
+    return () => {
+      if (playTimerRef.current) clearInterval(playTimerRef.current)
+    }
+  }, [isPlaying])
+
+  return (
+    <div className={`h-screen flex flex-col aiem-workspace ${refined ? "aiem-refined" : ""}`} data-appearance={refined ? "refined" : "original"}>
+      <Navbar refined={refined} preview={preview} basePath={basePath + appearanceQuery} activeView={viewMode} onShowOverview={() => setViewMode("overview")} onShowMap={() => setViewMode("map")} />
+      <div className="flex-1 flex overflow-hidden relative aiem-workspace-body">
+        {/* Sidebar — collapsible */}
+        <div
+          className={`aiem-filter-rail transition-all duration-300 ease-in-out flex-shrink-0 overflow-auto ${
+            sidebarCollapsed ? "w-0 opacity-0" : "w-[340px] opacity-100"
+          }`}
+          style={{ borderRight: "1px solid #D0E4F0" }}
+        >
+          <Sidebar
+            refined={refined}
+            selectedCountries={selectedCountries}
+            setSelectedCountries={setSelectedCountries}
+            selectedYear={selectedYear}
+            setSelectedYear={selectYear}
+            availableYears={YEARS}
+            selectedRegion={selectedRegion}
+            setSelectedRegion={setSelectedRegion}
+            activeThemes={activeThemes}
+            setActiveThemes={setActiveThemes}
+            activeStatuses={activeStatuses}
+            setActiveStatuses={setActiveStatuses}
+            showLabels={showLabels}
+            setShowLabels={setShowLabels}
+            showPipelineLabels={showPipelineLabels}
+            setShowPipelineLabels={setShowPipelineLabels}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            onCompare={() => setShowCompare(true)}
+          />
+        </div>
+
+        {/* Sidebar toggle */}
+        <button
+          onClick={() => setSidebarCollapsed(c => !c)}
+          title={sidebarCollapsed ? "Afficher les filtres" : "Masquer les filtres"}
+          aria-label={sidebarCollapsed ? "Afficher les filtres" : "Masquer les filtres"}
+          aria-expanded={!sidebarCollapsed}
+          className="aiem-sidebar-toggle absolute top-4 z-30 transition-all duration-300 flex items-center justify-center w-8 h-8 rounded-full shadow-lg bg-white/90 backdrop-blur-md border border-slate-200 text-[#1B4F72] hover:bg-[#1B4F72] hover:text-white"
+          style={{ left: sidebarCollapsed ? "16px" : "324px" }}
+        >
+          {sidebarCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+        </button>
+
+        <div className="flex-1 relative aiem-workspace-canvas" style={{ backgroundColor: "#F4F7FB", overflowY: "auto", overflowX: "hidden" }}>
+          {viewMode === "overview" ? (
+            <Overview refined={refined} basePath={basePath + appearanceQuery} />
+          ) : viewMode === "map" ? (
+            <>
+              <AIEMMap
+                refined={refined}
+                selectedCountries={selectedCountries}
+                selectedYear={selectedYear}
+                selectedRegion={selectedRegion}
+                activeThemes={activeThemes}
+                activeStatuses={activeStatuses}
+                showLabels={showLabels}
+                showPipelineLabels={showPipelineLabels}
+              />
+              <DraggableLegend activeThemes={activeThemes} refined={refined} />
+
+              {/* Floating interactive timeline (2021 → 2026) with Play/Pause — draggable */}
+              <div
+                ref={tlRef}
+                className={`aiem-timeline absolute z-[1000] select-none touch-none ${tlPos ? "" : "bottom-5 left-1/2 -translate-x-1/2"}`}
+                style={tlPos ? { left: tlPos.x, top: tlPos.y } : undefined}
+                onPointerDown={onTlPointerDown}
+                onPointerMove={onTlPointerMove}
+                onPointerUp={onTlPointerUp}
+                onPointerCancel={onTlPointerUp}
+                title="Glisser pour déplacer la timeline"
+              >
+                <div className="aiem-timeline-inner flex items-center gap-3 pl-2 pr-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/50 shadow-2xl">
+                  <GripVertical size={16} className="text-slate-400 shrink-0" aria-hidden="true" />
+                  <button
+                    onClick={() => setIsPlaying(p => !p)}
+                    className="w-9 h-9 rounded-xl flex items-center justify-center text-white shadow-md transition-transform hover:scale-105"
+                    style={{ backgroundColor: "#1B4F72" }}
+                    title={isPlaying ? "Mettre en pause" : "Lancer l'animation chronologique"}
+                  >
+                    {isPlaying ? <Pause size={15} /> : <Play size={15} className="ml-0.5" />}
+                  </button>
+
+                  <div className="flex items-center gap-1">
+                    {YEARS.map(year => (
+                      <button
+                        key={year}
+                        onClick={() => selectYear(year)}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                          selectedYear === year
+                            ? "bg-[#1B4F72] text-white shadow-sm scale-105"
+                            : "text-[#1B4F72] hover:bg-slate-100"
+                        }`}
+                      >
+                        {year}
+                      </button>
+                    ))}
+                  </div>
+
+                  <span className="w-px h-6 bg-slate-200 mx-1" />
+
+                  <div className="flex flex-col">
+                    <span className="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Données APPO</span>
+                    <span className="text-xs font-extrabold text-[#1B4F72]">Édition {selectedYear}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="aiem-map-footer absolute right-3 bottom-3 px-3 py-1 rounded-lg text-xs z-[1000]"
+                style={{ backgroundColor: "rgba(255,255,255,0.92)", color: "#1B4F72", border: "1px solid #D0E4F0", fontFamily: "Arial, sans-serif" }}>
+                APPO © 2026{preview && " · Aperçu local · Copie de production"}
+              </div>
+            </>
+          ) : (
+            <DataTable
+              selectedCountries={selectedCountries}
+              selectedYear={selectedYear}
+              activeThemes={activeThemes}
+            />
+          )}
+          {showCompare && (
+            <ComparePanel
+              refined={refined}
+              selectedCountries={selectedCountries}
+              selectedYear={selectedYear}
+              onClose={() => setShowCompare(false)}
+            />
+          )}
+        </div>
+      </div>
+      <AIAssistant />
+    </div>
+  )
+}

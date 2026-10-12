@@ -10,6 +10,7 @@ import { useLanguage } from "@/i18n/LanguageContext"
 
 interface ThemeEntry { icon: string; label: string; desc: string }
 interface SourceEntry { icon: string; label: string; text: string }
+interface OverviewProps { refined?: boolean; basePath?: string }
 
 // Pastel accents for KPI cards — soft daylight tones (bg / ring / icon).
 const KPI_ACCENTS = [
@@ -42,8 +43,9 @@ function sparklinePath(seed: number, w = 100, h = 30, points = 12): string {
     .join(" ")
 }
 
-export function Overview() {
+export function Overview({ refined = false, basePath = "/app" }: OverviewProps = {}) {
   const { t, lang } = useLanguage()
+  const [statsLoaded, setStatsLoaded] = useState(false)
   const [stats, setStats] = useState({
     countries: 0, basins: 0, refineries: 0, pipelines: 0,
     training: 0, rnd: 0, storage: 0, petrochem: 0,
@@ -80,6 +82,7 @@ export function Overview() {
         reserves_countries:   Array.isArray(reserves)    ? new Set(reserves.filter((r: { oil?: number; gas?: number; condensat?: number | null }) => (r.oil ?? 0) > 0 || (r.gas ?? 0) > 0 || (r.condensat ?? 0) > 0).map((r: { countryId?: string; country?: { id?: string } }) => r.countryId || r.country?.id)).size : 0,
         production_countries: Array.isArray(production)  ? new Set(production.filter((p: { oil?: number; gas?: number; condensat?: number | null }) => (p.oil ?? 0) > 0 || (p.gas ?? 0) > 0 || (p.condensat ?? 0) > 0).map((p: { countryId?: string; country?: { id?: string } }) => p.countryId || p.country?.id)).size : 0,
       })
+      setStatsLoaded(true)
     })
   }, [])
 
@@ -100,42 +103,48 @@ export function Overview() {
   }))
 
   const statCards = [
-    { Icon: Globe2,        stat: stats.countries,            data: t.overview.stats.countries,  href: "/app?view=map" },
-    { Icon: Layers,        stat: stats.basins,               data: t.overview.stats.basins,     href: "/app?view=map&theme=basins" },
-    { Icon: Droplet,       stat: stats.reserves_countries,   data: t.overview.stats.reserves,   href: "/app?view=map&theme=oil_reserves" },
-    { Icon: Flame,         stat: stats.production_countries, data: t.overview.stats.production, href: "/app?view=map&theme=oil_production" },
-    { Icon: GitBranch,     stat: stats.pipelines,            data: t.overview.stats.pipelines,  href: "/app?view=map&theme=pipelines" },
-    { Icon: Factory,       stat: stats.refineries,           data: t.overview.stats.refineries, href: "/app?view=map&theme=refineries" },
-    { Icon: GraduationCap, stat: stats.training,             data: t.overview.stats.training,   href: "/app?view=map&theme=training" },
-    { Icon: FlaskConical,  stat: stats.rnd,                  data: t.overview.stats.rnd,        href: "/app?view=map&theme=rnd" },
-    { Icon: Warehouse,     stat: stats.storage,              data: t.overview.stats.storage,    href: "/app?view=map&theme=storage" },
-    { Icon: Beaker,        stat: stats.petrochem,            data: t.overview.stats.petrochem,  href: "/app?view=map&theme=petrochem" },
+    { Icon: Globe2,        stat: stats.countries,            data: t.overview.stats.countries,  href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map` },
+    { Icon: Layers,        stat: stats.basins,               data: t.overview.stats.basins,     href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=basins` },
+    { Icon: Droplet,       stat: stats.reserves_countries,   data: t.overview.stats.reserves,   href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=oil_reserves` },
+    { Icon: Flame,         stat: stats.production_countries, data: t.overview.stats.production, href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=oil_production` },
+    { Icon: GitBranch,     stat: stats.pipelines,            data: t.overview.stats.pipelines,  href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=pipelines` },
+    { Icon: Factory,       stat: stats.refineries,           data: t.overview.stats.refineries, href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=refineries` },
+    { Icon: GraduationCap, stat: stats.training,             data: t.overview.stats.training,   href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=training` },
+    { Icon: FlaskConical,  stat: stats.rnd,                  data: t.overview.stats.rnd,        href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=rnd` },
+    { Icon: Warehouse,     stat: stats.storage,              data: t.overview.stats.storage,    href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=storage` },
+    { Icon: Beaker,        stat: stats.petrochem,            data: t.overview.stats.petrochem,  href: `${basePath}${basePath.includes("?") ? "&" : "?"}view=map&theme=petrochem` },
   ]
 
+  const headlineCards = [statCards[0], statCards[1], statCards[5]]
+  const sectionTitleClass = refined
+    ? "text-[15px] font-semibold tracking-normal"
+    : "text-xs font-bold tracking-widest uppercase"
+  const sectionAccent = refined ? "#F4B942" : "linear-gradient(to bottom, #F4B942, #F7D078)"
+
   return (
-    <div className="min-h-full" style={{ backgroundColor: "#F8FAFC", color: "#0F172A" }}>
+    <div className={refined ? "min-h-full refined-overview" : "min-h-full"} style={{ backgroundColor: "#F8FAFC", color: "#0F172A" }}>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="px-6 pt-8 pb-6 max-w-7xl mx-auto">
+      <div className={refined ? "px-5 md:px-7 pt-6 pb-6 max-w-7xl mx-auto" : "px-6 pt-8 pb-6 max-w-7xl mx-auto"}>
         <div
-          className="relative overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm p-8 md:p-10"
+          className={refined ? "aiem-overview-hero relative overflow-hidden rounded-xl bg-white border border-slate-200 p-6 md:p-8" : "relative overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm p-8 md:p-10"}
         >
           {/* Discreet gold ribbon at the top */}
           <div className="absolute top-0 left-0 right-0 h-[3px]"
-            style={{ background: "linear-gradient(90deg, #F4B942 0%, #F7D078 50%, #F4B942 100%)" }} />
+            style={{ background: refined ? "#F4B942" : "linear-gradient(90deg, #F4B942 0%, #F7D078 50%, #F4B942 100%)" }} />
 
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
+          <div className={refined ? "flex flex-col xl:flex-row items-start justify-between gap-8" : "flex flex-col lg:flex-row items-start justify-between gap-8"}>
             {/* Left: identity + copy */}
             <div className="flex-1 min-w-0 max-w-2xl">
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#0284C7" }} />
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase" style={{ color: "#0284C7" }}>
+                <span className={refined ? "text-xs font-semibold tracking-[0.08em] uppercase" : "text-[11px] font-bold tracking-[0.18em] uppercase"} style={{ color: "#0284C7" }}>
                   {t.overview.badge}
                 </span>
               </div>
 
-              <h1 className="font-bold leading-tight mb-3" style={{ fontSize: "2.1rem", color: "#0F172A" }}>
+              <h1 className={refined ? "font-semibold leading-tight tracking-tight mb-3" : "font-bold leading-tight mb-3"} style={{ fontSize: refined ? "clamp(1.75rem, 2.5vw, 2.25rem)" : "2.1rem", color: "#0F172A" }}>
                 {t.overview.title}
-                <span style={{
+                <span style={refined ? { color: "#B47B0A" } : {
                   background: "linear-gradient(90deg, #F4B942, #D4920A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -149,16 +158,25 @@ export function Overview() {
               />
 
               <Link
-                href="/app?view=map"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-0.5"
-                style={{ backgroundColor: "#0284C7", color: "#fff", boxShadow: "0 6px 20px rgba(2,132,199,0.22)" }}
+                href={`${basePath}${basePath.includes("?") ? "&" : "?"}view=map`}
+                className={refined ? "inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-600" : "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-0.5"}
+                style={{ backgroundColor: "#0284C7", color: "#fff", boxShadow: refined ? undefined : "0 6px 20px rgba(2,132,199,0.22)" }}
               >
                 Explorer la carte <ArrowRight size={16} />
               </Link>
             </div>
 
             {/* Right: consolidated headline metrics */}
-            <div className="flex-shrink-0 grid grid-cols-3 gap-4 lg:min-w-[400px]">
+            {refined ? (
+              <div className="grid grid-cols-3 gap-3 w-full xl:w-[370px] xl:shrink-0 xl:self-center">
+                {headlineCards.map(card => (
+                  <div key={card.data.label} className="aiem-overview-headline px-3 py-4 rounded-lg bg-slate-50 border border-slate-200">
+                    <div className="text-2xl font-semibold tabular-nums leading-none text-slate-900">{statsLoaded ? card.stat.toLocaleString(lang) : "—"}</div>
+                    <div className="text-xs leading-snug font-medium mt-2 text-slate-600">{card.data.label}</div>
+                  </div>
+                ))}
+              </div>
+            ) : <div className="flex-shrink-0 grid grid-cols-3 gap-4 lg:min-w-[400px]">
               <div className="text-center px-3 py-4 rounded-xl bg-slate-50 border border-slate-100">
                 <div className="text-2xl font-bold tabular-nums" style={{ color: "#0F172A" }}>18</div>
                 <div className="text-[10px] uppercase tracking-wider font-semibold mt-1" style={{ color: "#64748B" }}>Pays membres</div>
@@ -171,19 +189,19 @@ export function Overview() {
                 <div className="text-2xl font-bold tabular-nums" style={{ color: "#0F172A" }}>700<span className="text-sm font-semibold" style={{ color: "#64748B" }}>+</span></div>
                 <div className="text-[10px] uppercase tracking-wider font-semibold mt-1" style={{ color: "#64748B" }}>Réserves gaz (Tcf)</div>
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
 
       {/* ── Content ──────────────────────────────────────────────────────── */}
-      <div className="px-6 pb-10 max-w-7xl mx-auto space-y-10">
+      <div className={refined ? "px-5 md:px-7 pb-10 max-w-7xl mx-auto space-y-8" : "px-6 pb-10 max-w-7xl mx-auto space-y-10"}>
 
         {/* KPIs */}
         <section>
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-5 w-1 rounded-full" style={{ background: "linear-gradient(to bottom, #F4B942, #F7D078)" }} />
-            <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
+            <div className="h-5 w-1 rounded-full" style={{ background: sectionAccent }} />
+            <h2 className={sectionTitleClass} style={{ color: "#1B4F72" }}>
               {t.overview.dataSection}
             </h2>
             <div className="flex-1 h-px" style={{ backgroundColor: "#E2E8F0" }} />
@@ -196,28 +214,28 @@ export function Overview() {
                 <Link
                   key={card.data.label}
                   href={card.href}
-                  className="group block rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className={refined ? "aiem-overview-card group block rounded-xl bg-white border border-slate-200 p-4 transition-colors hover:border-sky-300 hover:bg-sky-50/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600" : "group block rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"}
                   style={{ textDecoration: "none" }}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center"
+                      className={refined ? "w-9 h-9 rounded-lg flex items-center justify-center" : "w-10 h-10 rounded-full flex items-center justify-center"}
                       style={{ backgroundColor: accent.bg, boxShadow: `0 0 0 1px ${accent.ring} inset` }}
                     >
                       <Icon size={18} style={{ color: accent.icon }} />
                     </div>
-                    {/* Sparkline */}
-                    <svg width="60" height="24" viewBox="0 0 100 30" className="opacity-80" aria-hidden="true">
+                    {/* Decorative paths are hidden in the presentation variant. */}
+                    {!refined && <svg width="60" height="24" viewBox="0 0 100 30" className="opacity-80" aria-hidden="true">
                       <path d={sparklinePath(i * 97 + 13)} fill="none" stroke={accent.icon} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    </svg>}
                   </div>
-                  <div className="text-2xl font-bold tabular-nums leading-none mb-1" style={{ color: "#0F172A" }}>
-                    {card.stat}
+                  <div className={refined ? "text-[28px] font-semibold tracking-tight tabular-nums leading-none mb-2" : "text-2xl font-bold tabular-nums leading-none mb-1"} style={{ color: "#0F172A" }}>
+                    {refined ? (statsLoaded ? card.stat.toLocaleString(lang) : "—") : card.stat}
                   </div>
-                  <div className="text-xs font-semibold leading-snug" style={{ color: "#0F172A" }}>
+                  <div className={refined ? "text-[13px] font-semibold leading-snug" : "text-xs font-semibold leading-snug"} style={{ color: "#0F172A" }}>
                     {card.data.label}
                   </div>
-                  <div className="text-[11px] leading-snug mt-0.5" style={{ color: "#64748B" }}>
+                  <div className={refined ? "text-xs leading-relaxed mt-1" : "text-[11px] leading-snug mt-0.5"} style={{ color: "#64748B" }}>
                     {card.data.sub}
                   </div>
                 </Link>
@@ -229,8 +247,8 @@ export function Overview() {
         {/* Themes */}
         <section>
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-5 w-1 rounded-full" style={{ background: "linear-gradient(to bottom, #F4B942, #F7D078)" }} />
-            <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
+            <div className="h-5 w-1 rounded-full" style={{ background: sectionAccent }} />
+            <h2 className={sectionTitleClass} style={{ color: "#1B4F72" }}>
               {t.overview.themesSection}
             </h2>
             <div className="flex-1 h-px" style={{ backgroundColor: "#E2E8F0" }} />
@@ -239,15 +257,15 @@ export function Overview() {
             {displayThemes.map((theme, i) => (
               <div
                 key={i}
-                className="group flex items-start gap-3 rounded-2xl px-4 py-4 bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className={refined ? "aiem-overview-card flex items-start gap-3 rounded-xl p-4 bg-white border border-slate-200" : "group flex items-start gap-3 rounded-2xl px-4 py-4 bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"}
               >
-                <div className="w-10 h-10 rounded-full flex items-center justify-center text-base shrink-0"
+                <div className={refined ? "w-9 h-9 rounded-lg flex items-center justify-center text-base shrink-0" : "w-10 h-10 rounded-full flex items-center justify-center text-base shrink-0"}
                   style={{ backgroundColor: "#F1F5F9", boxShadow: "0 0 0 1px #E2E8F0 inset" }}>
                   {theme.icon}
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-semibold leading-tight mb-1" style={{ color: "#0F172A" }}>{theme.label}</div>
-                  <div className="text-xs leading-relaxed" style={{ color: "#64748B" }}>{theme.desc}</div>
+                  <div className={refined ? "text-[13px] leading-relaxed" : "text-xs leading-relaxed"} style={{ color: "#64748B" }}>{theme.desc}</div>
                 </div>
               </div>
             ))}
@@ -257,14 +275,14 @@ export function Overview() {
         {/* Sources */}
         <section>
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-5 w-1 rounded-full" style={{ background: "linear-gradient(to bottom, #F4B942, #F7D078)" }} />
-            <h2 className="text-xs font-bold tracking-widest uppercase" style={{ color: "#1B4F72" }}>
+            <div className="h-5 w-1 rounded-full" style={{ background: sectionAccent }} />
+            <h2 className={sectionTitleClass} style={{ color: "#1B4F72" }}>
               {t.overview.sourcesSection}
             </h2>
             <div className="flex-1 h-px" style={{ backgroundColor: "#E2E8F0" }} />
           </div>
-          <div className="rounded-2xl px-6 py-5 bg-white border border-slate-100 shadow-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs">
+          <div className={refined ? "aiem-overview-sources rounded-xl px-5 py-5 bg-white border border-slate-200" : "rounded-2xl px-6 py-5 bg-white border border-slate-100 shadow-sm"}>
+            <div className={refined ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-[13px] leading-relaxed" : "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs"}>
               {sources
                 ? sources.map((s, i) => (
                     <div key={i} className="flex items-start gap-2" style={{ color: "#64748B" }}>
@@ -284,11 +302,11 @@ export function Overview() {
                   </>
               }
             </div>
-            <div className="mt-5 pt-4 flex items-center justify-between" style={{ borderTop: "1px solid #F1F5F9" }}>
-              <span className="text-xs" style={{ color: "#94A3B8" }}>
+            <div className={refined ? "mt-5 pt-4 flex flex-wrap items-center justify-between gap-3" : "mt-5 pt-4 flex items-center justify-between"} style={{ borderTop: "1px solid #F1F5F9" }}>
+              <span className="text-xs" style={{ color: refined ? "#64748B" : "#94A3B8" }}>
                 AIEM — Africa Interactive Energy Map &nbsp;|&nbsp; APPO © 2026
               </span>
-              <span className="text-xs" style={{ color: "#CBD5E1" }}>
+              <span className="text-xs" style={{ color: refined ? "#64748B" : "#CBD5E1" }}>
                 Données à titre indicatif
               </span>
             </div>

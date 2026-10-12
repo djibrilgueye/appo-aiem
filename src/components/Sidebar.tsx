@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import { useLanguage } from "@/i18n/LanguageContext"
+import styles from "./SidebarRefinement.module.css"
 import {
   OPERATIONAL_STATUSES,
   STATUS_LABELS_FR,
@@ -17,6 +18,7 @@ interface SidebarProps {
   setSelectedCountries: (countries: string[]) => void
   selectedYear: number
   setSelectedYear: (year: number) => void
+  availableYears: readonly number[]
   selectedRegion: string
   setSelectedRegion: (region: string) => void
   activeThemes: Set<string>
@@ -30,6 +32,7 @@ interface SidebarProps {
   viewMode: "overview" | "map" | "table"
   setViewMode: (mode: "overview" | "map" | "table") => void
   onCompare: () => void
+  refined?: boolean
 }
 
 const REGION_KEYS = ["All", "North Africa", "West Africa", "Central Africa", "East Africa", "Southern Africa"] as const
@@ -99,7 +102,8 @@ function leafKeys(node: ThemeNode): string[] {
 export const THEME_KEYS = THEME_TREE.flatMap(leafKeys)
 
 // ─── IndeterminateCheckbox ─────────────────────────────────────────────────────
-function IndeterminateCheckbox({ checked, indeterminate, onChange }: {
+function IndeterminateCheckbox({ id, checked, indeterminate, onChange }: {
+  id: string
   checked: boolean
   indeterminate: boolean
   onChange: () => void
@@ -111,6 +115,7 @@ function IndeterminateCheckbox({ checked, indeterminate, onChange }: {
   return (
     <input
       type="checkbox"
+      id={id}
       ref={ref}
       checked={checked}
       onChange={onChange}
@@ -121,7 +126,7 @@ function IndeterminateCheckbox({ checked, indeterminate, onChange }: {
 
 // ─── ThemeNode renderer (recursive) ──────────────────────────────────────────
 function ThemeNodeRow({
-  node, depth, activeThemes, setActiveThemes, labels, virtualLabels,
+  node, depth, activeThemes, setActiveThemes, labels, virtualLabels, refined,
 }: {
   node: ThemeNode
   depth: number
@@ -129,7 +134,9 @@ function ThemeNodeRow({
   setActiveThemes: (s: Set<string>) => void
   labels: Record<string, string>
   virtualLabels: Record<string, string>
+  refined: boolean
 }) {
+  const checkboxId = useId()
   const leaves = leafKeys(node)
   const isVirtual = node.key.endsWith("_group")
   const isLeaf = !node.children || node.children.length === 0
@@ -160,14 +167,15 @@ function ThemeNodeRow({
   return (
     <div>
       <div
-        className="flex items-center gap-1 cursor-pointer rounded"
+        className={`flex items-center cursor-pointer rounded ${refined ? styles.themeRow : "gap-1"}`}
         style={{
-          padding: `2px 4px 2px ${4 + indent}px`,
+          padding: `${refined ? 5 : 2}px 4px ${refined ? 5 : 2}px ${4 + indent}px`,
           backgroundColor: allChecked ? "rgba(76,201,240,0.15)" : someChecked ? "rgba(76,201,240,0.07)" : "transparent",
-          fontSize: depth === 0 ? "11px" : "10px",
+          fontSize: refined ? (depth === 0 ? "13px" : "12px") : (depth === 0 ? "11px" : "10px"),
         }}
       >
         <IndeterminateCheckbox
+          id={checkboxId}
           checked={allChecked}
           indeterminate={someChecked}
           onChange={toggle}
@@ -175,23 +183,27 @@ function ThemeNodeRow({
         {/* Expand toggle for non-leaf nodes */}
         {!isLeaf && (
           <button
+            type="button"
+            aria-label={label}
+            aria-expanded={open}
             onClick={e => { e.stopPropagation(); setOpen(o => !o) }}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "0 2px", color: "#4cc9f0", fontSize: "10px", lineHeight: 1 }}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: refined ? "4px" : "0 2px", color: "#4cc9f0", fontSize: refined ? "12px" : "10px", lineHeight: 1 }}
           >
             {open ? "▾" : "▸"}
           </button>
         )}
-        <span
-          onClick={toggle}
+        <label
+          htmlFor={checkboxId}
           style={{
             color: allChecked ? "#e6eef7" : someChecked ? "#4cc9f0" : "#b8c7db",
-            fontWeight: allChecked ? "bold" : someChecked ? "600" : "normal",
+            fontWeight: refined ? (allChecked || someChecked ? 600 : 500) : (allChecked ? "bold" : someChecked ? "600" : "normal"),
             flex: 1,
             userSelect: "none",
+            cursor: "pointer",
           }}
         >
           {label}
-        </span>
+        </label>
       </div>
 
       {/* Children */}
@@ -204,6 +216,7 @@ function ThemeNodeRow({
           setActiveThemes={setActiveThemes}
           labels={labels}
           virtualLabels={virtualLabels}
+          refined={refined}
         />
       ))}
     </div>
@@ -218,6 +231,7 @@ function AccordionSection({
   sectionTitle,
   headerExtra,
   children,
+  defaultOpen = true,
 }: {
   title: string
   counter?: string
@@ -225,11 +239,16 @@ function AccordionSection({
   sectionTitle: React.CSSProperties
   headerExtra?: React.ReactNode
   children: React.ReactNode
+  defaultOpen?: boolean
 }) {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(defaultOpen)
+  const contentId = useId()
   return (
     <div style={{ ...section, marginBottom: 0 }}>
       <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={contentId}
         onClick={() => setOpen(o => !o)}
         style={{
           display: "flex",
@@ -250,7 +269,7 @@ function AccordionSection({
         </span>
         {headerExtra}
       </button>
-      {open && <div className="flex flex-col gap-1.5">{children}</div>}
+      {open && <div id={contentId} className="flex flex-col gap-1.5">{children}</div>}
     </div>
   )
 }
@@ -258,7 +277,7 @@ function AccordionSection({
 // ─── Sidebar ──────────────────────────────────────────────────────────────────
 export function Sidebar({
   selectedCountries, setSelectedCountries,
-  selectedYear, setSelectedYear,
+  selectedYear, setSelectedYear, availableYears,
   selectedRegion, setSelectedRegion,
   activeThemes, setActiveThemes,
   activeStatuses, setActiveStatuses,
@@ -266,8 +285,10 @@ export function Sidebar({
   showPipelineLabels, setShowPipelineLabels,
   viewMode, setViewMode,
   onCompare,
+  refined = false,
 }: SidebarProps) {
   const { t } = useLanguage()
+  const yearSelectId = useId()
   const [countries, setCountries] = useState<Country[]>([])
   const [countryQuery, setCountryQuery] = useState("")
 
@@ -307,15 +328,15 @@ export function Sidebar({
     backgroundColor: "rgba(255,255,255,0.05)",
     border: "1px solid rgba(255,255,255,0.12)",
     borderRadius: "10px",
-    padding: "10px 12px",
-    marginBottom: "8px",
+    padding: refined ? "12px" : "10px 12px",
+    marginBottom: refined ? "10px" : "8px",
   }
 
   const sectionTitle: React.CSSProperties = {
-    fontSize: "10px",
-    fontWeight: "bold",
+    fontSize: refined ? "11px" : "10px",
+    fontWeight: refined ? 600 : "bold",
     textTransform: "uppercase",
-    letterSpacing: "0.12em",
+    letterSpacing: refined ? "0.08em" : "0.12em",
     color: "#4cc9f0",
     marginBottom: "8px",
    
@@ -327,8 +348,8 @@ export function Sidebar({
     border: `1px solid ${active ? "#4cc9f0" : "rgba(255,255,255,0.16)"}`,
     borderRadius: "6px",
     padding: "7px 10px",
-    fontSize: "12px",
-    fontWeight: active ? "bold" : "normal",
+    fontSize: refined ? "13px" : "12px",
+    fontWeight: refined ? (active ? 600 : 500) : (active ? "bold" : "normal"),
     cursor: "pointer",
    
   })
@@ -340,14 +361,15 @@ export function Sidebar({
     color: "#b8c7db",
     border: "1px solid rgba(255,255,255,0.16)",
     borderRadius: "6px",
-    padding: "4px 9px",
-    fontSize: "11px",
+    padding: refined ? "5px 8px" : "4px 9px",
+    fontSize: refined ? "12px" : "11px",
+    fontWeight: refined ? 500 : undefined,
     cursor: "pointer",
    
   }
 
   return (
-    <div className="overflow-auto h-full" style={{ backgroundColor: "#0F3B57", padding: "10px 10px 20px" }}>
+    <div className={`overflow-auto h-full ${refined ? styles.refined : ""}`} style={{ backgroundColor: "#0F3B57", padding: refined ? "12px 12px 24px" : "10px 10px 20px" }}>
 
       {/* View Mode */}
       <div style={section}>
@@ -373,33 +395,34 @@ export function Sidebar({
         <div className="flex gap-2">
           <div style={{ minWidth: "88px" }}>
             {REGION_KEYS.map(region => (
-              <label key={region} className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: "11px", padding: "2px 0" }}>
+              <label key={region} className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: refined ? "12px" : "11px", padding: refined ? "3px 0" : "2px 0" }}>
                 <input type="radio" name="region" checked={selectedRegion === region}
                   onChange={() => { setSelectedRegion(region); setSelectedCountries([]) }}
                   style={{ accentColor: "#4cc9f0" }} />
-                <span style={{ color: selectedRegion === region ? "#e6eef7" : "#b8c7db", fontWeight: selectedRegion === region ? "bold" : "normal" }}>
+                <span style={{ color: selectedRegion === region ? "#e6eef7" : "#b8c7db", fontWeight: refined ? (selectedRegion === region ? 600 : 500) : (selectedRegion === region ? "bold" : "normal") }}>
                   {t.sidebar.regions[region]}
                 </span>
               </label>
             ))}
           </div>
 
-          <div className="flex-1">
+          <div className={refined ? "flex-1 min-w-0" : "flex-1"}>
             <input
               type="text"
+              aria-label="Rechercher un pays"
               value={countryQuery}
               onChange={e => setCountryQuery(e.target.value)}
               placeholder="🔎  Rechercher un pays…"
               className="w-full mb-1.5 px-2 py-1 rounded outline-none"
-              style={{ fontSize: "11px", backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "#e6eef7" }}
+              style={{ fontSize: refined ? "12px" : "11px", backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "#e6eef7", minHeight: refined ? "32px" : undefined }}
             />
             <div className="overflow-auto" style={{ maxHeight: "180px", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "6px", padding: "4px", backgroundColor: "rgba(255,255,255,0.04)" }}>
               {filteredCountries.map(country => {
                 const selected = selectedCountries.includes(country.id)
                 return (
-                  <label key={country.id} className="flex items-center gap-1.5 cursor-pointer rounded" style={{ fontSize: "11px", padding: "3px 4px", backgroundColor: selected ? "rgba(76,201,240,0.15)" : "transparent" }}>
+                  <label key={country.id} className="flex items-center gap-1.5 cursor-pointer rounded" style={{ fontSize: refined ? "12px" : "11px", padding: refined ? "4px" : "3px 4px", backgroundColor: selected ? "rgba(76,201,240,0.15)" : "transparent" }}>
                     <input type="checkbox" checked={selected} onChange={() => toggleCountry(country.id)} style={{ accentColor: "#4cc9f0" }} />
-                    <span style={{ color: selected ? "#e6eef7" : "#b8c7db", fontWeight: selected ? "bold" : "normal" }}>
+                    <span style={{ color: selected ? "#e6eef7" : "#b8c7db", fontWeight: refined ? (selected ? 600 : 500) : (selected ? "bold" : "normal") }}>
                       {country.name}
                     </span>
                   </label>
@@ -409,7 +432,7 @@ export function Sidebar({
           </div>
         </div>
 
-        <div className="flex gap-1.5 mt-2">
+        <div className={`flex gap-1.5 mt-2 ${refined ? "flex-wrap" : ""}`}>
           <button onClick={() => setSelectedCountries(filteredCountries.map(c => c.id))} style={smallBtn}>{t.sidebar.selectAll}</button>
           <button onClick={() => setSelectedCountries([])} style={smallBtn}>{t.sidebar.clear}</button>
           <button onClick={onCompare} style={{ ...smallBtn, color: "#F4B942", borderColor: "#F4B942", backgroundColor: "rgba(244,185,66,0.12)" }}>
@@ -418,21 +441,37 @@ export function Sidebar({
         </div>
       </div>
 
-      {/* Year — read-only reminder. Selection and Play/Pause live in the
-          floating timeline at the bottom of the map (single source of truth). */}
+      {/* The sidebar and map timeline share the same selected year. */}
       <div style={{ ...section, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
-        <div style={{ ...sectionTitle, marginBottom: 0 }}>{t.sidebar.year}</div>
-        <span
-          title="Sélection via la timeline en bas de la carte"
-          style={{ backgroundColor: "rgba(76,201,240,0.15)", color: "#4cc9f0", border: "1px solid rgba(76,201,240,0.45)", borderRadius: "999px", padding: "2px 10px", fontWeight: "bold", fontSize: "12px", letterSpacing: "0.04em" }}
-        >
-          Édition {selectedYear}
-        </span>
+        {refined ? (
+          <>
+            <label htmlFor={yearSelectId} style={{ ...sectionTitle, marginBottom: 0 }}>{t.sidebar.year}</label>
+            <select
+              id={yearSelectId}
+              value={selectedYear}
+              onChange={event => setSelectedYear(Number(event.target.value))}
+              style={{ minWidth: "112px", minHeight: "36px", backgroundColor: "#164963", color: "#e6eef7", border: "1px solid rgba(76,201,240,0.45)", borderRadius: "6px", padding: "6px 10px", fontFamily: "inherit", fontWeight: 600, fontSize: "13px", fontVariantNumeric: "tabular-nums", cursor: "pointer", colorScheme: "dark" }}
+            >
+              {availableYears.map(year => <option key={year} value={year}>{year}</option>)}
+            </select>
+          </>
+        ) : (
+          <>
+            <div style={{ ...sectionTitle, marginBottom: 0 }}>{t.sidebar.year}</div>
+            <span
+              title="Sélection via la timeline en bas de la carte"
+              style={{ backgroundColor: "rgba(76,201,240,0.15)", color: "#4cc9f0", border: "1px solid rgba(76,201,240,0.45)", borderRadius: "999px", padding: "2px 10px", fontWeight: "bold", fontSize: "12px", letterSpacing: "0.04em" }}
+            >
+              Édition {selectedYear}
+            </span>
+          </>
+        )}
       </div>
 
       {/* Display + Status — side-by-side accordions to keep the sidebar compact */}
-      <div className="grid grid-cols-2 gap-2 mb-2">
+      <div className={`grid grid-cols-2 gap-2 mb-2 ${refined ? styles.displaySections : ""}`}>
         <AccordionSection
+          defaultOpen={!refined}
           title={t.sidebar.display}
           counter={`${[showLabels, showPipelineLabels].filter(Boolean).length}/2`}
           section={section}
@@ -444,18 +483,19 @@ export function Sidebar({
           ].map(({ label, val, set }) => (
             <label key={label} className="flex items-center gap-2 cursor-pointer" style={{ fontSize: "12px", color: "#b8c7db" }}>
               <input type="checkbox" checked={val} onChange={e => set(e.target.checked)} style={{ accentColor: "#4cc9f0" }} />
-              <span className="truncate">{label}</span>
+              <span className={refined ? styles.wrappedLabel : "truncate"}>{label}</span>
             </label>
           ))}
         </AccordionSection>
 
         <AccordionSection
+          defaultOpen={!refined}
           title={t.sidebar.operationalStatus ?? "Statut"}
           counter={`${activeStatuses.size}/${OPERATIONAL_STATUSES.length}`}
           section={section}
           sectionTitle={sectionTitle}
         >
-          <div className="flex gap-1 mb-1">
+          <div className={`flex gap-1 mb-1 ${refined ? "flex-wrap" : ""}`}>
             <button
               onClick={() => setActiveStatuses(new Set(OPERATIONAL_STATUSES))}
               style={smallBtn}
@@ -482,7 +522,7 @@ export function Sidebar({
                 style={{ accentColor: "#4cc9f0" }}
               />
               <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: STATUS_COLORS[s], flexShrink: 0 }} />
-              <span className="truncate">{STATUS_LABELS_FR[s]}</span>
+              <span className={refined ? styles.wrappedLabel : "truncate"}>{STATUS_LABELS_FR[s]}</span>
             </label>
           ))}
         </AccordionSection>
@@ -505,6 +545,7 @@ export function Sidebar({
               setActiveThemes={setActiveThemes}
               labels={themeLabels}
               virtualLabels={virtualLabels}
+              refined={refined}
             />
           ))}
         </div>

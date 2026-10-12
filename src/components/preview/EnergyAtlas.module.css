@@ -1,0 +1,63 @@
+.atlas { width: 100%; overflow: hidden; color: #233d38; }
+.mapArea { position: relative; isolation: isolate; contain: paint; background: #f1f5f4; overflow: hidden; min-height: 350px; }
+.map { display: block; overflow: hidden; width: 100%; height: auto; aspect-ratio: 700 / 470; min-height: 350px; }
+.mapHeading { position: absolute; top: 25px; left: 26px; z-index: 1; display: flex; flex-direction: column; gap: 5px; pointer-events: none; }
+.mapHeading > span:last-child { font-size: 20px; font-weight: 500; letter-spacing: -.6px; }
+.eyebrow { font-size: 8px; letter-spacing: 1.7px; font-weight: 600; color: #768982; }
+.controls { position: absolute; z-index: 2; right: 20px; top: 22px; display: flex; flex-direction: column; align-items: center; background: #fff; border: 1px solid #dce5e0; border-radius: 7px; box-shadow: 0 2px 5px #143f3610; overflow: hidden; }
+.controls button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; background: transparent; color: #36594e; cursor: pointer; transition: background .15s; }
+.controls button:hover:not(:disabled) { background: #e8eeeb; }
+.controls button:disabled { opacity: .3; cursor: default; }
+.controls button:focus-visible { outline: 2px solid #bd924d; outline-offset: -3px; }
+.controlDivider { height: 1px; width: 19px; background: #e6ebe7; }
+.country { cursor: pointer; transition: fill .2s, filter .15s; }
+.country:hover { filter: brightness(1.08); stroke: #426b60; stroke-width: 1.4px; }
+.country:focus-visible { outline: none; stroke: #263f37; stroke-width: 2.5px; }
+.territory { pointer-events: none; }
+.ocean { fill: #98ada5; font-size: 8px; letter-spacing: 2.1px; font-weight: 400; }
+.countryLabel { fill: #405950; font-weight: 550; letter-spacing: .02px; paint-order: stroke; stroke: #f1f5f4aa; stroke-width: 2px; stroke-linejoin: round; }
+.lightLabel { fill: #fff; stroke: #1b505488; }
+.asset { cursor: pointer; outline: none; }
+.asset:hover circle, .asset:focus-visible circle { stroke: #263f37; stroke-width: 2.3px; }
+.asset:focus-visible path { stroke: #263f37; stroke-width: 3px; }
+.readout { position: absolute; left: 24px; bottom: 28px; z-index: 1; display: flex; flex-direction: column; gap: 5px; min-width: 172px; max-width: 230px; padding: 13px 16px; background: #ffffffed; border: 1px solid #dee6e0; border-radius: 7px; box-shadow: 0 5px 16px #344c3f08; pointer-events: none; }
+.readoutLabel { font-size: 7px; letter-spacing: 1.15px; color: #8a9b91; font-weight: 650; }
+.readout strong { font-size: 13px; font-weight: 600; line-height: 1.4; }
+.readout > span:not(.readoutLabel):not(.readoutValue) { font-size: 11px; color: #75887c; line-height: 1.5; }
+.readout .readoutValue { font-size: 22px; line-height: 1.3; letter-spacing: -.6px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.readout small { font-size: 9px; color: #839087; font-weight: 400; letter-spacing: 0; }
+.north { position: absolute; right: 28px; bottom: 42px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #668176; pointer-events: none; }
+.north span { font-size: 8px; font-weight: 500; }
+.attribution { position: absolute; bottom: 10px; right: 16px; font-size: 8px; color: #7d9188; }
+.loading { display: grid; place-items: center; min-height: 470px; color: #73887f; font-size: 13px; }
+.legend { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 24px 17px; border-top: 1px solid #e3e9e4; background: #fff; }
+.scale { width: 45%; min-width: 180px; max-width: 320px; }
+.legendTitle { display: block; font-size: 10px; font-weight: 550; color: #536b60; margin-bottom: 8px; }
+.legendTitle > span { font-weight: 400; color: #809087; }
+.gradient { height: 5px; border-radius: 2px; }
+.scaleValues { display: flex; justify-content: space-between; margin-top: 5px; font-size: 8px; color: #87948b; font-variant-numeric: tabular-nums; }
+.legendKeys { display: flex; justify-content: flex-end; gap: 10px 15px; flex-wrap: wrap; max-width: 260px; }
+.legendKeys > span { display: inline-flex; gap: 6px; align-items: center; font-size: 9px; color: #819087; white-space: nowrap; }
+.legendKeys i { display: inline-block; width: 8px; height: 8px; border-radius: 1px; flex-shrink: 0; }
+.missingSwatch { background: repeating-linear-gradient(55deg, #e5e5dc, #e5e5dc 2px, #d0d6c9 2px, #d0d6c9 3px); border: 1px solid #d7dace; }
+.selectedSwatch { background: #bd924d; }
+.legendKeys .assetSwatch { border-radius: 50%; border: 1.5px solid #825f27; background: white; }
+@media (max-width: 640px) {
+  .mapArea, .map { min-height: 330px; }
+  .mapHeading { top: 18px; left: 17px; }
+  .mapHeading > span:last-child { font-size: 17px; }
+  .eyebrow { font-size: 6px; letter-spacing: 1.2px; }
+  .controls { right: 13px; top: 16px; }
+  .controls button { width: 32px; height: 32px; }
+  .readout { left: 13px; bottom: 23px; padding: 9px 11px; min-width: 139px; max-width: 180px; gap: 3px; }
+  .readout strong { font-size: 11px; }
+  .readout .readoutValue { font-size: 18px; }
+  .readout small { font-size: 8px; }
+  .north { right: 22px; bottom: 37px; }
+  .legend { gap: 14px; padding: 15px; align-items: flex-start; }
+  .scale { min-width: 130px; width: 48%; }
+  .legendKeys { gap: 8px; flex-direction: column; align-items: flex-start; padding-top: 3px; }
+  .legendTitle { font-size: 9px; }
+  .legendKeys > span { font-size: 8px; white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { .country, .controls button { transition: none; } }

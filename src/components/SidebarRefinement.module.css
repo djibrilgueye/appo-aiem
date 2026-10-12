@@ -1,0 +1,85 @@
+.refined {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 199, 219, 0.35) #0f3b57;
+}
+
+.refined button,
+.refined input,
+.refined label {
+  transition: box-shadow 150ms ease, filter 150ms ease;
+}
+
+.refined button:hover {
+  filter: brightness(1.12);
+}
+
+.refined label:hover {
+  box-shadow: inset 0 0 0 100px rgba(76, 201, 240, 0.045);
+}
+
+.refined :is(button, input):focus-visible {
+  outline: 2px solid #4cc9f0;
+  outline-offset: 2px;
+}
+
+.refined input[type="checkbox"],
+.refined input[type="radio"] {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.refined input::placeholder {
+  color: #b8c7db;
+  opacity: 0.85;
+}
+
+.refined [type="text"] {
+  text-overflow: ellipsis;
+}
+
+.themeRow {
+  gap: 7px;
+  line-height: 1.45;
+}
+
+.themeRow:hover {
+  box-shadow: inset 0 0 0 1px rgba(76, 201, 240, 0.2);
+}
+
+.displaySections > div {
+  min-width: 0;
+}
+
+.displaySections label {
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.displaySections input[type="checkbox"],
+.displaySections label > span[style] {
+  margin-top: 3px;
+}
+
+.displaySections > div > button > span {
+  flex-wrap: wrap;
+  row-gap: 2px;
+  letter-spacing: 0.04em;
+}
+
+.wrappedLabel {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refined button,
+  .refined input,
+  .refined label {
+    transition: none;
+  }
+}

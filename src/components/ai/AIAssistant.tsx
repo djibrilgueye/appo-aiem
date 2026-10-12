@@ -330,11 +330,13 @@ export function AIAssistant() {
         <div
           className="fixed z-[9998] flex flex-row rounded-2xl shadow-2xl overflow-hidden"
           style={{
-            background: "#0a0a0f",
-            right: pos.x,
-            bottom: pos.y + 44 + 8,
+            background: "var(--appo-sidebar-bg)",
+            right: `clamp(16px, ${pos.x}px, max(16px, calc(100vw - 736px)))`,
+            bottom: `clamp(16px, ${pos.y + 44 + 8}px, max(16px, calc(100dvh - 536px)))`,
             width: 720,
             height: 520,
+            maxWidth: "calc(100vw - 32px)",
+            maxHeight: "calc(100dvh - 32px)",
             willChange: "transform",
             cursor: winDragActive.current ? "grabbing" : "grab",
           }}
@@ -342,35 +344,35 @@ export function AIAssistant() {
         >
           {/* Colonne gauche */}
           <div
-            className="flex flex-col items-center justify-between py-6 px-0 flex-shrink-0"
-            style={{ width: 230, background: "#0a0a0f", boxShadow: "inset -1px 0 0 rgba(255,255,255,0.08)" }}
+            className="flex w-[110px] sm:w-[230px] flex-col items-center justify-between py-6 px-0 flex-shrink-0"
+            style={{ background: "var(--appo-sidebar-bg)", boxShadow: "inset -1px 0 0 rgba(255,255,255,0.08)" }}
           >
-            <div className="flex flex-col items-center gap-5 flex-1 justify-center">
+            <div className="flex w-full flex-col items-center gap-5 px-2 sm:px-4 flex-1 justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/robot-appo-ia.png"
+                src="/images/robot-appo-ia-full.png"
                 alt="APPO-IA"
-                style={{ width: "50%", height: "auto", display: "block", animation: "appoFloat 3s ease-in-out infinite" }}
+                style={{ width: "100%", maxWidth: 210, aspectRatio: "1", objectFit: "contain", display: "block", animation: "appoFloat 3s ease-in-out infinite" }}
               />
               <div className="text-center">
-                <h2 className="text-white font-bold text-lg tracking-wide">{t("assistantName")}</h2>
-                <p className="text-slate-400 text-[11px] mt-1.5 leading-snug text-center whitespace-pre-line">{t("subtitle")}</p>
+                <h2 className="text-white font-bold text-sm sm:text-lg tracking-wide">{t("assistantName")}</h2>
+                <p className="text-slate-300 text-[10px] sm:text-[11px] mt-1.5 leading-snug text-center whitespace-pre-line">{t("subtitle")}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 rounded-full px-2 sm:px-3 py-1.5">
               <span className={cn(
                 "w-2 h-2 rounded-full flex-shrink-0",
                 ollamaAvailable === null ? "bg-yellow-400 animate-pulse" :
                 ollamaAvailable ? "bg-green-400 animate-pulse" : "bg-red-400"
               )} />
-              <span className="text-[9px] font-semibold text-slate-300 tracking-widest uppercase">
+              <span className="text-[8px] sm:text-[9px] font-semibold text-slate-300 tracking-wide sm:tracking-widest uppercase">
                 {ollamaAvailable === null ? t("connecting") : ollamaAvailable ? t("online") : t("offline")}
               </span>
             </div>
           </div>
 
           {/* Colonne droite */}
-          <div className="flex flex-col flex-1 bg-[#f4f7fb]" style={{ cursor: "default" }}>
+          <div className="flex min-w-0 flex-col flex-1 bg-[#f4f7fb]" style={{ cursor: "default" }}>
             <div className="bg-white border-b border-slate-100 px-4 py-3 flex items-center justify-between flex-shrink-0 shadow-sm">
               <div>
                 <h3 className="text-sm font-semibold text-slate-800">{t("headerTitle")}</h3>
@@ -428,7 +430,7 @@ export function AIAssistant() {
                   placeholder={t("placeholder")}
                   rows={1}
                   disabled={isStreaming}
-                  className="flex-1 resize-none text-sm text-slate-700 placeholder:text-slate-400 bg-transparent outline-none leading-relaxed max-h-24 overflow-y-auto disabled:opacity-50"
+                  className="min-w-0 flex-1 resize-none text-sm text-slate-700 placeholder:text-slate-400 bg-transparent outline-none leading-relaxed max-h-24 overflow-y-auto disabled:opacity-50"
                   style={{ minHeight: "24px" }}
                 />
                 <button type="submit" disabled={!input.trim() || isStreaming}

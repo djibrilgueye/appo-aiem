@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext"
 
 interface DraggableLegendProps {
   activeThemes: Set<string>
+  refined?: boolean
 }
 
 // Pipeline status line styles
@@ -50,7 +51,7 @@ function useThemeItems(activeThemes: Set<string>, t: ReturnType<typeof useLangua
   return items
 }
 
-export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
+export function DraggableLegend({ activeThemes, refined = false }: DraggableLegendProps) {
   const { t } = useLanguage()
   const legendRef = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ x: 0, y: 0 })
@@ -73,7 +74,7 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
         setInitialized(true)
       }
     }
-  }, [initialized])
+  }, [initialized, activeThemes.size])
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest("button")) return
@@ -84,8 +85,14 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
 
   const onMouseMove = useCallback((e: MouseEvent) => {
     if (!dragging) return
-    setPos({ x: e.clientX - offset.x, y: e.clientY - offset.y })
-  }, [dragging, offset])
+    const element = legendRef.current
+    const parent = element?.parentElement
+    const x = e.clientX - offset.x, y = e.clientY - offset.y
+    setPos(refined && element && parent ? {
+      x: Math.min(Math.max(0, x), Math.max(0, parent.clientWidth - element.offsetWidth)),
+      y: Math.min(Math.max(0, y), Math.max(0, parent.clientHeight - element.offsetHeight)),
+    } : { x, y })
+  }, [dragging, offset, refined])
 
   const onMouseUp = useCallback(() => setDragging(false), [])
 
@@ -100,11 +107,25 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
     }
   }, [dragging, onMouseMove, onMouseUp])
 
+  useEffect(() => {
+    const element = legendRef.current
+    const parent = element?.parentElement
+    if (!refined || !element || !parent) return
+    const observer = new ResizeObserver(() => setPos(previous => ({
+      x: Math.min(Math.max(0, previous.x), Math.max(0, parent.clientWidth - element.offsetWidth - 12)),
+      y: Math.min(Math.max(0, previous.y), Math.max(0, parent.clientHeight - element.offsetHeight - 12)),
+    })))
+    observer.observe(parent)
+    return () => observer.disconnect()
+  }, [refined, items.length, showPipelines])
+
   if (items.length === 0 && !showPipelines) return null
 
   return (
     <div
       ref={legendRef}
+      className={refined ? "aiem-legend-refined" : undefined}
+      role="region" aria-label={t.map.legend}
       onMouseDown={onMouseDown}
       style={{
         position: "absolute",
@@ -113,15 +134,16 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
         zIndex: 1000,
         cursor: dragging ? "grabbing" : "grab",
         userSelect: "none",
-        minWidth: "220px",
-        maxWidth: "280px",
-        backgroundColor: "rgba(255,255,255,0.90)",
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
+        minWidth: refined ? "208px" : "220px",
+        maxWidth: refined ? "270px" : "280px",
+        maxHeight: refined ? "calc(100% - 110px)" : undefined,
+        backgroundColor: refined ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.90)",
+        backdropFilter: refined ? "blur(6px)" : "blur(14px)",
+        WebkitBackdropFilter: refined ? "blur(6px)" : "blur(14px)",
         border: "1px solid rgba(255,255,255,0.7)",
-        borderRadius: "18px",
-        boxShadow: "0 12px 35px rgba(15,59,87,0.12)",
-        overflow: "hidden",
+        borderRadius: refined ? "8px" : "18px",
+        boxShadow: refined ? "0 4px 16px rgba(15,59,87,0.1)" : "0 12px 35px rgba(15,59,87,0.12)",
+        overflow: refined ? "auto" : "hidden",
       }}
     >
       {/* Header */}
@@ -132,11 +154,13 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-        <span style={{ color: "#F4B942", fontSize: "11px", fontWeight: "bold", letterSpacing: "0.08em", textTransform: "uppercase", fontFamily: "Arial, sans-serif" }}>
+        <span style={{ color: "#F4B942", fontSize: "11px", fontWeight: "bold", letterSpacing: "0.08em", textTransform: "uppercase", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
           {t.map.legend}
         </span>
         <button
           onClick={() => setCollapsed(!collapsed)}
+          aria-label={collapsed ? "Développer la légende" : "Réduire la légende"}
+          aria-expanded={!collapsed}
           style={{
             backgroundColor: "rgba(244,185,66,0.2)",
             border: "1px solid rgba(244,185,66,0.4)",
@@ -145,7 +169,7 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
             padding: "1px 6px",
             fontSize: "11px",
             cursor: "pointer",
-            fontFamily: "Arial, sans-serif",
+            fontFamily: refined ? "inherit" : "Arial, sans-serif",
           }}
         >
           {collapsed ? "▼" : "▲"}
@@ -159,7 +183,7 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
           {items.length > 0 && (
             <div style={{ display: "flex", flexDirection: "column", gap: "5px", marginBottom: showPipelines ? "10px" : 0 }}>
               {items.map(item => (
-                <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#0D2840", fontFamily: "Arial, sans-serif" }}>
+                <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: refined ? "13px" : "12px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
                   <span style={{ fontSize: "14px", lineHeight: 1 }}>{item.icon}</span>
                   <span>{item.label}</span>
                 </div>
@@ -173,12 +197,12 @@ export function DraggableLegend({ activeThemes }: DraggableLegendProps) {
               {items.length > 0 && (
                 <div style={{ borderTop: "1px solid #D0E4F0", margin: "8px 0 8px" }} />
               )}
-              <div style={{ fontSize: "10px", fontWeight: "bold", color: "#1B4F72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px", fontFamily: "Arial, sans-serif" }}>
+              <div style={{ fontSize: "10px", fontWeight: "bold", color: "#1B4F72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
                 Pipelines
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                 {PIPELINE_STATUSES.map(s => (
-                  <div key={s.label} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#0D2840", fontFamily: "Arial, sans-serif" }}>
+                  <div key={s.label} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: refined ? "13px" : "12px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
                     <svg width="28" height="6" style={{ flexShrink: 0 }}>
                       <line x1="0" y1="3" x2="28" y2="3" stroke={s.color} strokeWidth="2.5" strokeDasharray={s.dash} />
                     </svg>

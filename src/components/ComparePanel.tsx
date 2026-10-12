@@ -14,6 +14,7 @@ interface ComparePanelProps {
   selectedCountries: string[]
   selectedYear: number
   onClose: () => void
+  refined?: boolean
 }
 
 // ISO3 → ISO2 for flag emoji (DB country codes are ISO3).
@@ -98,7 +99,7 @@ function BenchmarkMetricBar({
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export function ComparePanel({ selectedCountries, selectedYear, onClose }: ComparePanelProps) {
+export function ComparePanel({ selectedCountries, selectedYear, onClose, refined = false }: ComparePanelProps) {
   const [countries, setCountries]   = useState<Country[]>([])
   const [reserves, setReserves]     = useState<any[]>([])
   const [production, setProduction] = useState<any[]>([])
@@ -115,7 +116,37 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
   // Drag state
   const panelRef  = useRef<HTMLDivElement>(null)
   const dragState = useRef({ dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 })
-  const [pos, setPos] = useState({ x: 360, y: 70 })
+  const [pos, setPos] = useState(() => refined ? { x: 16, y: 24 } : { x: 360, y: 70 })
+
+  const clampPosition = useCallback((position: { x: number; y: number }) => {
+    const panel = panelRef.current
+    const parent = panel?.offsetParent
+    if (!refined || !panel || !(parent instanceof HTMLElement)) {
+      return { x: Math.max(10, position.x), y: Math.max(10, position.y) }
+    }
+    const maxX = Math.max(16, parent.clientWidth - panel.offsetWidth - 16)
+    const maxY = Math.max(16, parent.clientHeight - panel.offsetHeight - 16)
+    return {
+      x: Math.min(maxX, Math.max(16, position.x)),
+      y: Math.min(maxY, Math.max(16, position.y)),
+    }
+  }, [refined])
+
+  useEffect(() => {
+    if (!refined || isMaximized) return
+    const panel = panelRef.current
+    const parent = panel?.offsetParent
+    if (!panel || !(parent instanceof HTMLElement)) return
+    const observer = new ResizeObserver(() => {
+      setPos(previous => {
+        const next = clampPosition(previous)
+        return next.x === previous.x && next.y === previous.y ? previous : next
+      })
+    })
+    observer.observe(parent)
+    observer.observe(panel)
+    return () => observer.disconnect()
+  }, [refined, isMaximized, loading, clampPosition])
 
   useEffect(() => {
     Promise.all([
@@ -154,7 +185,7 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
       if (!dragState.current.dragging) return
       const dx = e.clientX - dragState.current.startX
       const dy = e.clientY - dragState.current.startY
-      setPos({ x: Math.max(10, dragState.current.originX + dx), y: Math.max(10, dragState.current.originY + dy) })
+      setPos(clampPosition({ x: dragState.current.originX + dx, y: dragState.current.originY + dy }))
     }
     const onUp = () => { dragState.current.dragging = false }
     window.addEventListener("mousemove", onMove)
@@ -163,7 +194,7 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
       window.removeEventListener("mousemove", onMove)
       window.removeEventListener("mouseup", onUp)
     }
-  }, [])
+  }, [clampPosition])
 
   const selected = countries.filter(c => selectedCountries.includes(c.id))
 
@@ -202,11 +233,11 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
   // Floating (draggable) or maximized (fixed inset) shell
   const panelStyle: React.CSSProperties = isMaximized
     ? {
-        position: "fixed",
-        top: "20px",
-        left: "20px",
-        right: "20px",
-        bottom: "20px",
+        position: refined ? "absolute" : "fixed",
+        top: refined ? "16px" : "20px",
+        left: refined ? "16px" : "20px",
+        right: refined ? "16px" : "20px",
+        bottom: refined ? "16px" : "20px",
         zIndex: 1500,
         backgroundColor: "rgba(255,255,255,0.98)",
         backdropFilter: "blur(24px)",
@@ -221,8 +252,8 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
         top:  pos.y,
         zIndex: 1450,
         width: "720px",
-        maxWidth: "92vw",
-        maxHeight: "85vh",
+        maxWidth: refined ? "calc(100% - 32px)" : "92vw",
+        maxHeight: refined ? `calc(100% - ${pos.y + 16}px)` : "85vh",
         backgroundColor: "rgba(255,255,255,0.96)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
@@ -233,7 +264,7 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
 
   if (loading || selected.length === 0) {
     return (
-      <div ref={panelRef} style={{ ...panelStyle, width: "380px" }} className="overflow-hidden">
+      <div ref={panelRef} style={{ ...panelStyle, width: "380px" }} className="aiem-comparison-panel overflow-hidden">
         <header
           onMouseDown={onMouseDown}
           className="flex items-center gap-2 px-4 py-3 border-b border-slate-200/80 bg-[#0F3B57] text-white cursor-grab active:cursor-grabbing select-none"
@@ -255,19 +286,19 @@ export function ComparePanel({ selectedCountries, selectedYear, onClose }: Compa
     <div
       ref={panelRef}
       style={panelStyle}
-      className="overflow-hidden flex flex-col transition-all duration-200"
+      className={`aiem-comparison-panel overflow-hidden flex flex-col ${refined ? "" : "transition-all duration-200"}`}
     >
       {/* Header: draggable + maximize / export / close */}
       <header
         onMouseDown={onMouseDown}
-        className={`flex items-center gap-3 px-5 py-3 border-b border-slate-200/80 bg-white select-none shrink-0 ${
+        className={`flex items-center gap-3 px-5 py-3 border-b border-slate-200/80 bg-white select-none shrink-0 ${refined ? "flex-wrap" : ""} ${
           isMaximized ? "cursor-default" : "cursor-grab active:cursor-grabbing"
         }`}
       >
         {!isMaximized && (
           <GripHorizontal size={16} className="text-slate-400 hover:text-slate-600 transition" />
         )}
-        <div className="flex-1 flex items-center gap-2">
+        <div className={`flex-1 flex items-center gap-2 ${refined ? "flex-wrap min-w-0" : ""}`}>
           <span className="text-sm font-extrabold text-[#0F3B57]">Comparaison des Pays</span>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
             {selectedYear}

@@ -504,16 +504,16 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
     : filterByCountry(currentItems).length
 
   return (
-    <div className="h-full flex flex-col" style={{ backgroundColor: "#F4F7FB" }}>
+    <div className="aiem-data-table h-full flex flex-col" style={{ backgroundColor: "#F4F7FB" }}>
 
       {/* Theme tabs */}
-      <div className="flex flex-wrap gap-1.5 p-3" style={{ backgroundColor: "#ffffff", borderBottom: "2px solid #E5EDF5" }}>
+      <div className="aiem-data-table-tabs flex flex-wrap gap-1.5 p-3" style={{ backgroundColor: "#ffffff", borderBottom: "2px solid #E5EDF5" }}>
         {themes.map(theme => {
           const cfg = THEME_CONFIG[theme]
           if (!cfg) return null
           const isActive = activeTab === theme
           return (
-            <button key={theme} onClick={() => setActiveTab(theme)}
+            <button key={theme} type="button" aria-pressed={isActive} onClick={() => setActiveTab(theme)}
               className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
               style={{
                 backgroundColor: isActive ? "#1B4F72" : "#F4F7FA",
@@ -528,10 +528,10 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
       </div>
 
       {activeTab && config ? (
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="aiem-data-table-panel flex-1 flex flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #E5EDF5" }}>
+          <div className="aiem-data-table-header flex items-center justify-between px-6 py-4" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #E5EDF5" }}>
             <div>
               <h2 className="text-lg font-bold" style={{ color: "#1B4F72" }}>{config.icon} {config.label}</h2>
               <div className="text-xs mt-0.5" style={{ color: "#5B8FB9" }}>{count} {count !== 1 ? t.table.recordsPlural : t.table.records}</div>
@@ -542,12 +542,12 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
           </div>
 
           {/* Table */}
-          <div className="flex-1 overflow-auto">
+          <div className="aiem-data-table-scroll flex-1 overflow-auto">
             {renderTable()}
           </div>
 
           {/* Source */}
-          <div className="px-6 py-2.5" style={{ backgroundColor: "#ffffff", borderTop: "1px solid #E5EDF5" }}>
+          <div className="aiem-data-table-source px-6 py-2.5" style={{ backgroundColor: "#ffffff", borderTop: "1px solid #E5EDF5" }}>
             <div className="text-xs" style={{ color: "#A3C4DC" }}>
               <strong style={{ color: "#5B8FB9" }}>Source :</strong> {config.source}
             </div>
@@ -555,7 +555,7 @@ export function DataTable({ selectedCountries, selectedYear, activeThemes }: Dat
 
         </div>
       ) : (
-        <div className="flex-1 flex items-center justify-center">
+        <div className="aiem-data-table-empty flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="text-4xl mb-3">📊</div>
             <div className="text-sm" style={{ color: "#A3C4DC" }}>{t.table.selectTheme}</div>

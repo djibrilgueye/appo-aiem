@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "bash scripts/start.sh",
     "next:dev": "next dev",
+    "preview": "node scripts/preview.mjs",
     "next:start": "next start",
     "email:start": "bash scripts/start-email-service.sh",
     "lint": "eslint"
