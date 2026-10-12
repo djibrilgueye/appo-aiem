@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react"
 import { useLanguage } from "@/i18n/LanguageContext"
+import { OPERATIONAL_STATUSES, STATUS_COLORS, statusLabel } from "@/lib/operationalStatus"
 
 interface DraggableLegendProps {
   activeThemes: Set<string>
@@ -21,8 +22,8 @@ const PIPELINE_STATUSES = [
 function useThemeItems(activeThemes: Set<string>, t: ReturnType<typeof useLanguage>["t"]) {
   const items: { icon: string; label: string }[] = []
 
-  if (activeThemes.has("basins"))
-    items.push({ icon: "🟤", label: t.map.basin })
+  // "basins" is rendered as its own section (basin / block / field shapes +
+  // status colours) rather than a single emoji row — see showBasins below.
   if (activeThemes.has("refineries"))
     items.push({ icon: "🏭", label: t.map.refinery })
   if (activeThemes.has("rnd"))
@@ -52,7 +53,7 @@ function useThemeItems(activeThemes: Set<string>, t: ReturnType<typeof useLangua
 }
 
 export function DraggableLegend({ activeThemes, refined = false }: DraggableLegendProps) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const legendRef = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [dragging, setDragging] = useState(false)
@@ -62,6 +63,7 @@ export function DraggableLegend({ activeThemes, refined = false }: DraggableLege
 
   const items = useThemeItems(activeThemes, t)
   const showPipelines = activeThemes.has("pipelines")
+  const showBasins = activeThemes.has("basins")
 
   // Initialize position to top-right
   useEffect(() => {
@@ -119,7 +121,7 @@ export function DraggableLegend({ activeThemes, refined = false }: DraggableLege
     return () => observer.disconnect()
   }, [refined, items.length, showPipelines])
 
-  if (items.length === 0 && !showPipelines) return null
+  if (items.length === 0 && !showPipelines && !showBasins) return null
 
   return (
     <div
@@ -191,10 +193,47 @@ export function DraggableLegend({ activeThemes, refined = false }: DraggableLege
             </div>
           )}
 
+          {/* Basins / blocks / fields: shape = object type, colour = operational status */}
+          {showBasins && (
+            <>
+              {items.length > 0 && (
+                <div style={{ borderTop: "1px solid #D0E4F0", margin: "8px 0 8px" }} />
+              )}
+              <div style={{ fontSize: "10px", fontWeight: "bold", color: "#1B4F72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                {lang === "en" ? "Basins / Blocks / Fields" : "Bassins / Blocs / Champs"}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "5px", marginBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: refined ? "13px" : "12px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                  <span style={{ width: 14, height: 14, borderRadius: "50%", background: "#8B5E3C", border: "2px solid #fff", boxShadow: "0 1px 3px rgba(0,0,0,0.3)", flexShrink: 0 }} />
+                  <span>{lang === "en" ? "Sedimentary basin" : "Bassin sédimentaire"}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: refined ? "13px" : "12px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                  <span style={{ width: 14, height: 14, borderRadius: 3, background: "#9CA3AF", border: "2px solid #fff", boxShadow: "0 1px 3px rgba(0,0,0,0.3)", flexShrink: 0 }} />
+                  <span>{lang === "en" ? "Block (licence area)" : "Bloc (permis)"}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: refined ? "13px" : "12px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                  <span style={{ width: 16, height: 16, borderRadius: "50%", background: "#16a34a", border: "2px solid #fff", boxShadow: "0 1px 3px rgba(0,0,0,0.3)", color: "#fff", fontSize: 8, fontWeight: "bold", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>★</span>
+                  <span>{lang === "en" ? "Oil / gas field" : "Champ pétrolier / gazier"}</span>
+                </div>
+              </div>
+              <div style={{ fontSize: "10px", color: "#5B8FB9", marginBottom: "4px", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                {lang === "en" ? "Colour of blocks and fields = status" : "Couleur des blocs et champs = statut"}
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "10px", rowGap: "4px" }}>
+                {OPERATIONAL_STATUSES.map(s => (
+                  <div key={s} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: refined ? "12px" : "11px", color: "#0D2840", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
+                    <span style={{ width: 10, height: 10, borderRadius: 2, background: STATUS_COLORS[s], border: "1px solid rgba(0,0,0,0.15)", flexShrink: 0 }} />
+                    <span>{statusLabel(s, lang === "en" ? "en" : "fr")}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
           {/* Pipeline status lines */}
           {showPipelines && (
             <>
-              {items.length > 0 && (
+              {(items.length > 0 || showBasins) && (
                 <div style={{ borderTop: "1px solid #D0E4F0", margin: "8px 0 8px" }} />
               )}
               <div style={{ fontSize: "10px", fontWeight: "bold", color: "#1B4F72", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px", fontFamily: refined ? "inherit" : "Arial, sans-serif" }}>
