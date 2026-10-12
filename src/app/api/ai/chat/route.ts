@@ -338,10 +338,25 @@ export async function POST(request: NextRequest) {
     if (!anthropicRes.ok) {
       const err = await anthropicRes.json().catch(() => ({}))
       console.error("[Claude API]", anthropicRes.status, err)
-      return NextResponse.json(
-        { error: locale === "en" ? "AI assistant unavailable." : "L'assistant IA n'est pas disponible." },
-        { status: 503 }
-      )
+      // Tell admins *why* instead of a generic "unavailable": an exhausted
+      // API credit balance or a revoked key are fixed in the Anthropic
+      // console, not in the app.
+      const apiMsg: string = String(err?.error?.message ?? "")
+      let error = locale === "en" ? "AI assistant unavailable." : "L'assistant IA n'est pas disponible."
+      if (/credit balance/i.test(apiMsg)) {
+        error = locale === "en"
+          ? "AI assistant paused: the Anthropic API credit balance is exhausted. Please ask the administrator to top up the account."
+          : "Assistant IA en pause : le crédit de l'API Anthropic est épuisé. Merci de demander à l'administrateur de recharger le compte."
+      } else if (anthropicRes.status === 401) {
+        error = locale === "en"
+          ? "AI assistant paused: the API key is invalid or revoked."
+          : "Assistant IA en pause : la clé API est invalide ou révoquée."
+      } else if (anthropicRes.status === 429 || anthropicRes.status === 529) {
+        error = locale === "en"
+          ? "AI assistant is busy right now. Please try again in a moment."
+          : "L'assistant IA est saturé pour le moment. Réessayez dans un instant."
+      }
+      return NextResponse.json({ error }, { status: 503 })
     }
 
     // Translate Anthropic SSE stream into a plain-text stream so the existing

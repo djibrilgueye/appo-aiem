@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css"
 import { X, MapPin, FileText, Image, File, ExternalLink, FolderOpen } from "lucide-react"
 import { useLanguage } from "@/i18n/LanguageContext"
 import { normalizeStatus, STATUS_COLORS, statusLabel } from "@/lib/operationalStatus"
+import { AFRICA_COLORS, addAfricaReference, addOceanLabels, installAfricaViewport } from "./map/africaPresentation"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -85,11 +86,12 @@ interface MapProps {
   activeStatuses?: Set<string>
   showLabels: boolean
   showPipelineLabels?: boolean
+  refined?: boolean
 }
 
 // ─── APPO Map Colors ──────────────────────────────────────────────────────────
 
-const MC = {
+const LEGACY_MAP_COLORS = {
   ocean:              "#D4E5F5",   // satin daylight blue (fallback)
   countryDefault:     "#1E6091",   // APPO member IN active region — royal blue, translucent
   countryMemberOff:   "#4A7A99",   // APPO member OUTSIDE active region — muted blue
@@ -171,6 +173,17 @@ const PARTNER_NAME_TO_ISO2: Record<string, string> = {
   "Ouganda": "UG", "Uganda": "UG",
   "Zambie": "ZM", "Zambia": "ZM",
   "Zimbabwe": "ZW",
+  // UN Comtrade reporter/partner spellings (Sept 2026 trade import)
+  "Cabo Verde": "CV",
+  "Central African Rep.": "CF", "Central African Republic": "CF",
+  "Dem. Rep. of the Congo": "CD", "Democratic Republic of the Congo": "CD", "Congo, Dem. Rep.": "CD",
+  "Gambia": "GM",
+  "Guinea-Bissau": "GW",
+  "Mauritius": "MU",
+  "Sao Tome and Principe": "ST",
+  "United Rep. of Tanzania": "TZ",
+  "Côte d’Ivoire": "CI", "Cote d'Ivoire": "CI",
+  "Eq. Guinea": "GQ",
 }
 
 // ─── Tooltip ──────────────────────────────────────────────────────────────────
@@ -193,13 +206,16 @@ interface TooltipData {
   x: number; y: number; locked: boolean
 }
 
-function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
+function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave, refined = false }: {
   tooltip: TooltipData
   onClose: () => void
   onMouseEnter?: () => void
   onMouseLeave?: () => void
+  refined?: boolean
 }) {
   const { t } = useLanguage()
+  const tooltipWidth = refined ? Math.min(304, window.innerWidth - 24) : 256
+  const rightInset = refined ? tooltipWidth + 12 : 280
 
   // Draggable state — only active when locked
   const dragging = useRef(false)
@@ -209,9 +225,9 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
   // When tooltip first locks, capture position
   useEffect(() => {
     if (tooltip.locked && pos === null) {
-      const x = Math.min(tooltip.x + 16, window.innerWidth - 280)
+      const x = Math.min(tooltip.x + 16, window.innerWidth - rightInset)
       const y = Math.max(tooltip.y - 20, 10)
-      setPos({ x, y })
+      setPos({ x: refined ? Math.max(8, x) : x, y })
     }
     if (!tooltip.locked) setPos(null)
   }, [tooltip.locked]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -221,7 +237,7 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
     const onMove = (e: MouseEvent) => {
       if (!dragging.current) return
       setPos({
-        x: Math.max(0, Math.min(window.innerWidth - 270, e.clientX - dragOffset.current.x)),
+        x: Math.max(0, Math.min(window.innerWidth - (refined ? tooltipWidth + 12 : 270), e.clientX - dragOffset.current.x)),
         y: Math.max(0, Math.min(window.innerHeight - 80,  e.clientY - dragOffset.current.y)),
       })
     }
@@ -229,15 +245,16 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
     window.addEventListener("mousemove", onMove)
     window.addEventListener("mouseup", onUp)
     return () => { window.removeEventListener("mousemove", onMove); window.removeEventListener("mouseup", onUp) }
-  }, [tooltip.locked])
+  }, [tooltip.locked, refined, tooltipWidth])
 
-  const left = pos ? pos.x : Math.min(tooltip.x + 16, window.innerWidth - 280)
+  const initialLeft = Math.min(tooltip.x + 16, window.innerWidth - rightInset)
+  const left = pos ? pos.x : refined ? Math.max(8, initialLeft) : initialLeft
   const top  = pos ? pos.y : Math.max(tooltip.y - 20, 10)
 
   return (
-    <div className="fixed z-[2000] pointer-events-auto select-none" style={{ left, top }}
+    <div className={`fixed z-[2000] pointer-events-auto select-none ${refined ? "aiem-map-tooltip" : ""}`} style={{ left, top }}
       onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <div className={`bg-white rounded-xl shadow-xl border overflow-hidden w-64 ${tooltip.locked ? "border-[#1B4F72] ring-2 ring-[#A3C4DC]" : "border-slate-200"}`}>
+      <div className={`bg-white rounded-xl shadow-xl border overflow-hidden ${tooltip.locked ? "border-[#1B4F72] ring-2 ring-[#A3C4DC]" : "border-slate-200"}`} style={{ width: tooltipWidth }}>
         <div
           className={`px-4 py-3 flex items-start justify-between ${tooltip.locked ? "cursor-grab active:cursor-grabbing" : ""}`}
           style={{ background: "linear-gradient(135deg, #1B4F72, #2980B9)" }}
@@ -248,14 +265,14 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
           } : undefined}
         >
           <div>
-            <div className="font-bold text-white text-sm leading-tight">{tooltip.title}</div>
+            <div className={`font-bold text-white ${refined ? "text-[15px] leading-snug" : "text-sm leading-tight"}`}>{tooltip.title}</div>
             {tooltip.subtitle && <div className="text-blue-200 text-xs mt-0.5 flex items-center gap-1"><MapPin className="h-3 w-3" />{tooltip.subtitle}</div>}
           </div>
           {tooltip.locked && (
             <button onClick={onClose} className="text-blue-200 hover:text-white ml-2 flex-shrink-0"><X className="h-4 w-4" /></button>
           )}
         </div>
-        <div className="px-4 py-3 space-y-1.5 max-h-64 overflow-y-auto">
+        <div className={`px-4 py-3 max-h-64 overflow-y-auto ${refined ? "space-y-2.5" : "space-y-1.5"}`}>
           {tooltip.rows.map((r, i) => {
             if (r.section !== undefined) {
               // Section separator between two groups of rows (e.g. one trade theme
@@ -264,7 +281,7 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
               const isFirst = tooltip.rows.slice(0, i).every(prev => prev.section !== undefined)
               return (
                 <div key={`section-${i}`} className={isFirst ? "" : "border-t border-[#EBF3FB] pt-2 mt-1"}>
-                  <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "#5B8FB9" }}>
+                  <div className={`${refined ? "text-[11px]" : "text-[10px]"} font-bold uppercase tracking-wider`} style={{ color: "#5B8FB9" }}>
                     {r.section}
                   </div>
                 </div>
@@ -274,7 +291,7 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
               return (
                 <div
                   key={`total-${i}`}
-                  className="flex justify-between text-xs gap-2 rounded px-2 py-1 -mx-1"
+                  className={`flex justify-between gap-2 rounded px-2 py-1 -mx-1 ${refined ? "text-[13px] tabular-nums" : "text-xs"}`}
                   style={{ backgroundColor: "#F4F7FA", border: "1px solid #E5EDF5" }}
                 >
                   <span className="shrink-0 uppercase tracking-wider text-[10px] font-bold" style={{ color: "#1B4F72" }}>{r.label}</span>
@@ -285,9 +302,9 @@ function MapTooltip({ tooltip, onClose, onMouseEnter, onMouseLeave }: {
               )
             }
             return (
-              <div key={`${r.label}-${i}`} className="flex justify-between text-xs gap-2">
-                <span style={{ color: "#6C757D" }} className="shrink-0">{r.label}</span>
-                <span className="font-semibold text-right leading-relaxed" style={{ color: "#0D2840" }}>
+              <div key={`${r.label}-${i}`} className={`flex justify-between ${refined ? "text-[13px] leading-relaxed gap-3" : "text-xs gap-2"}`}>
+                <span style={{ color: "#6C757D" }} className={refined ? "max-w-[55%]" : "shrink-0"}>{r.label}</span>
+                <span className={`font-semibold text-right leading-relaxed ${refined ? "min-w-0 break-words tabular-nums" : ""}`} style={{ color: "#0D2840" }}>
                   {Array.isArray(r.value) ? r.value.join(" → ") : r.value}
                 </span>
               </div>
@@ -1002,11 +1019,11 @@ function pipelineStyle(status: string, name?: string) {
 
 // ─── Marker factories ─────────────────────────────────────────────────────────
 
-function pulsingMarker(color: string, emoji?: string) {
+function pulsingMarker(color: string, emoji?: string, refined = false) {
   return L.divIcon({
     html: `
       <div style="position:relative;width:24px;height:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
-        <div style="position:absolute;inset:0;border-radius:50%;background:${color};opacity:0.2;animation:ping 1.8s cubic-bezier(0,0,0.2,1) infinite;"></div>
+        <div style="position:absolute;inset:0;border-radius:50%;background:${color};opacity:0.2;${refined ? "" : "animation:ping 1.8s cubic-bezier(0,0,0.2,1) infinite;"}"></div>
         <div style="position:absolute;inset:4px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
           ${emoji ? `<span style="font-size:8px">${emoji}</span>` : ""}
         </div>
@@ -1028,8 +1045,9 @@ function emojiMarker(emoji: string, size = 22) {
 
 // ─── Main Map Component ────────────────────────────────────────────────────────
 
-export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All", activeThemes, activeStatuses, showLabels, showPipelineLabels = false }: MapProps) {
+export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All", activeThemes, activeStatuses, showLabels, showPipelineLabels = false, refined = false }: MapProps) {
   const { t, lang } = useLanguage()
+  const MC = refined ? AFRICA_COLORS : LEGACY_MAP_COLORS
   // Numbers use the active locale's thousands/decimal separators (fr: 1 234,5 ; en: 1,234.5).
   // Arabic keeps Western digits for consistency with the DB-stored numeric values.
   const nfLocale = lang === "ar" ? "en" : lang
@@ -1062,11 +1080,21 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     const isSelected = !!iso2 && selectedCodesRef.current.has(iso2)
     const isMember   = !!iso2 && memberCodesRef.current.has(iso2)
     const isInRegion = !iso2 || regionCodesRef.current.size === 0 || regionCodesRef.current.has(iso2)
+    if (refined) {
+      const shared = { fillOpacity: 1, opacity: 1, lineJoin: "round" as const }
+      if (isSelected) return { ...shared, fillColor: MC.countrySelected, color: MC.borderHover, weight: 2.2 }
+      if (!isMember) return { ...shared, fillColor: MC.countryNonMember, color: MC.border, weight: 0.8 }
+      if (isInRegion) return { ...shared, fillColor: MC.countryDefault, color: MC.borderInRegion, weight: 1 }
+      return { ...shared, fillColor: MC.countryMemberOff, color: MC.borderInRegion, weight: 0.8 }
+    }
     if (isSelected)  return { fillColor: MC.countrySelected,  fillOpacity: 0.85, color: MC.borderHover,    weight: 2   }
     if (!isMember)   return { fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border,         weight: 0.6 }
     if (isInRegion)  return { fillColor: MC.countryDefault,   fillOpacity: 0.65, color: MC.borderInRegion, weight: 1.2 }
     return                  { fillColor: MC.countryMemberOff, fillOpacity: 0.40, color: MC.border,         weight: 0.8 }
   }
+  const hoverStyle: L.PathOptions = refined
+    ? { fillColor: MC.countryHover, fillOpacity: 1, color: "#8EB5C9", weight: 1.5 }
+    : { fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 }
   const tooltipTimer   = useRef<ReturnType<typeof setTimeout> | null>(null)
   const memberCodesRef    = useRef<Set<string>>(new Set())
   const regionCodesRef    = useRef<Set<string>>(new Set())  // ISO2 codes in the active region
@@ -1079,6 +1107,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
 
   const [tooltip,        setTooltip]       = useState<TooltipData | null>(null)
   const [geoReady,       setGeoReady]      = useState(false)
+  const [compactMapLabels, setCompactMapLabels] = useState(false)
   const [countries,      setCountries]     = useState<Country[]>([])
   const [docsCountry,    setDocsCountry]   = useState<{ id: string; name: string } | null>(null)
   const [previewDoc,     setPreviewDoc]    = useState<CountryDoc | null>(null)
@@ -1200,15 +1229,15 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       if (!centroid) return
       const [lat, lon] = centroid
       const icon = L.divIcon({
-        className: "",
-        html: `<div style="background:transparent;color:#ffffff;font-size:10px;font-weight:bold;font-family:Arial,sans-serif;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,0.6);white-space:nowrap">${name}</div>`,
+        className: refined ? "aiem-map-partner-label" : "",
+        html: `<div style="background:transparent;color:#ffffff;font-size:${refined ? "11px" : "10px"};font-weight:${refined ? "600" : "bold"};font-family:${refined ? "inherit" : "Arial,sans-serif"};text-align:center;text-shadow:0 1px 2px rgba(0,0,0,0.6);white-space:nowrap">${name}</div>`,
         iconSize: [100, 14],
         iconAnchor: [50, 7],
       })
       const m = L.marker([lat, lon], { icon, interactive: false }).addTo(labelsGrp.current!)
       tradeLabelsRef.current.push(m)
     })
-  }, [clearTradeHighlight])
+  }, [clearTradeHighlight, refined])
 
   // ── Init map ──────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -1216,38 +1245,48 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     const container = mapRef.current as HTMLElement & { _leaflet_id?: number }
     if (container._leaflet_id) delete container._leaflet_id
     let destroyed = false
+    let removeViewport: (() => void) | undefined
 
-    // attributionControl activé — obligation licence CARTO + OpenStreetMap
-    // (contrepartie du tier gratuit CARTO).
+    // The original variant retains its tile-provider attributions; the refined
+    // map uses only the local African reference, with no world basemap.
     const map = L.map(mapRef.current, {
       center: [3, 20], zoom: 4,
       zoomControl: false,
-      scrollWheelZoom: true, minZoom: 3, maxZoom: 9,
+      scrollWheelZoom: true, minZoom: refined ? 1 : 3, maxZoom: 9,
+      zoomSnap: refined ? 0.1 : 1,
+      zoomDelta: refined ? 0.5 : 1,
+      maxBoundsViscosity: refined ? 1 : 0,
+      zoomAnimation: !refined,
+      markerZoomAnimation: !refined,
+      fadeAnimation: !refined,
     })
+    if (refined) map.on("zoomend", () => setCompactMapLabels(map.getZoom() < 3.2))
 
-    // Bathymetric ocean base — Esri World Ocean Base, free & keyless, brings
-    // sea-floor relief and coastal shading. Serves as the always-on background.
-    L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
-      {
-        maxZoom: 13,
-        attribution: "Tiles &copy; Esri — Sources: GEBCO, NOAA, CHS, National Geographic",
-      },
-    ).addTo(map)
-
-    // Optional Carto light_nolabels overlay (thin labels-free borders) on top
-    // of the Esri ocean base, at reduced opacity so relief still reads.
-    const cartoKey = process.env.NEXT_PUBLIC_CARTO_KEY
-    if (cartoKey) {
+    if (!refined) {
+      // Bathymetric ocean base — Esri World Ocean Base, free & keyless, brings
+      // sea-floor relief and coastal shading. Serves as the always-on background.
       L.tileLayer(
-        `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?key=${cartoKey}`,
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
         {
-          maxZoom: 20,
-          opacity: 0.35,
-          subdomains: "abcd",
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+          maxZoom: 13,
+          attribution: "Tiles &copy; Esri — Sources: GEBCO, NOAA, CHS, National Geographic",
         },
       ).addTo(map)
+
+      // Optional Carto light_nolabels overlay (thin labels-free borders) on top
+      // of the Esri ocean base, at reduced opacity so relief still reads.
+      const cartoKey = process.env.NEXT_PUBLIC_CARTO_KEY
+      if (cartoKey) {
+        L.tileLayer(
+          `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?key=${cartoKey}`,
+          {
+            maxZoom: 20,
+            opacity: 0.35,
+            subdomains: "abcd",
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+          },
+        ).addTo(map)
+      }
     }
     L.control.zoom({ position: "topright" }).addTo(map)
 
@@ -1264,6 +1303,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       .then(r => r.json())
       .then(geo => {
         if (destroyed) return
+        if (refined) addAfricaReference(map, geo)
 
         // Build centroid map: iso2 → [lat, lon] from GeoJSON geometry
         const centroids = new Map<string, [number, number]>()
@@ -1288,11 +1328,15 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
         geoCentroidsRef.current = centroids
 
         const layer = L.geoJSON(geo, {
-          style: () => ({ fillColor: MC.countryNonMember, fillOpacity: 0.25, color: MC.border, weight: 0.6 }),
+          style: feature => ({ ...tierStyle(feature?.properties?.iso2), className: refined ? "aiem-country-shape" : "" }),
           onEachFeature: (feature, lyr) => {
             const iso2 = feature.properties?.iso2
             // Store iso2 on the layer for membership checks in hover
-            ;(lyr as any)._iso2 = iso2
+            ;(lyr as L.Path & { _iso2?: string })._iso2 = iso2
+            if (refined) lyr.on("add", () => {
+              const element = (lyr as L.Path).getElement()
+              element?.setAttribute("data-country-code", iso2 ?? "")
+            })
             lyr.on({
               mouseover: (e) => {
                 const tgt = e.target as L.Path & { _iso2?: string }
@@ -1313,7 +1357,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
                   prev.setStyle(tierStyle((prev as L.Path & { _iso2?: string })._iso2))
                 }
                 hoveredLayer.current = tgt
-                tgt.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
+                tgt.setStyle(hoverStyle)
               },
               mouseout: (e) => {
                 const tgt = e.target as L.Path & { _iso2?: string }
@@ -1348,6 +1392,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           },
         }).addTo(map)
         geoLayer.current = layer
+        if (refined) removeViewport = installAfricaViewport(map, layer.getBounds())
         // Add marker/pipeline/label groups AFTER GeoJSON so they render on top
         mg.addTo(map)
         pg.addTo(map)
@@ -1361,10 +1406,18 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     return () => {
       destroyed = true
       hoveredLayer.current = null
+      removeViewport?.()
       map.remove()
       leafletMap.current = null
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const map = leafletMap.current
+    if (!refined || !geoReady || !map) return
+    const labels = addOceanLabels(map, lang)
+    return () => { labels.remove() }
+  }, [refined, geoReady, lang])
 
   // ── Update GeoJSON fill based on selected countries, region & APPO membership
   useEffect(() => {
@@ -1388,9 +1441,19 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     // exact same 4-tier look the hover handlers restore to.
     geoLayer.current.setStyle((feature) => tierStyle(feature?.properties?.iso2))
     // A layer that is currently hovered keeps its hover look.
-    if (hoveredLayer.current) {
-      hoveredLayer.current.setStyle({ fillColor: MC.countryHover, fillOpacity: 0.75, color: MC.borderHover, weight: 1.8 })
+    const hovered = hoveredLayer.current as (L.Path & { _iso2?: string }) | null
+    if (hovered) {
+      const iso2 = hovered._iso2
+      const eligible = iso2 && !selectedCodesRef.current.has(iso2) && memberCodes.has(iso2)
+        && (regionIso2.size === 0 || regionIso2.has(iso2))
+      if (eligible) hovered.setStyle(hoverStyle)
+      else { hovered.setStyle(tierStyle(iso2)); hoveredLayer.current = null }
     }
+    // Selected countries keep their gold outline above their neighbours' borders.
+    if (refined) geoLayer.current.eachLayer(layer => {
+      const countryLayer = layer as L.Path & { _iso2?: string }
+      if (countryLayer._iso2 && selectedIso2.has(countryLayer._iso2)) countryLayer.bringToFront()
+    })
   }, [selectedCountries, countries, selectedRegion, geoReady])
 
   // ── Render markers & layers ───────────────────────────────────────────────
@@ -1417,7 +1480,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           { label: t.map.type, value: basin.type },
           ...(basin.areaKm2 ? [{ label: t.map.area, value: `${basin.areaKm2.toLocaleString()} km²` }] : []),
         ]
-        const m = L.marker([basin.lat, basin.lon], { icon: pulsingMarker("#8B5E3C") })
+        const m = L.marker([basin.lat, basin.lon], { icon: pulsingMarker("#8B5E3C", undefined, refined) })
         bindTip(m, e => ({ title: basin.name, subtitle: basin.country.name, rows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.on("click", (e: L.LeafletMouseEvent) => {
           tooltipLocked.current = false
@@ -1495,7 +1558,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           { label: t.map.capacity, value: `${ref.capacityKbd.toLocaleString()} kb/d` },
           { label: t.map.status,   value: ref.status },
         ]
-        const m = L.marker([ref.lat, ref.lon], { icon: pulsingMarker("#F4B942", "🏭") })
+        const m = L.marker([ref.lat, ref.lon], { icon: pulsingMarker("#F4B942", "🏭", refined) })
         bindTip(m, e => ({ title: ref.name, subtitle: ref.country.name, rows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })
@@ -1668,8 +1731,8 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           const mid = pipe.coords[Math.floor(pipe.coords.length / 2)]
           L.marker([mid[0], mid[1]], {
             icon: L.divIcon({
-              className: "",
-              html: `<div style="background:${color};color:white;padding:2px 6px;border-radius:4px;font-size:10px;white-space:nowrap;font-weight:bold;font-family:Arial,sans-serif">${pipe.name}</div>`,
+              className: refined ? "aiem-map-pipeline-label" : "",
+              html: `<div style="background:${color};color:white;padding:2px 6px;border-radius:4px;font-size:${refined ? "11px" : "10px"};white-space:nowrap;font-weight:${refined ? "600" : "bold"};font-family:${refined ? "inherit" : "Arial,sans-serif"}">${pipe.name}</div>`,
               iconSize: [200, 16], iconAnchor: [100, 8],
             }),
           }).addTo(pg)
@@ -1697,7 +1760,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           { label: "Focus", value: center.focus },
           ...(center.year ? [{ label: t.map.year, value: `${center.year}` }] : []),
         ]
-        const m = L.marker([center.lat, center.lon], { icon: pulsingMarker("#1B4F72", "🔬") })
+        const m = L.marker([center.lat, center.lon], { icon: pulsingMarker("#1B4F72", "🔬", refined) })
         bindTip(m, e => ({ title: center.name, subtitle: center.country.name, rows, x: e.originalEvent.clientX, y: e.originalEvent.clientY }), tooltipLocked, tooltipTimer, showTip, () => setTooltip(null))
         m.addTo(mg)
       })
@@ -1733,24 +1796,26 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
     type TradeField = "oilIntraKbD"|"gasIntraBcm"|"oilExtraKbD"|"gasExtraBcm"|"essenceM3"|"gasoilM3"|"gplTM"|"jetFuelTM"
     // hydroKeys: liste des valeurs `hydro` dans partnersDetail correspondant à ce thème
     const TRADE_SUB: Record<string, { dir: "imports"|"exports"; field: TradeField; label: string; unit: string; color: string; hydroKeys: string[] }> = {
-      imports_oil_intra:  { dir: "imports", field: "oilIntraKbD",  label: "Pétrole brut Intra-Afrique", unit: "kb/d",  color: "#1B4F72", hydroKeys: ["Pétrole brut"] },
-      imports_cond_intra: { dir: "imports", field: "oilIntraKbD",  label: "Condensat Intra-Afrique",    unit: "kb/d",  color: "#2980B9", hydroKeys: ["Condensat"] },
-      imports_gas_intra:  { dir: "imports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#5DADE2", hydroKeys: ["Gaz naturel"] },
-      imports_oil_extra:  { dir: "imports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#154360", hydroKeys: ["Pétrole brut","LGN"] },
-      imports_gas_extra:  { dir: "imports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A5276", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié"] },
-      imports_essence:    { dir: "imports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#F39C12", hydroKeys: ["Essence"] },
-      imports_gasoil:     { dir: "imports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#E67E22", hydroKeys: ["Gasoil","Bitumes"] },
-      imports_gpl:        { dir: "imports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#D35400", hydroKeys: ["GPL"] },
-      imports_jetfuel:    { dir: "imports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#CA6F1E", hydroKeys: ["Jet fuel","Jet Fuel"] },
-      exports_oil_intra:  { dir: "exports", field: "oilIntraKbD",  label: "Pétrole brut Intra-Afrique", unit: "kb/d",  color: "#1E8449", hydroKeys: ["Pétrole brut"] },
-      exports_cond_intra: { dir: "exports", field: "oilIntraKbD",  label: "Condensat Intra-Afrique",    unit: "kb/d",  color: "#27AE60", hydroKeys: ["Condensat"] },
-      exports_gas_intra:  { dir: "exports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#52BE80", hydroKeys: ["Gaz naturel"] },
-      exports_oil_extra:  { dir: "exports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#145A32", hydroKeys: ["Pétrole brut","LGN"] },
-      exports_gas_extra:  { dir: "exports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A7431", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié"] },
-      exports_essence:    { dir: "exports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#8E44AD", hydroKeys: ["Essence"] },
-      exports_gasoil:     { dir: "exports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#7D3C98", hydroKeys: ["Gasoil","Bitumes","Fuel Oil"] },
-      exports_gpl:        { dir: "exports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#6C3483", hydroKeys: ["GPL"] },
-      exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel"] },
+      // hydroKeys accept both the legacy French labels and the codes written by
+      // the Sept 2026 institutional import (crude / lng / gas / gasoline / gasoil / lpg / jet).
+      imports_oil_intra:  { dir: "imports", field: "oilIntraKbD",  label: "Pétrole brut Intra-Afrique", unit: "kb/d",  color: "#1B4F72", hydroKeys: ["Pétrole brut","crude"] },
+      imports_cond_intra: { dir: "imports", field: "oilIntraKbD",  label: "Condensat Intra-Afrique",    unit: "kb/d",  color: "#2980B9", hydroKeys: ["Condensat","condensate"] },
+      imports_gas_intra:  { dir: "imports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#5DADE2", hydroKeys: ["Gaz naturel","gas","lng"] },
+      imports_oil_extra:  { dir: "imports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#154360", hydroKeys: ["Pétrole brut","LGN","crude"] },
+      imports_gas_extra:  { dir: "imports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A5276", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié","gas","lng"] },
+      imports_essence:    { dir: "imports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#F39C12", hydroKeys: ["Essence","gasoline"] },
+      imports_gasoil:     { dir: "imports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#E67E22", hydroKeys: ["Gasoil","Bitumes","gasoil"] },
+      imports_gpl:        { dir: "imports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#D35400", hydroKeys: ["GPL","lpg"] },
+      imports_jetfuel:    { dir: "imports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#CA6F1E", hydroKeys: ["Jet fuel","Jet Fuel","jet"] },
+      exports_oil_intra:  { dir: "exports", field: "oilIntraKbD",  label: "Pétrole brut Intra-Afrique", unit: "kb/d",  color: "#1E8449", hydroKeys: ["Pétrole brut","crude"] },
+      exports_cond_intra: { dir: "exports", field: "oilIntraKbD",  label: "Condensat Intra-Afrique",    unit: "kb/d",  color: "#27AE60", hydroKeys: ["Condensat","condensate"] },
+      exports_gas_intra:  { dir: "exports", field: "gasIntraBcm",  label: "Gaz Intra-Afrique",          unit: "Mscf",  color: "#52BE80", hydroKeys: ["Gaz naturel","gas","lng"] },
+      exports_oil_extra:  { dir: "exports", field: "oilExtraKbD",  label: "Pétrole brut Extra-Afrique", unit: "kb/d",  color: "#145A32", hydroKeys: ["Pétrole brut","LGN","crude"] },
+      exports_gas_extra:  { dir: "exports", field: "gasExtraBcm",  label: "Gaz Extra-Afrique",          unit: "Mscf",  color: "#1A7431", hydroKeys: ["Gaz naturel","GNL","Gaz naturel liquefié","gas","lng"] },
+      exports_essence:    { dir: "exports", field: "essenceM3",    label: "Essence",                    unit: "m³",   color: "#8E44AD", hydroKeys: ["Essence","gasoline"] },
+      exports_gasoil:     { dir: "exports", field: "gasoilM3",     label: "Gasoil",                     unit: "m³",   color: "#7D3C98", hydroKeys: ["Gasoil","Bitumes","Fuel Oil","gasoil"] },
+      exports_gpl:        { dir: "exports", field: "gplTM",        label: "GPL",                        unit: "t",    color: "#6C3483", hydroKeys: ["GPL","lpg"] },
+      exports_jetfuel:    { dir: "exports", field: "jetFuelTM",    label: "Jet Fuel",                   unit: "t",    color: "#5B2C6F", hydroKeys: ["Jet fuel","Jet Fuel","jet"] },
     }
 
     // Group active trade themes by country so each country gets a SINGLE marker
@@ -1855,7 +1920,16 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
           const allPartners: TradePartner[] = (() => {
             try { return JSON.parse(e.row.partnersDetail) } catch { return [] }
           })()
-          const relevant = allPartners.filter(p => e.cfg.hydroKeys.includes(p.hydro))
+          // Legacy rows carry an explicit `region` (intra/extra); imported rows
+          // don't, so infer it from whether the partner is an African country.
+          const wantRegion = e.themeKey.includes("_intra") ? "intra" : e.themeKey.includes("_extra") ? "extra" : null
+          const relevant = allPartners.filter(p => {
+            if (!e.cfg.hydroKeys.includes(p.hydro)) return false
+            if (!wantRegion) return true
+            const region = (p as TradePartner & { region?: string }).region
+              ?? (PARTNER_NAME_TO_ISO2[p.partner] ? "intra" : "extra")
+            return region === wantRegion
+          })
           const sortedPartners = [...relevant].sort((a, b) => b.qty - a.qty)
           sortedPartners.forEach(p => {
             tipRows.push({ label: p.partner, value: `${fmt(p.qty)} ${p.unit}` })
@@ -1893,21 +1967,36 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       }
       const toIso2Label = (iso3: string) => ISO3_TO_ISO2[iso3] ?? iso3
       const selectedIso2Set = new Set(selectedCodesRef.current)
+      const overviewLabels = new Set(["DZ", "AO", "TD", "CD", "EG", "LY", "NA", "NE", "NG", "ZA"])
       filteredCountries.filter(c => c.appoMember).forEach(country => {
         const iso2 = toIso2Label(country.code)
+        const isSelected = selectedIso2Set.has(iso2)
+        if (refined && compactMapLabels && !isSelected && !overviewLabels.has(iso2)) return
         const centroid = geoCentroidsRef.current.get(iso2)
         const [baseLat, baseLon] = centroid ?? [country.lat, country.lon]
         const [dLat, dLon] = LABEL_OFFSET[iso2] ?? [0, 0]
-        const [lat, lon] = [baseLat + dLat, baseLon + dLon]
-        const lines = wrapText(country.name, LABEL_WRAP[iso2] ?? 14)
+        // Offshore labels keep the smallest coastal countries readable at the
+        // continental scale. The leader follows the actual country centroid.
+        const callout = refined && iso2 === "GQ" ? [-0.5, -3.5] as const : null
+        const [lat, lon] = callout ?? [baseLat + dLat, baseLon + dLon]
+        if (callout) L.polyline([[baseLat, baseLon], [lat, lon]], {
+          interactive: false, color: "#819EAE", opacity: 0.8, weight: 0.8,
+        }).addTo(lg)
+        const name = refined && compactMapLabels && iso2 === "CD" ? (lang === "fr" ? "RD Congo" : "DR Congo") : country.name
+        const lines = wrapText(name, LABEL_WRAP[iso2] ?? 14)
         const html = lines.map(l => `<div style="line-height:1.2">${l}</div>`).join("")
         const h = lines.length * 14
         // Labels always in crisp white with a strong drop shadow — legible on
         // every fill (deep royal, translucent limestone, navy when selected).
-        const shadow = "0 1px 4px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,0.7)"
+        const isMuted = regionCodesRef.current.size > 0 && !regionCodesRef.current.has(iso2) && !isSelected
+        const darkLabel = refined && (isMuted || !!callout)
+        const labelColor = darkLabel ? "#244A60" : "#FFFFFF"
+        const shadow = refined
+          ? (darkLabel ? "0 1px 2px #ffffffcc" : "0 1px 2px #123e5870")
+          : "0 1px 4px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,0.7)"
         const icon = L.divIcon({
-          className: "",
-          html: `<div style="background:transparent;color:#FFFFFF;font-size:9px;font-weight:700;font-family:Arial,Helvetica,sans-serif;text-align:center;text-transform:uppercase;letter-spacing:0.06em;text-shadow:${shadow}">${html}</div>`,
+          className: refined ? "aiem-map-country-label" : "",
+          html: `<div style="background:transparent;color:${labelColor};font-size:${refined ? (compactMapLabels ? "9px" : "10.5px") : "9px"};font-weight:${refined ? "600" : "700"};font-family:${refined ? "inherit" : "Arial,Helvetica,sans-serif"};text-align:center;text-transform:${refined ? "none" : "uppercase"};letter-spacing:${refined ? "0.01em" : "0.06em"};text-shadow:${shadow}">${html}</div>`,
           iconSize: [110, h],
           iconAnchor: [55, h / 2],
         })
@@ -1915,10 +2004,10 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       })
     }
 
-  }, [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems, oilBlocks, oilFields, tradeImports, tradeExports, selectedCountries, selectedYear, activeThemes, activeStatuses, showLabels, showPipelineLabels, showTip, highlightPartners, clearTradeHighlight, t, geoReady])
+  }, [countries, basins, refineries, pipelines, reserves, productions, training, rndCenters, storages, petrochems, oilBlocks, oilFields, tradeImports, tradeExports, selectedCountries, selectedYear, activeThemes, activeStatuses, showLabels, showPipelineLabels, showTip, highlightPartners, clearTradeHighlight, t, geoReady, refined, compactMapLabels, lang])
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className={`relative w-full h-full overflow-hidden ${refined ? "aiem-map-refined" : ""}`}>
       {/* Ocean background */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #A8C8E0 0%, #B8D0E8 60%, #9DBCD8 100%)" }} />
 
@@ -1928,6 +2017,7 @@ export function AIEMMap({ selectedCountries, selectedYear, selectedRegion = "All
       {/* Tooltip */}
       {tooltip && (
         <MapTooltip
+          refined={refined}
           tooltip={tooltip}
           onClose={closeTip}
           onMouseEnter={() => { if (tooltipTimer.current) clearTimeout(tooltipTimer.current) }}
