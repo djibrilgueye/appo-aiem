@@ -318,8 +318,12 @@ export default function LandingPage() {
   return (
     <div
       className="h-screen w-full flex overflow-hidden"
+      // 100dvh = the *visible* viewport (browser toolbars excluded); h-screen
+      // (100vh) stays as the fallback for engines without dvh. On kiosk and
+      // tablet browsers 100vh is taller than what is shown, which pushed the
+      // globe's centre below the fold.
       dir={isRtl ? "rtl" : "ltr"}
-      style={{ backgroundColor: "#F4F7FA" }}
+      style={{ height: "100dvh", backgroundColor: "#F4F7FA" }}
     >
 
       {/* ══════════ COLONNE GAUCHE — Connexion ══════════ */}

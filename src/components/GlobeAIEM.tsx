@@ -99,12 +99,24 @@ function GlobeAIEM({ onSelectCountry, selectedCountry }: GlobeAIEMProps) {
     if (!el) return
     const measure = () => {
       const r = el.getBoundingClientRect()
-      setSize(Math.max(120, Math.floor(Math.min(r.width, r.height) * GLOBE_FILL)))
+      // Also cap by the *visual* viewport: on kiosk/tablet browsers the layout
+      // box can be taller or wider than what is actually shown on screen.
+      const vv = window.visualViewport
+      const vw = vv?.width ?? window.innerWidth
+      const vh = vv?.height ?? window.innerHeight
+      const side = Math.min(r.width, r.height, vw, vh)
+      setSize(Math.max(120, Math.floor(side * GLOBE_FILL)))
     }
     measure()
     const ro = new ResizeObserver(measure)
     ro.observe(el)
-    return () => ro.disconnect()
+    window.addEventListener("resize", measure)
+    window.visualViewport?.addEventListener("resize", measure)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener("resize", measure)
+      window.visualViewport?.removeEventListener("resize", measure)
+    }
   }, [])
 
   // Charger le GeoJSON de l'Afrique

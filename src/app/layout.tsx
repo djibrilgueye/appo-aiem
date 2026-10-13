@@ -1,5 +1,14 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
+
+// Explicit viewport so kiosk / tablet browsers lay the page out at the real
+// screen width instead of a scaled "desktop" viewport, and so 100dvh maps to
+// the visible area (toolbars excluded).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+}
 import "./globals.css"
 import { Providers } from "@/components/Providers"
 import { LanguageProvider } from "@/i18n/LanguageContext"
