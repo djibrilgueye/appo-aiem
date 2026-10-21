@@ -1,12 +1,33 @@
 [
-  {
-    "table": "Reserve", "country": "NAM", "year": 2023, "field": "oil", "old": 11.0, "new": 0.0,
-    "reason": "11 Gbbl were discovered resources (Venus, Graff, Mopane — contingent, pre-FID), not proved reserves. Energy Institute end-2021 reports no proved oil reserves for Namibia; gas 2.2 Tcf (Kudu) kept.",
-    "source": "Energy Institute Statistical Review 2023 (end-2021 reserves); NAMCOR / operator releases on Venus & Mopane (pre-FID)"
-  },
-  {
-    "table": "Production", "country": "SEN", "year": 2020, "field": "gas", "old": 15.6, "new": 0.0,
-    "reason": "Senegal had no hydrocarbon production before Sangomar first oil (2 June 2024); first gas from GTA in 2025.",
-    "source": "Ministère de l'Énergie, du Pétrole et des Mines (Sénégal); bp/Kosmos GTA first gas Jan 2025"
-  }
+ {
+  "table": "Reserve",
+  "country": "NAM",
+  "year": 2023,
+  "field": "oil",
+  "old": 11.0,
+  "new": 0.0,
+  "reason": "11 Gbbl were discovered resources (Venus, Graff, Mopane — contingent, pre-FID), not proved reserves. Energy Institute end-2021 reports no proved oil reserves for Namibia; gas 2.2 Tcf (Kudu) kept.",
+  "source": "Energy Institute Statistical Review 2023 (end-2021 reserves); NAMCOR / operator releases on Venus & Mopane (pre-FID)"
+ },
+ {
+  "table": "Production",
+  "country": "SEN",
+  "year": 2020,
+  "field": "gas",
+  "old": 15.6,
+  "new": 0.0,
+  "reason": "Senegal had no hydrocarbon production before Sangomar first oil (2 June 2024); first gas from GTA in 2025.",
+  "source": "Ministère de l'Énergie, du Pétrole et des Mines (Sénégal); bp/Kosmos GTA first gas Jan 2025"
+ },
+ {
+  "table": "Production",
+  "country": "SEN",
+  "year": 2025,
+  "field": "gas",
+  "old": 0.0,
+  "new": 906.0,
+  "date": "2026-10-21",
+  "reason": "Senegal marketed gas in 2025 via GTA Phase 1 (first gas 31 Dec 2024, first LNG cargo Apr 2025, COD Jun 2025). Ministry of Energy, Petroleum and Mines: cumulative LNG marketed at 31 Dec 2025 = 3.02 million m3 LNG over 18 cargoes (3.22 million m3 produced). Converted at 600 m3 gas per m3 LNG = 1,812 M m3 gross for the unitised field; Senegal share 50% (GTA unitisation agreement) = 906 M m3. Gadiaga onshore (~2.5 M m3/yr) not added. Estimate from official LNG volumes, not a published gas figure: confidence medium.",
+  "source": "Ministère de l'Énergie, du Pétrole et des Mines (rapport mensuel décembre 2025, via ndarinfo.com); Kosmos Energy Q4/FY2025 results (18.5 gross cargoes, 2.7 mtpa nameplate reached Dec 2025); bp first-gas release 2 Jan 2025"
+ }
 ]
