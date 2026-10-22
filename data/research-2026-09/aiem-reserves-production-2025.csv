@@ -1,19 +1,19 @@
 ﻿Pays;Code ISO3;Réserves pétrole (Gbbl);Année;Réserves gaz (Tcf);Année;Source réserves;Prod. pétrole (kb/j) brut+condensat;Année;Prod. gaz (M m³/an);Année;Source production
 Algeria;DZA;12,2;2024;159,06;2024;OPEC ASB 2025;1249;2025;98000;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
 Angola;AGO;2,55;2024;4,56;2024;OPEC ASB 2025;1040;2025;5750;2024;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
-Benin;BEN;0,008;2023;0,04;2021;none found;0;2025;0;2025;"No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)"
+Benin;BEN;0,008;2023;0,04;2021;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";0;2025;0;2025;"No producing field (Sèmè field dormant since 1998; redevelopment by Akrake Petroleum/Rex International, restart deferred to 2026)"
 Cameroon;CMR;0,2;2024;6;2024;OPEC ASB 2025;53,1;2025;2185;2024;SNH Cameroun figures as reported by Investir au Cameroun / News du Camer
-Chad;TCD;1,5;2024;0;2024;none found;111;2025;0;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
+Chad;TCD;1,5;2024;0;2024;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";111;2025;0;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
 Congo;COG;1,811;2024;10,03;2024;OPEC ASB 2025;271;2025;425;2024;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
-Côte d'Ivoire;CIV;0,1;2023;0,3;2023;none found;44;2024;2400;2024;Gouvernement de Côte d'Ivoire - Conseil des ministres du 1er octobre 2025 (via AIP, agence de presse officielle)
-Democratic Republic of the Congo;COD;0,18;2023;0,32;2023;none found;21,7;2024;0;2024;No institutional figure found
+Côte d'Ivoire;CIV;0,1;2023;0,3;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";44;2024;2400;2024;Gouvernement de Côte d'Ivoire - Conseil des ministres du 1er octobre 2025 (via AIP, agence de presse officielle)
+Democratic Republic of the Congo;COD;0,18;2023;0,32;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";21,7;2024;0;2024;Base AIEM — valeur antérieure à la campagne 2026 (aucune source institutionnelle 2024-2025 retrouvée)
 Egypt;EGY;3,3;2024;78,01;2024;OPEC ASB 2025;499;2025;40800;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
 Equatorial Guinea;GNQ;1,1;2024;1,41;2024;OPEC ASB 2025;64;2025;6914;2024;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
 Gabon;GAB;2;2024;0,95;2024;OPEC ASB 2025;227;2025;477;2024;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
-Ghana;GHA;0,66;2024;0,8;2024;none found;132;2024;300;2024;OPEC Annual Statistical Bulletin 2025 (60th ed.)
+Ghana;GHA;0,66;2024;0,8;2024;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";132;2024;300;2024;OPEC Annual Statistical Bulletin 2025 (60th ed.)
 Libya;LBY;48,363;2024;25,78;2024;OPEC ASB 2025;1374;2025;11700;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
-Namibia;NAM;0;2023;2,2;2023;none found;0;2025;0;2025;"No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)"
-Niger;NER;1;2023;0;2023;none found;79,7;2024;24,6;2024;No institutional figure found
+Namibia;NAM;0;2023;2,2;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";0;2025;0;2025;"No producing field (NAMCOR / TotalEnergies Venus FID pending; first oil targeted 2029-2030)"
+Niger;NER;1;2023;0;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";79,7;2024;24,6;2024;Base AIEM — valeur antérieure à la campagne 2026 (aucune source institutionnelle 2024-2025 retrouvée)
 Nigeria;NGA;37,01;2025;215,19;2025;NUPRC – Media release on the National Annual Petroleum Reserves Position as at 1st January 2026 (as reported by Nairametrics / Premium Times, 2 Apr 2026);1643;2025;50800;2025;Energy Institute Statistical Review of World Energy 2026 (brut + condensat)
-Senegal;SEN;2,7;2023;3;2023;none found;99,2;2025;906;2025;"Ministère de l'Énergie, du Pétrole et des Mines (Sénégal) — Sangomar ; gaz GTA estimé depuis les volumes GNL officiels"
-South Africa;ZAF;0,015;2023;0,8;2023;none found;5;2023;2,6;2024;US EIA Country Analysis Brief - South Africa
+Senegal;SEN;2,7;2023;3;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";99,2;2025;906;2025;"Ministère de l'Énergie, du Pétrole et des Mines (Sénégal) — Sangomar ; gaz GTA estimé depuis les volumes GNL officiels"
+South Africa;ZAF;0,015;2023;0,8;2023;"Base AIEM — valeur antérieure à la campagne 2026 (source institutionnelle non retrouvée ; OPEP agrège le pays dans « Others » et l'EI ne publie plus les réserves)";5;2023;2,6;2024;US EIA Country Analysis Brief - South Africa
