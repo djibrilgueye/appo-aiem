@@ -1,0 +1,252 @@
+{
+ "source": {
+  "name": "Energy Institute Statistical Review of World Energy 2026",
+  "table_or_page": "Oil: crude oil and condensate production (thousand barrels daily); Oil: production (total liquids); Oil: NGL production; Gas: production (billion cubic metres)",
+  "published": "2026-07",
+  "file": "statistical-review-of-world-energy.pdf (Desktop, 88 p.)",
+  "note": "bp Energy Outlook 2025 (26 Sep 2025) reviewed as well: scenario document to 2050 with no country-level production statistics — not used as a data source."
+ },
+ "units": {
+  "cc": "kb/d crude oil + condensate",
+  "liq": "kb/d total liquids (crude, condensate, NGL)",
+  "ngl": "kb/d NGL",
+  "gas": "bcm marketed"
+ },
+ "years": [
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "data": {
+  "DZA": {
+   "liq": [
+    1353,
+    1443,
+    1466,
+    1472,
+    1517
+   ],
+   "cc": [
+    1105,
+    1178,
+    1193,
+    1205,
+    1249
+   ],
+   "ngl": [
+    248,
+    265,
+    272,
+    268,
+    268
+   ],
+   "gas": [
+    101.1,
+    97.6,
+    101.5,
+    100.2,
+    98.0
+   ]
+  },
+  "AGO": {
+   "liq": [
+    1182,
+    1189,
+    1159,
+    1187,
+    1098
+   ],
+   "cc": [
+    1130,
+    1144,
+    1103,
+    1130,
+    1040
+   ],
+   "ngl": [
+    52,
+    46,
+    56,
+    58,
+    58
+   ],
+   "gas": null
+  },
+  "TCD": {
+   "liq": [
+    116,
+    124,
+    134,
+    128,
+    111
+   ],
+   "cc": [
+    116,
+    124,
+    134,
+    128,
+    111
+   ],
+   "ngl": null,
+   "gas": null
+  },
+  "COG": {
+   "liq": [
+    274,
+    269,
+    278,
+    267,
+    278
+   ],
+   "cc": [
+    267,
+    262,
+    271,
+    260,
+    271
+   ],
+   "ngl": [
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "gas": null
+  },
+  "EGY": {
+   "liq": [
+    608,
+    611,
+    608,
+    581,
+    544
+   ],
+   "cc": [
+    561,
+    567,
+    563,
+    537,
+    499
+   ],
+   "ngl": [
+    47,
+    45,
+    45,
+    44,
+    45
+   ],
+   "gas": [
+    67.8,
+    64.5,
+    57.1,
+    47.5,
+    40.8
+   ]
+  },
+  "GNQ": {
+   "liq": [
+    131,
+    121,
+    88,
+    97,
+    79
+   ],
+   "cc": [
+    119,
+    108,
+    78,
+    79,
+    64
+   ],
+   "ngl": [
+    12,
+    13,
+    10,
+    18,
+    15
+   ],
+   "gas": null
+  },
+  "GAB": {
+   "liq": [
+    181,
+    191,
+    223,
+    224,
+    227
+   ],
+   "cc": [
+    181,
+    191,
+    223,
+    224,
+    227
+   ],
+   "ngl": null,
+   "gas": null
+  },
+  "LBY": {
+   "liq": [
+    1253,
+    1109,
+    1237,
+    1188,
+    1400
+   ],
+   "cc": [
+    1207,
+    1060,
+    1188,
+    1136,
+    1374
+   ],
+   "ngl": [
+    46,
+    49,
+    49,
+    52,
+    25
+   ],
+   "gas": [
+    12.4,
+    11.9,
+    11.7,
+    12.4,
+    11.7
+   ]
+  },
+  "NGA": {
+   "liq": [
+    1678,
+    1445,
+    1540,
+    1641,
+    1760
+   ],
+   "cc": [
+    1620,
+    1378,
+    1471,
+    1557,
+    1643
+   ],
+   "ngl": [
+    59,
+    67,
+    69,
+    84,
+    117
+   ],
+   "gas": [
+    52.4,
+    47.1,
+    44.4,
+    46.8,
+    50.8
+   ]
+  }
+ }
+}
